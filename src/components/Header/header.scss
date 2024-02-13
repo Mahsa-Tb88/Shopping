@@ -1,0 +1,525 @@
+.header {
+  background-color: #f8e9f0;
+  padding: 15px 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 8rem;
+  
+}
+.navlink {
+  text-decoration: none;
+  color: #504c4e;
+  font-size: 16px;
+  padding: 0 20px;
+}
+.navlink:hover {
+  color: #79043c;
+}
+
+.logo {
+  width: 9rem;
+}
+.btns {
+  border: none;
+  outline: none;
+  border: 1px solid #79043c;
+  font-size: 15px;
+}
+.btn:hover {
+}
+.btn-signIn {
+  color: #504c4e;
+  background-color: #f8e9f0;
+}
+.btns:hover {
+  // background-color: #79043c;
+  color: #f8e9f0;
+  border: 1px solid #504c4e;
+  background-color: #504c4e;
+}
+
+.btn-signUp {
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+.btn-mood {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  margin-right: 10px;
+  font-size: 18px;
+  border: 1px solid #f8e9f0;
+  border-radius: 50%;
+
+}
+.btn-mood:hover {
+  border: 1px solid #79043c;
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+
+// .mybody {
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+// }
+// .container-overlay-mobile,
+// .container-overlay-mobile-options {
+//   width: 85%;
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+//   grid-column-gap: 2rem;
+//   position: absolute;
+//   top: 0;
+//   height: 100%;
+//   /* z-index: 100; */
+// }
+// .container-overlay-desktop {
+//   display: none;
+// }
+// .container {
+//   width: 100%;
+// }
+// .container-overlay-mobile div,
+// .container-overlay-desktop div {
+//   text-align: center;
+//   /* background-color: #79043c; */
+//   /* background-color: #fbe0dc; */
+//   background-color: #ffcece;
+//   opacity: 0.2;
+//   top: 0;
+//   height: 100%;
+//   width: 100%;
+// }
+
+// .navbar {
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-around;
+//   align-items: center;
+//   height: 4rem;
+//   position: fixed;
+//   top: 0;
+//   right: 0;
+//   left: 0;
+//   width: 100%;
+//   z-index: 100;
+//   background-color: rgb(248, 233, 240);
+//   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+// }
+
+// .bar {
+//   width: 1.6rem;
+//   height: 2px;
+//   margin: 3px 0;
+//   border-radius: 28px;
+//   transition: all 0.3s ease-out;
+//   background-color: #1e1e1e;
+// }
+// .navbar_toggler {
+//   cursor: pointer;
+// }
+// .navbar.nav_expanded .bar-one {
+//   transform: rotate(-45deg) translate(-9px, 5px);
+//   margin: 8px 0;
+// }
+// .navbar.nav_expanded .bar-two {
+//   opacity: 0;
+//   transform: translateX(-20px);
+// }
+// .navbar.nav_expanded .bar-three {
+//   transform: rotate(45deg) translate(-10px, -7px);
+//   margin: 10px 0;
+// }
+// .navbar-logo-mobile img {
+//   width: 4rem;
+// }
+// .navbar-logo-desktop {
+//   display: none;
+// }
+// .navbar-menu {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   align-items: flex-start;
+//   position: absolute;
+//   /* background: repeating-linear-gradient(
+//       90deg,
+//       rgb(259, 249, 245),
+//       rgb(259, 249, 245) 20px,
+//       rgb(251, 224, 220) 20px,
+//       rgb(251, 224, 220) 43px
+//     ); */
+//   background-color: rgb(248, 233, 240);
+//   top: 4rem;
+//   padding: 0;
+//   transition: all 0.8s ease-in-out;
+// }
+
+// .navbar-menu-hidden {
+//   left: -300px;
+// }
+// .navbar-menu-show {
+//   left: 0;
+// }
+// .woman-skincare {
+//   display: flex;
+//   justify-content: flex-end;
+//   align-items: flex-start;
+// }
+// .woman-skincare-item {
+//   background-color: white;
+//   opacity: 0;
+//   visibility: hidden;
+//   position: absolute;
+//   left: 0px;
+//   transition: all 0.8s ease-in-out;
+// }
+
+// .woman-skincare-item > li a {
+//   height: auto;
+//   font-size: 1.5rem;
+//   width: 15rem;
+// }
+
+// .woman-skincare-item > li {
+//   border-top: 1px solid rgb(248, 233, 240);
+//   padding: 0;
+//   margin: 0;
+// }
+// .woman-skincare a {
+//   width: 15rem;
+// }
+
+// .woman-skincare:hover .woman-skincare-item {
+//   opacity: 1;
+//   visibility: visible;
+//   background-color: #fff;
+//   left: 150px;
+// }
+// .woman-skincare-item > li:hover > a {
+//   background-color: rgb(248, 233, 240);
+// }
+// .inner-item > li:hover > a {
+//   background-color: rgb(248, 233, 240);
+// }
+// .woman-skincare:hover .navbar-title {
+//   color: #79043c;
+//   background-color: #fff;
+// }
+// .item-chevron {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+// .item-chevron i {
+//   font-size: 1.2rem;
+//   margin-left: 1rem;
+// }
+// .woman-skincare-item-li {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+// .woman-skincare-item-li:hover .inner-item {
+//   opacity: 1;
+//   visibility: visible;
+// }
+// .inner-item {
+//   opacity: 0;
+//   visibility: hidden;
+// }
+// .navbar-menu li {
+//   width: 100%;
+//   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+// }
+// .navbar-menu a {
+//   display: block;
+//   color: #1e1e1e;
+//   font-size: 1.5rem;
+//   height: 5rem;
+//   padding: 1.5rem 3.5rem 1.5rem 0.5rem;
+// }
+// .navbar-menu a:hover {
+//   color: #79043c;
+//   background-color: #fff;
+// }
+// .navbar-toggler-serch {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+// }
+// .navbar-icons-search {
+//   display: none;
+// }
+
+// .navbar-icons {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+// }
+// .icons-magnifying-glass-desktop .fa-magnifying-glass {
+//   display: none;
+// }
+// .icons-magnifying-glass-mobile .fa-magnifying-glass {
+//   margin-left: 0.7rem;
+//   font-size: 1.3rem;
+// }
+// .navbar-icons-line {
+//   display: none;
+// }
+// .icon-en {
+//   color: #b3b3b3;
+//   font-size: 1rem;
+// }
+// .icon-us {
+//   font-size: 1.5rem;
+//   color: #515151;
+// }
+// .navbar-icons .fa-location-dot {
+//   margin-right: 0.7rem;
+// }
+
+// .poster {
+//   /* background: url("../images/poster.jpg") center / cover no-repeat; */
+//   background-image: url("/public/images/poster.jpg");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   margin: 0 auto;
+//   /* opacity: 0.9; */
+//   /* height: 100vh; */
+//   text-align: center;
+//   margin-top: 4rem;
+// }
+// .poster-title {
+//   color: #fff;
+//   font-size: 1.3rem;
+//   width: 90%;
+//   margin: 0 auto;
+//   padding-top: 30%;
+// }
+// .poster-btn {
+//   margin-top: 0.6rem;
+//   padding: 3px 8px;
+//   background-color: transparent;
+//   border: 1px solid #fff;
+//   color: #fff;
+//   font-size: 0.8rem;
+//   margin-bottom: 1rem;
+//   position: relative;
+// }
+// .poster-btn:hover {
+//   background-color: #fff;
+//   color: #79043c;
+// }
+// /*  ----berak point 640px----- */
+// @media (min-width: 640px) {
+//   .container-overlay-mobile {
+//     display: none;
+//   }
+//   .container-overlay-desktop,
+//   .container-overlay-desktop-options {
+//     display: block;
+//     width: 85%;
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, minmax(3rem, 1fr));
+//     grid-column-gap: 2rem;
+//     position: absolute;
+//     top: 0;
+//     height: 100%;
+//   }
+//   .poster {
+//     /* height: 80vh; */
+//     margin-top: 7rem;
+//   }
+//   .navbar {
+//     height: 7rem;
+//     gap: 1.5rem;
+//     border-bottom: 1px solid #fff;
+//   }
+
+//   .woman-skincare {
+//     flex-direction: column;
+//   }
+//   .woman-skincare-item {
+//     top: 0;
+//     left: auto;
+//   }
+
+//   .woman-skincare-item > li > a {
+//     padding: 1rem 0;
+//   }
+//   .woman-skincare-item-li {
+//     display: flex;
+//     justify-content: flex-start;
+//     align-self: flex-start;
+//   }
+//   .woman-skincare:hover .woman-skincare-item {
+//     background-color: #fff;
+//     top: 7rem;
+//     left: auto;
+//   }
+//   .woman-skincare-item-li {
+//     position: relative;
+//   }
+//   .inner-item {
+//     position: absolute;
+//     top: 0;
+//     text-align: center;
+//     background-color: #fff;
+//   }
+//   .woman-skincare-item-li .inner-item a {
+//     background-color: #fff;
+//     display: block;
+//     padding: 1rem 0;
+//   }
+//   .item-chevron:hover .inner-item {
+//     opacity: 1;
+//     visibility: visible;
+//     left: 350px;
+//   }
+//   .inner-item {
+//     position: absolute;
+//     opacity: 0;
+//     visibility: hidden;
+//     left: 150px;
+//     background-color: #fff;
+//     transition-duration: 0.8s;
+//   }
+//   .inner-item a {
+//     display: inline-block;
+//     padding: 1rem 0;
+//     width: 150px;
+//   }
+
+//   .poster-title {
+//     font-size: 2.5rem;
+//     padding-top: 30%;
+//   }
+//   .poster-btn {
+//     margin-top: 1rem;
+//     padding: 8px 16px;
+//     font-size: 1.5rem;
+//     margin-bottom: 2rem;
+//   }
+
+//   .navbar-menu a {
+//     color: #1e1e1e;
+//     font-size: 1.2rem;
+//     display: inline-block;
+//     height: 7rem;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     padding: 0;
+//   }
+//   .navbar-menu a:hover {
+//     background-color: transparent;
+//   }
+//   .navbar-menu > li {
+//     margin: 0 2rem;
+//     box-shadow: none;
+//     width: auto;
+//   }
+//   .navbar-menu {
+//     flex-direction: row;
+//     align-items: center;
+//     position: static;
+//     background: transparent;
+//     background-size: none;
+//     background-repeat: none;
+//     top: 0;
+//     padding: 2rem 0rem;
+//   }
+//   .navbar-logo-desktop {
+//     /* width: 2rem; */
+//     display: flex;
+//   }
+//   .navbar-logo-desktop img {
+//     width: 6rem;
+//   }
+//   .navbar-logo-mobile {
+//     display: none;
+//   }
+//   .navbar-toggler-serch {
+//     display: none;
+//   }
+//   .navbar-icons .fa-magnifying-glass {
+//     display: flex;
+//     font-size: 1.5rem;
+//   }
+//   .navbar-icons-line {
+//     display: flex;
+//     height: 20px;
+//     width: 2px;
+//     background-color: #b3b3b3;
+//   }
+//   .navbar {
+//     padding: 2rem 0;
+//     gap: 0;
+//   }
+//   .navbar-icons .fa-location-dot {
+//     margin-right: 0;
+//     font-size: 1.5rem;
+//   }
+//   .navbar-icons {
+//     gap: 1rem;
+//   }
+//   .icon-en {
+//     font-size: 0.6rem;
+//   }
+//   .icon-us {
+//     font-size: 1rem;
+//   }
+// }
+// /* -----break point992 -------*/
+// @media (min-width: 992px) {
+//   .container-overlay-desktop {
+//     display: block;
+
+//     width: 85%;
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+//     grid-column-gap: 2rem;
+//     position: absolute;
+//     top: 0;
+//     height: 100%;
+//   }
+//   .poster-title {
+//     font-size: 4.5rem;
+//     padding-top: 30%;
+//   }
+//   .poster-btn {
+//     margin-top: 2rem;
+//     padding: 8px 16px;
+//     font-size: 2rem;
+//   }
+
+//   .navbar-menu a {
+//     display: inline-block;
+//     font-size: 1.6rem;
+//     height: 7rem;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//   }
+//   .navbar-logo-desktop img {
+//     width: 9rem;
+//   }
+//   .icon-en {
+//     font-size: 1.5rem;
+//   }
+//   .icon-us {
+//     font-size: 2rem;
+//   }
+// }
+// @media (min-width: 1300px) {
+//   .container {
+//     max-width: 1200px;
+//     margin: 0 auto;
+//   }
+// }
