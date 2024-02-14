@@ -11,25 +11,25 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div className="position position-relative d-flex flex-column justify-content-center align-items-center">
-      <div class="container-overlay-mobile">
+      {/* <div class="container-overlay-mobile">
         <div>1</div>
         <div>2</div>
         <div>3</div>
         <div>4</div>
-      </div>
-      <div class=" container-overlay-desktop">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
+      </div> */}
+      <div class="row container-overlay-desktop d-flex justify-content-center align-items-center">
+        <div className="col">1</div>
+        <div className="col">2</div>
+        <div className="col">3</div>
+        <div className="col">4</div>
+        <div className="col">5</div>
+        <div className="col">6</div>
+        <div className="col">7</div>
+        <div className="col">8</div>
+        <div className="col">9</div>
+        <div className="col">10</div>
+        <div className="col">11</div>
+        <div className="col">12</div>
       </div>
       <footer className="w-100">
         <div class="footer-detail">
@@ -115,7 +115,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div class="d-flex justify-content-around align-items-center">
+            <div class="d-flex justify-content-around align-item-center">
               <Link>
                 <FaLinkedinIn className="socialMedia" />
               </Link>

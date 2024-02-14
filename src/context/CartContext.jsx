@@ -13,7 +13,7 @@ function CartContextProvider({ children }) {
 }
 
 function useCartContext() {
-  return useContext(createContext);
+  return useContext(CartContext);
 }
 
 export { CartContextProvider, useCartContext };

@@ -1,12 +1,7 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
-import App from "../App";
-import Home from "../pages/Home/Home";
+import { createBrowserRouter } from "react-router-dom";
+import publicRoutes from "./publicRoutes";
+import adminRoutes from "./adminRoutes";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-    children: [{ index: true, element: <Home /> }],
-  },
-]);
+const router = createBrowserRouter([...publicRoutes, ...adminRoutes]);
+
 export default router;
