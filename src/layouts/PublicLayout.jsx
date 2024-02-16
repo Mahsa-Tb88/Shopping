@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+import Header from "../components/Public/Header/Header";
+import Footer from "../components/Share/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import Initializer from "../pages/Initializer/Initializer";

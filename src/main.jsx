@@ -6,11 +6,12 @@ import { CartContextProvider } from "./context/CartContext.jsx";
 import { RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
+import "./utils/globalConstants";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import router from "./router/router.jsx";
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
