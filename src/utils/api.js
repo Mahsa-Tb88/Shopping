@@ -1,10 +1,11 @@
 import axios from "axios";
-axios.defaults.baseURL = SERVER_URL;
+axios.defaults.baseURL = "http://server.test";
+
 export async function initialize(token = "") {
   try {
-    let config = {};
+    const config = {};
     if (token) {
-      config.headers = { Autorization: "Bearer ", token };
+      config.headers = { Authorization: "Bearer " + token };
     }
     const { data } = await axios.get("/misc/initialize", config);
     return data;
@@ -14,7 +15,7 @@ export async function initialize(token = "") {
 }
 
 function getError(e) {
-  if (e.response) {
+  if (!e.response) {
     return { success: false, message: "Connection Error" };
   } else {
     return { success: false, message: e.response.data.message };

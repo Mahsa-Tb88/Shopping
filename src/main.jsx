@@ -7,6 +7,8 @@ import { RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import "./utils/globalConstants";
+import "./assets/css/lightStyles.scss";
+import "./assets/css/darkStyles.scss";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";

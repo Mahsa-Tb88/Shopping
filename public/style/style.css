@@ -12,6 +12,9 @@ html {
   scroll-behavior: smooth;
   font-size: 62.5%;
 }
+Link {
+  /* text-decoration: none; */
+}
 
 .body {
   font-family: "Fredoka One", cursive;
