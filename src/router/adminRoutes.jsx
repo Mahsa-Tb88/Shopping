@@ -1,11 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
-import AdminLayout from "../layouts/AdminLayout";
 import Home from "../pages/Share/Home/Home";
-
 const adminRoutes = [
   {
     path: "/admin",
-    element: <AdminLayout />,
+    element: <Home />,
+
     children: [{ index: true, element: <Home /> }],
   },
 ];

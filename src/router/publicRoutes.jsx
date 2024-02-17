@@ -1,19 +1,18 @@
-import { createBrowserRouter } from "react-router-dom";
-import PublicLayout from "../layouts/PublicLayout";
 import Login from "../pages/Share/Login/Login";
-import Home from "../pages/Share/Home/Home";
 import Register from "../pages/Share/Register/Register";
+import Panel from "../pages/Share/Panel/Panel";
 
+import ContainerHome from "../pages/Share/ContainerHome/ContainerHome";
+import Home from "../pages/Share/Home/Home";
 const publicRoutes = [
   {
     path: "/",
-    element: <PublicLayout />,
-    children: [
-      { index: true, element: <Home /> },
-      { path: "login", element: <Login /> },
-      { path: "register", element: <Register /> },
-    ],
+    element: <Home />,
+    children: [{ index: true, element: <ContainerHome /> }],
   },
 ];
 
 export default publicRoutes;
+// { path: "login", element: <Login /> },
+// { path: "register", element: <Register /> },
+// { path: "panel", element: <Panel /> },

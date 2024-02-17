@@ -14,6 +14,24 @@ export async function initialize(token = "") {
   }
 }
 
+export async function signUp(user) {
+  try {
+    const { data } = await axios.post("http://server.test/auth/register", user);
+    return data;
+  } catch (e) {
+    return getError(e);
+  }
+}
+
+export async function login(user) {
+  try {
+    const { data } = await axios.post("http://server.test/auth/login", user);
+    return data;
+  } catch (e) {
+    return getError(e);
+  }
+}
+
 function getError(e) {
   if (!e.response) {
     return { success: false, message: "Connection Error" };

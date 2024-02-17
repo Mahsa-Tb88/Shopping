@@ -2,6 +2,9 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import "./register.scss";
 import axios from "axios";
+import { signUp } from "../../../utils/api";
+import { useNavigate } from "react-router-dom";
+
 export default function Register() {
   const { register, formState, handleSubmit, watch } = useForm({
     mode: "onSubmit",
@@ -9,20 +12,23 @@ export default function Register() {
   });
   const { errors, isSubmitting } = formState;
 
+  const navigate = useNavigate();
+
   async function onSubmit(data) {
     console.log(data);
+    const user = {
+      username: data.username,
+      password: data.password,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      role: "user",
+    };
 
-    const form = new FormData();
-    form.append("username", data.username);
-    form.append("password", data.password);
-    form.append("firstname", data.firstname);
-    form.append("lastname", data.lastname);
-    form.append("role", "");
-    const { result } = await axios.post(
-      "http://server.test/auth/register",
-      form
-    );
+    const result = await signUp(user);
     console.log(result);
+    if (result.success && result.body) {
+      navigate("/login");
+    }
   }
 
   return (

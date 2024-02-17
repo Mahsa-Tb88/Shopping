@@ -1,12 +1,33 @@
 import React from "react";
 import "./login.scss";
 import { useForm } from "react-hook-form";
+import { login } from "../../../utils/api";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
   const { register, handleSubmit, formState } = useForm({});
   const { errors, isSubmitting } = formState;
-  function onSubmit(data) {
+
+  const navigate = useNavigate();
+
+  async function onSubmit(data) {
     console.log("login");
     console.log(data);
+    const user = { username: data.username, password: data.password };
+    const result = await login(user);
+    if (result.success) {
+      navigate("/panel");
+      if (data.remmembering) {
+        localStorage.token = JSON.stringify(result.body.token);
+      } else {
+        sessionStorage.token = JSON.stringify(result.body.token);
+      }
+    }
+
+    // if (result.body.role=="admin"){
+    //   navigate("/")
+    // }else{
+    //   navigate("/")
+    // }
   }
   return (
     <div className=" login d-flex flex-column justify-content-center align-items-center ">
@@ -38,7 +59,7 @@ export default function Login() {
           <input
             className="input w-100"
             type="password"
-            {...register("username", {
+            {...register("password", {
               required: "You must enter your password",
               minLength: {
                 value: 3,
