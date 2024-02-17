@@ -21,12 +21,13 @@ export default function Header() {
         <button className="btn-mood d-flex justify-content-center align-items-center p-1">
           <IoMdMoon />
         </button>
-        <Link className="btns btn-signIn px-3 py-2 link" to="/login" >
+        <Link className="btns btn-signIn px-3 py-2 link" to="/login">
           Sign in
         </Link>
-        <Link className="btns btn-signUp mx-3 px-3 py-2 link">Sign up</Link>
+        <Link className="btns btn-signUp mx-3 px-3 py-2 link" to="/register">
+          Sign up
+        </Link>
       </div>
     </div>
   );
 }
-

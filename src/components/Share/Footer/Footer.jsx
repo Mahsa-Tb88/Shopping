@@ -11,13 +11,13 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div className="position position-relative d-flex flex-column justify-content-center align-items-center">
-      {/* <div class="container-overlay-mobile">
+      {/* <div className="container-overlay-mobile">
         <div>1</div>
         <div>2</div>
         <div>3</div>
         <div>4</div>
       </div> */}
-      <div class="row container-overlay-desktop d-flex justify-content-center align-items-center">
+      <div className="row container-overlay-desktop d-flex justify-content-center align-items-center">
         <div className="col">1</div>
         <div className="col">2</div>
         <div className="col">3</div>
@@ -32,62 +32,62 @@ export default function Footer() {
         <div className="col">12</div>
       </div>
       <footer className="w-100">
-        <div class="footer-detail">
-          <section class="footer-first">
-            <div class="footer-links-help">
-              <h4 class="footer-title">How can we Help?</h4>
+        <div className="footer-detail">
+          <section className="footer-first">
+            <div className="footer-links-help">
+              <h4 className="footer-title">How can we Help?</h4>
               <ul>
-                <Link class="footer-link-item">
-                  <a href="#">find My Local Beautya</a>
-                </Link>
-                <Link class="footer-link-item">
-                  <a href="#">Contact Us</a>
-                </Link>
-                <Link class="footer-link-item">
-                  <a href="#">FAQ</a>
-                </Link>
-                <Link class="footer-link-item">
-                  <a href="#">Our Brand</a>
-                </Link>
-                <Link class="footer-link-item">
-                  <a href="#">Blog</a>
-                </Link>
-              </ul>
-            </div>
-            <div class="footer-links-product">
-              <h4 class="footer-title">Products</h4>
-              <ul>
-                <li class="footer-link-item">
-                  <a href="#">Women Make up</a>
+                <li className="footer-link-item">
+                   <Link>find My Local Beautya</Link>
                 </li>
-                <li class="footer-link-item">
-                  <a href="#">Women Skincare</a>
+                <li className="footer-link-item">
+                   <Link>Contact Us</Link>
                 </li>
-                <li class="footer-link-item">
-                  <a href="#">Gifts & Sets</a>
+                <li className="footer-link-item">
+                   <Link>FAQ</Link>
+                </li>
+                <li className="footer-link-item">
+                   <Link>Our Brand</Link>
+                </li>
+                <li className="footer-link-item">
+                   <Link>Blog</Link>
                 </li>
               </ul>
             </div>
-            <div class="footer-subscribe">
-              <h4 class="footer-title">keep in touch with beautya</h4>
-              <p class="footer-subscribe-desc">
+            <div className="footer-links-product">
+              <h4 className="footer-title">Products</h4>
+              <ul>
+                <li className="footer-link-item">
+                  <Link>Women Make up</Link>
+                </li>
+                <li className="footer-link-item">
+                  <Link>Women Skincare</Link>
+                </li>
+                <li className="footer-link-item">
+                  <Link>Gifts & Sets</Link>
+                </li>
+              </ul>
+            </div>
+            <div className="footer-subscribe">
+              <h4 className="footer-title">keep in touch with beautya</h4>
+              <p className="footer-subscribe-desc">
                 Join the Beautya newsletter and be first to hear about news,
                 offers and skincare advice
               </p>
-              <form class="footer-form">
-                <div class="footer-form-tabel">
+              <form className="footer-form">
+                <div className="footer-form-tabel">
                   <span></span>
-                  <p class="footer-subscribe-desc">
+                  <p className="footer-subscribe-desc">
                     By submitting your email, you agree to receive advertising
                     emails from Beautya.
                   </p>
-                  <div class="footer-form-email">
-                    <label class="footer-form-label" for="footer-input">
+                  <div className="footer-form-email">
+                    <label className="footer-form-label" htmlFor="footer-input">
                       Email Address
                     </label>
                     <input type="text" id="footer-form-input" />
                   </div>
-                  <button class="footer-form-btnSubmit" type="submit">
+                  <button className="footer-form-btnSubmit" type="submit">
                     Subscribe
                   </button>
                 </div>
@@ -95,9 +95,9 @@ export default function Footer() {
             </div>
           </section>
         </div>
-        <div class="footer-contact">
-          <section class="footer-secound">
-            <div class="footer-location d-flex justify-content-between align-items-center">
+        <div className="footer-contact">
+          <section className="footer-secound">
+            <div className="footer-location d-flex justify-content-between align-items-center">
               <div className="d-flex justify-content-between align-items-center">
                 <span>
                   <FaMapMarkerAlt className="icon-contact" />
@@ -106,8 +106,8 @@ export default function Footer() {
                   Dr. Richardson, California
                 </p>
               </div>
-              <p class="footer-dash mx-3"></p>
-              <div class="footer-phone d-flex justify-content-between align-items-center">
+              <p className="footer-dash mx-3"></p>
+              <div className="footer-phone d-flex justify-content-between align-items-center">
                 <span>
                   <FaPhoneAlt className="icon-contact" />
                 </span>
@@ -115,7 +115,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div class="d-flex justify-content-around align-item-center">
+            <div className="d-flex justify-content-around align-item-center">
               <Link>
                 <FaLinkedinIn className="socialMedia" />
               </Link>
@@ -134,13 +134,13 @@ export default function Footer() {
             </div>
           </section>
         </div>
-        <div class="footer-rights">
-          <section class="footer-third">
-            <div class="footer-rights-item-one">
+        <div className="footer-rights">
+          <section className="footer-third">
+            <div className="footer-rights-item-one">
               <span>©</span>
               <span>2023 Beautya. All Rights Reserved.</span>
             </div>
-            <div class="footer-rights-item-secound">
+            <div className="footer-rights-item-secound">
               <span>Terms & Conditions</span>
               <span>Privacy Policy</span>
             </div>

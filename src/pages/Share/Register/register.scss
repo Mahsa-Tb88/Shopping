@@ -1,0 +1,31 @@
+.register {
+  margin: 10rem auto;
+  .form-register {
+    background-color: #fff;
+    padding: 3rem 5rem;
+    margin-top: 2rem;
+    background-color: #79043c;
+    width: 40%;
+    box-shadow: 0 1px 3px 1px #0003;
+  }
+  .input {
+    font-size: 17px;
+    padding: 5px 7px;
+    border: 1px solid #79043c;
+    outline: #fff;
+  }
+  .input-check:checked {
+    accent-color: #58012b;
+    border: 1px solid #fff;
+  }
+  .btn-submit {
+    border: 1px solid transparent;
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+  .btn-submit:hover {
+    background-color: #5d022e;
+    border-color: #fff;
+    color: #fff;
+  }
+}

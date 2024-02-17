@@ -47,13 +47,13 @@ export default function Home() {
   ];
   return (
     <div className="home ">
-      {/* <div class="container-overlay-mobile">
+      {/* <div className="container-overlay-mobile">
         <div>1</div>
         <div>2</div>
         <div>3</div>
         <div>4</div>
       </div> */}
-      <div class=" container-overlay-desktop d-flex justify-content-between align-items-center">
+      <div className=" container-overlay-desktop d-flex justify-content-between align-items-center">
         <div className="col">1</div>
         <div className="col">2</div>
         <div className="col">3</div>
@@ -67,18 +67,18 @@ export default function Home() {
         <div className="col">11</div>
         <div className="col">12</div>
       </div>
-      <section class="poster">
-        <h1 class="poster-title">Unlock Your Natural Glow</h1>
-        <button class="poster-btn">Know more</button>
+      <section className="poster">
+        <h1 className="poster-title">Unlock Your Natural Glow</h1>
+        <button className="poster-btn">Know more</button>
       </section>
       <section className="container products mx-auto  text-center ">
-        <h2 class="products-title">Products Category</h2>
+        <h2 className="products-title">Products Category</h2>
         <div className="products-category d-flex justify-content-center align-items-center">
           {productsCategory.map((p) => {
             return (
-              <div class="product-img">
-                <div class="overlay-img"></div>
-                <div class="product-img-container">
+              <div className="product-img" key={p.title}>
+                <div className="overlay-img"></div>
+                <div className="product-img-container">
                   <img src={p.img} alt="" />
                 </div>
                 <h3>{p.title}</h3>
@@ -87,36 +87,36 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section class="prodcuts-desc">
-        <h4 class="prodcuts-desc-title-mobile">Our Brand</h4>
-        <div class="prodcuts-desc-img">
+      <section className="prodcuts-desc">
+        <h4 className="prodcuts-desc-title-mobile">Our Brand</h4>
+        <div className="prodcuts-desc-img">
           <img src="./public/images/faces/Frame 26085715.svg" alt="face" />
         </div>
-        <div class="prodcuts-desc-brand">
-          <h4 class="prodcuts-desc-title-desktop">Our Brand</h4>
-          <p class="prodcuts-desc-brand-text">
+        <div className="prodcuts-desc-brand">
+          <h4 className="prodcuts-desc-title-desktop">Our Brand</h4>
+          <p className="prodcuts-desc-brand-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
             praesentium perferendis, ex labore beatae repudiandae sunt
             voluptatum non dignissimos, ratione est tempore, magnam dolor
             voluptatem autem quas culpa voluptas ipsam.
           </p>
-          <button class="prodcuts-desc-brand-btn">Discover More</button>
+          <button className="prodcuts-desc-brand-btn">Discover More</button>
         </div>
       </section>
       <section className="container bestSeller">
-        <h2 class="products-title text-center">Our Best Sellers</h2>
+        <h2 className="products-title text-center">Our Best Sellers</h2>
         <div className=" d-flex justify-content-between align-items-center">
           <div className="row">
             {bestSellers.map((p) => {
               return (
-                <div class="col-3  bestSellers-product ">
+                <div className="col-3  bestSellers-product " key={p.id}>
                   <div className="border border-1 ">
-                    <div class="bestSellers-product-img">
+                    <div className="bestSellers-product-img">
                       <img src={p.image} alt="product1" />
                     </div>
-                    <h3 class="bestSellers-product-title">{p.title}</h3>
-                    <p class="bestSellers-product-desc">{p.desc}</p>
-                    <span class="bestSellers-product-price">
+                    <h3 className="bestSellers-product-title">{p.title}</h3>
+                    <p className="bestSellers-product-desc">{p.desc}</p>
+                    <span className="bestSellers-product-price">
                       $ {p.price}.00
                     </span>
                   </div>
@@ -126,186 +126,186 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section class="newIn-desktop ">
-        <h2 class="newIn-firstSlide-title">New In</h2>
+      <section className="newIn-desktop ">
+        <h2 className="newIn-firstSlide-title">New In</h2>
 
-        <div class="newIn-desktop-container">
-          <div class="newIn-firstSlide">
-            <div class="newIn-firstSlide-img">
+        <div className="newIn-desktop-container">
+          <div className="newIn-firstSlide">
+            <div className="newIn-firstSlide-img">
               <img src="./public/images/faces/woman.png" alt="woman" />
             </div>
-            <div class="newIn-firstSlide-table">
-              <h3 class="newIn-firstSlide-desc-title">
+            <div className="newIn-firstSlide-table">
+              <h3 className="newIn-firstSlide-desc-title">
                 Beautya La Mousse Off/On Foaming Cleaner
               </h3>
-              <p class="newIn-firstSlide-desc">
+              <p className="newIn-firstSlide-desc">
                 Amet minim mollit non deserunt ullamco est sit aliqua dolor do
                 amet sint. Velit officia consequat duis en im velit mollit.
               </p>
             </div>
           </div>
-          <div class="newIn-secoundSlide">
-            <div class="newIn-product">
-              <div class="newIn-product-img">
+          <div className="newIn-secoundSlide">
+            <div className="newIn-product">
+              <div className="newIn-product-img">
                 <img
                   src="./public/images/newIn/product image.png"
                   alt="product1"
                 />
               </div>
-              <div class="newIn-product-table">
-                <h3 class="newIn-product-title">
+              <div className="newIn-product-table">
+                <h3 className="newIn-product-title">
                   Beautya Capture Total Dreamskin Care & Perfect
                 </h3>
-                <p class="newIn-product-desc">
+                <p className="newIn-product-desc">
                   Plumping Gloss - Instant and Long-Term Volume Effect - 24h
                   Hydration
                 </p>
-                <span class="newIn-product-price">$76.00</span>
+                <span className="newIn-product-price">$76.00</span>
               </div>
             </div>
 
-            <div class="newIn-product">
-              <div class="newIn-product-img">
+            <div className="newIn-product">
+              <div className="newIn-product-img">
                 <img
                   src="./public/images/newIn/product image2.png"
                   alt="product1"
                 />
               </div>
-              <h3 class="newIn-product-title">
+              <h3 className="newIn-product-title">
                 Beautya Capture Total Dreamskin Care & Perfect
               </h3>
-              <p class="newIn-product-desc">
+              <p className="newIn-product-desc">
                 Plumping Gloss - Instant and Long-Term Volume Effect - 24h
                 Hydration
               </p>
-              <span class="newIn-product-price">$70.00</span>
+              <span className="newIn-product-price">$70.00</span>
             </div>
           </div>
         </div>
       </section>
-      <section class="offer-desktop ">
-        <div class="offer-desktop-img">
+      <section className="offer-desktop ">
+        <div className="offer-desktop-img">
           <img src="./public/images/offer-desktop.png" alt="offer" />
         </div>
-        <div class="offer-desktop-detail">
-          <h4 class="offer-desktop-detail-title1">Special offers</h4>
-          <h3 class="offer-desktop-detail-title2">Save up to 50%</h3>
-          <p class="offer-desktop-detail-desc1">
+        <div className="offer-desktop-detail">
+          <h4 className="offer-desktop-detail-title1">Special offers</h4>
+          <h3 className="offer-desktop-detail-title2">Save up to 50%</h3>
+          <p className="offer-desktop-detail-desc1">
             Mother’s Day is coming! For everything she’s given you, it's time to
             give back. Shower her with love, happiness, and the best of Beautya.
           </p>
-          <p class="offer-desktop-detail-desc2">
+          <p className="offer-desktop-detail-desc2">
             visit your local beautya branches to find out more about our special
             offers in make up and skincare products.
           </p>
-          <button class="offer-desktop-detail-btn">
+          <button className="offer-desktop-detail-btn">
             <a href="#">find branches</a>
           </button>
         </div>
       </section>
-      <section class="analysis-desktop mb-5">
-        <div class="analysis-desktop-detail py-2">
-          <h2 class="analysis-desktop-detail-title">
+      <section className="analysis-desktop mb-5">
+        <div className="analysis-desktop-detail py-2">
+          <h2 className="analysis-desktop-detail-title">
             NEW Virtual Skincare Analysis
           </h2>
-          <p class="analysis-desktop-detail-desc">
+          <p className="analysis-desktop-detail-desc">
             Looking for a full skincare routine? Our NEW Virtual Skincare
             Analysis Tool evaluates your skin and provides the most personalized
             recommendations.
           </p>
-          <div class="analysis-desktop-detail-info">
-            <div class="analysis-desktop-detail-table">
-              {/* <span class="analysis-desktop-info-scan">
+          <div className="analysis-desktop-detail-info">
+            <div className="analysis-desktop-detail-table">
+              {/* <span className="analysis-desktop-info-scan">
                 Scan with your phone to get started
               </span>
-              <small class="analysis-desktop-info-or">or</small> */}
-              <button class="analysis-desktop-info-btn">
+              <small className="analysis-desktop-info-or">or</small> */}
+              <button className="analysis-desktop-info-btn">
                 <a href="#">answer the Questionnaire</a>
               </button>
             </div>
-            <div class="analysis-desktop-detail-img">
+            <div className="analysis-desktop-detail-img">
               {/* <img src="./Images/qrcode.png" alt="QR-code" /> */}
             </div>
           </div>
         </div>
-        <div class="analysis-desktop-img">
+        <div className="analysis-desktop-img">
           <img src="./public/images/faces/faces-desktop.png" alt="faces" />
         </div>
       </section>
-      <section class="blog-desktop">
-        <h2 class="blog-desktop-title">Our Blog</h2>
-        <div class="blog-desktop-container">
-          <div class="blog-item">
-            <div class="blog-item-overlay"></div>
-            <div class="blog-item-container">
-              <div class="blog-item-img">
+      <section className="blog-desktop">
+        <h2 className="blog-desktop-title">Our Blog</h2>
+        <div className="blog-desktop-container">
+          <div className="blog-item">
+            <div className="blog-item-overlay"></div>
+            <div className="blog-item-container">
+              <div className="blog-item-img">
                 <img
                   src="./public/images/blogs/blog image1.png"
                   alt="blog-image"
                 />
               </div>
-              <div class="blog-item-table">
-                <h3 class="blog-item-title">How to get clear skin fast</h3>
-                <div class="blog-item-info">
-                  <span class="blog-item-info-product">Skincare</span>
-                  <span class="blog-item-info-dash"></span>
-                  <span class="blog-item-info-dr">Dr. Wade Warren</span>
-                  <span class="blog-item-info-dash"></span>
-                  <span class="blog-item-info-date">Jan 20, 2021</span>
+              <div className="blog-item-table">
+                <h3 className="blog-item-title">How to get clear skin fast</h3>
+                <div className="blog-item-info">
+                  <span className="blog-item-info-product">Skincare</span>
+                  <span className="blog-item-info-dash"></span>
+                  <span className="blog-item-info-dr">Dr. Wade Warren</span>
+                  <span className="blog-item-info-dash"></span>
+                  <span className="blog-item-info-date">Jan 20, 2021</span>
                 </div>
-                <p class="blog-item-desc">
+                <p className="blog-item-desc">
                   Many people find it difficult to get clear skin. The methods
                   for getting clear skin will vary
                 </p>
               </div>
             </div>
           </div>
-          <div class="blog-item">
-            <div class="blog-item-overlay"></div>
+          <div className="blog-item">
+            <div className="blog-item-overlay"></div>
 
-            <div class="blog-item-container">
-              <div class="blog-item-img">
+            <div className="blog-item-container">
+              <div className="blog-item-img">
                 <img
                   src="./public/images/blogs/blog image2.png"
                   alt="blog-image"
                 />
               </div>
-              <div class="blog-item-table">
-                <h3 class="blog-item-title">How to get clear skin fast</h3>
-                <div class="blog-item-info">
-                  <span class="blog-item-info-product">Skincare</span>
-                  <span class="blog-item-info-dash"></span>
-                  <span class="blog-item-info-dr">Dr. Wade Warren</span>
-                  <span class="blog-item-info-dash"></span>
-                  <span class="blog-item-info-date">Jan 20, 2021</span>
+              <div className="blog-item-table">
+                <h3 className="blog-item-title">How to get clear skin fast</h3>
+                <div className="blog-item-info">
+                  <span className="blog-item-info-product">Skincare</span>
+                  <span className="blog-item-info-dash"></span>
+                  <span className="blog-item-info-dr">Dr. Wade Warren</span>
+                  <span className="blog-item-info-dash"></span>
+                  <span className="blog-item-info-date">Jan 20, 2021</span>
                 </div>
-                <p class="blog-item-desc">
+                <p className="blog-item-desc">
                   Many people find it difficult to get clear skin. The methods
                   for getting clear skin will vary
                 </p>
               </div>
             </div>
           </div>
-          <div class="blog-item">
-            <div class="blog-item-overlay"></div>
+          <div className="blog-item">
+            <div className="blog-item-overlay"></div>
 
-            <div class="blog-item-container">
-              <div class="blog-item-img">
+            <div className="blog-item-container">
+              <div className="blog-item-img">
                 <img
                   src="./public/images/blogs/blog image3.png"
                   alt="blog-image"
                 />
               </div>
-              <div class="blog-item-table">
-                <h3 class="blog-item-title">How to get clear skin fast</h3>
-                <div class="blog-item-info">
-                  <span class="blog-item-info-product">Skincare</span>
-                  <span class="blog-item-info-dash"></span>
-                  <span class="blog-item-info-dr">Dr. Wade Warren</span>
-                  <span class="blog-item-info-dash"></span>
-                  <span class="blog-item-info-date">Jan 20, 2021</span>
+              <div className="blog-item-table">
+                <h3 className="blog-item-title">How to get clear skin fast</h3>
+                <div className="blog-item-info">
+                  <span className="blog-item-info-product">Skincare</span>
+                  <span className="blog-item-info-dash"></span>
+                  <span className="blog-item-info-dr">Dr. Wade Warren</span>
+                  <span className="blog-item-info-dash"></span>
+                  <span className="blog-item-info-date">Jan 20, 2021</span>
                 </div>
-                <p class="blog-item-desc">
+                <p className="blog-item-desc">
                   Many people find it difficult to get clear skin. The methods
                   for getting clear skin will vary
                 </p>
@@ -315,14 +315,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section class="d-flex justify-content-center align-items-center position-relative w-100">
-        <div class="container-overlay-mobile-options">
+      <section className="d-flex justify-content-center align-items-center position-relative w-100">
+        <div className="container-overlay-mobile-options">
           <div></div>
           <div></div>
           <div></div>
           <div></div>
         </div>
-        <div class="container-overlay-desktop-options">
+        <div className="container-overlay-desktop-options">
           <div></div>
           <div></div>
           <div></div>
@@ -336,44 +336,44 @@ export default function Home() {
           <div></div>
           <div></div>
         </div>
-        <div class="container">
+        <div className="container">
           <div className="row">
-            <div class="options-item d-flex justify-content-center align-items-center p-1 col-3">
-              <div class="option-item-overlay"></div>
-              <div class="options-item-img">
+            <div className="options-item d-flex justify-content-center align-items-center p-1 col-3">
+              <div className="option-item-overlay"></div>
+              <div className="options-item-img">
                 <div>
                   <img src="./public/images/options/rabbit.png" alt="rabbit" />
                 </div>
               </div>
-              <span class="options-item-text">No tests on animals</span>
+              <span className="options-item-text">No tests on animals</span>
             </div>
-            <div class="options-item d-flex justify-content-center align-items-center p-1 col-3">
-              <div class="options-item-img">
+            <div className="options-item d-flex justify-content-center align-items-center p-1 col-3">
+              <div className="options-item-img">
                 <div>
                   <img src="./public/images/options/leaf.png" alt="leaf" />
                 </div>
               </div>
-              <span class="options-item-text">
+              <span className="options-item-text">
                 No animal-derived ingredients
               </span>
             </div>
-            <div class="options-item d-flex justify-content-center align-items-center p-1 col-3">
-              <div class="options-item-img">
+            <div className="options-item d-flex justify-content-center align-items-center p-1 col-3">
+              <div className="options-item-img">
                 <div>
                   <img src="./public/images/options/wheat.png" alt="wheat" />
                 </div>
               </div>
-              <span class="options-item-text">
+              <span className="options-item-text">
                 No gluten, or gluten byproducts
               </span>
             </div>
-            <div class="options-item d-flex justify-content-center align-items-center p-1 col-3">
-              <div class="options-item-img">
+            <div className="options-item d-flex justify-content-center align-items-center p-1 col-3">
+              <div className="options-item-img">
                 <div>
                   <img src="../public/images/options/lamp.png" alt="lamp" />
                 </div>
               </div>
-              <span class="options-item-text">Recyclable packaging</span>
+              <span className="options-item-text">Recyclable packaging</span>
             </div>
           </div>
         </div>
