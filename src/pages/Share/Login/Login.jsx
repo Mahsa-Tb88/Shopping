@@ -3,31 +3,36 @@ import "./login.scss";
 import { useForm } from "react-hook-form";
 import { login } from "../../../utils/api";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../../../context/AppContext";
 export default function Login() {
   const { register, handleSubmit, formState } = useForm({});
   const { errors, isSubmitting } = formState;
+  const { appState, appDispatch } = useAppContext();
 
   const navigate = useNavigate();
 
   async function onSubmit(data) {
-    console.log("login");
-    console.log(data);
+    // console.log("login");
+    // console.log(data);
     const user = { username: data.username, password: data.password };
     const result = await login(user);
     if (result.success) {
-      navigate("/panel");
       if (data.remmembering) {
         localStorage.token = JSON.stringify(result.body.token);
       } else {
         sessionStorage.token = JSON.stringify(result.body.token);
       }
+      const user = {
+        isLoggedIn: true,
+        isAdmin: result.body.user.role == "admin",
+        Username: result.body.user.username,
+        firstname: result.body.user.firstname,
+        lastname: result.body.user.lastname,
+        role: result.body.user.role,
+      };
+      appDispatch({ type: "setUser", payload: user });
+      navigate("/panel");
     }
-
-    // if (result.body.role=="admin"){
-    //   navigate("/")
-    // }else{
-    //   navigate("/")
-    // }
   }
   return (
     <div className=" login d-flex flex-column justify-content-center align-items-center ">

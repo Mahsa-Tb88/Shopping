@@ -8,17 +8,6 @@ import Footer from "../../../components/Share/Footer/Footer";
 
 export default function Home() {
   const { appState, appDispatch } = useAppContext();
-  console.log("homeee");
 
-  if (!appState.initialized || appState.initializedError) {
-    return <Initializer />;
-  } else {
-    return (
-      <div>
-        <Header />
-        <Outlet />
-        <Footer />
-      </div>
-    );
-  }
+  return <div>home</div>;
 }

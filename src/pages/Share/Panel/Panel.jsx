@@ -1,7 +1,5 @@
-import React from 'react'
-
+import React from "react";
+import "./panel.scss";
 export default function Panel() {
-  return (
-    <div>Panel</div>
-  )
+  return <div className="panel">Panel</div>;
 }

@@ -29,20 +29,49 @@
   border: 1px solid #79043c;
   font-size: 15px;
 }
-.btn:hover {
-}
-.btn-signIn {
+
+.btn-signIn,
+.signout-btn {
   color: #504c4e;
   background-color: #f8e9f0;
 }
 .btns:hover {
-  // background-color: #79043c;
   color: #f8e9f0;
   border: 1px solid #504c4e;
   background-color: #504c4e;
 }
-
-.btn-signUp {
+.link {
+  text-decoration: none;
+}
+.cart {
+  cursor: pointer;
+}
+.cart:hover .numItem {
+  background-color: #000;
+}
+.shaoppingcart {
+  color: #79043c;
+  font-size: 2rem;
+}
+.numItem {
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  top: -12px;
+  right: -5px;
+  background-color: #504c4e;
+  color: #f8e9f0;
+}
+.numItem:hover {
+  background-color: #504c4e;
+  color: #f8e9f0;
+}
+.btn-signUp,
+.userpanel-btn {
   background-color: #79043c;
   color: #f8e9f0;
 }

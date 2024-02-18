@@ -1,10 +1,9 @@
+import AdminPanel from "../pages/Admin/AdminPanel/AdminPanel";
 import Home from "../pages/Share/Home/Home";
 const adminRoutes = [
   {
     path: "/admin",
-    element: <Home />,
-
-    children: [{ index: true, element: <Home /> }],
+    children: [{ index: true, element: <AdminPanel /> }],
   },
 ];
 
