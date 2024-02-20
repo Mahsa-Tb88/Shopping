@@ -3,7 +3,6 @@ import { appReducer } from "./appReducer";
 import { initialize } from "../utils/api";
 
 const AppContext = createContext();
-
 function AppContextProvider({ children }) {
   const [appState, appDispatch] = useReducer(appReducer, {
     user: {
@@ -32,7 +31,7 @@ function AppContextProvider({ children }) {
 
   async function initializeApp() {
     appDispatch({ type: "setError", payload: false });
-    const savedTheme = localStorage.theme == "'dark" ? "dark" : "light";
+    const savedTheme = localStorage.theme === "dark" ? "dark" : "light";
     appDispatch({ type: "setTheme", payload: savedTheme });
     const token = localStorage.token ?? sessionStorage.token;
     const result = await initialize(token);
@@ -40,7 +39,8 @@ function AppContextProvider({ children }) {
       const { body } = result;
       if (body.user) {
         const { user } = body;
-        user.isAdmin = user.role == "admin";
+
+        user.isAdmin = user.role === "admin";
         user.isLoggedIn = true;
         appDispatch({ type: "setUser", payload: user });
       }

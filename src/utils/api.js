@@ -4,6 +4,7 @@ axios.defaults.baseURL = "http://server.test";
 export async function initialize(token = "") {
   try {
     const config = {};
+
     if (token) {
       config.headers = { Authorization: "Bearer " + token };
     }
@@ -28,7 +29,11 @@ export async function login(user) {
     const { data } = await axios.post("http://server.test/auth/login", user);
     return data;
   } catch (e) {
-    return getError(e);
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "Username or Password is not true!" };
+    }
   }
 }
 
