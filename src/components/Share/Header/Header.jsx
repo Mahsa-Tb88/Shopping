@@ -20,13 +20,8 @@ export default function Header() {
   }
   const navigate = useNavigate();
   function signOutHandler() {
-    // const newUser = { ...appState.user };
-    // newUser.isLoggedIn = false;
-
-    // appDispatch({ type: "setUser", payload: newUser });
-    // localStorage.token = "";
-    // sessionStorage.token = sessionStorage.token ? "" : "";
-    // navigate("/");
+    appDispatch({ type: "logOut" });
+    navigate("/");
   }
   return (
     <div className=" d-flex justify-content-between align-items-center header">
@@ -36,7 +31,9 @@ export default function Header() {
         </Link>
       </div>
       <nav className="navBar ">
-        <NavLink className="navlink">Home</NavLink>
+        <NavLink className="navlink" end>
+          Home
+        </NavLink>
         <NavLink className="navlink">Woman Skincare</NavLink>
         <NavLink className="navlink">Blog</NavLink>
         <NavLink className="navlink">About us</NavLink>
@@ -72,18 +69,22 @@ export default function Header() {
           </div>
         ) : (
           <div className="d-flex justify-content-center align-items-center">
-            <button className="userpanel-btn btns py-1 px-3 me-3">
-              User Panel
-            </button>
-            {appState.user.role == "admin" ? (
-              <button className="adminpanel-btn btns py-1 px-3 me-3 link">
-                Admin Panel
-              </button>
-            ) : (
-              ""
+            <Link
+              className="userpanel-btn btns py-1 px-3 me-3 link"
+              to="/panel/profile"
+            >
+              Profile
+            </Link>
+            {appState.user.role == "admin" && (
+              <Link
+                className="adminpanel-btn btns py-1 px-3 me-3 link"
+                to="/admin"
+              >
+                Managing
+              </Link>
             )}
             <button
-              className="signout-btn btns py-1 px-3 link"
+              className="signout-btn  py-1 px-3 link"
               onClick={signOutHandler}
             >
               Sing Out

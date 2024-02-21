@@ -15,6 +15,7 @@ export default function Panel() {
         <NavLink
           className="link my-3  py-4 w-100 ps-4  w-50 text center"
           to="/panel"
+          end
         >
           Dashboard
         </NavLink>

@@ -12,5 +12,9 @@ export function appReducer(state, action) {
       return { ...state, categories: payload };
     case "setInitialized":
       return { ...state, initialized: payload };
+    case "logOut":
+      delete localStorage.token;
+      delete sessionStorage.token;
+      return { ...state, user: { ...action, isLoggedIn: false } };
   }
 }

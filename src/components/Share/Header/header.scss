@@ -30,8 +30,14 @@
   font-size: 15px;
 }
 
-.btn-signIn,
 .signout-btn {
+  border: none;
+  outline: none;
+  border: 1px solid #79043c;
+  font-size: 15px;
+  background-color: transparent;
+}
+.btn-signIn {
   color: #504c4e;
   background-color: #f8e9f0;
 }
@@ -58,7 +64,7 @@
   padding: 0.5rem;
 }
 .bc_shaoppingcart:hover {
-  background-color: #504c4e;
+  background-color: #504c4e6f;
   border-radius: 50%;
 }
 .numItem {
@@ -79,17 +85,24 @@
   background-color: #504c4e;
   color: #f8e9f0;
 }
-.btn-signUp,
-.userpanel-btn {
+.btn-signUp {
   background-color: #79043c;
   color: #f8e9f0;
 }
-.adminpanel-btn {
+
+.adminpanel-btn,
+.userpanel-btn {
   background-color: #504c4e;
   color: #f8e9f0;
 }
-.adminpanel-btn:hover {
+.adminpanel-btn:hover,
+.userpanel-btn:hover,
+.signout-btn:hover {
   background-color: #79043c;
+  color: #f8e9f0;
+}
+.active {
+  // background-color: #79043c;
 }
 .btn-mood {
   border: none;

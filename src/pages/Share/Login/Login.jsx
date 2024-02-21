@@ -5,7 +5,13 @@ import { login } from "../../../utils/api";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "../../../context/AppContext";
 export default function Login() {
-  const { register, handleSubmit, formState } = useForm({});
+  const { register, handleSubmit, formState } = useForm({
+    defaultValues: {
+      username: "",
+      password: "",
+      remmembering: true,
+    },
+  });
   const { errors, isSubmitting } = formState;
   const { appState, appDispatch } = useAppContext();
 

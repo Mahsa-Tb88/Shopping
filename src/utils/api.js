@@ -15,12 +15,16 @@ export async function initialize(token = "") {
   }
 }
 
-export async function signUp(user) {
+export async function register(user) {
   try {
     const { data } = await axios.post("http://server.test/auth/register", user);
     return data;
   } catch (e) {
-    return getError(e);
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "Username is already exist" };
+    }
   }
 }
 
