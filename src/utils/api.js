@@ -41,6 +41,41 @@ export async function login(user) {
   }
 }
 
+export async function getAllCategories() {
+  try {
+    const { data } = await axios.get("http://server.test/categories");
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "somethin wrong!" };
+    }
+  }
+}
+
+export async function getProducts(
+  page,
+  limit,
+  category,
+  q = "",
+  sort = "id",
+  order = "desc"
+) {
+  try {
+    const { data } = await axios.get("http://server.test/products", {
+      params: { page, limit, category, q, sort, order },
+    });
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "somethin wrong!" };
+    }
+  }
+}
+
 function getError(e) {
   if (!e.response) {
     return { success: false, message: "Connection Error" };

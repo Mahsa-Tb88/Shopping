@@ -34,7 +34,9 @@ export default function Header() {
         <NavLink className="navlink" end>
           Home
         </NavLink>
-        <NavLink className="navlink">Woman Skincare</NavLink>
+        <NavLink className="navlink" to="shop">
+          Woman Skincare
+        </NavLink>
         <NavLink className="navlink">Blog</NavLink>
         <NavLink className="navlink">About us</NavLink>
         <NavLink className="navlink">Contact us</NavLink>
