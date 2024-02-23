@@ -1,0 +1,41 @@
+.paginate {
+  .linkpage {
+    text-decoration: none;
+  }
+  //   .pageItem {
+  //     border: 1px solid #79043c;
+  //     border-color: #79043c;
+  //     border-style: solid;
+  //     // border-top: 1px;
+  //     margin: 0;
+  //     background-color: #f8e9f0;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     width: 5rem;
+  //     height: 5rem;
+  //     color: #79043c;
+  //     font-size: 1.5rem;
+  //   }
+  //   .pageItem:hover {
+  //     background-color: #79043c;
+  //     color: #f8e9f0;
+  //   }
+  //   .active {
+  //     background-color: #79043c;
+  //     color: #f8e9f0;
+  //   }
+  .page-link {
+    background-color: #f8e9f0;
+    border-color: #79043c;
+    color: #79043c;
+    font-size: 1.5rem;
+  }
+  .page-link:hover {
+    background-color: #79043c;
+    color: #f8e9f0;
+  }
+  .active {
+    // background-color: #79043c;
+  }
+}

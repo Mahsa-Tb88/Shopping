@@ -1,0 +1,17 @@
+.products {
+  .btnAddToCart {
+    border: none;
+    background-color: #79043c;
+    color: #f8e9f0;
+    width: 100%;
+  }
+
+  .btnAddToCart:hover{
+    background-color: #f8e9f0;
+    color: #79043c;
+  }
+
+  .product {
+    box-shadow: 0 1px 3px #0003;
+  }
+}
