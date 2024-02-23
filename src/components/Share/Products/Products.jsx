@@ -4,8 +4,7 @@ import { getProducts } from "../../../utils/api";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
-export default function Products({products,setProducts}) {
-
+export default function Products({ products }) {
   return (
     <div className="row products">
       {products.map((p) => {
@@ -25,7 +24,9 @@ export default function Products({products,setProducts}) {
                     <p className="fs-4">$ {p.price}</p>
                   </div>
 
-                  <button className="btnAddToCart py-3 fs-4">Add to Cart</button>
+                  <button className="btnAddToCart py-3 fs-4">
+                    Add to Cart
+                  </button>
                 </div>
               </div>
             </div>

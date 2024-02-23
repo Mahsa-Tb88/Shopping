@@ -1,7 +1,13 @@
 .shop {
   margin: 10rem auto;
- .filter{
+  .filter {
     background-color: #79043c;
- }
- 
+  }
+  .loadingProducts {
+    color: #79043c;
+    font-size: 3rem;
+  }
+  .spiner {
+    color: #79043c;
+  }
 }

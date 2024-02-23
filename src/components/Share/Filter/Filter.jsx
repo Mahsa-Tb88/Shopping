@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./filter.scss";
 import { getAllCategories } from "../../../utils/api";
+import { useAppContext } from "../../../context/AppContext";
 
 export default function Filter() {
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    const timeOut = setTimeout(fetchCategories, 20);
-    return () => clearTimeout(timeOut);
-  }, []);
-  async function fetchCategories() {
-    const result = await getAllCategories();
-    if (result.success) {
-      setCategories(result.body);
-    } else {
-    }
-  }
+  const { appState, appDispatch } = useAppContext();
+
   return (
     <div className="filter">
       <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
@@ -29,7 +20,7 @@ export default function Filter() {
         <label className="text-white fs-3 mb-2">Categories</label>
         <select className="w-100 px-2 border-0 py-2 fs-4">
           <option>All</option>
-          {categories.map((c) => {
+          {appState.categories.map((c) => {
             return <option key={c.id}>{c.slug}</option>;
           })}
         </select>

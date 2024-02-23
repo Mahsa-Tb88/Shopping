@@ -5,5 +5,9 @@ export default function shopReducer(state, action) {
       return { ...state, products: payload };
     case "setTotalProducts":
       return { ...state, totalProducts: payload };
+    case "setPage":
+      return { ...state, page: payload };
+    case "setIsLoading":
+      return { ...state, isLoading: payload };
   }
 }
