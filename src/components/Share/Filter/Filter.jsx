@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./filter.scss";
-import { getAllCategories } from "../../../utils/api";
 import { useAppContext } from "../../../context/AppContext";
+import { useSearchParams } from "react-router-dom";
 
-export default function Filter() {
+export default function Filter({ shopDispatch }) {
   const { appState, appDispatch } = useAppContext();
-
+  const [searchParams, setSearchParams] = useSearchParams("");
+  function categoryHandler(value) {
+    console.log("value", value);
+    shopDispatch({ type: "setfilterCategory", payload: value });
+    setSearchParams({ category: value });
+  }
   return (
     <div className="filter">
       <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
@@ -18,10 +23,18 @@ export default function Filter() {
       </div>
       <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
         <label className="text-white fs-3 mb-2">Categories</label>
-        <select className="w-100 px-2 border-0 py-2 fs-4">
-          <option>All</option>
+        <select
+          className="w-100 px-2 border-0 py-2 fs-4"
+          onChange={(e) => categoryHandler(e.target.value)}
+          value={searchParams.get("category") || "all"}
+        >
+          <option value="all">All</option>
           {appState.categories.map((c) => {
-            return <option key={c.id}>{c.slug}</option>;
+            return (
+              <option key={c.id} value={c.slug}>
+                {c.title}
+              </option>
+            );
           })}
         </select>
       </div>

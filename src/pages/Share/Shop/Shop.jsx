@@ -12,6 +12,7 @@ export default function Shop() {
     products: [],
     totalProducts: { all: 0, filtered: 0 },
     limit: 6,
+    filterCategory: searchParams.get("page") || "all",
     page: searchParams.get("page") || 1,
     isLoading: true,
     loadingError: false,
@@ -20,17 +21,25 @@ export default function Shop() {
   useEffect(() => {
     const timeOut = setTimeout(fetchProducts, 20);
     return () => clearTimeout(timeOut);
-  }, [shopState.limit, shopState.page]);
+  }, [shopState.limit, shopState.page, shopState.filterCategory]);
 
   async function fetchProducts() {
+    shopDispatch({ type: "setLoadingError", payload: false });
+    // shopDispatch({ type: "setIsLoading", payload: true });
+
     const result = await getProducts(
       searchParams.get("page") || shopState.page,
-      shopState.limit
+      shopState.limit,
+      searchParams.get("category") || shopState.category
     );
     if (result.success) {
       shopDispatch({ type: "setProducts", payload: result.body });
       shopDispatch({ type: "setTotalProducts", payload: result.totalProducts });
     } else {
+      shopDispatch({
+        type: "setLoadingError",
+        payload: { code: result.code, message: result.message },
+      });
     }
     shopDispatch({ type: "setIsLoading", payload: false });
   }
@@ -42,13 +51,23 @@ export default function Shop() {
     <div className="shop container ">
       <div className="d-flex justify-content-between align-items-start mb-5">
         <div className="filter px-3 py-3 w-25 me-2 mt-5">
-          <Filter />
+          <Filter shopDispatch={shopDispatch} />
         </div>
         <div className="w-75 ms-2 mt-5">
           {shopState.isLoading ? (
             <div className=" d-flex justify-content-center align-items-center  mt-5  flex-column">
               <p className="mb-4 loadingProducts">Loading ...</p>
               <span className=" spiner spinner-grow fs-5 "></span>
+            </div>
+          ) : shopState.loadingError ? (
+            <div className="d-flex justify-content-center align-items-center  mt-5  flex-column">
+              <h1>{shopState.loadingError.message}</h1>
+              <button
+                className="btn btn-danger"
+                onClick={() => fetchProducts()}
+              >
+                Try Again
+              </button>
             </div>
           ) : (
             <div className=" d-flex flex-column justify-content-center align-items-center">

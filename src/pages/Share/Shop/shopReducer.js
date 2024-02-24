@@ -9,5 +9,12 @@ export default function shopReducer(state, action) {
       return { ...state, page: payload };
     case "setIsLoading":
       return { ...state, isLoading: payload };
+    case "setLoadingError":
+      return {
+        ...state,
+        loadingErrod: { code: payload.code, message: payload.message },
+      };
+    case "setfilterCategory":
+      return { ...state, filterCategory: payload };
   }
 }
