@@ -12,17 +12,70 @@ export default function Pagination({ numOfPage, page, shopDispatch }) {
     " "
   );
   function pageHandler(i) {
-    setSearchParams({ page: i });
     shopDispatch({ type: "setPage", payload: parseInt(i) });
+
+    let paramsUrl = {};
+    paramsUrl.page = i;
+    if (searchParams.get("limit")) {
+      paramsUrl.limit = searchParams.get("limit");
+    }
+    if (searchParams.get("category")) {
+      paramsUrl.category = searchParams.get("category");
+    }
+    if (searchParams.get("q")) {
+      paramsUrl.q = searchParams.get("q");
+    }
+    if (searchParams.get("sort")) {
+      paramsUrl.sort = searchParams.get("sort");
+    }
+    if (searchParams.get("order")) {
+      paramsUrl.order = searchParams.get("order");
+    }
+    setSearchParams(paramsUrl);
   }
   function pageFirstHandler() {
-    setSearchParams({ page: 1 });
     shopDispatch({ type: "setPage", payload: parseInt(1) });
+
+    let paramsUrl = {};
+    paramsUrl.page = 1;
+    if (searchParams.get("limit")) {
+      paramsUrl.limit = searchParams.get("limit");
+    }
+    if (searchParams.get("category")) {
+      paramsUrl.category = searchParams.get("category");
+    }
+    if (searchParams.get("q")) {
+      paramsUrl.q = searchParams.get("q");
+    }
+    if (searchParams.get("sort")) {
+      paramsUrl.sort = searchParams.get("sort");
+    }
+    if (searchParams.get("order")) {
+      paramsUrl.order = searchParams.get("order");
+    }
+    setSearchParams(paramsUrl);
   }
   function pageLastHandler() {
-    setSearchParams({ page: numOfPage });
-
     shopDispatch({ type: "setPage", payload: parseInt(numOfPage) });
+
+    let paramsUrl = {};
+    paramsUrl.page = numOfPage;
+    if (searchParams.get("limit")) {
+      paramsUrl.limit = searchParams.get("limit");
+    }
+    if (searchParams.get("category")) {
+      paramsUrl.category = searchParams.get("category");
+    }
+    if (searchParams.get("q")) {
+      paramsUrl.q = searchParams.get("q");
+    }
+    if (searchParams.get("sort")) {
+      paramsUrl.sort = searchParams.get("sort");
+    }
+    if (searchParams.get("order")) {
+      paramsUrl.order = searchParams.get("order");
+    }
+    setSearchParams(paramsUrl);
   }
 
   for (let i = 1; i <= numOfPage; i++) {

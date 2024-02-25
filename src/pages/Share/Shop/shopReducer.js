@@ -15,6 +15,10 @@ export default function shopReducer(state, action) {
         loadingErrod: { code: payload.code, message: payload.message },
       };
     case "setfilterCategory":
-      return { ...state, filterCategory: payload };
+      return { ...state, filterCategory: payload, page: 1 };
+    case "setLimit":
+      return { ...state, limit: payload, page: 1 };
+    case "setSortAndOrder":
+      return { ...state, sort: payload.sort, order: payload.order };
   }
 }

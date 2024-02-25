@@ -11,9 +11,12 @@ export default function Shop() {
   const [shopState, shopDispatch] = useReducer(shopReducer, {
     products: [],
     totalProducts: { all: 0, filtered: 0 },
-    limit: 6,
-    filterCategory: searchParams.get("page") || "all",
+    limit: searchParams.get("limit") || 6,
+    filterCategory: searchParams.get("category") || "",
     page: searchParams.get("page") || 1,
+    sort: searchParams.get("sort") || "Newest",
+    q: searchParams.get("q") || "",
+    order: searchParams.get("order") || "desc",
     isLoading: true,
     loadingError: false,
   });
@@ -21,16 +24,26 @@ export default function Shop() {
   useEffect(() => {
     const timeOut = setTimeout(fetchProducts, 20);
     return () => clearTimeout(timeOut);
-  }, [shopState.limit, shopState.page, shopState.filterCategory]);
+  }, [
+    shopState.limit,
+    shopState.page,
+    shopState.filterCategory,
+    shopState.sort,
+    shopState.order,
+    shopState.q,
+  ]);
 
   async function fetchProducts() {
     shopDispatch({ type: "setLoadingError", payload: false });
     // shopDispatch({ type: "setIsLoading", payload: true });
 
     const result = await getProducts(
-      searchParams.get("page") || shopState.page,
+      shopState.page,
       shopState.limit,
-      searchParams.get("category") || shopState.category
+      shopState.filterCategory,
+      shopState.q,
+      shopState.sort,
+      shopState.order
     );
     if (result.success) {
       shopDispatch({ type: "setProducts", payload: result.body });
