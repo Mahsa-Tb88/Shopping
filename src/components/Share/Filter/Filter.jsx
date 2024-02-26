@@ -9,15 +9,15 @@ export default function Filter({ shopDispatch }) {
   const [search, setSearch] = useState("");
 
   function categoryHandler(value) {
+    console.log("value", value);
     shopDispatch({ type: "setfilterCategory", payload: value });
     let paramsUrl = {};
     paramsUrl.category = value;
+    paramsUrl.page = 1;
     if (searchParams.get("limit")) {
       paramsUrl.limit = searchParams.get("limit");
     }
-    if (searchParams.get("page")) {
-      paramsUrl.page = searchParams.get("page");
-    }
+
     if (searchParams.get("q")) {
       paramsUrl.q = searchParams.get("q");
     }
@@ -34,10 +34,7 @@ export default function Filter({ shopDispatch }) {
     shopDispatch({ type: "setLimit", payload: value });
     let paramsUrl = {};
     paramsUrl.limit = value;
-    // paramsUrl.page = 1;
-    if (searchParams.get("page")) {
-      paramsUrl.page = searchParams.get("page");
-    }
+    paramsUrl.page = 1;
     if (searchParams.get("category")) {
       paramsUrl.category = searchParams.get("category");
     }
@@ -62,15 +59,12 @@ export default function Filter({ shopDispatch }) {
         ? { sort: "price", order: "asc" }
         : { sort: "price", order: "desc" };
 
-    console.log(lastSort);
-
     shopDispatch({ type: "setSortAndOrder", payload: lastSort });
     let paramsUrl = {};
     paramsUrl.sort = lastSort.sort;
     paramsUrl.order = lastSort.order;
-    if (searchParams.get("page")) {
-      paramsUrl.page = searchParams.get("page");
-    }
+    paramsUrl.page = 1;
+
     if (searchParams.get("category")) {
       paramsUrl.category = searchParams.get("category");
     }
@@ -84,21 +78,19 @@ export default function Filter({ shopDispatch }) {
     setSearchParams(paramsUrl);
   }
   function searchHandler(value) {
-    const timeout = setTimeout(searchFilter, 1000);
-    clearTimeout(timeout);
+    // const timeout = setTimeout(searchFilter, 1000);
+    // clearTimeout(timeout);
 
-    function searchFilter() {
-      shopDispatch({ type: "setSearch", payload: value });
-    }
+    // function searchFilter() {
+    //   shopDispatch({ type: "setSearch", payload: value });
+    // }
+    shopDispatch({ type: "setSearch", payload: value });
 
     let paramsUrl = {};
     paramsUrl.q = value;
-
+    paramsUrl.page = 1;
     if (searchParams.get("limit")) {
       paramsUrl.limit = searchParams.get("limit");
-    }
-    if (searchParams.get("page")) {
-      paramsUrl.page = searchParams.get("page");
     }
     if (searchParams.get("category")) {
       paramsUrl.category = searchParams.get("category");
@@ -120,8 +112,8 @@ export default function Filter({ shopDispatch }) {
           type="text"
           placeholder="search..."
           className="w-100 px-3 py-2 fs-4"
-
           onChange={(e) => searchHandler(e.target.value)}
+          value={searchParams.get("q")}
         />
       </div>
       <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">

@@ -20,5 +20,7 @@ export default function shopReducer(state, action) {
       return { ...state, limit: payload, page: 1 };
     case "setSortAndOrder":
       return { ...state, sort: payload.sort, order: payload.order };
+    case "setSearch":
+      return { ...state, q: payload, page: 1 };
   }
 }

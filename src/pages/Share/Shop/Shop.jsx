@@ -28,15 +28,14 @@ export default function Shop() {
     shopState.limit,
     shopState.page,
     shopState.filterCategory,
+    shopState.q,
     shopState.sort,
     shopState.order,
-    shopState.q,
   ]);
 
   async function fetchProducts() {
     shopDispatch({ type: "setLoadingError", payload: false });
     // shopDispatch({ type: "setIsLoading", payload: true });
-
     const result = await getProducts(
       shopState.page,
       shopState.limit,
@@ -85,7 +84,17 @@ export default function Shop() {
           ) : (
             <div className=" d-flex flex-column justify-content-center align-items-center">
               <div className="products ">
-                <Products products={shopState.products} />
+                {!shopState.totalProducts.filtered ? (
+                  <div className="fs-1 text-center">
+                    <p className="mb-5">
+                      Sorry, currently, we do not have any products matching
+                      your search.
+                    </p>
+                    <p>Please check back later!</p>
+                  </div>
+                ) : (
+                  <Products products={shopState.products} />
+                )}
               </div>
               <div className="text-center mt-5">
                 <Pagination

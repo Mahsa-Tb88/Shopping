@@ -5,6 +5,7 @@ import { initialize } from "../utils/api";
 const AppContext = createContext();
 function AppContextProvider({ children }) {
   const [appState, appDispatch] = useReducer(appReducer, {
+    
     user: {
       isLoggedIn: false,
       isAdmin: false,

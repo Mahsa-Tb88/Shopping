@@ -90,6 +90,10 @@ export default function Pagination({ numOfPage, page, shopDispatch }) {
     );
   }
 
+  if (numOfPage <= 1) {
+    return;
+  }
+
   return (
     <nav className=" d-flex justify-content-center align-items-center paginate pagination">
       <ul className="d-flex justify-content-center align-items-center">

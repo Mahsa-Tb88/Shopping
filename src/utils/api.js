@@ -76,6 +76,19 @@ export async function getProducts(
   }
 }
 
+export async function getProductById(id) {
+  try {
+    const { data } = await axios.get(`http://server.test/products"+${id}`);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "There is no Product with this Id!" };
+    }
+  }
+}
+
 function getError(e) {
   if (!e.response) {
     return { success: false, message: "Connection Error" };

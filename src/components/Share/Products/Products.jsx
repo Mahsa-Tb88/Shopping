@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./products.scss";
-import { getProducts } from "../../../utils/api";
+import { getProductById, getProducts } from "../../../utils/api";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
+import { useCartContext } from "../../../context/CartContext";
 export default function Products({ products }) {
+  const { cartState, cartDispatch } = useCartContext();
+  function addToCartHandler(id) {
+    const result = getProductById(id);
+    if (result.success) {
+      dispatchEvent({ type: "setItem", payload: result.body });
+    } else {
+    }
+  }
   return (
     <div className="row products">
       {products.map((p) => {
@@ -24,7 +33,11 @@ export default function Products({ products }) {
                     <p className="fs-4">$ {p.price}</p>
                   </div>
 
-                  <button className="btnAddToCart py-3 fs-4">
+                  <button
+                    className="btnAddToCart py-3 fs-4"
+                    onClick={() => addToCartHandler(p.id)}
+                  >
+                    {cartState.item.includes()}
                     Add to Cart
                   </button>
                 </div>
