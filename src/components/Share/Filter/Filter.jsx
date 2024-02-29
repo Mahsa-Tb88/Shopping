@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./filter.scss";
 import { useAppContext } from "../../../context/AppContext";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export default function Filter({ shopDispatch }) {
   const { appState, appDispatch } = useAppContext();
   const [searchParams, setSearchParams] = useSearchParams("");
-  const [search, setSearch] = useState("");
 
   function categoryHandler(value) {
     console.log("value", value);
@@ -113,7 +112,7 @@ export default function Filter({ shopDispatch }) {
           placeholder="search..."
           className="w-100 px-3 py-2 fs-4"
           onChange={(e) => searchHandler(e.target.value)}
-          value={searchParams.get("q")}
+          value={searchParams.get("q") || ""}
         />
       </div>
       <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">

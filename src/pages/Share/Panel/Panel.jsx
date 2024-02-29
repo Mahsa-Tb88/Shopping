@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import "./panel.scss";
 import { NavLink, Outlet } from "react-router-dom";
 import { useAppContext } from "../../../context/AppContext";
+import { useCartContext } from "../../../context/CartContext";
 export default function Panel() {
   const { appState, appDispatch } = useAppContext();
+  const { cartState, cartDispatch } = useCartContext();
   console.log(appState.user);
   useEffect(() => {
     document.title = "Dashboard";

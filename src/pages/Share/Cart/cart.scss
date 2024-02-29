@@ -1,0 +1,52 @@
+.cart {
+  //   padding-top: 100px;
+
+  .table-row {
+    vertical-align: middle;
+  }
+  .btn-trashCart {
+    color: rgb(249, 88, 88);
+    border: 1px solid rgb(249, 88, 88);
+    padding: 4px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .btn-trashCart:hover {
+    background-color: rgb(249, 88, 88);
+    color: #fff;
+  }
+  .btn-minuCart {
+    background-color: rgb(249, 88, 88);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn-minusCart:hover {
+    background-color: rgb(238, 40, 40);
+  }
+  .btn-plusCart {
+    background-color: rgb(36, 180, 36);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+  }
+  .btn-plusCart:hover {
+    background-color: rgb(31, 128, 31);
+  }
+  .cardEmpty {
+    background-color: #79043c;
+    color: #fff;
+    width: 100%;
+    padding: 2rem;
+  }
+}

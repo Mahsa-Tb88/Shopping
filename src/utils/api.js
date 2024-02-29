@@ -55,9 +55,9 @@ export async function getAllCategories() {
 }
 
 export async function getProducts(
-  page,
-  limit,
-  category,
+  page = 1,
+  limit = 6,
+  category = "",
   q = "",
   sort = "id",
   order = "desc"
@@ -71,15 +71,31 @@ export async function getProducts(
     if (!e.response) {
       return { success: false, message: "Connection Error" };
     } else {
-      return { success: false, message: "somethin wrong!" };
+      return { success: false, message: "Something wrong!" };
     }
   }
 }
 
 export async function getProductById(id) {
   try {
-    const { data } = await axios.get(`http://server.test/products"+${id}`);
+    const { data } = await axios.get(`http://server.test/products/${id}`);
     return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "There is no Product with this Id!" };
+    }
+  }
+}
+
+export async function removeProductById(id) {
+  try {
+    const { data } = await axios.delete(`http://server.test/products/${id}`);
+    if (data.success) {
+      const { data } = await getProducts();
+      return data;
+    }
   } catch (e) {
     if (!e.response) {
       return { success: false, message: "Connection Error" };

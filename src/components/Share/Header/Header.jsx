@@ -23,6 +23,14 @@ export default function Header() {
     appDispatch({ type: "logOut" });
     navigate("/");
   }
+
+  function shoppingCartHandler() {
+    if (appState.user.isLoggedIn) {
+      navigate("/panel/cart");
+    } else {
+      navigate("/login");
+    }
+  }
   return (
     <div className=" d-flex justify-content-between align-items-center header">
       <div>
@@ -35,7 +43,7 @@ export default function Header() {
           Home
         </NavLink>
         <NavLink className="navlink" to="shop">
-          Woman Skincare
+          Products
         </NavLink>
         <NavLink className="navlink">Blog</NavLink>
         <NavLink className="navlink">About us</NavLink>
@@ -45,14 +53,17 @@ export default function Header() {
         <button className="btn-mood d-flex justify-content-center align-items-center p-1">
           <IoMdMoon />
         </button>
-        <div className=" position-relative cart me-4 bc_shaoppingcart d-flex justify-content-center align-items-center">
-          {!cartState.item.length ? (
+        <div
+          className=" position-relative cart me-4 bc_shaoppingcart d-flex justify-content-center align-items-center"
+          onClick={() => shoppingCartHandler()}
+        >
+          {!cartState.items.length ? (
             <AiOutlineShoppingCart className="shaoppingcart" />
           ) : (
             <div>
               <FaShoppingCart className="shaoppingcart" />
               <span className="  numItem rounded-circle">
-                {cartState.item.length > 10 ? "10+" : cartState.item.length}
+                {cartState.items.length > 10 ? "10+" : cartState.items.length}
               </span>
             </div>
           )}
@@ -86,7 +97,7 @@ export default function Header() {
               </Link>
             )}
             <button
-              className="signout-btn  py-1 px-3 link"
+              className="signout-btn  py-1 px-3 "
               onClick={signOutHandler}
             >
               Sing Out

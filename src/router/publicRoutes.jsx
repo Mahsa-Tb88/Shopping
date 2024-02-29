@@ -8,6 +8,9 @@ import Dashboard from "../pages/Share/Dashboard/Dashboard";
 import Profile from "../pages/Share/Profile/Profile";
 import Balence from "../pages/Share/Profile/Balance/Balance";
 import Shop from "../pages/Share/Shop/Shop";
+import Cart from "../pages/Share/Cart/Cart";
+import { Navigate } from "react-router-dom";
+import Product from "../pages/Share/Product/Product";
 const publicRoutes = [
   {
     path: "/",
@@ -18,12 +21,21 @@ const publicRoutes = [
       { path: "register", element: <Register /> },
       { path: "shop", element: <Shop /> },
       {
+        path: "product",
+        children: [
+          { index: true, element: <Navigate to="shop" replace={true} /> },
+          { path: ":id", element: <Product /> },
+        ],
+      },
+
+      {
         path: "panel",
         element: <Panel />,
         children: [
           { index: true, element: <Dashboard /> },
           { path: "profile", element: <Profile /> },
           { path: "balance", element: <Balence /> },
+          { path: "cart", element: <Cart /> },
         ],
       },
     ],
