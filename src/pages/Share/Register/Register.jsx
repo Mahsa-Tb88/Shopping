@@ -42,7 +42,6 @@ export default function Register() {
     };
 
     const result = await registerUser(user);
-    console.log(result);
     if (result.success && result.body) {
       setSuccessMessage(
         "Congratulations, your account has been successfully created."

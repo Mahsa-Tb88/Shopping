@@ -8,7 +8,6 @@ export default function Filter({ shopDispatch }) {
   const [searchParams, setSearchParams] = useSearchParams("");
 
   function categoryHandler(value) {
-    console.log("value", value);
     shopDispatch({ type: "setfilterCategory", payload: value });
     let paramsUrl = {};
     paramsUrl.category = value;

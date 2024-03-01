@@ -90,17 +90,18 @@ export async function getProductById(id) {
 }
 
 export async function removeProductById(id) {
+  const config = getToken();
   try {
-    const { data } = await axios.delete(`http://server.test/products/${id}`);
-    if (data.success) {
-      const { data } = await getProducts();
-      return data;
-    }
+    const { data } = await axios.delete(
+      `http://server.test/products/${id}`,
+      config
+    );
+    return data;
   } catch (e) {
     if (!e.response) {
       return { success: false, message: "Connection Error" };
     } else {
-      return { success: false, message: "There is no Product with this Id!" };
+      return { success: false, message: e.response.data.message };
     }
   }
 }
@@ -110,5 +111,14 @@ function getError(e) {
     return { success: false, message: "Connection Error" };
   } else {
     return { success: false, message: e.response.data.message };
+  }
+}
+
+function getToken() {
+  const config = {};
+  if (localStorage.token || sessionStorage.token) {
+    const token = localStorage.token || sessionStorage.token;
+    config.headers = { Authorization: "Bearer " + token };
+    return config;
   }
 }

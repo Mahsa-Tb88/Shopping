@@ -5,7 +5,6 @@ import { initialize } from "../utils/api";
 const AppContext = createContext();
 function AppContextProvider({ children }) {
   const [appState, appDispatch] = useReducer(appReducer, {
-    
     user: {
       isLoggedIn: false,
       isAdmin: false,
@@ -40,11 +39,11 @@ function AppContextProvider({ children }) {
       const { body } = result;
       if (body.user) {
         const { user } = body;
-
         user.isAdmin = user.role === "admin";
         user.isLoggedIn = true;
         appDispatch({ type: "setUser", payload: user });
       }
+      console.log(body);
       appDispatch({ type: "setCategories", payload: body.categories });
       appDispatch({ type: "setInitialized", payload: true });
     } else {

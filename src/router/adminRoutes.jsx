@@ -2,14 +2,21 @@ import CategoriesAdmin from "../components/Admin/CategoriesAdmin/CategoriesAdmin
 import ProductsAdmin from "../components/Admin/ProductsAdmin/ProductsAdmin";
 import UsersAdmin from "../components/Admin/UsersAdmin/UsersAdmin";
 import WelcomeAdmin from "../components/Admin/WelcomeAdmin/WelcomeAdmin";
+import AddProduct from "../pages/Admin/AddProduct/AddProduct";
 import AdminPanel from "../pages/Admin/AdminPanel/AdminPanel";
+import EditProduct from "../pages/Admin/EditProduct/EditProduct";
 const adminRoutes = [
   {
     path: "/admin",
     element: <AdminPanel />,
     children: [
       { index: true, element: <WelcomeAdmin end /> },
-      { path: "Products", element: <ProductsAdmin /> },
+      {
+        path: "products",
+        element: <ProductsAdmin />,
+      },
+      { path: "products/:id", element: <EditProduct /> },
+      { path: "products/new", element: <AddProduct /> },
       { path: "categories", element: <CategoriesAdmin /> },
       { path: "users", element: <UsersAdmin /> },
     ],

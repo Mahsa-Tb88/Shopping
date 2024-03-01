@@ -1,0 +1,67 @@
+.productsAdmin .addProduct {
+  background-color: #79043c;
+  color: #f8e9f0;
+  padding: 10px 25px;
+  border: none;
+  margin-top: 20px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.productsAdmin .addProductBtn {
+  border: none;
+  background-color: transparent;
+  color: #f8e9f0;
+  font-size: 15px;
+}
+
+.productsAdmin .iconPlusProduct {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.productsAdmin .addProduct:hover {
+  background-color: #504c4e;
+}
+
+.productsAdmin .btn-tryAgain {
+  background-color: #79043c;
+  color: #f8e9f0;
+  border: none;
+  padding: 10px 20px;
+}
+
+.productsAdmin .btn-tryAgain:hover {
+  background-color: #504c4e;
+}
+
+.productsAdmin .loadingProductsAdmin {
+  color: #79043c;
+  margin-top: 5rem;
+}
+
+.productsAdmin .operation-trash {
+  color: #79043c;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.productsAdmin .operation-edit {
+  color: #4f4fe9;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.productsAdmin .operation-trash:hover {
+  background-color: #79043c;
+  color: #fff;
+}
+
+.productsAdmin .operation-edit:hover {
+  background-color: #4f4fe9;
+  color: #fff;
+}
+/*# sourceMappingURL=productsAdmin.css.map */

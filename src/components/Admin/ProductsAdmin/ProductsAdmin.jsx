@@ -5,9 +5,10 @@ import { getProducts, removeProductById } from "../../../utils/api";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaRegEdit } from "react-icons/fa";
 import { useAppContext } from "../../../context/AppContext";
-import { useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleDoubleLeft } from "react-icons/fa";
+import { toast } from "react-toastify";
 export default function ProductsAdmin() {
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(null);
@@ -22,13 +23,12 @@ export default function ProductsAdmin() {
     const timeOut = setTimeout(fetchProducts, 20);
     return () => clearTimeout(timeOut);
   }, [page]);
-
+  const navigate = useNavigate();
   let numOfPage = 1;
 
   async function fetchProducts() {
     setIsLoading(true);
     const result = await getProducts(page);
-    console.log(result);
     if (result.success) {
       setLoadingError(false);
       setProducts(result.body);
@@ -42,11 +42,24 @@ export default function ProductsAdmin() {
   numOfPage = Math.ceil(parseInt(totalProducts) / 6);
 
   async function removeProductHandler(id) {
+    if (!confirm("Are you sure for deletting the product?")) {
+      return;
+    }
     const result = await removeProductById(id);
-    if (result.success){
-      console.log(result)
+    if (result.success) {
+      const result = await getProducts(page);
+      if (result.success) {
+        setProducts(result.body);
+        toast.success("The product deleted successfully!");
+      } else {
+        toast.error(result.message);
+      }
+    } else {
+      toast.error(result.message);
     }
   }
+
+  
   return (
     <div className="productsAdmin">
       {isLoading ? (
@@ -65,7 +78,7 @@ export default function ProductsAdmin() {
         <div className=" px-4 py-5">
           <h1>Manage Products</h1>
           <div className="addProduct d-flex justify-content-center align-items-center">
-            <button className="addProductBtn">Add Products</button>
+            <Link className="addProductBtn link" to="new">Add Products</Link>
             <FaPlus className="iconPlusProduct" />
           </div>
           <div>
@@ -113,9 +126,12 @@ export default function ProductsAdmin() {
                               >
                                 <FaRegTrashAlt className="fs-4" />
                               </span>
-                              <span className="operation-edit  d-flex justify-content-center align-items-center ">
+                              <Link
+                                className="operation-edit  d-flex justify-content-center align-items-center"
+                                to={`${p.id}`}
+                              >
                                 <FaRegEdit className="fs-4" />
-                              </span>
+                              </Link>
                             </div>
                           </td>
                         </tr>
