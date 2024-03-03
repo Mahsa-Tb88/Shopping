@@ -1,0 +1,60 @@
+.CategoriesAdmin {
+  margin-top: 5rem;
+  margin-left: 5rem;
+  .addCategory {
+    background-color: #79043c;
+    color: #f8e9f0;
+    padding: 10px 25px;
+    border: none;
+    margin-top: 20px;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .addCategoryBtn {
+    border: none;
+    background-color: transparent;
+    color: #f8e9f0;
+    font-size: 15px;
+  }
+  .iconPlusCategory {
+    font-size: 15px;
+    margin-left: 10px;
+  }
+  .addCategory:hover {
+    background-color: #504c4e;
+  }
+  .btn-tryAgain {
+    background-color: #79043c;
+    color: #f8e9f0;
+    border: none;
+    padding: 10px 20px;
+  }
+  .btn-tryAgain:hover {
+    background-color: #504c4e;
+  }
+  .loadingCategoryAdmin {
+    color: #79043c;
+    margin-top: 5rem;
+  }
+  .operation-trash {
+    color: #79043c;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+  .operation-edit {
+    color: rgb(79, 79, 233);
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+  .operation-trash:hover {
+    background-color: #79043c;
+    color: #fff;
+  }
+  .operation-edit:hover {
+    background-color: rgb(79, 79, 233);
+    color: #fff;
+  }
+}

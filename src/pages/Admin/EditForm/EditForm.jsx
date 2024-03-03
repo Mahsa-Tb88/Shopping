@@ -8,9 +8,9 @@ export default function EditForm({ onSubmit, type, product }) {
     defaultValues: {
       title: product ? product.title : "",
       description: product ? product.description : "",
-      price: product ? "$ " + product.price : "$ ",
+      price: product ? product.price : "",
       category: product ? product.title : "Body Care",
-      image: product ? product.image : "",
+      image: product ? product.image : "http://server.test/general.webp",
     },
   });
   const { errors, isSubmitting } = formState;
@@ -30,7 +30,7 @@ export default function EditForm({ onSubmit, type, product }) {
                 message: "title must be 3 Characters at least",
               },
               maxLength: {
-                value: 10,
+                value: 30,
                 message: "title must be 10 Characters at most",
               },
             })}
@@ -39,7 +39,7 @@ export default function EditForm({ onSubmit, type, product }) {
         </div>
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Description of Product</label>
-          <input
+          <textarea
             type="text"
             className="inputProducts w-75 px-2 py-2 rounded-1"
             {...register("description", {
@@ -53,32 +53,39 @@ export default function EditForm({ onSubmit, type, product }) {
                 message: "Family must be 10 Characters at most",
               },
             })}
-          />
-          {errors.family && <p className="errors">{errors.family.message}</p>}
+          ></textarea>
+          {errors.description && (
+            <p className="errors mt-2 fs-5">{errors.description.message}</p>
+          )}
         </div>
-        <div className="d-flex flex-column justify-content-center align-items-start mb-4">
+        <div className=" d-flex flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Price of Product</label>
-          <input
-            type="text"
-            className="inputProducts w-75 px-2 py-2 rounded-1"
-            {...register("price", {
-              required: "You must enter a Phone number",
-              minLength: {
-                value: 12,
-                message: "It is short, Phone number must be 12 number",
-              },
-              maxLength: {
-                value: 12,
-                message: "It is long, Phone number must be 12 number",
-              },
-            })}
-          />
-          {errors.phone && <p className="errors">{errors.phone.message}</p>}
+          <div className="input-group w-75">
+            <span className="input-group-text fs-4 px-3 ">$</span>
+
+            <input
+              type="text"
+              className="  px-2 py-2  form-control"
+              {...register("price", {
+                required: "You must enter a number",
+                minLength: {
+                  value: 1,
+                  message: "It is short, Phone number must be 12 number",
+                },
+                maxLength: {
+                  value: 5,
+                  message: "It is long, Phone number must be 12 number",
+                },
+              })}
+            />
+          </div>
+
+          {errors.price && <p className="errors">{errors.price.message}</p>}
         </div>
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Category of Product</label>
           <select
-            className="inputProducts w-25 px-2 py-2 rounded-1"
+            className="inputProducts form-select w-25 px-2 py-2 rounded-1"
             {...register("category", {
               required: "Select the category",
             })}

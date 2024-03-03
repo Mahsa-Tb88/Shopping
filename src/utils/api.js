@@ -1,4 +1,5 @@
 import axios from "axios";
+import { info } from "sass";
 axios.defaults.baseURL = "http://server.test";
 
 export async function initialize(token = "") {
@@ -76,6 +77,21 @@ export async function getProducts(
   }
 }
 
+export async function getCategories(page) {
+  try {
+    const { data } = await axios.get("http://server.test/categories", {
+      params: { page },
+    });
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "Something wrong!" };
+    }
+  }
+}
+
 export async function getProductById(id) {
   try {
     const { data } = await axios.get(`http://server.test/products/${id}`);
@@ -106,6 +122,62 @@ export async function removeProductById(id) {
   }
 }
 
+export async function createProduct(info) {
+  if (localStorage.token || sessionStorage.token) {
+    const token = localStorage.token || sessionStorage.token;
+    info.headers = { Authorization: "Bearer " + token };
+  }
+  console.log(info);
+  try {
+    const { data } = await axios.post("http://server.test/products", info);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: e.response.data.message };
+    }
+  }
+}
+
+export async function createCategory(info) {
+  const config = {};
+  if (localStorage.token || sessionStorage.token) {
+    const token = localStorage.token || sessionStorage.token;
+    config.headers = { Authorization: "Bearer " + token };
+  }
+  try {
+    const { data } = await axios.post(
+      "http://server.test/categories",
+      info,
+      config
+    );
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      console.log(e.response.data.message);
+      return { success: false, message: "This slug  has already selected!" };
+    }
+  }
+}
+export async function deleteCategory(id) {
+  const config = getToken();
+  try {
+    const { data } = await axios.delete(
+      `http://server.test/categories/${id}`,
+      config
+    );
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: e.response.data.message };
+    }
+  }
+}
 function getError(e) {
   if (!e.response) {
     return { success: false, message: "Connection Error" };
