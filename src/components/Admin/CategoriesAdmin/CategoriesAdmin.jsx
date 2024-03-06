@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./categoriesAdmin.scss";
-import { useAppContext } from "../../../context/AppContext";
 import { Link, useSearchParams } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -9,8 +8,8 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { deleteCategory, getCategories } from "../../../utils/api";
+
 export default function CategoriesAdmin() {
-  const { appState, appDispatch } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
@@ -20,20 +19,16 @@ export default function CategoriesAdmin() {
 
   useEffect(() => {
     document.title = "Managing Categories";
+    const page = searchParams.get("page") || 1;
+    setPage(+page);
+  }, [searchParams]);
+
+  useEffect(() => {
     const timeOut = setTimeout(fetchCategories, 20);
     return () => clearTimeout(timeOut);
   }, [page]);
 
-  useEffect(() => {
-    if (searchParams.get("page")) {
-      setPage(searchParams.get("page"));
-    }
-  }, []);
   let numOfPage = Math.ceil(parseInt(totalCategories.all) / 4);
-
-  // if (searchParams.get("page")) {
-  //   setPage(searchParams.get("page"));
-  // }
 
   async function fetchCategories() {
     const result = await getCategories(page);
@@ -54,25 +49,21 @@ export default function CategoriesAdmin() {
     const result = await deleteCategory(id);
     if (result.success) {
       let result = await getCategories(page);
-      console.log(page, result);
-      if (result.success) {
-        if (result.body.length == 0 && page > 1) {
-          let result = await getCategories(page - 1);
-          setCategories(result.body);
-          setSearchParams({ page: page - 1 });
-          console.log("....", result.totalCategories.all);
-          setTotalCategories({ all: result.totalCategories.all });
-        } else {
-          setCategories(result.body);
-        }
-        toast.success("The product deleted successfully!");
+      if (result.body.length == 0 && page > 1) {
+        setSearchParams({ page: page - 1 });
       } else {
-        toast.error(result.message);
+        setCategories(result.body);
       }
+      toast.success("The product deleted successfully!");
     } else {
-      toast.error(result.message);
+      result.code == 400
+        ? toast.error("This Category is not empty!")
+        : result.code == 403
+        ? toast.message("You do not have an authorization!")
+        : "Error Connection";
     }
   }
+
   return (
     <div className="CategoriesAdmin">
       <h1>Managing Categories</h1>
@@ -132,9 +123,12 @@ export default function CategoriesAdmin() {
                             >
                               <FaRegTrashAlt className="fs-4" />
                             </span>
-                            <span className="operation-edit  d-flex justify-content-center align-items-center">
+                            <Link
+                              className="operation-edit  d-flex justify-content-center align-items-center"
+                              to={"edit/" + `${p.id}`}
+                            >
                               <FaRegEdit className="fs-4" />
-                            </span>
+                            </Link>
                           </div>
                         </td>
                       </tr>
@@ -159,19 +153,25 @@ export default function CategoriesAdmin() {
 }
 
 function PaginationProducts({ numOfPage, setPage, page }) {
-  console.log(numOfPage);
   const [searchParams, setSearchParams] = useSearchParams("");
   let pages = [];
   const prevClasses = ["page-link", page == 1 ? "disabled" : ""].join(" ");
   const nextClasses = ["page-link", page == numOfPage ? "disabled" : ""].join(
     " "
   );
+
   function pageHandler(i) {
-    setPage(i);
     setSearchParams({ page: i });
   }
-  function pageFirstHandler() {}
-  function pageLastHandler() {}
+
+  function pageFirstHandler() {
+    setSearchParams({ page: 1 });
+  }
+
+  function pageLastHandler() {
+    setSearchParams({ page: numOfPage });
+  }
+
   for (let i = 1; i <= numOfPage; i++) {
     pages.push(
       <i

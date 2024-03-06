@@ -1,9 +1,10 @@
 .loadingComp {
-  margin-top: 50px;
-  background-color: #f8e9f0;
+  margin-top: 100px;
+  // background-color: #f8e9f0;
   padding: 20px 50px;
 
-  .title-loadingComp {
+  .title-loadingComp,
+  .spiner-loadingComp {
     color: #79043c;
   }
 

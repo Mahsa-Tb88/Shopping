@@ -1,30 +1,37 @@
 import React, { useState } from "react";
-import "./addCategory.scss";
-import FormCategory from "../FormCategory/FormCategory";
-import { createCategory } from "../../../utils/api";
+import FormUser from "../FormUser/FormUser";
+import "./addUser.scss";
+import { register } from "../../../utils/api";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineError } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-export default function AddCategory() {
-  const [failMessage, setFailMessage] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
 
+export default function AddUser() {
+  const [failMessage, setFailMessage] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
   const navigate = useNavigate();
 
   async function submitHandler(data) {
-    const result = await createCategory(data);
+    const result = await register(data);
     if (result.success) {
       setFailMessage(false);
-      setSuccessMessage("New Category Created Successfully");
+      setSuccessMessage("New User Created successfully");
       setTimeout(() => {
-        navigate("/admin/categories");
+        navigate("/admin/users");
       }, 2000);
     } else {
-      setFailMessage(result.message);
+      if (result.code == 403) {
+        setFailMessage("You do not have authorization!");
+      } else if (result.code == 409) {
+        setFailMessage("This Username has already exists!");
+      } else {
+        setFailMessage("Error Connection!");
+      }
     }
   }
+
   return (
-    <div className="createCategory">
+    <div className="addUser">
       {failMessage && (
         <div>
           <h2 className="w-75 bg-white text-danger mb-5 fs-2 py-3 d-flex justify-content-center align-items-center">
@@ -41,8 +48,8 @@ export default function AddCategory() {
           </h2>
         </div>
       )}
-      <h1>Create Category</h1>
-      <FormCategory type="new" onSubmit={submitHandler} />
+      <h1>Add User</h1>
+      <FormUser type="new" onSubmit={submitHandler} />
     </div>
   );
 }

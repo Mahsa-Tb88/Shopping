@@ -1,15 +1,24 @@
 import React from "react";
 import { IoMdMoon } from "react-icons/io";
 import "./adminpanel.scss";
+import { MdOutlineWbSunny } from "react-icons/md";
+
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAppContext } from "../../../context/AppContext";
 export default function AdminPanel() {
   const { appState, appDispatch } = useAppContext();
   const navigate = useNavigate();
+
   function signOutHandler() {
     appDispatch({ type: "logOut" });
     navigate("/");
   }
+
+  function themeHandler() {
+    const theme = appState.theme == "dark" ? "light" : "dark";
+    appDispatch({ type: "setTheme", payload: theme });
+  }
+
   return (
     <div className="adminPanel d-flex justify-content-center ">
       <div className="sidebarAdmin ">
@@ -38,8 +47,11 @@ export default function AdminPanel() {
         <div className="headerAdmin d-flex justify-content-between align-items-center">
           <h3>Mahsa Tabesh</h3>
           <div className="d-flex justify-content-center align-items-center">
-            <button className="btn-mood d-flex justify-content-center align-items-center p-1">
-              <IoMdMoon />
+            <button
+              className="btn-mood d-flex justify-content-center align-items-center p-1"
+              onClick={themeHandler}
+            >
+              {appState.theme == "dark" ? <MdOutlineWbSunny /> : <IoMdMoon />}
             </button>
             <button
               className="signout-btnAdmin  py-1 px-3 "

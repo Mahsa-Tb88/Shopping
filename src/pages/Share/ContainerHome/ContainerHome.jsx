@@ -46,7 +46,7 @@ export default function ContainerHome() {
     },
   ];
   return (
-    <div className="home ">
+    <div className="home">
       {/* <div className="container-overlay-mobile">
         <div>1</div>
         <div>2</div>

@@ -4,8 +4,11 @@ import UsersAdmin from "../components/Admin/UsersAdmin/UsersAdmin";
 import WelcomeAdmin from "../components/Admin/WelcomeAdmin/WelcomeAdmin";
 import AddCategory from "../pages/Admin/AddCategory/AddCategory";
 import AddProduct from "../pages/Admin/AddProduct/AddProduct";
+import AddUser from "../pages/Admin/AddUser/AddUser";
 import AdminPanel from "../pages/Admin/AdminPanel/AdminPanel";
+import EditCategory from "../pages/Admin/EditCategory/EditCategory";
 import EditProduct from "../pages/Admin/EditProduct/EditProduct";
+import EditUser from "../pages/Admin/EditUser/EditUser";
 const adminRoutes = [
   {
     path: "/admin",
@@ -20,7 +23,10 @@ const adminRoutes = [
       { path: "products/new", element: <AddProduct /> },
       { path: "categories", element: <CategoriesAdmin /> },
       { path: "categories/new", element: <AddCategory /> },
+      { path: "categories/edit/:id", element: <EditCategory /> },
       { path: "users", element: <UsersAdmin /> },
+      { path: "users/edit/:id", element: <EditUser /> },
+      { path: "users/new", element: <AddUser /> },
     ],
   },
 ];

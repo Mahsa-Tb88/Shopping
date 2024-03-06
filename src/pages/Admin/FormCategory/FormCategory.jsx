@@ -3,12 +3,14 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./formCategory.scss";
 export default function FormCategory({ onSubmit, type, category }) {
+
   const { register, handleSubmit, formState } = useForm({
     defaultValues: {
       title: category ? category.title : "",
       slug: category ? category.slug : "",
     },
   });
+
   const { errors, isSubmitting } = formState;
 
   return (
@@ -20,22 +22,24 @@ export default function FormCategory({ onSubmit, type, category }) {
             type="text"
             className="inputCategory w-75 px-2 py-2 rounded-1"
             {...register("title", {
-              required: "You must enter a title of product",
+              required: "You must enter a title for category",
               minLength: {
                 value: 3,
                 message: "title must be 3 Characters at least",
               },
               maxLength: {
-                value: 10,
-                message: "title must be 10 Characters at most",
+                value: 20,
+                message: "title must be 20 Characters at most",
               },
             })}
           />
-          {errors.title && <p className="errors">{errors.title.message}</p>}
+          {errors.title && (
+            <p className="errors mt-3 fs-5">{errors.title.message}</p>
+          )}
         </div>
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
-          <label className="mb-1 label fs-3">Slug of Product</label>
-          <textarea
+          <label className="mb-1 label fs-3">Slug of Category</label>
+          <input
             type="text"
             className="inputCategory w-75 px-2 py-2 rounded-1"
             {...register("slug", {
@@ -46,12 +50,12 @@ export default function FormCategory({ onSubmit, type, category }) {
               },
               maxLength: {
                 value: 10,
-                message: "Family must be 10 Characters at most",
+                message: "Slug must be 10 Characters at most",
               },
             })}
-          ></textarea>
+          />
           {errors.slug && (
-            <p className="errors mt-2 fs-5">{errors.slug.message}</p>
+            <p className="errors mt-3 fs-5">{errors.slug.message}</p>
           )}
         </div>
         {isSubmitting ? (
@@ -69,7 +73,12 @@ export default function FormCategory({ onSubmit, type, category }) {
             >
               {type == "new" ? "Create Category" : "Save Category"}
             </button>
-            <Link to="/admin/categories"  className="btn-Cansel text-center border-0 py-3 fs-3 my-5 link ms-5">Cansel</Link>
+            <Link
+              to="/admin/categories"
+              className="btn-Cansel text-center border-0 py-3 fs-3 my-5 link ms-5"
+            >
+              Cansel
+            </Link>
           </div>
         )}
       </div>

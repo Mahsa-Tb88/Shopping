@@ -17,14 +17,20 @@ export async function initialize(token = "") {
 }
 
 export async function register(user) {
+  let config = getToken();
   try {
-    const { data } = await axios.post("http://server.test/auth/register", user);
+    const { data } = await axios.post(
+      "http://server.test/auth/register",
+      user,
+      config
+    );
+
     return data;
   } catch (e) {
     if (!e.response) {
       return { success: false, message: "Connection Error" };
     } else {
-      return { success: false, message: "Username is already exist" };
+      return { success: false, code: e.response.data.code };
     }
   }
 }
@@ -92,6 +98,32 @@ export async function getCategories(page) {
   }
 }
 
+export async function getBlogs(page) {
+  try {
+    const { data } = await axios.get("http://server.test/blogs", {
+      params: { page },
+    });
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "Something wrong!" };
+    }
+  }
+}
+export async function getBlogById(id){
+  try {
+    const { data } = await axios.get(`http://server.test/blogs/${id}`);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "There is no blog with this Id!" };
+    }
+  }
+}
 export async function getProductById(id) {
   try {
     const { data } = await axios.get(`http://server.test/products/${id}`);
@@ -101,6 +133,66 @@ export async function getProductById(id) {
       return { success: false, message: "Connection Error" };
     } else {
       return { success: false, message: "There is no Product with this Id!" };
+    }
+  }
+}
+export async function getCategoryById(id) {
+  try {
+    const { data } = await axios.get(`http://server.test/categories/${id}`);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "There is no category with this Id!" };
+    }
+  }
+}
+export async function getUserById(id) {
+  try {
+    const { data } = await axios.get(`http://server.test/users/${id}`);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "There is no user with this Id!" };
+    }
+  }
+}
+
+export async function updateCategory(info, id) {
+  const config = getToken();
+  try {
+    const { data } = await axios.put(
+      `http://server.test/categories/${id}`,
+      info,
+      config
+    );
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "There is no category with this Id!" };
+    }
+  }
+}
+
+export async function updateUser(info, id) {
+  const config = getToken();
+  try {
+    const { data } = await axios.put(
+      `http://server.test/users/${id}`,
+      info,
+      config
+    );
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: "There is no user with this Id!" };
     }
   }
 }
@@ -122,14 +214,15 @@ export async function removeProductById(id) {
   }
 }
 
-export async function createProduct(info) {
+export async function createProduct() {
+  let config = {};
   if (localStorage.token || sessionStorage.token) {
     const token = localStorage.token || sessionStorage.token;
-    info.headers = { Authorization: "Bearer " + token };
+    config.headers = { Authorization: "Bearer " + token };
   }
-  console.log(info);
+
   try {
-    const { data } = await axios.post("http://server.test/products", info);
+    const { data } = await axios.post("http://server.test/products", config);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -174,7 +267,43 @@ export async function deleteCategory(id) {
     if (!e.response) {
       return { success: false, message: "Connection Error" };
     } else {
+      return {
+        success: false,
+        message: e.response.data.message,
+        code: e.response.data.code,
+      };
+    }
+  }
+}
+
+export async function getUsers(page) {
+  const config = getToken();
+
+  try {
+    const { data } = await axios.get("http://server.test/users", config);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
       return { success: false, message: e.response.data.message };
+    }
+  }
+}
+
+export async function removeUserById(id) {
+  const config = getToken();
+  try {
+    const { data } = await axios.delete(
+      `http://server.test/users/${id}`,
+      config
+    );
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, code: e.response.data.code };
     }
   }
 }

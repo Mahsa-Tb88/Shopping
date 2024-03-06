@@ -43,7 +43,6 @@ function AppContextProvider({ children }) {
         user.isLoggedIn = true;
         appDispatch({ type: "setUser", payload: user });
       }
-      console.log(body);
       appDispatch({ type: "setCategories", payload: body.categories });
       appDispatch({ type: "setInitialized", payload: true });
     } else {

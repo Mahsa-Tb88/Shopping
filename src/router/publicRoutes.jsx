@@ -11,6 +11,10 @@ import Shop from "../pages/Share/Shop/Shop";
 import Cart from "../pages/Share/Cart/Cart";
 import { Navigate } from "react-router-dom";
 import Product from "../pages/Share/Product/Product";
+import Contact from "../pages/Share/Contact/Contact";
+import About from "../pages/Share/About/About";
+import Blogs from "../pages/Share/Blogs/Blogs";
+import Blog from "../pages/Share/Blog/Blog";
 const publicRoutes = [
   {
     path: "/",
@@ -38,6 +42,10 @@ const publicRoutes = [
           { path: "cart", element: <Cart /> },
         ],
       },
+      { path: "blogs", element: <Blogs /> },
+      { path: "blogs/:id", element: <Blog /> },
+      { path: "contact", element: <Contact /> },
+      { path: "about", element: <About /> },
     ],
   },
 ];

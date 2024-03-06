@@ -6,9 +6,12 @@ import { useAppContext } from "../../../context/AppContext";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaShoppingCart } from "react-icons/fa";
 import { useCartContext } from "../../../context/CartContext";
+import { MdOutlineWbSunny } from "react-icons/md";
+
 export default function Header() {
   const { appState, appDispatch } = useAppContext();
   const { cartState, cartDispatch } = useCartContext();
+
   useEffect(() => {
     if (localStorage.token || sessionStorage.token) {
       const timeOut = setTimeout(fetchUser, 20);
@@ -31,6 +34,12 @@ export default function Header() {
       navigate("/login");
     }
   }
+
+  function themeHandler() {
+    const theme = appState.theme == "dark" ? "light" : "dark";
+    appDispatch({ type: "setTheme", payload: theme });
+  }
+
   return (
     <div className=" d-flex justify-content-between align-items-center header">
       <div>
@@ -45,13 +54,22 @@ export default function Header() {
         <NavLink className="navlink" to="shop">
           Products
         </NavLink>
-        <NavLink className="navlink">Blog</NavLink>
-        <NavLink className="navlink">About us</NavLink>
-        <NavLink className="navlink">Contact us</NavLink>
+        <NavLink className="navlink" to="blogs">
+          Blog
+        </NavLink>
+        <NavLink className="navlink" to="about">
+          About us
+        </NavLink>
+        <NavLink className="navlink" to="contact">
+          Contact us
+        </NavLink>
       </nav>
       <div className="d-flex justify-content-center align-items-center">
-        <button className="btn-mood d-flex justify-content-center align-items-center p-1">
-          <IoMdMoon />
+        <button
+          className="btn-mood d-flex justify-content-center align-items-center p-1"
+          onClick={themeHandler}
+        >
+          {appState.theme == "dark" ? <MdOutlineWbSunny /> : <IoMdMoon />}
         </button>
         <div
           className=" position-relative cart me-4 bc_shaoppingcart d-flex justify-content-center align-items-center"
