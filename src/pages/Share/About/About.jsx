@@ -2,30 +2,29 @@ import React from "react";
 import "./about.scss";
 export default function About() {
   return (
-    <div className="mybody text-center">
-      <h1 className="title-aboutUs">About Us</h1>
-      <div>
-        {/* <div class="container-overlay-mobile">
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-    <div>4</div>
-  </div> */}
-        <div className=" container-overlay-desktop d-flex justify-content-center align-items-center">
-          <div className="col">1</div>
-          <div className="col">2</div>
-          <div className="col">3</div>
-          <div className="col">4</div>
-          <div className="col">5</div>
-          <div className="col">6</div>
-          <div className="col">7</div>
-          <div className="col">8</div>
-          <div className="col">9</div>
-          <div className="col">10</div>
-          <div className="col">11</div>
-          <div className="col">12</div>
-        </div>
-        <div className="container">
+    <div class="about">
+      <div class="container-overlay-mobile">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+      </div>
+      <div class="container-overlay-desktop">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+        <div>11</div>
+        <div>12</div>
+      </div>
+      <div class="container p-0">
+        <main>
           <section class="our-brand">
             <div class="our-brand-container">
               <h1>Our Brand</h1>
@@ -108,13 +107,13 @@ export default function About() {
             </div>
           </section>
           <section class="options">
-            <div class="container-overlay-mobile-options">
+            <div class="container-overlay-mobile-about">
               <div></div>
               <div></div>
               <div></div>
               <div></div>
             </div>
-            <div class="container-overlay-desktop-options">
+            <div class="container-overlay-desktop-about">
               <div></div>
               <div></div>
               <div></div>
@@ -128,24 +127,24 @@ export default function About() {
               <div></div>
               <div></div>
             </div>
-            <div class="options-container">
-              <div class="options-item">
+            <div class="options-container-row w-100  row">
+              <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
                 <div class="option-item-overlay"></div>
                 <div class="options-item-img">
                   <div>
                     <img
-                      src="http://server.test/uploads/About-us/rabbit.png"
+                      src="http://server.test/uploads/options/rabbit.png"
                       alt="rabbit"
                     />
                   </div>
                 </div>
                 <span class="options-item-text">No tests on animals</span>
               </div>
-              <div class="options-item">
+              <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
                 <div class="options-item-img">
                   <div>
                     <img
-                      src="http://server.test/uploads/About-us/leaf.png"
+                      src="http://server.test/uploads/options/leaf.png"
                       alt="leaf"
                     />
                   </div>
@@ -154,11 +153,11 @@ export default function About() {
                   No animal-derived ingredients
                 </span>
               </div>
-              <div class="options-item">
+              <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
                 <div class="options-item-img">
                   <div>
                     <img
-                      src="http://server.test/uploads/About-us/wheat.png"
+                      src="http://server.test/uploads/options/wheat.png"
                       alt="wheat"
                     />
                   </div>
@@ -167,11 +166,11 @@ export default function About() {
                   No gluten, or gluten byproducts
                 </span>
               </div>
-              <div class="options-item">
+              <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
                 <div class="options-item-img">
                   <div>
                     <img
-                      src="http://server.test/uploads/About-us/lamp.png"
+                      src="http://server.test/uploads/options/lamp.png"
                       alt="lamp"
                     />
                   </div>
@@ -180,7 +179,7 @@ export default function About() {
               </div>
             </div>
           </section>
-        </div>
+        </main>
       </div>
     </div>
   );

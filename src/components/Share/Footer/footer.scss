@@ -32,6 +32,7 @@ footer {
   color: #ffffff;
   font-weight: lighter;
   position: relative;
+  text-decoration: none;
 }
 .footer-link-item a:hover {
   color: #a10550;
@@ -134,7 +135,9 @@ footer {
 .footer-socialMedia {
   width: 100%;
 }
-
+.link{
+  text-decoration: none;
+}
 .socialMedia {
   color: #fa58a6;
   font-size: 2.2rem;

@@ -1,15 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./contact.scss";
+import { FaCaretDown } from "react-icons/fa";
+import { FaEnvelope } from "react-icons/fa6";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 export default function Contact() {
+  const { register, handleSubmit, watch, formState } = useForm({
+    defaultValues: {
+      title: "",
+      phone: "",
+      province: "",
+      country: "Body Care",
+      email: "",
+      fax: "",
+    },
+  });
+  const { errors, isSubmitting } = formState;
+  const navigate = useNavigate();
+  const [isSendForm, setIssendForm] = useState(false);
+  async function onSubmit(data) {
+    setIssendForm(true);
+  }
+  function backHandler() {
+    setIssendForm(false);
+  }
   return (
     <div className="contact">
-      <div class="container-overlay-mobile">
+      <div className="container-overlay-mobile">
         <div>1</div>
         <div>2</div>
         <div>3</div>
         <div>4</div>
       </div>
-      <div class="container-overlay-desktop d-flex justify-content-center align-items-center">
+      <div className="container-overlay-desktop d-flex justify-content-center align-items-center">
         <div>1</div>
         <div>2</div>
         <div>3</div>
@@ -23,10 +46,10 @@ export default function Contact() {
         <div>11</div>
         <div>12</div>
       </div>
-      <div className="container">
-        <main class="main">
-          <div class="contact-us">
-            <div class="contact-us-desc">
+      <div className="container p-0">
+        <main className="main">
+          <div className="contact-us">
+            <div className="contact-us-desc">
               <h2>Contact Us</h2>
               <p>
                 Beautya Client Service Center Is Happy to Help You With Any
@@ -43,168 +66,255 @@ export default function Contact() {
                 than happy to help and will reply to you as soon as possible.
               </small>
             </div>
-            <div class="contact-us-form">
-              <div class="contact-us-form-header">
-                <h3 class="contact-us-form-title">
-                  <span class="contact-us-title-envelope">
-                    <i class="fa fa-envelope"></i>
+            <div className="contact-us-form">
+              <div className="contact-us-form-header">
+                <h3 className="contact-us-form-title d-flex justify-content-center align-items-center">
+                  <span className="contact-us-title-envelope">
+                    <FaEnvelope />
                   </span>
-                  <span class="contact-us-title-title">Write Us</span>
+                  <span className="contact-us-title-title">Write Us</span>
                 </h3>
-                <span class="contact-us-form-dropleft">
-                  <i class="fa fa-caret-right"></i>
+                <span className="contact-us-form-dropleft">
+                  <i className="fa fa-caret-right"></i>
                 </span>
               </div>
-
-              <form class="form form-contact-container">
-                <div>
-                  <h3 class="form-info-title">Your information</h3>
-                  <div class="form-info-container">
-                    <div>
-                      <div class="form-subject">
-                        <div class="form-select-title">
-                          <h4 class="">Title</h4>
-                          <span>
-                            <i class="fa fa-caret-down"></i>
-                          </span>
-                        </div>
-                        <div class="form-select-title-items">
-                          <ul>
-                            <li class="title-select">contact</li>
-                            <li class="title-select">collabration</li>
-                            <li class="title-select">suggestion</li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="form-name">
-                        <input
-                          type="text"
-                          placeholder="First Name"
-                          class="form-firstName"
-                        />
-                        <input type="text" placeholder="Last Name" />
-                      </div>
-                      <div class="form-country-language">
-                        <div class="form-country">
-                          <div class="form-select-title">
-                            <h4 class="">Contury/region</h4>
-                            <span>
-                              <i class="fa fa-caret-down"></i>
-                            </span>
+              {isSendForm ? (
+                <div className="">
+                  <h3 className="fs-1">Your Form is Submited</h3>
+                  <button
+                    className="backbtn  fs-3"
+                    onClick={() => backHandler()}
+                  >
+                    Back
+                  </button>
+                </div>
+              ) : (
+                <form
+                  className="form form-contact-container"
+                  onSubmit={handleSubmit(onSubmit)}
+                >
+                  <div>
+                    <h3 className="form-info-title">Your information</h3>
+                    <div className="form-info-container">
+                      <div>
+                        <div className="form-address">
+                          <div className="form-number">
+                            <input
+                              type="text"
+                              placeholder="Title"
+                              {...register("title", {
+                                required: "You must enter a title ",
+                              })}
+                            />
+                            {errors.title && (
+                              <p className="errors">{errors.title.message}</p>
+                            )}
                           </div>
-                          <div class="form-select-title-items">
-                            <ul>
-                              <li class="title-select">Canada</li>
-                              <li class="title-select">Us</li>
-                              <li class="title-select">Germany</li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="form-language">
-                          <div class="form-select-title">
-                            <h4 class="">Languade</h4>
-                            <span>
-                              <i class="fa fa-caret-down"></i>
-                            </span>
-                          </div>
-                          <div class="form-select-title-items">
-                            <ul>
-                              <li class="title-select">Canada</li>
-                              <li class="title-select">Us</li>
-                              <li class="title-select">Germany</li>
-                            </ul>
+                          <div className="form-number">
+                            <input
+                              type="text"
+                              placeholder="Phone Number"
+                              {...register("phone", {
+                                required: "You must enter a phoneNumber",
+                              })}
+                            />
+                            {errors.phone && (
+                              <p className="errors">{errors.phone.message}</p>
+                            )}
                           </div>
                         </div>
-                      </div>
-
-                      <div class="form-address">
-                        <div class="form-email">
-                          <input type="text" placeholder="Email Address" />
-                        </div>
-                        <div class="form-number">
+                        <div className="form-name">
                           <input
                             type="text"
-                            placeholder="Phone Number(optional)"
+                            placeholder="First Name"
+                            className="form-firstName"
                           />
+                          <input type="text" placeholder="Last Name" />
+                        </div>
+                        <div className="form-address">
+                          <div className="form-email">
+                            <input
+                              type="text"
+                              placeholder="Province"
+                              {...register("province", {})}
+                            />
+                          </div>
+                          <div className="form-number">
+                            <input
+                              type="text"
+                              placeholder="Country"
+                              {...register("country")}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="form-address">
+                          <div className="form-email">
+                            <input
+                              type="text"
+                              placeholder="Email Address"
+                              {...register("email")}
+                            />
+                          </div>
+                          <div className="form-number">
+                            <input
+                              type="text"
+                              placeholder="Fax Number"
+                              {...register("fax")}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <hr />
                   </div>
-                  <hr />
-                </div>
-                <div>
-                  <h3 class="form-title-request">Your Request</h3>
-                  <div class="form-request-container">
-                    <h4>Subject</h4>
-                    <div class="form-request-btns">
-                      <button>Skin type</button>
-                      <button>Branches</button>
-                      <button>Special offer and Promotion</button>
-                      <button>Returns and Refunds</button>
-                      <button>Product and Stock</button>
+                  <div>
+                    <h3 className="form-title-request">Your Request</h3>
+                    <div className="form-request-container">
+                      <h4>Subject</h4>
+                      <div className="form-request-btns">
+                        <div className="form-check me-4 fs-4">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                            Skin type
+                          </label>
+                        </div>
+                        <div className="form-check me-4 fs-4">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                            Branches
+                          </label>
+                        </div>
+                        <div className="form-check me-4 fs-4">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                            Special offer and Promotion
+                          </label>
+                        </div>
+                        <div className="form-check me-4 fs-4">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                            Returns and Refunds
+                          </label>
+                        </div>
+                        <div className="form-check me-4 fs-4">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="flexCheckDefault"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="flexCheckDefault"
+                          >
+                            Product and Stock
+                          </label>
+                        </div>
+                      </div>
+                      <textarea
+                        className="form-request-text"
+                        placeholder="write your text"
+                        rows="1"
+                        cols="30"
+                      ></textarea>
                     </div>
-                    <textarea
-                      class="form-request-text"
-                      placeholder="write your text"
-                      rows="1"
-                      cols="30"
-                    ></textarea>
+                    <hr />
+                    <div className="form-checked">
+                      <div className="form-check me-4 fs-4">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          value=""
+                          id="flexCheckDefault"
+                        />
+                        <label
+                          className="form-check-label"
+                          htmlFor="flexCheckDefault"
+                        >
+                          I have read and understood the contact us privacy and
+                          policy.
+                        </label>
+                      </div>
+                    </div>
                   </div>
-                  <hr />
-                  <div class="form-checked">
-                    <span>
-                      <i class="fa fa-check"></i>
-                    </span>
-                    <p>
-                      I have read and understood the contact us privacy and
-                      policy.
-                    </p>
+                  <div className="form-submit-btn">
+                    <button className="fs-3">Send</button>
                   </div>
-                </div>
-                <div class="form-submit-btn">
-                  <button>Send</button>
-                </div>
-              </form>
+                </form>
+              )}
             </div>
-            <p class="contact-us-line"></p>
+            <p className="contact-us-line"></p>
           </div>
 
-          <div class="mobile-section">
-            <div class="chat-us contact-container">
+          <div className="mobile-section">
+            <div className="chat-us contact-container">
               <h3>
                 <div>
                   <span>
-                    <i class="fa-regular fa-comment-dots"></i>
+                    <i className="fa-regular fa-comment-dots"></i>
                   </span>
-                  <span class="chat-us-title">Chat Online</span>
+                  <span className="chat-us-title">Chat Online</span>
                 </div>
-                <span class="icon-chatUs">
-                  <i class="fa fa-plus"></i>
+                <span className="icon-chatUs">
+                  <i className="fa fa-plus"></i>
                 </span>
               </h3>
-              <div class="chat-us-container contact-desc">
+              <div className="chat-us-container contact-desc">
                 <h5>Looking for personalized advice?</h5>
                 <p>
                   The option to chat becomes active when one of our Client
                   Advisors is available.
                 </p>
-                <button class="chat-us-desc-btn">Ask Your Questions</button>
+                <button className="chat-us-desc-btn">Ask Your Questions</button>
               </div>
-              <p class="contact-us-line"></p>
+              <p className="contact-us-line"></p>
             </div>
-            <div class="call-us contact-container">
+            <div className="call-us contact-container">
               <h3>
                 <div>
                   <span>
-                    <i class="fa fa-phone"></i>
+                    <i className="fa fa-phone"></i>
                   </span>
-                  <span class="call-us-title">Call Us</span>
+                  <span className="call-us-title">Call Us</span>
                 </div>
-                <span class="icon-callUs">
-                  <i class="fa fa-plus"></i>
+                <span className="icon-callUs">
+                  <i className="fa fa-plus"></i>
                 </span>
               </h3>
-              <div class="call-us-container contact-desc">
+              <div className="call-us-container contact-desc">
                 <p>Our Client Advisors would be delighted to assist you.</p>
                 <p>
                   You may contact us at <span>1-802-526-2463</span>
@@ -214,56 +324,56 @@ export default function Contact() {
                   Saturday from 10 am to 6 pm
                 </small>
               </div>
-              <p class="contact-us-line"></p>
+              <p className="contact-us-line"></p>
             </div>
-            <div class="instant-msg contact-container">
+            <div className="instant-msg contact-container">
               <h3>
                 <div>
                   <span>
-                    <i class="fa-regular fa-message"></i>
+                    <i className="fa-regular fa-message"></i>
                   </span>
-                  <span class="instant-msg-title">Instant Message</span>
+                  <span className="instant-msg-title">Instant Message</span>
                 </div>
-                <span class="icon-msg">
-                  <i class="fa fa-plus"></i>
+                <span className="icon-msg">
+                  <i className="fa fa-plus"></i>
                 </span>
               </h3>
-              <div class="instant-msg-container contact-desc">
+              <div className="instant-msg-container contact-desc">
                 <p>Would you like to contact us on an instant messaging app?</p>
                 <small>
                   Our Client Advisors will be delighted to assist you
                 </small>
-                <button class="instant-msg-btn">Ask Your Questions</button>
+                <button className="instant-msg-btn">Ask Your Questions</button>
               </div>
-              <p class="contact-us-line"></p>
+              <p className="contact-us-line"></p>
             </div>
           </div>
 
-          <div class="desktop-section">
-            <div class="chat-desktop">
+          <div className="desktop-section">
+            <div className="chat-desktop">
               <h3>
                 <span>
-                  <i class="fa-regular fa-comment-dots"></i>
+                  <i className="fa-regular fa-comment-dots"></i>
                 </span>
-                <span class="chat-desktop-title">Chat Online</span>
+                <span className="chat-desktop-title">Chat Online</span>
               </h3>
-              <div class="chat-desktop-content">
+              <div className="chat-desktop-content">
                 <h5>Looking for personalized advice?</h5>
                 <p>
                   The option to chat becomes active when one of our Client
                   Advisors is available.
                 </p>
-                <button class="chat-desktop-btn">Ask Your Questions</button>
+                <button className="chatbtn">Ask Your Questions</button>
               </div>
             </div>
-            <div class="call-desktop">
+            <div className="call-desktop">
               <h3>
                 <span>
-                  <i class="fa fa-phone"></i>
+                  <i className="fa fa-phone"></i>
                 </span>
-                <span class="call-desktopn-title">Call Us</span>
+                <span className="call-desktopn-title">Call Us</span>
               </h3>
-              <div class="call-desktop-content">
+              <div className="call-desktop-content">
                 <h5>Our Client Advisors would be delighted to assist you.</h5>
                 <h5>
                   You may contact us at <span>1-802-526-2463</span>
@@ -274,31 +384,31 @@ export default function Contact() {
                 </p>
               </div>
             </div>
-            <div class="msg-desktop">
+            <div className="msg-desktop">
               <h3>
                 <span>
-                  <i class="fa-regular fa-message"></i>
+                  <i className="fa-regular fa-message"></i>
                 </span>
-                <span class="msg-desktop-title">Instant Message</span>
+                <span className="msg-desktop-title">Instant Message</span>
               </h3>
-              <div class="msg-desktop-content">
+              <div className="msg-desktop-content">
                 <h5>
                   Would you like to contact us on an instant messaging app?
                 </h5>
                 <p>Our Client Advisors will be delighted to assist you</p>
-                <button class="msg-desktop-btn">Ask Your Questions</button>
+                <button className="msgbtn">Ask Your Questions</button>
               </div>
             </div>
           </div>
 
-          <section class="options">
-            <div class="container-overlay-mobile-options">
+          <section className="options w-100">
+            <div className="container-overlay-mobile-options">
               <div></div>
               <div></div>
               <div></div>
               <div></div>
             </div>
-            <div class="container-overlay-desktop-options">
+            <div className="container-overlay-desktop-options">
               <div></div>
               <div></div>
               <div></div>
@@ -312,43 +422,55 @@ export default function Contact() {
               <div></div>
               <div></div>
             </div>
-            <div class="options-container">
-              <div class="options-item">
-                <div class="option-item-overlay"></div>
-                <div class="options-item-img">
+            <div className="row w-100 py-3">
+              <div className="col-3 d-flex justify-content-center align-items-center">
+                <div className="option-item-overlay"></div>
+                <div className="options-item-img">
                   <div>
-                    <img src="./Images/options/rabbit.png" alt="rabbit" />
+                    <img
+                      src="http://server.test/uploads/options/rabbit.png"
+                      alt="rabbit"
+                    />
                   </div>
                 </div>
-                <span class="options-item-text">No tests on animals</span>
+                <span className="options-item-text">No tests on animals</span>
               </div>
-              <div class="options-item">
-                <div class="options-item-img">
+              <div className="col-3 d-flex justify-content-center align-items-center">
+                <div className="options-item-img">
                   <div>
-                    <img src="./Images/options/leaf.png" alt="leaf" />
+                    <img
+                      src="http://server.test/uploads/options/leaf.png"
+                      alt="leaf"
+                    />
                   </div>
                 </div>
-                <span class="options-item-text">
+                <span className="options-item-text">
                   No animal-derived ingredients
                 </span>
               </div>
-              <div class="options-item">
-                <div class="options-item-img">
+              <div className="col-3 d-flex justify-content-center align-items-center">
+                <div className="options-item-img">
                   <div>
-                    <img src="./Images/options/wheat.png" alt="wheat" />
+                    <img
+                      src="http://server.test/uploads/options/wheat.png"
+                      alt="wheat"
+                    />
                   </div>
                 </div>
-                <span class="options-item-text">
+                <span className="options-item-text">
                   No gluten, or gluten byproducts
                 </span>
               </div>
-              <div class="options-item">
-                <div class="options-item-img">
+              <div className="col-3 d-flex justify-content-center align-items-center">
+                <div className="options-item-img">
                   <div>
-                    <img src="./Images/options/lamp.png" alt="lamp" />
+                    <img
+                      src="http://server.test/uploads/options/lamp.png"
+                      alt="lamp"
+                    />
                   </div>
                 </div>
-                <span class="options-item-text">Recyclable packaging</span>
+                <span className="options-item-text">Recyclable packaging</span>
               </div>
             </div>
           </section>

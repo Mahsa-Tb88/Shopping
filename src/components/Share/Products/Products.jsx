@@ -28,7 +28,7 @@ export default function Products({ products }) {
       {products.map((p) => {
         return (
           <div className="col-4 mb-5" key={p.id}>
-            <div className="px-3">
+            <div className="px-3 h-100">
               <div className="product border border-1 ">
                 <Link to={"/product/" + `${p.id}`}>
                   <img

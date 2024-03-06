@@ -1,11 +1,15 @@
 .header {
   background-color: #f8e9f0;
   padding: 15px 30px;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
+  width: 100%;
+  z-index: 100;
   height: 8rem;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  border-bottom: 1px solid #fff;
 }
 .link {
   text-decoration: none;
@@ -135,6 +139,6 @@
   .numItem:hover {
     background-color: #504c4e;
     color: #f8e9f0;
-    border-color:#79043c ;
+    border-color: #79043c;
   }
 }
