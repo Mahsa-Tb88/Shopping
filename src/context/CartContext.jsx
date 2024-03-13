@@ -1,13 +1,21 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
 import { cartReducer } from "./cartReducer";
+import { json } from "react-router-dom";
 
 const CartContext = createContext();
 
 function CartContextProvider({ children }) {
   const [cartState, cartDispatch] = useReducer(cartReducer, {
     items: localStorage.shopping ? JSON.parse(localStorage.shopping) : [],
+    saveToLocalStorage,
   });
-
+  function saveToLocalStorage(items) {
+    if (items.length) {
+      localStorage.shopping = JSON.stringify(items);
+    } else {
+      delete localStorage.shopping;
+    }
+  }
   function loadedFromLocalStorage() {
     localStorage.shopping
       ? cartDispatch({

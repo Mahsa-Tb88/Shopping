@@ -36,11 +36,10 @@ export default function UsersAdmin() {
     const result = await removeUserById(id);
     if (result.success) {
       const result = await getUsers();
-      if(result.success){
+      if (result.success) {
         setUsers(result.body);
         toast.success("The user deleted successfully!");
       }
-   
     } else {
       result.code == 404
         ? toast.error("There is not any user with this id!")
@@ -55,9 +54,9 @@ export default function UsersAdmin() {
       <h1>Managing Users</h1>
       <div className="addUser d-flex justify-content-center align-items-center">
         <Link className="addUserBtn link" to="new">
-          Add User
+          <span>Add User</span>
+          <FaPlus className="iconPlusUser" />
         </Link>
-        <FaPlus className="iconPlusUser" />
       </div>
       {isLoading ? (
         <div className="fs-2 w-75 text-center loadingUserAdmin">
