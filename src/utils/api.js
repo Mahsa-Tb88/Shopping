@@ -1,6 +1,6 @@
 import axios from "axios";
-import { info } from "sass";
 axios.defaults.baseURL = "http://server.test";
+// axios.defaults.baseURL = SERVER_URL;
 
 export async function initialize(token = "") {
   try {
@@ -112,7 +112,7 @@ export async function getBlogs(page) {
     }
   }
 }
-export async function getBlogById(id){
+export async function getBlogById(id) {
   try {
     const { data } = await axios.get(`http://server.test/blogs/${id}`);
     return data;

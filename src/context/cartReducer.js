@@ -7,7 +7,6 @@ export function cartReducer(state, action) {
       return { ...state, items: payload };
     case "updateShoppingProducts":
       return { ...state, items: payload };
-
     case "incrementItem":
       const findItem = state.items.find((item) => item.id == payload.id);
       if (findItem) {
@@ -25,7 +24,6 @@ export function cartReducer(state, action) {
       return { ...state, items };
 
     case "decrementItem":
-      console.log(payload);
       if (payload.count > 1) {
         items = state.items.map((p) => {
           if (p.id == payload.id) {

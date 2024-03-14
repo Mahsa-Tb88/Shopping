@@ -15,10 +15,11 @@ export default function Products({ products }) {
   return (
     <div className="row products">
       {products.map((p) => {
+        selectedItem = cartState.items.find((item) => item.id == p.id);
         return (
           <div className="col-4 mb-5" key={p.id}>
             <div className="px-3 h-100">
-              <div className="product border border-1 ">
+              <div className="product border border-1 d-flex flex-column  ">
                 <Link to={"/product/" + `${p.id}`}>
                   <img
                     src={"http://server.test" + `${p.image}`}
@@ -27,7 +28,7 @@ export default function Products({ products }) {
                   />
                 </Link>
                 <div className="card-body">
-                  <h1 className="fs-3 py-5 text-center">
+                  <h1 className="fs-3 py-5 text-center cardItem-titel">
                     <Link
                       to={"/product/" + `${p.id}`}
                       className="link text-black"
@@ -39,21 +40,17 @@ export default function Products({ products }) {
                     <h3>Price: </h3>
                     <p className="fs-4">$ {p.price}</p>
                   </div>
-                  <div
-                    className="btnAddToCart fs-4"
-                    onClick={() => incrementHandler(p)}
-                  >
-                    {
-                      (selectedItem = cartState.items.find(
-                        (item) => item.id == p.id
-                      ) ? (
-                        <AddtoCart product={selectedItem} />
-                      ) : (
-                        <button className="bg-addTocart py-3 ">
-                          Add to Cart
-                        </button>
-                      ))
-                    }
+                  <div className="btnAddToCart fs-4">
+                    {selectedItem ? (
+                      <AddtoCart product={selectedItem} />
+                    ) : (
+                      <button
+                        className="bg-addTocart py-3 "
+                        onClick={() => incrementHandler(p)}
+                      >
+                        Add to Cart
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -67,8 +64,7 @@ export default function Products({ products }) {
 
 function AddtoCart({ product }) {
   const { cartState, cartDispatch } = useCartContext();
-  console.log("items...", cartState.items);
-  console.log(product);
+
   function incrementHandler(product) {
     cartDispatch({ type: "incrementItem", payload: product });
   }
@@ -90,7 +86,7 @@ function AddtoCart({ product }) {
         <span className="btn-minus" onClick={() => decrementHandler(product)}>
           <FaMinus />
         </span>
-        <span className="text-black mx-3">{}</span>
+        <span className="text-black mx-3">{product.count}</span>
         <span className="btn-plus" onClick={() => incrementHandler(product)}>
           <FaPlus />
         </span>

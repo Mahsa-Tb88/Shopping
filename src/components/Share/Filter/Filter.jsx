@@ -3,105 +3,74 @@ import "./filter.scss";
 import { useAppContext } from "../../../context/AppContext";
 import { useSearchParams } from "react-router-dom";
 
-export default function Filter({ shopDispatch }) {
+export default function Filter({ shopState }) {
   const { appState, appDispatch } = useAppContext();
   const [searchParams, setSearchParams] = useSearchParams("");
 
+  // function getNewSearchParams(oldParams, key, value) {
+  //   if (!oldParams.get) {
+  //     oldParams = new URLSearchParams(oldParams);
+  //   }
+  //   const keys = Array.from(oldParams.keys());
+  //   const params = {};
+  //   for (let i = 0; i < keys.length; i++) {
+  //     params[keys[i]] = oldParams.get(keys[i]);
+  //   }
+  //   if (value) {
+  //     params[key] = value;
+  //   } else {
+  //     delete params[key];
+  //   }
+  //   return params;
+  // }
+  function searchHandler(value) {
+    let params = getNewSearchParams(searchParams, "q", value);
+    params = getNewSearchParams(params, "page", 0);
+    setSearchParams(params, { replace: true });
+  }
   function categoryHandler(value) {
-    shopDispatch({ type: "setfilterCategory", payload: value });
-    let paramsUrl = {};
-    paramsUrl.category = value;
-    paramsUrl.page = 1;
-    if (searchParams.get("limit")) {
-      paramsUrl.limit = searchParams.get("limit");
+    let params = getNewSearchParams(searchParams, "category", value);
+    params = getNewSearchParams(params, "page", 0);
+    setSearchParams(params);
+  }
+  function sortHandler(type) {
+    const s = { sort: "id", order: "desc" };
+    if (type === "2") {
+      s.order = "asc";
+    } else if (type === "3") {
+      s.sort = "price";
+    } else if (type === "4") {
+      s.sort = "price";
+      s.order = "asc";
     }
 
-    if (searchParams.get("q")) {
-      paramsUrl.q = searchParams.get("q");
-    }
-    if (searchParams.get("sort")) {
-      paramsUrl.sort = searchParams.get("sort");
-    }
-    if (searchParams.get("order")) {
-      paramsUrl.order = searchParams.get("order");
-    }
+    let params = getNewSearchParams(searchParams, "sort", s.sort);
+    params = getNewSearchParams(params, "order", s.order);
 
-    setSearchParams(paramsUrl);
+    if (s.sort == "id" && s.order == "desc") {
+      delete params.order;
+      delete params.sort;
+    }
+    delete params.page;
+    setSearchParams(params);
+  }
+  function getSortType() {
+    if (shopState.sort === "id" && shopState.order === "desc") {
+      return "1";
+    } else if (shopState.sort === "id" && shopState.order === "asc") {
+      return "2";
+    } else if (shopState.sort === "price" && shopState.order === "desc") {
+      return "3";
+    } else if (shopState.sort === "price" && shopState.order === "asc") {
+      return "4";
+    }
   }
   function limitHandler(value) {
-    shopDispatch({ type: "setLimit", payload: value });
-    let paramsUrl = {};
-    paramsUrl.limit = value;
-    paramsUrl.page = 1;
-    if (searchParams.get("category")) {
-      paramsUrl.category = searchParams.get("category");
-    }
-    if (searchParams.get("q")) {
-      paramsUrl.q = searchParams.get("q");
-    }
-    if (searchParams.get("sort")) {
-      paramsUrl.sort = searchParams.get("sort");
-    }
-    if (searchParams.get("order")) {
-      paramsUrl.order = searchParams.get("order");
-    }
-    setSearchParams(paramsUrl);
+    let params = getNewSearchParams(searchParams, "limit", value);
+    params = getNewSearchParams(params, "page", 0);
+    setSearchParams(params);
   }
-  function sortHandler(value) {
-    let lastSort =
-      value == "new"
-        ? { sort: "id", order: "desc" }
-        : value == "old"
-        ? { sort: "id", order: "asc" }
-        : value == "cheapest"
-        ? { sort: "price", order: "asc" }
-        : { sort: "price", order: "desc" };
 
-    shopDispatch({ type: "setSortAndOrder", payload: lastSort });
-    let paramsUrl = {};
-    paramsUrl.sort = lastSort.sort;
-    paramsUrl.order = lastSort.order;
-    paramsUrl.page = 1;
-
-    if (searchParams.get("category")) {
-      paramsUrl.category = searchParams.get("category");
-    }
-    if (searchParams.get("q")) {
-      paramsUrl.q = searchParams.get("q");
-    }
-    if (searchParams.get("limit")) {
-      paramsUrl.limit = searchParams.get("limit");
-    }
-
-    setSearchParams(paramsUrl);
-  }
-  function searchHandler(value) {
-    // const timeout = setTimeout(searchFilter, 1000);
-    // clearTimeout(timeout);
-
-    // function searchFilter() {
-    //   shopDispatch({ type: "setSearch", payload: value });
-    // }
-    shopDispatch({ type: "setSearch", payload: value });
-
-    let paramsUrl = {};
-    paramsUrl.q = value;
-    paramsUrl.page = 1;
-    if (searchParams.get("limit")) {
-      paramsUrl.limit = searchParams.get("limit");
-    }
-    if (searchParams.get("category")) {
-      paramsUrl.category = searchParams.get("category");
-    }
-    if (searchParams.get("sort")) {
-      paramsUrl.sort = searchParams.get("sort");
-    }
-    if (searchParams.get("order")) {
-      paramsUrl.order = searchParams.get("order");
-    }
-
-    setSearchParams(paramsUrl);
-  }
   return (
     <div className="filter">
       <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
@@ -111,7 +80,7 @@ export default function Filter({ shopDispatch }) {
           placeholder="search..."
           className="w-100 px-3 py-2 fs-4"
           onChange={(e) => searchHandler(e.target.value)}
-          value={searchParams.get("q") || ""}
+          value={shopState.q}
         />
       </div>
       <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
@@ -119,7 +88,7 @@ export default function Filter({ shopDispatch }) {
         <select
           className="w-100 px-2 border-0 py-2 fs-4"
           onChange={(e) => categoryHandler(e.target.value)}
-          value={searchParams.get("category") || ""}
+          value={shopState.category}
         >
           <option value="">All</option>
           {appState.categories.map((c) => {
@@ -135,24 +104,13 @@ export default function Filter({ shopDispatch }) {
         <label className="text-white fs-3 mb-2">sort</label>
         <select
           className="w-100 px-2 border-0 py-2 fs-4"
-          value={
-            searchParams.get("sort") == "price" &&
-            searchParams.get("order") == "desc"
-              ? "expensive"
-              : searchParams.get("sort") == "price" &&
-                searchParams.get("order") == "asc"
-              ? "cheapest"
-              : searchParams.get("sort") == "id" &&
-                searchParams.get("order") == "asc"
-              ? "old"
-              : "new"
-          }
+          value={getSortType()}
           onChange={(e) => sortHandler(e.target.value)}
         >
-          <option value="cheapest">Cheapest</option>
-          <option value="expensive">The most expensive</option>
-          <option value="new">Newest</option>
-          <option value="old">Oldest</option>
+          <option value="1">Newest</option>
+          <option value="2">Oldest</option>
+          <option value="3">The most expensive</option>
+          <option value="4">Cheapest</option>
         </select>
       </div>
       <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
@@ -161,10 +119,10 @@ export default function Filter({ shopDispatch }) {
         </label>
         <select
           className="w-100 px-2 border-0 py-2 fs-4"
-          value={searchParams.get("limit") || 6}
+          value={shopState.limit}
           onChange={(e) => limitHandler(e.target.value)}
         >
-          <option value="6">6</option>
+          <option value="">6</option>
           <option value="9">9</option>
           <option value="12">12</option>
           <option value="24">24</option>

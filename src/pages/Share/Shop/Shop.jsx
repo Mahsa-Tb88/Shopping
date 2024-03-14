@@ -6,54 +6,80 @@ import Products from "../../../components/Share/Products/Products";
 import { getProducts } from "../../../utils/api";
 import shopReducer from "./shopReducer";
 import { useSearchParams } from "react-router-dom";
+
 export default function Shop() {
-  const [searchParams, setSearchParams] = useSearchParams("");
+  const [loading, setLoading] = useState(true);
+  const [loadingError, setLoadingError] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const [shopState, shopDispatch] = useReducer(shopReducer, {
     products: [],
     totalProducts: { all: 0, filtered: 0 },
     limit: searchParams.get("limit") || 6,
-    filterCategory: searchParams.get("category") || "",
+    category: searchParams.get("category") || "",
     page: searchParams.get("page") || 1,
     sort: searchParams.get("sort") || "Newest",
     q: searchParams.get("q") || "",
     order: searchParams.get("order") || "desc",
-    isLoading: true,
-    loadingError: false,
+    delay: 10,
   });
 
   useEffect(() => {
-    const timeOut = setTimeout(fetchProducts, 20);
+    document.title = "Prodcuts";
+    const page = searchParams.get("page") || 1;
+    const q = searchParams.get("q") || "";
+    const limit = searchParams.get("limit") || 6;
+    const category = searchParams.get("category") || "";
+    const order = searchParams.get("order") || "desc";
+    const sort = searchParams.get("sort") || "id";
+    shopDispatch({
+      type: "setFilter",
+      payload: {
+        page,
+        q,
+        limit,
+        category,
+        order,
+        sort,
+      },
+    });
+    if (shopState.q !== q) {
+      shopDispatch({ type: "setDelay", payload: 1000 });
+    }
+  }, [searchParams]);
+
+  useEffect(() => {
+    const timeOut = setTimeout(fetchProducts, shopState.delay);
+
     return () => clearTimeout(timeOut);
   }, [
     shopState.limit,
     shopState.page,
-    shopState.filterCategory,
+    shopState.category,
     shopState.q,
     shopState.sort,
     shopState.order,
   ]);
 
   async function fetchProducts() {
-    shopDispatch({ type: "setLoadingError", payload: false });
-    // shopDispatch({ type: "setIsLoading", payload: true });
+    setLoading(true);
+    setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 10);
     const result = await getProducts(
       shopState.page,
       shopState.limit,
-      shopState.filterCategory,
+      shopState.category,
       shopState.q,
       shopState.sort,
       shopState.order
     );
     if (result.success) {
+      setLoadingError(false);
       shopDispatch({ type: "setProducts", payload: result.body });
       shopDispatch({ type: "setTotalProducts", payload: result.totalProducts });
     } else {
-      shopDispatch({
-        type: "setLoadingError",
-        payload: { code: result.code, message: result.message },
-      });
+      setLoadingError({ message: result.message });
     }
-    shopDispatch({ type: "setIsLoading", payload: false });
+    setLoading(false);
   }
   const numOfPage = Math.ceil(
     shopState.totalProducts.filtered / shopState.limit
@@ -63,19 +89,19 @@ export default function Shop() {
     <div className="shop container ">
       <div className="d-flex justify-content-between align-items-start mb-5">
         <div className="filter px-3 py-3 w-25 me-2 mt-5">
-          <Filter shopDispatch={shopDispatch} />
+          <Filter shopState={shopState} />
         </div>
         <div className="w-75 ms-2 mt-5">
-          {shopState.isLoading ? (
+          {loading ? (
             <div className=" d-flex justify-content-center align-items-center  mt-5  flex-column">
               <p className="mb-4 loadingProducts">Loading ...</p>
               <span className=" spiner spinner-grow fs-5 "></span>
             </div>
-          ) : shopState.loadingError ? (
+          ) : loadingError ? (
             <div className="d-flex justify-content-center align-items-center  mt-5  flex-column">
-              <h1>{shopState.loadingError.message}</h1>
+              <h1>{loadingError.message}</h1>
               <button
-                className="btn btn-danger"
+                className="btn btn-danger px-4 py-3 fs-4"
                 onClick={() => fetchProducts()}
               >
                 Try Again
