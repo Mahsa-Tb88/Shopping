@@ -10,10 +10,16 @@
   height: 8rem;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
   border-bottom: 1px solid #fff;
+  .link {
+    text-decoration: none;
+  }
+  .active{
+    background-color: #79043c;
+    color: #f8e9f0 !important;
+    border: none;
+  }
 }
-.link {
-  text-decoration: none;
-}
+
 .navlink {
   text-decoration: none;
   color: #504c4e;

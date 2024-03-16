@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import "./utils/globalFunctions.js";
+import "./utils/globalConstants.js"; 
+
 import { AppContextProvider } from "./context/AppContext.jsx";
 import { CartContextProvider } from "./context/CartContext.jsx";
 import { RouterProvider } from "react-router-dom";

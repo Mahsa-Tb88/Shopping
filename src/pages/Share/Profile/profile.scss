@@ -1,0 +1,10 @@
+.profile-user {
+  margin-top: 3rem;
+  .input {
+    border: 1px solid #f3f3f3;
+  }
+  .input:focus {
+    outline: none;
+    border-color: #79043c;
+  }
+}

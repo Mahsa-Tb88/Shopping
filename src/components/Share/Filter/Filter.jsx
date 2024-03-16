@@ -7,22 +7,6 @@ export default function Filter({ shopState }) {
   const { appState, appDispatch } = useAppContext();
   const [searchParams, setSearchParams] = useSearchParams("");
 
-  // function getNewSearchParams(oldParams, key, value) {
-  //   if (!oldParams.get) {
-  //     oldParams = new URLSearchParams(oldParams);
-  //   }
-  //   const keys = Array.from(oldParams.keys());
-  //   const params = {};
-  //   for (let i = 0; i < keys.length; i++) {
-  //     params[keys[i]] = oldParams.get(keys[i]);
-  //   }
-  //   if (value) {
-  //     params[key] = value;
-  //   } else {
-  //     delete params[key];
-  //   }
-  //   return params;
-  // }
   function searchHandler(value) {
     let params = getNewSearchParams(searchParams, "q", value);
     params = getNewSearchParams(params, "page", 0);

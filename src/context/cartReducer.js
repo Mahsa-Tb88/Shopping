@@ -24,7 +24,9 @@ export function cartReducer(state, action) {
       return { ...state, items };
 
     case "decrementItem":
-      if (payload.count > 1) {
+      const item = state.items.find((p) => p.id === payload.id);
+
+      if (item.count > 1) {
         items = state.items.map((p) => {
           if (p.id == payload.id) {
             return { ...p, count: p.count - 1 };

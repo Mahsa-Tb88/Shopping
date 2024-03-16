@@ -1,6 +1,6 @@
 import axios from "axios";
-axios.defaults.baseURL = "http://server.test";
-// axios.defaults.baseURL = SERVER_URL;
+// axios.defaults.baseURL = "";
+axios.defaults.baseURL = SERVER_URL;
 
 export async function initialize(token = "") {
   try {
@@ -19,11 +19,7 @@ export async function initialize(token = "") {
 export async function register(user) {
   let config = getToken();
   try {
-    const { data } = await axios.post(
-      "http://server.test/auth/register",
-      user,
-      config
-    );
+    const { data } = await axios.post("/auth/register", user, config);
 
     return data;
   } catch (e) {
@@ -37,7 +33,7 @@ export async function register(user) {
 
 export async function login(user) {
   try {
-    const { data } = await axios.post("http://server.test/auth/login", user);
+    const { data } = await axios.post("/auth/login", user);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -50,7 +46,7 @@ export async function login(user) {
 
 export async function getAllCategories() {
   try {
-    const { data } = await axios.get("http://server.test/categories");
+    const { data } = await axios.get("/categories");
     return data;
   } catch (e) {
     if (!e.response) {
@@ -70,7 +66,7 @@ export async function getProducts(
   order = "desc"
 ) {
   try {
-    const { data } = await axios.get("http://server.test/products", {
+    const { data } = await axios.get("/products", {
       params: { page, limit, category, q, sort, order },
     });
     return data;
@@ -85,7 +81,7 @@ export async function getProducts(
 
 export async function getCategories(page) {
   try {
-    const { data } = await axios.get("http://server.test/categories", {
+    const { data } = await axios.get("/categories", {
       params: { page },
     });
     return data;
@@ -100,7 +96,7 @@ export async function getCategories(page) {
 
 export async function getBlogs(page) {
   try {
-    const { data } = await axios.get("http://server.test/blogs", {
+    const { data } = await axios.get("/blogs", {
       params: { page },
     });
     return data;
@@ -114,7 +110,7 @@ export async function getBlogs(page) {
 }
 export async function getBlogById(id) {
   try {
-    const { data } = await axios.get(`http://server.test/blogs/${id}`);
+    const { data } = await axios.get(`/blogs/${id}`);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -126,19 +122,23 @@ export async function getBlogById(id) {
 }
 export async function getProductById(id) {
   try {
-    const { data } = await axios.get(`http://server.test/products/${id}`);
+    const { data } = await axios.get(`/products/${id}`);
     return data;
   } catch (e) {
     if (!e.response) {
-      return { success: false, message: "Connection Error" };
+      return { success: false, code: 500, message: "Connection Error" };
     } else {
-      return { success: false, message: "There is no Product with this Id!" };
+      return {
+        success: false,
+        code: 404,
+        message: "There is no Product with this Id!",
+      };
     }
   }
 }
 export async function getCategoryById(id) {
   try {
-    const { data } = await axios.get(`http://server.test/categories/${id}`);
+    const { data } = await axios.get(`/categories/${id}`);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -150,7 +150,7 @@ export async function getCategoryById(id) {
 }
 export async function getUserById(id) {
   try {
-    const { data } = await axios.get(`http://server.test/users/${id}`);
+    const { data } = await axios.get(`/users/${id}`);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -164,11 +164,7 @@ export async function getUserById(id) {
 export async function updateCategory(info, id) {
   const config = getToken();
   try {
-    const { data } = await axios.put(
-      `http://server.test/categories/${id}`,
-      info,
-      config
-    );
+    const { data } = await axios.put(`/categories/${id}`, info, config);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -182,11 +178,7 @@ export async function updateCategory(info, id) {
 export async function updateUser(info, id) {
   const config = getToken();
   try {
-    const { data } = await axios.put(
-      `http://server.test/users/${id}`,
-      info,
-      config
-    );
+    const { data } = await axios.put(`/users/${id}`, info, config);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -200,10 +192,7 @@ export async function updateUser(info, id) {
 export async function removeProductById(id) {
   const config = getToken();
   try {
-    const { data } = await axios.delete(
-      `http://server.test/products/${id}`,
-      config
-    );
+    const { data } = await axios.delete(`/products/${id}`, config);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -222,7 +211,7 @@ export async function createProduct() {
   }
 
   try {
-    const { data } = await axios.post("http://server.test/products", config);
+    const { data } = await axios.post("/products", config);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -240,11 +229,7 @@ export async function createCategory(info) {
     config.headers = { Authorization: "Bearer " + token };
   }
   try {
-    const { data } = await axios.post(
-      "http://server.test/categories",
-      info,
-      config
-    );
+    const { data } = await axios.post("/categories", info, config);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -258,10 +243,7 @@ export async function createCategory(info) {
 export async function deleteCategory(id) {
   const config = getToken();
   try {
-    const { data } = await axios.delete(
-      `http://server.test/categories/${id}`,
-      config
-    );
+    const { data } = await axios.delete(`/categories/${id}`, config);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -269,7 +251,6 @@ export async function deleteCategory(id) {
     } else {
       return {
         success: false,
-        message: e.response.data.message,
         code: e.response.data.code,
       };
     }
@@ -280,7 +261,7 @@ export async function getUsers(page) {
   const config = getToken();
 
   try {
-    const { data } = await axios.get("http://server.test/users", config);
+    const { data } = await axios.get("/users", config);
     return data;
   } catch (e) {
     if (!e.response) {
@@ -294,10 +275,7 @@ export async function getUsers(page) {
 export async function removeUserById(id) {
   const config = getToken();
   try {
-    const { data } = await axios.delete(
-      `http://server.test/users/${id}`,
-      config
-    );
+    const { data } = await axios.delete(`/users/${id}`, config);
     return data;
   } catch (e) {
     if (!e.response) {

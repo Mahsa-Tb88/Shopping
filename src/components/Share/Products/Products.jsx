@@ -7,11 +7,15 @@ import { useCartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
 
 export default function Products({ products }) {
+  
   const { cartState, cartDispatch } = useCartContext();
+
   function incrementHandler(product) {
     cartDispatch({ type: "incrementItem", payload: product });
   }
+
   let selectedItem;
+
   return (
     <div className="row products">
       {products.map((p) => {
@@ -63,7 +67,7 @@ export default function Products({ products }) {
 }
 
 function AddtoCart({ product }) {
-  const { cartState, cartDispatch } = useCartContext();
+  const { cartDispatch } = useCartContext();
 
   function incrementHandler(product) {
     cartDispatch({ type: "incrementItem", payload: product });

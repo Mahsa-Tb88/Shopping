@@ -48,7 +48,7 @@ export default function Header() {
         </Link>
       </div>
       <nav className="navBar ">
-        <NavLink className="navlink" end>
+        <NavLink className="navlink" end to="/">
           Home
         </NavLink>
         <NavLink className="navlink" to="shop">
