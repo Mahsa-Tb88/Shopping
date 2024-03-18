@@ -17,7 +17,7 @@ export default function FormUser({ onSubmit, type, user }) {
   const { errors, isSubmitting } = formState;
 
   return (
-    <form className=" ms-3  mt-5" onSubmit={handleSubmit(onSubmit)}>
+    <form className=" ms-3 formUser mt-5" onSubmit={handleSubmit(onSubmit)}>
       <div className="table">
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Firstname</label>

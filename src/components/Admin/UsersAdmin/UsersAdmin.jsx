@@ -52,7 +52,7 @@ export default function UsersAdmin() {
   return (
     <div className="userAdmin">
       <h1>Managing Users</h1>
-      <div className="addUser d-flex justify-content-center align-items-center">
+      <div className="addNewUser d-flex justify-content-center align-items-center">
         <Link className="addUserBtn link" to="new">
           <span>Add User</span>
           <FaPlus className="iconPlusUser" />

@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "balance.scss"
+        "lightStyles.scss"
     ],
     "names": [],
-    "file": "balance.css"
+    "file": "lightStyles.css"
 }

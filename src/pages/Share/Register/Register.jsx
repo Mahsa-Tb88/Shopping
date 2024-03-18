@@ -158,7 +158,7 @@ export default function Register() {
             className="input w-100"
             type="password"
             {...register("confirmPassword", {
-              required: "You Must Enter Password",
+              required: "You Must Enter Confirm Password",
               validate(value) {
                 if (watch("password") !== value) {
                   return "Confirm Password Is Not Equel To Password";

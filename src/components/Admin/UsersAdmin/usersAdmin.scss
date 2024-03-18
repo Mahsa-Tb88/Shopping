@@ -1,7 +1,7 @@
 .userAdmin {
   margin-top: 5rem;
   margin-left: 5rem;
-  .addUser {
+  .addNewUser {
     background-color: #79043c;
     color: #f8e9f0;
     padding: 10px 25px;
@@ -21,7 +21,7 @@
     font-size: 15px;
     margin-left: 10px;
   }
-  .addUser:hover {
+  .addNewUser:hover {
     background-color: #504c4e;
   }
   .btn-tryAgain {
@@ -56,5 +56,13 @@
   .operation-edit:hover {
     background-color: rgb(79, 79, 233);
     color: #fff;
+  }
+  .btn-submit {
+    background-color: #79043c;
+    color: #f8e9f0;
+    width: 20rem;
+  }
+  .btn-submit:hover {
+    background-color: #504c4e;
   }
 }

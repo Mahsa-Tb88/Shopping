@@ -34,8 +34,10 @@ export default function EditUser() {
   }
 
   async function submitHandler(data) {
-    console.log(data);
-    const result = await updateUser(data, id);
+    const { firstname, lastname, password, role } = data;
+    setFailMessage("");
+    setSuccessMessage("");
+    const result = await updateUser(id, firstname, lastname, password, role);
     if (result.success) {
       setFailMessage(false);
       setSuccessMessage("The user updated successfully");
@@ -70,7 +72,7 @@ export default function EditUser() {
               </h2>
             </div>
           )}
-          <h1>Edit Product</h1>
+          <h1>Edit User</h1>
           <FormUser type="edit" onSubmit={submitHandler} user={user} />
         </div>
       )}

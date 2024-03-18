@@ -1,7 +1,21 @@
 import axios from "axios";
-// axios.defaults.baseURL = "";
-axios.defaults.baseURL = SERVER_URL;
 
+axios.defaults.baseURL = SERVER_URL;
+const authAxios = axios.create({
+  baseURL: SERVER_URL,
+});
+authAxios.interceptors.request.use(
+  (config) => {
+    const token = localStorage.token ?? sessionStorage.token;
+    if (token) {
+      config.headers.Authorization = "Bearer " + token;
+    }
+    return config;
+  },
+  (error) => {
+    console.log(error);
+  }
+);
 export async function initialize(token = "") {
   try {
     const config = {};
@@ -175,10 +189,20 @@ export async function updateCategory(info, id) {
   }
 }
 
-export async function updateUser(info, id) {
-  const config = getToken();
+export async function updateUser(
+  id,
+  firstname,
+  lastname,
+  password = "",
+  role = ""
+) {
   try {
-    const { data } = await axios.put(`/users/${id}`, info, config);
+    const { data } = await authAxios.put(`/users/${id}`, {
+      firstname,
+      lastname,
+      password,
+      role,
+    });
     return data;
   } catch (e) {
     if (!e.response) {

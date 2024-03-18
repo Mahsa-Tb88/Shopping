@@ -1,0 +1,14 @@
+.loadingComp {
+  margin-top: 100px;
+  padding: 20px 50px;
+}
+
+.loadingComp .title-loadingComp,
+.loadingComp .spiner-loadingComp {
+  color: #79043c;
+}
+
+.loadingComp .piner-loadingComp {
+  color: #79043c;
+}
+/*# sourceMappingURL=loading.css.map */

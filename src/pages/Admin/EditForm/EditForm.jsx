@@ -16,7 +16,7 @@ export default function EditForm({ onSubmit, type, product }) {
   const { errors, isSubmitting } = formState;
 
   return (
-    <form className="ms-3  mt-5" onSubmit={handleSubmit(onSubmit)}>
+    <form className="ms-3  mt-5 editform" onSubmit={handleSubmit(onSubmit)}>
       <div className="table">
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Title of Product</label>
