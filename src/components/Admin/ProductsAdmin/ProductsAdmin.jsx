@@ -9,6 +9,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
+import Pagination from "../../Share/Pagination/Pagination";
 export default function ProductsAdmin() {
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(null);
@@ -18,13 +19,19 @@ export default function ProductsAdmin() {
   const [page, setPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams("");
 
+  const navigate = useNavigate();
+  let numOfPage;
+
   useEffect(() => {
-    setPage(searchParams.get("page"));
+    document.title = "Managing Products";
+    const page = searchParams.get("page") ?? 1;
+    setPage(+page);
+  }, [searchParams]);
+
+  useEffect(() => {
     const timeOut = setTimeout(fetchProducts, 20);
     return () => clearTimeout(timeOut);
   }, [page]);
-  const navigate = useNavigate();
-  let numOfPage = 1;
 
   async function fetchProducts() {
     setIsLoading(true);
@@ -45,21 +52,47 @@ export default function ProductsAdmin() {
     if (!confirm("Are you sure for deletting the product?")) {
       return;
     }
+    const t = toast.loading("Deleating...", {
+      theme: appState.them,
+      style: { fontSize: 15 },
+    });
     const result = await removeProductById(id);
     if (result.success) {
       const result = await getProducts(page);
       if (result.success) {
-        setProducts(result.body);
-        toast.success("The product deleted successfully!");
+        if (result.body.length == 0 && page > 1) {
+          setSearchParams({ page: page - 1 });
+        } else {
+          setProducts(result.body);
+        }
+        toast.update(t, {
+          render: <p className="fs-4">The category deleted successfully!</p>,
+          isLoading: false,
+          type: "success",
+          autoClose: 2000,
+        });
       } else {
-        toast.error(result.message);
+        toast.update(t, {
+          render: <p className="fs-4">{result.message}</p>,
+          isLoading: false,
+          type: "error",
+          autoClose: 2000,
+        });
       }
     } else {
-      toast.error(result.message);
+      toast.update(t, {
+        render: <p className="fs-4">{result.message}</p>,
+        isLoading: false,
+        type: "error",
+        autoClose: 2000,
+      });
     }
   }
 
-  
+  function pageHandler(i) {
+    setSearchParams({ page: i });
+  }
+
   return (
     <div className="productsAdmin">
       {isLoading ? (
@@ -78,7 +111,9 @@ export default function ProductsAdmin() {
         <div className=" px-4 py-5">
           <h1>Manage Products</h1>
           <div className="addProduct d-flex justify-content-center align-items-center">
-            <Link className="addProductBtn link" to="new">Add Products</Link>
+            <Link className="addProductBtn link" to="new">
+              Add Products
+            </Link>
             <FaPlus className="iconPlusProduct" />
           </div>
           <div>
@@ -139,10 +174,10 @@ export default function ProductsAdmin() {
                     })}
                   </tbody>
                 </table>
-                <PaginationProducts
+                <Pagination
                   numOfPage={numOfPage}
                   page={page}
-                  setPage={setPage}
+                  pageHandler={pageHandler}
                 />
               </div>
             ) : (
@@ -154,54 +189,5 @@ export default function ProductsAdmin() {
         </div>
       )}
     </div>
-  );
-}
-
-function PaginationProducts({ numOfPage, setPage, page }) {
-  const [searchParams, setSearchParams] = useSearchParams("");
-
-  let pages = [];
-  const prevClasses = ["page-link", page == 1 ? "disabled" : ""].join(" ");
-  const nextClasses = ["page-link", page == numOfPage ? "disabled" : ""].join(
-    " "
-  );
-  function pageHandler(i) {
-    setPage(i);
-    setSearchParams({ page: i });
-  }
-  function pageFirstHandler() {}
-  function pageLastHandler() {}
-  for (let i = 1; i <= numOfPage; i++) {
-    pages.push(
-      <i
-        key={i}
-        className={"page-link " + (page == i ? "active" : "")}
-        onClick={() => pageHandler(i)}
-      >
-        <span className="page-Item">{i}</span>
-      </i>
-    );
-  }
-
-  if (numOfPage <= 1) {
-    return;
-  }
-
-  return (
-    <nav className=" d-flex justify-content-center align-items-center paginate pagination">
-      <ul className="d-flex justify-content-center align-items-center">
-        <i className={prevClasses} onClick={() => pageFirstHandler()}>
-          <span className="page-Item">
-            <FaAngleDoubleLeft />
-          </span>
-        </i>
-        {pages}
-        <i className={nextClasses} onClick={() => pageLastHandler()}>
-          <span className="page-Item">
-            <FaAngleDoubleRight />
-          </span>
-        </i>
-      </ul>
-    </nav>
   );
 }

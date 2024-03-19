@@ -37,6 +37,7 @@ export default function Profile() {
       const newUser = { ...appState.user };
       newUser.firstname = data.name;
       newUser.lastname = data.family;
+      appDispatch({ type: "setUser", payload: newUser });
     } else {
       setFailMessage(result.message);
     }
@@ -94,8 +95,13 @@ export default function Profile() {
           <input
             type="password"
             className=" w-75 fs-4 px-2 py-3 rounded-1 input"
-            {...register("password")}
+            {...register("password", {
+              required: "You must enter your password",
+            })}
           />
+          {errors.password && (
+            <p className="errors mt-3 border-0">{errors.password.message}</p>
+          )}
         </div>
         <div className="d-flex flex-column align-items-baseline mb-5">
           <label className="fs-3 mb-2">Confirm Password</label>

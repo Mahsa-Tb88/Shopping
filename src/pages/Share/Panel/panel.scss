@@ -18,3 +18,10 @@
     border-top: 1px solid #fff;
   }
 }
+
+[data-bs-theme="dark"] .panel {
+  .sideBar {
+    background-color: #212529;
+    border-top: none;
+  }
+}

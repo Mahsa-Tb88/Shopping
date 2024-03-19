@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./addCategory.scss";
 import FormCategory from "../FormCategory/FormCategory";
 import { createCategory } from "../../../utils/api";
@@ -10,7 +10,9 @@ export default function AddCategory() {
   const [successMessage, setSuccessMessage] = useState("");
 
   const navigate = useNavigate();
-
+  useEffect(() => {
+    document.title = "New Category";
+  }, []);
   async function submitHandler(data) {
     const result = await createCategory(data);
     if (result.success) {

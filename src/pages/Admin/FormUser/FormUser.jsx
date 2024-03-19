@@ -25,7 +25,7 @@ export default function FormUser({ onSubmit, type, user }) {
             type="text"
             className="inputCategory w-75 px-2 py-2 rounded-1"
             {...register("firstname", {
-              required: "You must enter a firstname for category",
+              required: "You must enter a firstname for user",
               minLength: {
                 value: 3,
                 message: "firstname must be 3 Characters at least",
@@ -94,8 +94,8 @@ export default function FormUser({ onSubmit, type, user }) {
               {...register("password", {
                 required: "You must enter a password",
                 minLength: {
-                  value: 3,
-                  message: "password must be 3 characters at least",
+                  value: 6,
+                  message: "password must be 6 characters at least",
                 },
                 maxLength: {
                   value: 10,
@@ -114,7 +114,7 @@ export default function FormUser({ onSubmit, type, user }) {
           <select
             className="inputUser form-select fs-3 w-25 px-2 py-2 rounded-1"
             {...register("role", {
-              required: "Select the category",
+              required: "Select the role",
             })}
           >
             <option value="admin">Admin</option>

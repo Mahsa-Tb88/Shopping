@@ -6,23 +6,36 @@ import { FaPlus } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { getUsers, removeUserById } from "../../../utils/api";
+import Pagination from "../../Share/Pagination/Pagination";
+import { useAppContext } from "../../../context/AppContext";
 
 export default function UsersAdmin() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [users, setUsers] = useState([]);
-
+  const [page, setPage] = useState(1);
+  const [totalUsers, setTotalUsers] = useState(null);
+  let numOfPage = Math.ceil(parseInt(totalUsers) / 6);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { appState } = useAppContext();
   useEffect(() => {
     document.title = "Managing Users";
+    const page = searchParams.get("page") ?? 1;
+    setPage(+page);
+  }, [searchParams]);
+
+  useEffect(() => {
     const timeOut = setTimeout(fetchUsers, 20);
     return () => clearTimeout(timeOut);
-  }, []);
+  }, [page]);
 
   async function fetchUsers() {
     const result = await getUsers();
     if (result.success) {
       setError(false);
       setUsers(result.body);
+      setTotalUsers(result.totalUsers.all);
+      console.log(result);
     } else {
       setError({ message: result.message });
     }
@@ -33,20 +46,48 @@ export default function UsersAdmin() {
     if (!confirm("Are you sure for deleting the category?")) {
       return;
     }
+    const t = toast.loading("Deleating...", {
+      theme: appState.them,
+      style: { fontSize: 15 },
+    });
     const result = await removeUserById(id);
     if (result.success) {
       const result = await getUsers();
       if (result.success) {
         setUsers(result.body);
-        toast.success("The user deleted successfully!");
+        toast.update(t, {
+          render: <p className="fs-4">The category deleted successfully!</p>,
+          isLoading: false,
+          type: "success",
+          autoClose: 2000,
+        });
       }
     } else {
       result.code == 404
-        ? toast.error("There is not any user with this id!")
+        ? toast.update(t, {
+            render: <p className="fs-4">There is not any user with this id!</p>,
+            isLoading: false,
+            type: "error",
+            autoClose: 2000,
+          })
         : result.code == 403
-        ? toast.error("Admin is not removed!")
-        : "Error Connection";
+        ? toast.update(t, {
+            render: <p className="fs-4">Admin is not removed!</p>,
+            isLoading: false,
+            type: "error",
+            autoClose: 2000,
+          })
+        : toast.update(t, {
+            render: <p className="fs-4">Connection Error!</p>,
+            isLoading: false,
+            type: "error",
+            autoClose: 2000,
+          });
     }
+  }
+
+  function pageHandler(i) {
+    setSearchParams({ page: i });
   }
 
   return (
@@ -125,6 +166,13 @@ export default function UsersAdmin() {
                 })}
               </tbody>
             </table>
+            <div>
+              <Pagination
+                numOfPage={numOfPage}
+                page={page}
+                pageHandler={pageHandler}
+              />
+            </div>
           </div>
         </div>
       )}

@@ -1,0 +1,78 @@
+.adminlayout {
+  .mainAdmin {
+    width: 80%;
+  }
+  .headerAdmin {
+    background-color: #f8e9f0;
+    padding: 15px;
+    height: 7rem;
+  }
+  .sidebarAdmin {
+    width: 20%;
+    background-color: #f8e9f0;
+  }
+  .linkAdmin {
+    color: #79043c;
+    font-size: 2rem;
+  }
+  .linkAdmin:hover {
+    background-color: #504c4e;
+    color: #f8e9f0;
+  }
+  .active {
+    background-color: #79043c !important;
+    color: #f8e9f0 !important;
+  }
+  .titleAdmin {
+    height: 7rem;
+    padding: 15px 0;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+  }
+  .btn-mood {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 18px;
+    border: 1px solid #f8e9f0;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  .btn-mood:hover {
+    border: 1px solid #79043c;
+    background-color: #79043c;
+    color: #f8e9f0;
+  }
+  .signout-btnAdmin,
+  .back-btnAdmin {
+    border: none;
+    outline: none;
+    border: 1px solid #79043c;
+    font-size: 15px;
+    background-color: #79043c;
+    color: #f8e9f0;
+    text-decoration: none;
+  }
+
+  .signout-btnAdmin:hover,
+  .back-btnAdmin:hover {
+    color: #f8e9f0;
+    background-color: #504c4e;
+    border: 1px solid #504c4e;
+  }
+}
+[data-bs-theme="dark"] .adminlayout {
+  .headerAdmin {
+    background-color: #212529;
+  }
+  .sidebarAdmin {
+    background-color: #212529;
+  }
+  .titleAdmin {
+    border-bottom: 1px solid #504c4e;
+    border-right: 1px solid #504c4e;
+  }
+  .linkAdmin {
+    color: #f8e9f0;
+  }
+}

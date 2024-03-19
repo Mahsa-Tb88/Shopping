@@ -20,6 +20,7 @@ export default function EditCategory() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Edit Category";
     const timeOut = setTimeout(fetchCategory, 20);
     return () => clearTimeout(timeOut);
   }, []);

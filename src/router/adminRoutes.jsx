@@ -2,23 +2,20 @@ import CategoriesAdmin from "../components/Admin/CategoriesAdmin/CategoriesAdmin
 import ProductsAdmin from "../components/Admin/ProductsAdmin/ProductsAdmin";
 import UsersAdmin from "../components/Admin/UsersAdmin/UsersAdmin";
 import WelcomeAdmin from "../components/Admin/WelcomeAdmin/WelcomeAdmin";
+import AdminLayout from "../layouts/AdminLayout";
 import AddCategory from "../pages/Admin/AddCategory/AddCategory";
 import AddProduct from "../pages/Admin/AddProduct/AddProduct";
 import AddUser from "../pages/Admin/AddUser/AddUser";
-import AdminPanel from "../pages/Admin/AdminPanel/AdminPanel";
 import EditCategory from "../pages/Admin/EditCategory/EditCategory";
 import EditProduct from "../pages/Admin/EditProduct/EditProduct";
 import EditUser from "../pages/Admin/EditUser/EditUser";
 const adminRoutes = [
   {
     path: "/admin",
-    element: <AdminPanel />,
+    element: <AdminLayout />,
     children: [
-      { index: true, element: <WelcomeAdmin end /> },
-      {
-        path: "products",
-        element: <ProductsAdmin />,
-      },
+      { index: true, element: <WelcomeAdmin /> },
+      { path: "products", element: <ProductsAdmin /> },
       { path: "products/:id", element: <EditProduct /> },
       { path: "products/new", element: <AddProduct /> },
       { path: "categories", element: <CategoriesAdmin /> },

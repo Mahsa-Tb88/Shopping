@@ -31,12 +31,12 @@ export async function initialize(token = "") {
 }
 
 export async function register(user) {
-  let config = getToken();
   try {
-    const { data } = await axios.post("/auth/register", user, config);
+    const { data } = await authAxios.post("/auth/register", user);
 
     return data;
   } catch (e) {
+    console.log(e.response.data.message);
     if (!e.response) {
       return { success: false, message: "Connection Error" };
     } else {
@@ -93,10 +93,10 @@ export async function getProducts(
   }
 }
 
-export async function getCategories(page) {
+export async function getCategories(page, limit = 5) {
   try {
     const { data } = await axios.get("/categories", {
-      params: { page },
+      params: { page, limit },
     });
     return data;
   } catch (e) {
@@ -247,13 +247,8 @@ export async function createProduct() {
 }
 
 export async function createCategory(info) {
-  const config = {};
-  if (localStorage.token || sessionStorage.token) {
-    const token = localStorage.token || sessionStorage.token;
-    config.headers = { Authorization: "Bearer " + token };
-  }
   try {
-    const { data } = await axios.post("/categories", info, config);
+    const { data } = await authAxios.post("/categories", info);
     return data;
   } catch (e) {
     if (!e.response) {

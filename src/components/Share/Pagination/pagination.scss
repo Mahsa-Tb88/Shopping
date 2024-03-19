@@ -5,6 +5,7 @@
     color: #79043c;
     font-size: 1.5rem;
     cursor: pointer;
+    font-style: normal;
   }
   .page-link:hover {
     background-color: #79043c;
@@ -16,5 +17,15 @@
   }
   .disabled {
     background-color: rgb(226, 228, 227);
+  }
+}
+[data-bs-theme="dark"] .paginate {
+  .page-link {
+    background-color: #212529;
+    color: #f8e9f0;
+  }
+  .page-link:hover {
+    background-color: #363535;
+    color: #f8e9f0;
   }
 }

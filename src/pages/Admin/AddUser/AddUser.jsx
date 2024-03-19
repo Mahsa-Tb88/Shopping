@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FormUser from "../FormUser/FormUser";
 import "./addUser.scss";
 import { register } from "../../../utils/api";
@@ -11,6 +11,10 @@ export default function AddUser() {
   const [successMessage, setSuccessMessage] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.title = "New User";
+  }, []);
+
   async function submitHandler(data) {
     const result = await register(data);
     if (result.success) {
@@ -20,6 +24,7 @@ export default function AddUser() {
         navigate("/admin/users");
       }, 2000);
     } else {
+      console.log(result);
       if (result.code == 403) {
         setFailMessage("You do not have authorization!");
       } else if (result.code == 409) {

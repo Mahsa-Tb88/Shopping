@@ -1,83 +1,20 @@
 import React, { useState } from "react";
 import "./pagination.scss";
-import { GrFormNext } from "react-icons/gr";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { useSearchParams } from "react-router-dom";
-export default function Pagination({ numOfPage, page, shopDispatch }) {
-  const [searchParams, setSearchParams] = useSearchParams("");
+export default function Pagination({ numOfPage, page, pageHandler }) {
   let pages = [];
   const prevClasses = ["page-link", page == 1 ? "disabled" : ""].join(" ");
   const nextClasses = ["page-link", page == numOfPage ? "disabled" : ""].join(
     " "
   );
-  function pageHandler(i) {
-    shopDispatch({ type: "setPage", payload: parseInt(i) });
-
-    let paramsUrl = {};
-    paramsUrl.page = i;
-    if (searchParams.get("limit")) {
-      paramsUrl.limit = searchParams.get("limit");
-    }
-    if (searchParams.get("category")) {
-      paramsUrl.category = searchParams.get("category");
-    }
-    if (searchParams.get("q")) {
-      paramsUrl.q = searchParams.get("q");
-    }
-    if (searchParams.get("sort")) {
-      paramsUrl.sort = searchParams.get("sort");
-    }
-    if (searchParams.get("order")) {
-      paramsUrl.order = searchParams.get("order");
-    }
-    setSearchParams(paramsUrl);
-  }
   function pageFirstHandler() {
-    shopDispatch({ type: "setPage", payload: parseInt(1) });
-
-    let paramsUrl = {};
-    paramsUrl.page = 1;
-    if (searchParams.get("limit")) {
-      paramsUrl.limit = searchParams.get("limit");
-    }
-    if (searchParams.get("category")) {
-      paramsUrl.category = searchParams.get("category");
-    }
-    if (searchParams.get("q")) {
-      paramsUrl.q = searchParams.get("q");
-    }
-    if (searchParams.get("sort")) {
-      paramsUrl.sort = searchParams.get("sort");
-    }
-    if (searchParams.get("order")) {
-      paramsUrl.order = searchParams.get("order");
-    }
-    setSearchParams(paramsUrl);
+    pageHandler(1);
   }
   function pageLastHandler() {
-    shopDispatch({ type: "setPage", payload: parseInt(numOfPage) });
-
-    let paramsUrl = {};
-    paramsUrl.page = numOfPage;
-    if (searchParams.get("limit")) {
-      paramsUrl.limit = searchParams.get("limit");
-    }
-    if (searchParams.get("category")) {
-      paramsUrl.category = searchParams.get("category");
-    }
-    if (searchParams.get("q")) {
-      paramsUrl.q = searchParams.get("q");
-    }
-    if (searchParams.get("sort")) {
-      paramsUrl.sort = searchParams.get("sort");
-    }
-    if (searchParams.get("order")) {
-      paramsUrl.order = searchParams.get("order");
-    }
-    setSearchParams(paramsUrl);
+    pageHandler(numOfPage);
   }
-
   for (let i = 1; i <= numOfPage; i++) {
     pages.push(
       <i

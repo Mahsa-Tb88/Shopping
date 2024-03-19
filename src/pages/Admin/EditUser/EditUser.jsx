@@ -18,6 +18,7 @@ export default function EditUser() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Edit User";
     const timeOut = setTimeout(fetchUser, 20);
     return () => clearTimeout(timeOut);
   }, []);

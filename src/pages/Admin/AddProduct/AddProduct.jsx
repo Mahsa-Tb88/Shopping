@@ -4,7 +4,7 @@ import "./addProduct.scss";
 import { createProduct } from "../../../utils/api";
 export default function AddProduct() {
   useEffect(() => {
-    document.title = "Create New Product";
+    document.title = "New Product";
   }, []);
   async function submitHandler(data) {
     console.log(data);
