@@ -6,8 +6,10 @@ import Loading from "../../../components/Loading/Loading";
 import FormUser from "../FormUser/FormUser";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineError } from "react-icons/md";
+import { useAppContext } from "../../../context/AppContext";
 
 export default function EditUser() {
+  const { appState, appDispatch } = useAppContext();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
   const [user, setUser] = useState({});
@@ -42,6 +44,17 @@ export default function EditUser() {
     if (result.success) {
       setFailMessage(false);
       setSuccessMessage("The user updated successfully");
+      if (+params.id === appState.user.id) {
+        const newUser = {
+          isLoggedIn: true,
+          isAdmin: true,
+          Username: appState.user.Username,
+          firstname: data.firstname,
+          lastname: data.lastname,
+          role: data.role,
+        };
+        appDispatch({ type: "setUser", payload: newUser });
+      }
       setTimeout(() => {
         navigate("/admin/users");
       }, 2000);

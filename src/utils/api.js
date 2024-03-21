@@ -29,7 +29,6 @@ export async function initialize(token = "") {
     return getError(e);
   }
 }
-
 export async function register(user) {
   try {
     const { data } = await authAxios.post("/auth/register", user);
@@ -44,7 +43,6 @@ export async function register(user) {
     }
   }
 }
-
 export async function login(user) {
   try {
     const { data } = await axios.post("/auth/login", user);
@@ -70,7 +68,6 @@ export async function getAllCategories() {
     }
   }
 }
-
 export async function getProducts(
   page = 1,
   limit = 6,
@@ -92,7 +89,6 @@ export async function getProducts(
     }
   }
 }
-
 export async function getCategories(page, limit = 5) {
   try {
     const { data } = await axios.get("/categories", {
@@ -107,7 +103,18 @@ export async function getCategories(page, limit = 5) {
     }
   }
 }
-
+export async function getUsers(page) {
+  try {
+    const { data } = await authAxios.get("/users", { params: { page } });
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: e.response.data.message };
+    }
+  }
+}
 export async function getBlogs(page) {
   try {
     const { data } = await axios.get("/blogs", {
@@ -122,6 +129,7 @@ export async function getBlogs(page) {
     }
   }
 }
+
 export async function getBlogById(id) {
   try {
     const { data } = await axios.get(`/blogs/${id}`);
@@ -188,7 +196,6 @@ export async function updateCategory(info, id) {
     }
   }
 }
-
 export async function updateUser(
   id,
   firstname,
@@ -212,21 +219,6 @@ export async function updateUser(
     }
   }
 }
-
-export async function removeProductById(id) {
-  const config = getToken();
-  try {
-    const { data } = await axios.delete(`/products/${id}`, config);
-    return data;
-  } catch (e) {
-    if (!e.response) {
-      return { success: false, message: "Connection Error" };
-    } else {
-      return { success: false, message: e.response.data.message };
-    }
-  }
-}
-
 export async function createProduct() {
   let config = {};
   if (localStorage.token || sessionStorage.token) {
@@ -245,7 +237,6 @@ export async function createProduct() {
     }
   }
 }
-
 export async function createCategory(info) {
   try {
     const { data } = await authAxios.post("/categories", info);
@@ -259,6 +250,7 @@ export async function createCategory(info) {
     }
   }
 }
+
 export async function deleteCategory(id) {
   const config = getToken();
   try {
@@ -275,22 +267,6 @@ export async function deleteCategory(id) {
     }
   }
 }
-
-export async function getUsers(page) {
-  const config = getToken();
-
-  try {
-    const { data } = await axios.get("/users", config);
-    return data;
-  } catch (e) {
-    if (!e.response) {
-      return { success: false, message: "Connection Error" };
-    } else {
-      return { success: false, message: e.response.data.message };
-    }
-  }
-}
-
 export async function removeUserById(id) {
   const config = getToken();
   try {
@@ -304,6 +280,20 @@ export async function removeUserById(id) {
     }
   }
 }
+export async function removeProductById(id) {
+  const config = getToken();
+  try {
+    const { data } = await axios.delete(`/products/${id}`, config);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: e.response.data.message };
+    }
+  }
+}
+
 function getError(e) {
   if (!e.response) {
     return { success: false, message: "Connection Error" };
