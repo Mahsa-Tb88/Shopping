@@ -1,48 +1,47 @@
 import React, { useEffect, useState } from "react";
 import "./editproduct.scss";
-import EditForm from "../EditForm/EditForm";
 import Loading from "../../../components/Loading/Loading";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../../utils/api";
+import ProductForm from "../ProductForm/ProductForm";
 
 export default function EditProduct() {
   const [product, setProduct] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const params = useParams();
-  const id = params.id;
 
   useEffect(() => {
     document.title = "Edit Product";
     const timeOut = setTimeout(fetchProduct, 20);
     return () => clearTimeout(timeOut);
-  }, []);
+  }, [params]);
 
   async function fetchProduct() {
-    const result = await getProductById(id);
+    setIsLoading(true);
+    const result = await getProductById(params.id);
     if (result.success) {
       setProduct(result.body);
-      setLoading(false);
+      setIsLoading(false);
     } else {
       setError(true);
     }
+    setIsLoading(false);
   }
 
-  function submitHandler(data) {
-    console.log(data);
-  }
+  
 
   return (
     <div>
-      {loading ? (
+      {isLoading ? (
         <Loading />
       ) : error ? (
         <Error />
       ) : (
         <div className="edit-product">
           <h1 className="ms-3  title-editProduct">Edit Product</h1>
-          <EditForm type="edit" onSubmit={submitHandler} product={product} />
+          <ProductForm type="edit" product={product} />
         </div>
       )}
     </div>

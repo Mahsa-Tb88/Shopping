@@ -1,17 +1,15 @@
-.editform {
+.productform {
   .edit-product {
     margin-left: 5rem;
     margin-top: 5rem;
 
-    .image-product {
-      background-color: transparent;
-    }
+   
   }
-  .inputProducts {
-    outline: none;
-    border: 1px solid #dee2e6;
-    font-size: 15px;
-  }
+  // .inputProducts {
+  //   outline: none;
+  //   border: 1px solid #dee2e6;
+  //   font-size: 15px;
+  // }
   .title-editProduct {
     margin-top: 30px;
   }
@@ -27,6 +25,7 @@
   .btn-select {
     background-color: #0d6efd;
     width: 15rem;
+    cursor: pointer;
   }
   .btn-select:hover {
     background-color: #0f51b6;

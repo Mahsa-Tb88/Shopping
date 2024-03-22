@@ -294,6 +294,32 @@ export async function removeProductById(id) {
   }
 }
 
+// export async function uploadFile(file) {
+//   try {
+//     const form = new FormData();
+//     form.append("file", file);
+//     const { data } = await authAxios.post("/upload", form);
+//     return data;
+//   } catch (e) {
+//     return {
+//       success: false,
+//       code: e.response.data.code,
+//       message: e.response.data.message,
+//     };
+//   }
+// }
+
+export async function uploadFile(file) {
+  try {
+    const form = new FormData();
+    form.append("file", file);
+    const { data } = await authAxios.post("/upload", form);
+    console.log(data);
+    return data;
+  } catch (e) {
+    return getError(e);
+  }
+}
 function getError(e) {
   if (!e.response) {
     return { success: false, message: "Connection Error" };

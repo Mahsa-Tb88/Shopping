@@ -47,7 +47,7 @@ export default function EditUser() {
       if (+params.id === appState.user.id) {
         const newUser = {
           isLoggedIn: true,
-          isAdmin: true,
+          isAdmin: data.role == "admin",
           Username: appState.user.Username,
           firstname: data.firstname,
           lastname: data.lastname,
