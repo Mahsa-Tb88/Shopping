@@ -19,7 +19,6 @@ export default function ProductsAdmin() {
   const [page, setPage] = useState(1);
   const [searchParams, setSearchParams] = useSearchParams("");
 
-  const navigate = useNavigate();
   let numOfPage;
 
   useEffect(() => {
@@ -65,8 +64,9 @@ export default function ProductsAdmin() {
         } else {
           setProducts(result.body);
         }
+        setTotalProducts(result.totalProducts.all);
         toast.update(t, {
-          render: <p className="fs-4">The category deleted successfully!</p>,
+          render: <p className="fs-4">The product deleted successfully!</p>,
           isLoading: false,
           type: "success",
           autoClose: 2000,

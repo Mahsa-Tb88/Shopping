@@ -219,22 +219,25 @@ export async function updateUser(
     }
   }
 }
-export async function createProduct() {
-  let config = {};
-  if (localStorage.token || sessionStorage.token) {
-    const token = localStorage.token || sessionStorage.token;
-    config.headers = { Authorization: "Bearer " + token };
-  }
-
+export async function updateProduct(id, productData) {
   try {
-    const { data } = await axios.post("/products", config);
+    const { data } = await authAxios.put("/products/" + id, productData);
     return data;
   } catch (e) {
-    if (!e.response) {
-      return { success: false, message: "Connection Error" };
-    } else {
-      return { success: false, message: e.response.data.message };
-    }
+    return getError(e);
+  }
+}
+export async function createProduct(product) {
+  try {
+    const { data } = await authAxios.post("/products", product);
+    return data;
+  } catch (e) {
+    // if (!e.response) {
+    //   return { success: false, message: "Connection Error" };
+    // } else {
+    //   return { success: false, message: e.response.data.message };
+    // }
+    getError(e);
   }
 }
 export async function createCategory(info) {
@@ -294,32 +297,21 @@ export async function removeProductById(id) {
   }
 }
 
-// export async function uploadFile(file) {
-//   try {
-//     const form = new FormData();
-//     form.append("file", file);
-//     const { data } = await authAxios.post("/upload", form);
-//     return data;
-//   } catch (e) {
-//     return {
-//       success: false,
-//       code: e.response.data.code,
-//       message: e.response.data.message,
-//     };
-//   }
-// }
-
 export async function uploadFile(file) {
   try {
     const form = new FormData();
     form.append("file", file);
     const { data } = await authAxios.post("/upload", form);
-    console.log(data);
     return data;
   } catch (e) {
-    return getError(e);
+    return {
+      success: false,
+      code: e.response.data.code,
+      message: e.response.data.message,
+    };
   }
 }
+
 function getError(e) {
   if (!e.response) {
     return { success: false, message: "Connection Error" };

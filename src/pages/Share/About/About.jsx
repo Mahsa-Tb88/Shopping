@@ -30,7 +30,7 @@ export default function About() {
               <h1>Our Brand</h1>
               <div class="our-brand-img">
                 <img
-                  src="http://server.test/uploads/About-us/Rectangle 12334.png"
+                  src="http://server.test/uploads/Rectangle 12334.png"
                   alt="about-us"
                 />
               </div>
@@ -60,7 +60,7 @@ export default function About() {
                 </p>
                 <div class="heritage-img">
                   <img
-                    src="http://server.test/uploads/About-us/Frame 26085546.png"
+                    src="http://server.test/uploads/Frame 26085546.png"
                     alt="woman"
                   />
                 </div>
@@ -133,7 +133,7 @@ export default function About() {
                 <div class="options-item-img">
                   <div>
                     <img
-                      src="http://server.test/uploads/options/rabbit.png"
+                      src="http://server.test/uploads/rabbit.png"
                       alt="rabbit"
                     />
                   </div>
@@ -143,10 +143,7 @@ export default function About() {
               <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
                 <div class="options-item-img">
                   <div>
-                    <img
-                      src="http://server.test/uploads/options/leaf.png"
-                      alt="leaf"
-                    />
+                    <img src="http://server.test/uploads/leaf.png" alt="leaf" />
                   </div>
                 </div>
                 <span class="options-item-text">
@@ -157,7 +154,7 @@ export default function About() {
                 <div class="options-item-img">
                   <div>
                     <img
-                      src="http://server.test/uploads/options/wheat.png"
+                      src="http://server.test/uploads/wheat.png"
                       alt="wheat"
                     />
                   </div>
@@ -169,10 +166,7 @@ export default function About() {
               <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
                 <div class="options-item-img">
                   <div>
-                    <img
-                      src="http://server.test/uploads/options/lamp.png"
-                      alt="lamp"
-                    />
+                    <img src="http://server.test/uploads/lamp.png" alt="lamp" />
                   </div>
                 </div>
                 <span class="options-item-text">Recyclable packaging</span>

@@ -5,8 +5,6 @@ export function cartReducer(state, action) {
     case "setItems":
       localStorage.shopping = JSON.stringify(payload);
       return { ...state, items: payload };
-    case "updateShoppingProducts":
-      return { ...state, items: payload };
     case "incrementItem":
       const findItem = state.items.find((item) => item.id == payload.id);
       if (findItem) {

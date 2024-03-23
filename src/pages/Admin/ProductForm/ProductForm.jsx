@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 import { useAppContext } from "../../../context/AppContext";
 import "./productform.scss";
 import noImage from "../../../assets/images/no-image.jpg";
-import { uploadFile } from "../../../utils/api";
+import { createProduct, updateProduct, uploadFile } from "../../../utils/api";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineError } from "react-icons/md";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function ProductForm({ type, product }) {
   const { appState, appDispatch } = useAppContext();
@@ -13,16 +14,31 @@ export default function ProductForm({ type, product }) {
   const [imageChanged, setImageChanged] = useState(false);
   const [failMessage, setFailMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState();
-
+  const navigate = useNavigate();
+  const params = useParams();
   const { register, handleSubmit, formState, setValue } = useForm({
     defaultValues: {
       title: product ? product.title : "",
       description: product ? product.description : "",
       price: product ? product.price : "",
-      category: product ? product.title : "Body Care",
-      image: product ? product.image : noImage,
+      category: product ? product.category : 1,
+      image: product?.image ? product.image : "",
     },
   });
+  useEffect(() => {
+    if (type === "edit") {
+      if (product.image) {
+        setSelectedImage(SERVER_URL + `${product.image}`);
+      } else {
+        setSelectedImage(noImage);
+      }
+    }
+    if (globalThis.newProduct) {
+      setSuccessMessage("New product created successfully");
+      globalThis.newProduct = false;
+      setTimeout(() => setSuccessMessage(""), 3000);
+    }
+  }, []);
   const { errors, isSubmitting } = formState;
 
   const imageField = { ...register("image") };
@@ -43,11 +59,8 @@ export default function ProductForm({ type, product }) {
 
   async function onSubmit(data) {
     setFailMessage("");
-    console.log(data);
     if (data.image?.length && imageChanged) {
-      console.log(data.image[0]);
       const result = await uploadFile(data.image[0]);
-      // console.log(result);
       if (result.success) {
         data.image = result.body.url;
       } else {
@@ -58,8 +71,24 @@ export default function ProductForm({ type, product }) {
     }
 
     if (type === "new") {
+      const result = await createProduct(data);
+      if (result.success) {
+        globalThis.newProduct = true;
+        navigate("/admin/products/" + result.body.id, { replace: true });
+      } else {
+        setFailMessage(result.message);
+      }
     } else if (type === "edit") {
+      const result = await updateProduct(params.id, data);
+      if (result.success) {
+        setSuccessMessage("The product updated successfully");
+        setImageChanged(false);
+        setTimeout(() => setSuccessMessage(""), 3000);
+      } else {
+        setFailMessage(result.message);
+      }
     }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
   return (
     <form className="ms-3  mt-5 productform" onSubmit={handleSubmit(onSubmit)}>
@@ -192,13 +221,14 @@ export default function ProductForm({ type, product }) {
                 </label>
               </div>
               <button
+                type="button"
                 className="btn-remove text-white px-4 py-2 border-0 fs-3"
                 onClick={handleRemoveImage}
               >
                 Remove Image
               </button>
             </div>
-            <img src={selectedImage} width={200} height={200} className="" />
+            <img src={selectedImage} width={200} height={200} />
           </div>
           {errors.image && (
             <p className="errors mt-3">{errors.image.message}</p>

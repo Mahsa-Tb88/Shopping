@@ -428,7 +428,7 @@ export default function Contact() {
                 <div className="options-item-img">
                   <div>
                     <img
-                      src="http://server.test/uploads/options/rabbit.png"
+                      src="http://server.test/uploads/rabbit.png"
                       alt="rabbit"
                     />
                   </div>
@@ -438,10 +438,7 @@ export default function Contact() {
               <div className="col-3 d-flex justify-content-center align-items-center">
                 <div className="options-item-img">
                   <div>
-                    <img
-                      src="http://server.test/uploads/options/leaf.png"
-                      alt="leaf"
-                    />
+                    <img src="http://server.test/uploads/leaf.png" alt="leaf" />
                   </div>
                 </div>
                 <span className="options-item-text">
@@ -452,7 +449,7 @@ export default function Contact() {
                 <div className="options-item-img">
                   <div>
                     <img
-                      src="http://server.test/uploads/options/wheat.png"
+                      src="http://server.test/uploads/wheat.png"
                       alt="wheat"
                     />
                   </div>
@@ -464,10 +461,7 @@ export default function Contact() {
               <div className="col-3 d-flex justify-content-center align-items-center">
                 <div className="options-item-img">
                   <div>
-                    <img
-                      src="http://server.test/uploads/options/lamp.png"
-                      alt="lamp"
-                    />
+                    <img src="http://server.test/uploads/lamp.png" alt="lamp" />
                   </div>
                 </div>
                 <span className="options-item-text">Recyclable packaging</span>
