@@ -9,11 +9,11 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
-import Pagination from "../../Share/Pagination/Pagination";
+import Pagination from "../../../components/Share/Pagination/Pagination";
 export default function ProductsAdmin() {
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState(false);
   const { appState, appDispatch } = useAppContext();
   const [page, setPage] = useState(1);
@@ -94,14 +94,14 @@ export default function ProductsAdmin() {
   }
 
   return (
-    <div className="productsAdmin">
+    <div className="productsAdmin ">
       {isLoading ? (
         <div className="fs-2 text-center loadingProductsAdmin">
           <p>Loading ...</p>
           <p className=" spinner spinner-grow"></p>
         </div>
       ) : loadingError ? (
-        <div className="text-center loadingProductsAdmin">
+        <div className="text-center loadingProductsAdmin w-75 mx-auto">
           <p className="fs-1">Error Connection</p>
           <button className="btn-tryAgain fs-3" onClick={() => fetchProducts()}>
             Try Again
@@ -110,16 +110,17 @@ export default function ProductsAdmin() {
       ) : (
         <div className=" px-4 py-5">
           <h1>Manage Products</h1>
-          <div className="addProduct d-flex justify-content-center align-items-center">
-            <Link className="addProductBtn link" to="new">
-              Add Products
-            </Link>
+          <Link
+            className="addProduct d-flex justify-content-center align-items-center link"
+            to="new"
+          >
+            <p className="addProductBtn m-0">Add Products</p>
             <FaPlus className="iconPlusProduct" />
-          </div>
-          <div>
+          </Link>
+          <div className="text-center w-75 mx-auto">
             {products.length ? (
               <div>
-                <table className="table table-bordered table-striped text-center my-5">
+                <table className="table  table-bordered table-striped text-center my-5">
                   <thead className="table-dark">
                     <tr className="table-row">
                       <th scope="col" className="fs-3">

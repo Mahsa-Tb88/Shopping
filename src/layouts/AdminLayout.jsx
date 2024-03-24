@@ -50,6 +50,9 @@ export default function AdminLayout() {
             <NavLink className="link my-3 py-4 linkAdmin w-100 ps-4" to="users">
               Users
             </NavLink>
+            <NavLink className="link my-3 py-4 linkAdmin w-100 ps-4" to="blogs">
+              Blogs
+            </NavLink>
           </div>
         </div>
         <div className="mainAdmin d-flex flex-column">

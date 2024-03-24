@@ -1,62 +1,64 @@
-import React, { useEffect, useState } from "react";
-import "./usersAdmin.scss";
+import React from "react";
+import "./blogadmin.scss";
+import { useState } from "react";
+import { useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { getBlogs, removeBlogById } from "../../../utils/api";
+import { toast } from "react-toastify";
+
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
-import { toast } from "react-toastify";
-import { getUsers, removeUserById } from "../../../utils/api";
-import Pagination from "../../Share/Pagination/Pagination";
+import Pagination from "../../../components/Share/Pagination/Pagination";
 import { useAppContext } from "../../../context/AppContext";
 
-export default function UsersAdmin() {
+export default function BlogAdmin() {
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [page, setPage] = useState(1);
-  const [totalUsers, setTotalUsers] = useState(null);
-  let numOfPage = Math.ceil(parseInt(totalUsers) / 6);
+  const [errorLoading, setErrorLoading] = useState(false);
+  const [blogs, setBlogs] = useState([]);
+  const [totalBlogs, setTotalBlogs] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(1);
   const { appState } = useAppContext();
+
   useEffect(() => {
-    document.title = "Managing Users";
+    document.title = "Managing Blog";
     const page = searchParams.get("page") ?? 1;
     setPage(+page);
   }, [searchParams]);
 
   useEffect(() => {
-    const timeOut = setTimeout(fetchUsers, 20);
+    const timeOut = setTimeout(() => fetchBlogs(), 20);
     return () => clearTimeout(timeOut);
   }, [page]);
 
-  async function fetchUsers() {
-    const result = await getUsers();
+  async function fetchBlogs() {
+    setIsLoading(true);
+    const result = await getBlogs(page);
     if (result.success) {
-      setError(false);
-      setUsers(result.body);
-      setTotalUsers(result.totalUsers.all);
-      console.log(result);
+      setBlogs(result.body);
+      setErrorLoading(false);
+      setTotalBlogs(result.totalBlogs.all);
     } else {
-      setError({ message: result.message });
+      setErrorLoading(result.message);
     }
     setIsLoading(false);
   }
-
-  async function removeCategoryHandler(id) {
-    if (!confirm("Are you sure for deleting the category?")) {
+  async function removeBlogHandler(id) {
+    if (!confirm("Are you sure for deleting the Blog?")) {
       return;
     }
     const t = toast.loading("Deleating...", {
       theme: appState.them,
       style: { fontSize: 15 },
     });
-    const result = await removeUserById(id);
+    const result = await removeBlogById(id);
     if (result.success) {
-      const result = await getUsers();
+      const result = await getBlogs();
       if (result.success) {
-        setUsers(result.body);
+        setBlogs(result.body);
         toast.update(t, {
-          render: <p className="fs-4">The category deleted successfully!</p>,
+          render: <p className="fs-4">The Blog deleted successfully!</p>,
           isLoading: false,
           type: "success",
           autoClose: 2000,
@@ -66,13 +68,6 @@ export default function UsersAdmin() {
       result.code == 404
         ? toast.update(t, {
             render: <p className="fs-4">There is not any user with this id!</p>,
-            isLoading: false,
-            type: "error",
-            autoClose: 2000,
-          })
-        : result.code == 403
-        ? toast.update(t, {
-            render: <p className="fs-4">Admin is not removed!</p>,
             isLoading: false,
             type: "error",
             autoClose: 2000,
@@ -90,27 +85,25 @@ export default function UsersAdmin() {
     setSearchParams({ page: i });
   }
 
+  const numOfPage = Math.ceil(totalBlogs / 5);
   return (
-    <div className="userAdmin">
-      <h1>Managing Users</h1>
-      <div className="addNewUser d-flex justify-content-center align-items-center">
-        <Link className="addUserBtn link" to="new">
-          <span>Add User</span>
+    <div className="blogAdmin">
+      <h1>Managing Blogs</h1>
+      <div className="addNewBlog d-flex justify-content-center align-items-center">
+        <Link className="addBlogBtn link" to="new">
+          <span>Add Blog</span>
           <FaPlus className="iconPlusUser" />
         </Link>
       </div>
       {isLoading ? (
-        <div className="fs-2 w-75 text-center loadingUserAdmin">
+        <div className="fs-2 w-75 text-center loadingBlogAdmin">
           <p>Loading ...</p>
           <p className=" spinner spinner-grow"></p>
         </div>
-      ) : error ? (
-        <div className="text-center loadingProductsAdmin w-75">
-          <p className="fs-1">{error.message}</p>
-          <button
-            className="btn-tryAgain fs-3"
-            onClick={() => fetchCategories()}
-          >
+      ) : errorLoading ? (
+        <div className="text-center loadingBlogAdmin w-75">
+          <p className="fs-1">{errorLoading}</p>
+          <button className="btn-tryAgain fs-3" onClick={() => fetchBlogs()}>
             Try Again
           </button>
         </div>
@@ -121,13 +114,10 @@ export default function UsersAdmin() {
               <thead className="table-dark">
                 <tr className="table-row">
                   <th scope="col" className="fs-3">
-                    Username
+                    Title
                   </th>
                   <th scope="col" className="fs-3">
-                    Name & Family
-                  </th>
-                  <th scope="col" className="fs-3">
-                    role
+                    Slug
                   </th>
                   <th scope="col" className="fs-3">
                     Operation
@@ -135,27 +125,24 @@ export default function UsersAdmin() {
                 </tr>
               </thead>
               <tbody>
-                {users.map((p) => {
+                {blogs.map((b) => {
                   return (
-                    <tr key={p.id} className="table-row">
+                    <tr key={b.id} className="table-row">
                       <td>
-                        <span className=" fs-4 px-2">{p.username}</span>
+                        <span className=" fs-4 px-2">{b.title}</span>
                       </td>
-                      <td className="fs-4">
-                        {p.firstname} {p.lastname}
-                      </td>
-                      <td className="fs-4">{p.role}</td>
+                      <td className="fs-4">{b.slug}</td>
                       <td>
                         <div className=" d-flex justify-content-center align-items-center">
                           <span
                             className="operation-trash d-flex justify-content-center align-items-center   me-5"
-                            onClick={() => removeCategoryHandler(p.id)}
+                            onClick={() => removeBlogHandler(b.id)}
                           >
                             <FaRegTrashAlt className="fs-4" />
                           </span>
                           <Link
                             className="operation-edit  d-flex justify-content-center align-items-center"
-                            to={"edit/" + `${p.id}`}
+                            to={"edit/" + `${b.id}`}
                           >
                             <FaRegEdit className="fs-4" />
                           </Link>

@@ -227,6 +227,14 @@ export async function updateProduct(id, productData) {
     return getError(e);
   }
 }
+export async function updateBlog(id, blogData) {
+  try {
+    const { data } = await authAxios.put("/blogs/" + id, blogData);
+    return data;
+  } catch (e) {
+    return getError(e);
+  }
+}
 export async function createProduct(product) {
   try {
     const { data } = await authAxios.post("/products", product);
@@ -238,6 +246,18 @@ export async function createProduct(product) {
     //   return { success: false, message: e.response.data.message };
     // }
     getError(e);
+  }
+}
+export async function createBlog(blog) {
+  try {
+    const { data } = await authAxios.post("/blogs", blog);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, message: e.response.data.message };
+    }
   }
 }
 export async function createCategory(info) {
@@ -293,6 +313,18 @@ export async function removeProductById(id) {
       return { success: false, message: "Connection Error" };
     } else {
       return { success: false, message: e.response.data.message };
+    }
+  }
+}
+export async function removeBlogById(id) {
+  try {
+    const { data } = await authAxios.delete(`/blogs/${id}`);
+    return data;
+  } catch (e) {
+    if (!e.response) {
+      return { success: false, message: "Connection Error" };
+    } else {
+      return { success: false, code: e.response.data.code };
     }
   }
 }

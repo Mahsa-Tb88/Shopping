@@ -22,7 +22,6 @@ export default function EditProduct() {
     setIsLoading(true);
     const result = await getProductById(params.id);
     if (result.success) {
-      console.log(result.body);
       setProduct(result.body);
       setIsLoading(false);
     } else {

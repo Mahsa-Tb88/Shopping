@@ -1,7 +1,7 @@
-import CategoriesAdmin from "../components/Admin/CategoriesAdmin/CategoriesAdmin";
-import ProductsAdmin from "../components/Admin/ProductsAdmin/ProductsAdmin";
-import UsersAdmin from "../components/Admin/UsersAdmin/UsersAdmin";
-import WelcomeAdmin from "../components/Admin/WelcomeAdmin/WelcomeAdmin";
+import CategoriesAdmin from "../pages/Admin/CategoriesAdmin/CategoriesAdmin";
+import ProductsAdmin from "../pages/Admin/ProductsAdmin/ProductsAdmin";
+import UsersAdmin from "../pages/Admin/UsersAdmin/UsersAdmin";
+import WelcomeAdmin from "../pages/Admin/WelcomeAdmin/WelcomeAdmin";
 import AdminLayout from "../layouts/AdminLayout";
 import AddCategory from "../pages/Admin/AddCategory/AddCategory";
 import AddProduct from "../pages/Admin/AddProduct/AddProduct";
@@ -9,6 +9,9 @@ import AddUser from "../pages/Admin/AddUser/AddUser";
 import EditCategory from "../pages/Admin/EditCategory/EditCategory";
 import EditProduct from "../pages/Admin/EditProduct/EditProduct";
 import EditUser from "../pages/Admin/EditUser/EditUser";
+import BlogAdmin from "../pages/Admin/BlogAdmin/BlogAdmin";
+import AddBlog from "../pages/Admin/AddBlog/AddBlog";
+import EditBlog from "../pages/Admin/EditBlog/EditBlog";
 const adminRoutes = [
   {
     path: "/admin",
@@ -24,6 +27,14 @@ const adminRoutes = [
       { path: "users", element: <UsersAdmin /> },
       { path: "users/edit/:id", element: <EditUser /> },
       { path: "users/new", element: <AddUser /> },
+      {
+        path: "blogs",
+        children: [
+          { index: true, element: <BlogAdmin /> },
+          { path: "new", element: <AddBlog /> },
+          { path: ":id", element: <EditBlog /> },
+        ],
+      },
     ],
   },
 ];

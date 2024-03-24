@@ -6,7 +6,7 @@ import { FaPlus } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { deleteCategory, getCategories } from "../../../utils/api";
-import Pagination from "../../Share/Pagination/Pagination";
+import Pagination from "../../../components/Share/Pagination/Pagination";
 import { useAppContext } from "../../../context/AppContext";
 
 export default function CategoriesAdmin() {
@@ -115,7 +115,7 @@ export default function CategoriesAdmin() {
           <p className=" spinner spinner-grow"></p>
         </div>
       ) : error ? (
-        <div className="text-center loadingProductsAdmin w-75">
+        <div className="text-center loadingProductsAdmin w-75 ">
           <p className="fs-1">{error.message}</p>
           <button
             className="btn-tryAgain fs-3"
@@ -127,7 +127,7 @@ export default function CategoriesAdmin() {
       ) : (
         <div>
           {categories.length ? (
-            <div className="w-75">
+            <div className="w-75 ">
               <table className="table table-bordered table-striped text-center my-5">
                 <thead className="table-dark">
                   <tr className="table-row">
