@@ -6,7 +6,6 @@ import ContainerHome from "../pages/Share/ContainerHome/ContainerHome";
 import PublicLayout from "../layouts/PublicLayout";
 import Dashboard from "../pages/Share/Dashboard/Dashboard";
 import Profile from "../pages/Share/Profile/Profile";
-import Balence from "../pages/Share/Profile/Balance/Balance";
 import Shop from "../pages/Share/Shop/Shop";
 import Cart from "../pages/Share/Cart/Cart";
 import { Navigate } from "react-router-dom";
@@ -38,7 +37,7 @@ const publicRoutes = [
         children: [
           { index: true, element: <Dashboard /> },
           { path: "profile", element: <Profile /> },
-          { path: "balance", element: <Balence /> },
+
           { path: "cart", element: <Cart /> },
         ],
       },

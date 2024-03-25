@@ -32,7 +32,7 @@ const adminRoutes = [
         children: [
           { index: true, element: <BlogAdmin /> },
           { path: "new", element: <AddBlog /> },
-          { path: ":id", element: <EditBlog /> },
+          { path: "edit/:id", element: <EditBlog /> },
         ],
       },
     ],

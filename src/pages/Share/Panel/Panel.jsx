@@ -27,12 +27,6 @@ export default function Panel() {
         >
           Profile
         </NavLink>
-        <NavLink
-          className="link my-3  py-4 w-100 ps-4  w-50 text center"
-          to="balance"
-        >
-          Balence
-        </NavLink>
       </div>
       <div className=" w-75 ">
         <Outlet />

@@ -215,17 +215,13 @@ export default function ContainerHome() {
           </p>
           <div className="analysis-desktop-detail-info">
             <div className="analysis-desktop-detail-table">
-              {/* <span className="analysis-desktop-info-scan">
-                Scan with your phone to get started
-              </span>
-              <small className="analysis-desktop-info-or">or</small> */}
               <button className="analysis-desktop-info-btn">
-                <a href="#">answer the Questionnaire</a>
+                <a href="#" className="link">
+                  answer the Questionnaire
+                </a>
               </button>
             </div>
-            <div className="analysis-desktop-detail-img">
-              {/* <img src="./Images/qrcode.png" alt="QR-code" /> */}
-            </div>
+            <div className="analysis-desktop-detail-img"></div>
           </div>
         </div>
         <div className="analysis-desktop-img">

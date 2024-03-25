@@ -63,6 +63,7 @@
   background-color: #fff;
   color: #79043c;
 }
+
 @media (min-width: 640px) {
   .container-overlay-mobile {
     display: none;
@@ -260,7 +261,7 @@
 }
 
 // best sellers
-.bestSeller{
+.bestSeller {
   margin-bottom: 15rem;
 }
 .bestSellers-product-img,
@@ -539,20 +540,20 @@
     outline: none;
     border: none;
     background-color: transparent;
-    position: relative;
+    // position: relative;
     transition: all 0.3s ease-in-out;
+    width: 22rem;
+    border: 1px solid #fff;
+    cursor: pointer !important;
+    padding: 1rem 0;
   }
-  .analysis-desktop-info-btn a:hover {
+  .analysis-desktop-info-btn:hover {
     background-color: #fff;
     color: #a10550;
     border: 1px solid #a10550;
   }
   .analysis-desktop-info-btn a {
-    display: inline-block;
-    padding: 0.8rem 2rem 0.8rem 2rem;
-    font-size: 1.2rem;
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    color: #dfdfdf;
   }
   .analysis-desktop-detail-img {
     /* background-color: rebeccapurple; */
@@ -598,9 +599,7 @@
     font-size: 1.4rem;
     margin-bottom: 0.8rem;
   }
-  .analysis-desktop-info-btn {
-    padding: 0.6rem 1.4rem 0.6rem 1.4rem;
-  }
+
   .analysis-desktop-info-btn a {
     font-size: 1.6rem;
   }
@@ -847,5 +846,23 @@
     color: #79043c;
     font-size: 1.5rem;
     margin-left: 1rem;
+  }
+}
+[data-bs-theme="dark"] .home {
+  .bestSellers-product-desc,
+  .bestSellers-product-price,
+  .offer-desktop-detail-title1,
+  .offer-desktop-detail-desc1 {
+    color: #d8e2e6;
+  }
+  .newIn-product {
+    background-color: #0c0c0c;
+  }
+  .blog-desktop-title,
+  .blog-item-title {
+    color: #d8e2e6;
+  }
+  .blog-item-info, .blog-item-desc {
+    color: #fff;
   }
 }

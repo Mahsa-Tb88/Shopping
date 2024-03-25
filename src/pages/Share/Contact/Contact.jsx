@@ -50,7 +50,7 @@ export default function Contact() {
         <main className="main">
           <div className="contact-us">
             <div className="contact-us-desc">
-              <h2>Contact Us</h2>
+              <h2 className="title-contact">Contact Us</h2>
               <p>
                 Beautya Client Service Center Is Happy to Help You With Any
                 Questions You May Have Regarding Our Products And Corporate
@@ -61,7 +61,7 @@ export default function Contact() {
                 9pm, and Saturday-Sunday, 9am to 6pm Or Fill in The Form Below
                 to Send Us An Email.
               </p>
-              <small>
+              <small className="text-small">
                 Please fill in this form to send us your inquiry. We'll be more
                 than happy to help and will reply to you as soon as possible.
               </small>
@@ -80,7 +80,7 @@ export default function Contact() {
               </div>
               {isSendForm ? (
                 <div className="">
-                  <h3 className="fs-1">Your Form is Submited</h3>
+                  <h3 className="fs-1 text-darkmood">Your Form is Submited</h3>
                   <button
                     className="backbtn  fs-3"
                     onClick={() => backHandler()}
@@ -94,7 +94,9 @@ export default function Contact() {
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <div>
-                    <h3 className="form-info-title">Your information</h3>
+                    <h3 className="form-info-title text-darkmood">
+                      Your information
+                    </h3>
                     <div className="form-info-container">
                       <div>
                         <div className="form-address">
@@ -169,9 +171,11 @@ export default function Contact() {
                     <hr />
                   </div>
                   <div>
-                    <h3 className="form-title-request">Your Request</h3>
+                    <h3 className="form-title-request text-darkmood">
+                      Your Request
+                    </h3>
                     <div className="form-request-container">
-                      <h4>Subject</h4>
+                      <h4 className="text-darkmood">Subject</h4>
                       <div className="form-request-btns">
                         <div className="form-check me-4 fs-4">
                           <input
@@ -245,7 +249,7 @@ export default function Contact() {
                         </div>
                       </div>
                       <textarea
-                        className="form-request-text"
+                        className="form-request-text text-darkmood"
                         placeholder="write your text"
                         rows="1"
                         cols="30"
@@ -293,12 +297,14 @@ export default function Contact() {
                 </span>
               </h3>
               <div className="chat-us-container contact-desc">
-                <h5>Looking for personalized advice?</h5>
-                <p>
+                <h5 className="text-darkmood">
+                  Looking for personalized advice?
+                </h5>
+                <p className="text-darkmood">
                   The option to chat becomes active when one of our Client
                   Advisors is available.
                 </p>
-                <button className="chat-us-desc-btn">Ask Your Questions</button>
+                <button className="chat-us-desc-btn ">Ask Your Questions</button>
               </div>
               <p className="contact-us-line"></p>
             </div>

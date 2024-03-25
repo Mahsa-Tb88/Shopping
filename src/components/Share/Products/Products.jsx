@@ -35,7 +35,7 @@ export default function Products({ products }) {
                   <h1 className="fs-3 py-5 text-center cardItem-titel">
                     <Link
                       to={"/product/" + `${p.id}`}
-                      className="link text-black"
+                      className="link text-black title-product"
                     >
                       {p.title}
                     </Link>

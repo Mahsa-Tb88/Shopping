@@ -4,6 +4,7 @@
 
     width: 100%;
   }
+
   .bg-addTocart {
     background-color: #79043c;
     width: 100%;
@@ -63,5 +64,11 @@
   }
   .btn-plus:hover {
     background-color: rgb(5, 161, 52);
+  }
+}
+
+[data-bs-theme="dark"] .products {
+  .title-product {
+    color: #dee2e0 !important;
   }
 }

@@ -74,3 +74,18 @@
     color: #0c0c0c;
   }
 }
+[data-bs-theme="dark"] .blog {
+  .blog-item-title {
+    color: #dee2e0;
+  }
+  .blog-item-info-product,
+  .blog-item-info-dr,
+  .blog-item-info-dash,
+  .blog-item-info-date {
+    color: #dfdfdf;
+  }
+
+  .blog-item-desc {
+    color: #fff;
+  }
+}

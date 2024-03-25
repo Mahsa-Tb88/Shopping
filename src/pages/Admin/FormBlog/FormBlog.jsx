@@ -26,6 +26,7 @@ export default function FormBlog({ type, blog }) {
   });
   useEffect(() => {
     if (type === "edit") {
+      console.log(SERVER_URL + `${blog.image}`);
       if (blog.image) {
         setSelectedImage(SERVER_URL + `${blog.image}`);
       } else {
@@ -122,8 +123,8 @@ export default function FormBlog({ type, blog }) {
                 message: "title must be 3 Characters at least",
               },
               maxLength: {
-                value: 30,
-                message: "title must be 10 Characters at most",
+                value: 70,
+                message: "title must be 70 Characters at most",
               },
             })}
           />

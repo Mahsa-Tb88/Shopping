@@ -85,6 +85,10 @@ export default function Shop() {
     shopState.totalProducts.filtered / shopState.limit
   );
 
+  function pageHandler(i) {
+    setSearchParams({ page: i });
+  }
+
   return (
     <div className="shop container ">
       <div className="d-flex justify-content-between align-items-start mb-5">
@@ -125,8 +129,8 @@ export default function Shop() {
               <div className="text-center mt-5">
                 <Pagination
                   numOfPage={numOfPage}
-                  page={shopState.page}
-                  shopDispatch={shopDispatch}
+                  page={searchParams.get("page")}
+                  pageHandler={pageHandler}
                 />
               </div>
             </div>

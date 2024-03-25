@@ -44,13 +44,10 @@ export default function Blog() {
           <h1 className="text-center blog-title">{blog.title}</h1>
           <div className="row mt-5">
             <div className="col-12 text-center">
-              <img
-                src={"http://server.test" + blog.image}
-                className="blog-img"
-              />
+              <img src={SERVER_URL + blog.image} className="blog-img" />
             </div>
             <div className="col-12 fs-4 text-center">
-              <p>{blog.description}</p>
+              <p>{blog.description.substring(0, 50)}</p>
             </div>
           </div>
         </div>
