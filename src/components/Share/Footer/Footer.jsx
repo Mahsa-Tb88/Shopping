@@ -10,26 +10,46 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export default function Footer() {
   return (
-    <div className="position position-relative d-flex flex-column justify-content-center align-items-center">
-      {/* <div className="container-overlay-mobile">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </div> */}
-      <div className="row container-overlay-desktop d-flex justify-content-center align-items-center">
-        <div className="col">1</div>
-        <div className="col">2</div>
-        <div className="col">3</div>
-        <div className="col">4</div>
-        <div className="col">5</div>
-        <div className="col">6</div>
-        <div className="col">7</div>
-        <div className="col">8</div>
-        <div className="col">9</div>
-        <div className="col">10</div>
-        <div className="col">11</div>
-        <div className="col">12</div>
+    <div className=" footer position position-relative d-flex flex-column justify-content-center align-items-center">
+      <div className="container-column-footer">
+        <div className="row gx-5 col-overlay-footer">
+          <div className="col vh-100 ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid   ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col-footer"></div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col-footer"></div>
+          </div>
+        </div>
       </div>
       <footer className="w-100">
         <div className="footer-detail">
@@ -38,19 +58,19 @@ export default function Footer() {
               <h4 className="footer-title">How can we Help?</h4>
               <ul>
                 <li className="footer-link-item">
-                   <Link>find My Local Beautya</Link>
+                  <Link>find My Local Beautya</Link>
                 </li>
                 <li className="footer-link-item">
-                   <Link>Contact Us</Link>
+                  <Link>Contact Us</Link>
                 </li>
                 <li className="footer-link-item">
-                   <Link>FAQ</Link>
+                  <Link>FAQ</Link>
                 </li>
                 <li className="footer-link-item">
-                   <Link>Our Brand</Link>
+                  <Link>Our Brand</Link>
                 </li>
                 <li className="footer-link-item">
-                   <Link>Blog</Link>
+                  <Link>Blog</Link>
                 </li>
               </ul>
             </div>

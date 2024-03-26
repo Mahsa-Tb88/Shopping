@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./contact.scss";
 import { FaCaretDown } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa6";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { FaRegMessage } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 export default function Contact() {
@@ -10,7 +13,7 @@ export default function Contact() {
       title: "",
       phone: "",
       province: "",
-      country: "Body Care",
+      country: "Canada",
       email: "",
       fax: "",
     },
@@ -26,32 +29,53 @@ export default function Contact() {
   }
   return (
     <div className="contact">
-      <div className="container-overlay-mobile">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
+      <div className="container-column">
+        <div className="row gx-5 col-overlay">
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid   ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+        </div>
       </div>
-      <div className="container-overlay-desktop d-flex justify-content-center align-items-center">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
-      </div>
-      <div className="container p-0">
+
+      <div className="container-contact p-0">
         <main className="main">
           <div className="contact-us">
             <div className="contact-us-desc">
               <h2 className="title-contact">Contact Us</h2>
-              <p>
+              <p className="contact-desc">
                 Beautya Client Service Center Is Happy to Help You With Any
                 Questions You May Have Regarding Our Products And Corporate
                 Information.
@@ -68,7 +92,7 @@ export default function Contact() {
             </div>
             <div className="contact-us-form">
               <div className="contact-us-form-header">
-                <h3 className="contact-us-form-title d-flex justify-content-center align-items-center">
+                <h3 className="contact-us-form-title d-flex justify- align-items-center">
                   <span className="contact-us-title-envelope">
                     <FaEnvelope />
                   </span>
@@ -283,197 +307,172 @@ export default function Contact() {
             <p className="contact-us-line"></p>
           </div>
 
-          <div className="mobile-section">
-            <div className="chat-us contact-container">
-              <h3>
-                <div>
-                  <span>
-                    <i className="fa-regular fa-comment-dots"></i>
+          <div className="items row gx-5 mb-5">
+            <div className="col-12 mb-5 mb-md-0 col-md-4">
+              <div className="chat-us mx-3 h-100">
+                <h3 className="d-flex justify-content-baseline  aling-items-center ">
+                  <span className=" fs-2 ">
+                    <IoChatbubbleEllipsesOutline className="icon-item me-2" />
                   </span>
-                  <span className="chat-us-title">Chat Online</span>
+                  <span className="title-item">Chat Online</span>
+                </h3>
+                <div className="content-item mt-3 mb-5 ">
+                  <h5 className="fs-3">Looking for personalized advice?</h5>
+                  <p className="fs-5 desc-item">
+                    The option to chat becomes active when one of our Client
+                    Advisors is available.
+                  </p>
+                  <button className="btn-item w-75 py-2 fs-4">
+                    Ask Your Questions
+                  </button>
                 </div>
-                <span className="icon-chatUs">
-                  <i className="fa fa-plus"></i>
-                </span>
-              </h3>
-              <div className="chat-us-container contact-desc">
-                <h5 className="text-darkmood">
-                  Looking for personalized advice?
-                </h5>
-                <p className="text-darkmood">
-                  The option to chat becomes active when one of our Client
-                  Advisors is available.
-                </p>
-                <button className="chat-us-desc-btn ">Ask Your Questions</button>
               </div>
-              <p className="contact-us-line"></p>
             </div>
-            <div className="call-us contact-container">
-              <h3>
-                <div>
-                  <span>
-                    <i className="fa fa-phone"></i>
+            <div className="col-12 mb-5 mb-md-0 col-md-4">
+              <div className="call-us mx-3 h-100">
+                <h3 className="d-flex justify-content-baseline  aling-items-center ">
+                  <span className="fs-2">
+                    <FaPhoneAlt className="icon-item me-2" />
                   </span>
-                  <span className="call-us-title">Call Us</span>
+                  <span className="title-item">Call Us</span>
+                </h3>
+                <div className="content-item mt-3 mb-5 ">
+                  <h5 className="fs-3">
+                    Our Client Advisors would be delighted to assist you.
+                  </h5>
+                  <h5 className="fs-3">
+                    You may contact us at <span>1-802-526-2463</span>
+                  </h5>
+                  <p className="fs-5 desc-item">
+                    Service available from Monday to Friday from 10 am to 8 pm
+                    and Saturday from 10 am to 6 pm
+                  </p>
                 </div>
-                <span className="icon-callUs">
-                  <i className="fa fa-plus"></i>
-                </span>
-              </h3>
-              <div className="call-us-container contact-desc">
-                <p>Our Client Advisors would be delighted to assist you.</p>
-                <p>
-                  You may contact us at <span>1-802-526-2463</span>
-                </p>
-                <small>
-                  Service available from Monday to Friday from 10 am to 8 pm and
-                  Saturday from 10 am to 6 pm
-                </small>
               </div>
-              <p className="contact-us-line"></p>
             </div>
-            <div className="instant-msg contact-container">
-              <h3>
-                <div>
-                  <span>
-                    <i className="fa-regular fa-message"></i>
+            <div className="col-12 mb-5 mb-md-0 col-md-4">
+              <div className="msg-us mx-3 h-100">
+                <h3 className="d-flex justify-content-baseline  aling-items-center ">
+                  <span className="fs-2">
+                    <FaRegMessage className="icon-item me-2" />
                   </span>
-                  <span className="instant-msg-title">Instant Message</span>
+                  <span className="title-item">Instant Message</span>
+                </h3>
+                <div className="content-item mt-3 mb-5 ">
+                  <h5 className="fs-3">
+                    Would you like to contact us on an instant messaging app?
+                  </h5>
+                  <p className="fs-5 desc-item">
+                    Our Client Advisors will be delighted to assist you
+                  </p>
+                  <button className="btn-item w-75 py-2 fs-4">
+                    Ask Your Questions
+                  </button>
                 </div>
-                <span className="icon-msg">
-                  <i className="fa fa-plus"></i>
-                </span>
-              </h3>
-              <div className="instant-msg-container contact-desc">
-                <p>Would you like to contact us on an instant messaging app?</p>
-                <small>
-                  Our Client Advisors will be delighted to assist you
-                </small>
-                <button className="instant-msg-btn">Ask Your Questions</button>
-              </div>
-              <p className="contact-us-line"></p>
-            </div>
-          </div>
-
-          <div className="desktop-section">
-            <div className="chat-desktop">
-              <h3>
-                <span>
-                  <i className="fa-regular fa-comment-dots"></i>
-                </span>
-                <span className="chat-desktop-title">Chat Online</span>
-              </h3>
-              <div className="chat-desktop-content">
-                <h5>Looking for personalized advice?</h5>
-                <p>
-                  The option to chat becomes active when one of our Client
-                  Advisors is available.
-                </p>
-                <button className="chatbtn">Ask Your Questions</button>
-              </div>
-            </div>
-            <div className="call-desktop">
-              <h3>
-                <span>
-                  <i className="fa fa-phone"></i>
-                </span>
-                <span className="call-desktopn-title">Call Us</span>
-              </h3>
-              <div className="call-desktop-content">
-                <h5>Our Client Advisors would be delighted to assist you.</h5>
-                <h5>
-                  You may contact us at <span>1-802-526-2463</span>
-                </h5>
-                <p>
-                  Service available from Monday to Friday from 10 am to 8 pm and
-                  Saturday from 10 am to 6 pm
-                </p>
-              </div>
-            </div>
-            <div className="msg-desktop">
-              <h3>
-                <span>
-                  <i className="fa-regular fa-message"></i>
-                </span>
-                <span className="msg-desktop-title">Instant Message</span>
-              </h3>
-              <div className="msg-desktop-content">
-                <h5>
-                  Would you like to contact us on an instant messaging app?
-                </h5>
-                <p>Our Client Advisors will be delighted to assist you</p>
-                <button className="msgbtn">Ask Your Questions</button>
               </div>
             </div>
           </div>
 
-          <section className="options w-100">
-            <div className="container-overlay-mobile-options">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div className="container-overlay-desktop-options">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div className="row w-100 py-3">
-              <div className="col-3 d-flex justify-content-center align-items-center">
-                <div className="option-item-overlay"></div>
-                <div className="options-item-img">
-                  <div>
-                    <img
-                      src="http://server.test/uploads/rabbit.png"
-                      alt="rabbit"
-                    />
-                  </div>
+          <div className="logo-group">
+            <div className="container-column-logo">
+              <div className="row gx-5 col-overlay-logo">
+                <div className="col vh-100 ">
+                  <div className="inner-col-logo"></div>
                 </div>
-                <span className="options-item-text">No tests on animals</span>
-              </div>
-              <div className="col-3 d-flex justify-content-center align-items-center">
-                <div className="options-item-img">
-                  <div>
-                    <img src="http://server.test/uploads/leaf.png" alt="leaf" />
-                  </div>
+                <div className="col vh-100 ">
+                  <div className="inner-col-logo"></div>
                 </div>
-                <span className="options-item-text">
-                  No animal-derived ingredients
-                </span>
-              </div>
-              <div className="col-3 d-flex justify-content-center align-items-center">
-                <div className="options-item-img">
-                  <div>
-                    <img
-                      src="http://server.test/uploads/wheat.png"
-                      alt="wheat"
-                    />
-                  </div>
+                <div className="col vh-100 ">
+                  <div className="inner-col-logo"></div>
                 </div>
-                <span className="options-item-text">
-                  No gluten, or gluten byproducts
-                </span>
-              </div>
-              <div className="col-3 d-flex justify-content-center align-items-center">
-                <div className="options-item-img">
-                  <div>
-                    <img src="http://server.test/uploads/lamp.png" alt="lamp" />
-                  </div>
+                <div className="col vh-100 ">
+                  <div className="inner-col-logo"></div>
                 </div>
-                <span className="options-item-text">Recyclable packaging</span>
+                <div className="col vh-100 d-none d-md-grid">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid   ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
               </div>
             </div>
-          </section>
+            <div className="row w-100 gx-5 w-100 py-3">
+              <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="logo-img">
+                    <div>
+                      <img
+                        src="http://server.test/uploads/rabbit.png"
+                        alt="rabbit"
+                      />
+                    </div>
+                  </div>
+                  <span className="logo-text">No tests on animals</span>
+                </div>
+              </div>
+              <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="logo-img">
+                    <div>
+                      <img
+                        src="http://server.test/uploads/leaf.png"
+                        alt="leaf"
+                      />
+                    </div>
+                  </div>
+                  <span className="logo-text">
+                    No animal-derived ingredients
+                  </span>
+                </div>
+              </div>
+              <div className="col-6 text-center  col-md-3 ">
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="logo-img">
+                    <div>
+                      <img
+                        src="http://server.test/uploads/wheat.png"
+                        alt="wheat"
+                      />
+                    </div>
+                  </div>
+                  <span className="logo-text">
+                    No gluten, or gluten byproducts
+                  </span>
+                </div>
+              </div>
+              <div className="col-6 text-center  col-md-3 ">
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="logo-img">
+                    <div>
+                      <img
+                        src="http://server.test/uploads/lamp.png"
+                        alt="lamp"
+                      />
+                    </div>
+                  </div>
+                  <span className="logo-text">Recyclable packaging</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>

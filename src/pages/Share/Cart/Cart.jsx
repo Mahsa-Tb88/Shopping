@@ -7,46 +7,22 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../../context/CartContext";
 export default function Cart() {
   const { cartState, cartDispatch } = useCartContext();
-
+  console.log(cartState.items);
   let totalPrice = 0;
   cartState.items.forEach((element) => {
-    totalPrice = element.item.price * element.numOfItem + totalPrice;
+    totalPrice = element.price * element.count + totalPrice;
   });
 
-  function removeItem(id) {
-    const filterItems = cartState.items.filter(
-      (product) => product.item.id != id
-    );
-    cartDispatch({ type: "setItems", payload: filterItems });
+  function removeItem(product) {
+    cartDispatch({ type: "deleteItem", payload: product });
   }
 
-  function decNumOfItem(id) {
-    const findIndex = cartState.items.findIndex(
-      (product) => product.item.id == id
-    );
-    const newfilterShoppingCart = { ...cartState.items[findIndex] };
-    if (newfilterShoppingCart.numOfItem > 1) {
-      newfilterShoppingCart.numOfItem--;
-      const newShoppingCart = [...cartState.items];
-      newShoppingCart[findIndex] = newfilterShoppingCart;
-      cartDispatch({ type: "setItems", payload: newShoppingCart });
-    } else {
-      const filterItems = cartState.items.filter(
-        (product) => product.item.id != id
-      );
-      cartDispatch({ type: "setItems", payload: filterItems });
-    }
+  function decNumOfItem(product) {
+    cartDispatch({ type: "decrementItem", payload: product });
   }
 
-  function incNumOfItem(id) {
-    const findIndex = cartState.items.findIndex(
-      (product) => product.item.id == id
-    );
-    const newfilterShoppingCart = { ...cartState.items[findIndex] };
-    newfilterShoppingCart.numOfItem++;
-    const newShoppingCart = [...cartState.items];
-    newShoppingCart[findIndex] = newfilterShoppingCart;
-    cartDispatch({ type: "setItems", payload: newShoppingCart });
+  function incNumOfItem(product) {
+    cartDispatch({ type: "incrementItem", payload: product });
   }
 
   return (
@@ -79,7 +55,7 @@ export default function Cart() {
           <tbody>
             {cartState.items.map((p, i) => {
               return (
-                <tr key={p.item.id} className="table-row">
+                <tr key={p.id} className="table-row">
                   <th scope="row" className="fs-5">
                     {i + 1}
                   </th>
@@ -87,34 +63,34 @@ export default function Cart() {
                   <td>
                     <Link
                       className="link fs-4 px-2"
-                      to={"/product/" + `${p.item.id}`}
+                      to={"/product/" + `${p.id}`}
                     >
-                      {p.item.title}
+                      {p.title}
                     </Link>
                   </td>
                   <td>
                     <div className="d-flex justify-content-around align-items-center">
                       <span
                         className="btn-minuCart"
-                        onClick={() => decNumOfItem(p.item.id)}
+                        onClick={() => decNumOfItem(p)}
                       >
                         <FaMinus />
                       </span>
-                      <span className="text-black fs-4 ">{p.numOfItem}</span>
+                      <span className="text-black fs-4 ">{p.count}</span>
                       <span
                         className="btn-plusCart"
-                        onClick={() => incNumOfItem(p.item.id)}
+                        onClick={() => incNumOfItem(p)}
                       >
                         <FaPlus />
                       </span>
                     </div>
                   </td>
-                  <td className="fs-4">$ {p.item.price}</td>
-                  <td className="fs-4">${p.item.price * p.numOfItem}</td>
+                  <td className="fs-4">$ {p.price}</td>
+                  <td className="fs-4">${p.price * p.count}</td>
                   <td>
                     <div
                       className="btn-trashCart d-flex justify-content-center align-items-center"
-                      onClick={() => removeItem(p.item.id)}
+                      onClick={() => removeItem(p)}
                     >
                       <FaRegTrashAlt />
                     </div>
@@ -139,7 +115,3 @@ export default function Cart() {
     </div>
   );
 }
-
-// <Link className="link" to={"/product/" + `${p.product.id}`}>
-// {p.product.title}
-// </Link>
