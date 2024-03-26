@@ -7,7 +7,6 @@ import { useCartContext } from "../../../context/CartContext";
 import { Link } from "react-router-dom";
 
 export default function Products({ products }) {
-  
   const { cartState, cartDispatch } = useCartContext();
 
   function incrementHandler(product) {
@@ -21,7 +20,7 @@ export default function Products({ products }) {
       {products.map((p) => {
         selectedItem = cartState.items.find((item) => item.id == p.id);
         return (
-          <div className="col-4 mb-5" key={p.id}>
+          <div className="col-12 col-md-6 col-lg-4 mb-5" key={p.id}>
             <div className="px-3 h-100">
               <div className="product border border-1 d-flex flex-column  ">
                 <Link to={"/product/" + `${p.id}`}>

@@ -56,8 +56,8 @@ export default function Filter({ shopState }) {
   }
 
   return (
-    <div className="filter">
-      <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
+    <div className="filter  row">
+      <div className="d-flex col-6 col-md-12 flex-column justify-content-center align-items-baseline mb-5">
         <label className="text-white fs-3 mb-2">Search</label>
         <input
           type="text"
@@ -67,7 +67,7 @@ export default function Filter({ shopState }) {
           value={shopState.q}
         />
       </div>
-      <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
+      <div className="d-flex col-6 col-md-12 flex-column justify-content-center align-items-baseline mb-5">
         <label className="text-white fs-3 mb-2">Categories</label>
         <select
           className="w-100 px-2 border-0 py-2 fs-4"
@@ -84,7 +84,7 @@ export default function Filter({ shopState }) {
           })}
         </select>
       </div>
-      <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
+      <div className="d-flex col-6 col-md-12 flex-column justify-content-center align-items-baseline mb-5">
         <label className="text-white fs-3 mb-2">sort</label>
         <select
           className="w-100 px-2 border-0 py-2 fs-4"
@@ -97,9 +97,9 @@ export default function Filter({ shopState }) {
           <option value="4">Cheapest</option>
         </select>
       </div>
-      <div className="d-flex flex-column justify-content-center align-items-baseline mb-5">
+      <div className="d-flex col-6 col-md-12 flex-column justify-content-center align-items-baseline mb-5">
         <label className="text-white fs-3 mb-2">
-          Num Of Product In Each Page
+          Number Of Product 
         </label>
         <select
           className="w-100 px-2 border-0 py-2 fs-4"

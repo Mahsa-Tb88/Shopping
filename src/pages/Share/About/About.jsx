@@ -3,25 +3,45 @@ import "./about.scss";
 export default function About() {
   return (
     <div class="about">
-      <div class="container-overlay-mobile">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </div>
-      <div class="container-overlay-desktop">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-        <div>10</div>
-        <div>11</div>
-        <div>12</div>
+      <div className="container-column">
+        <div className="row gx-5 col-overlay">
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid   ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+        </div>
       </div>
       <div class="container p-0">
         <main>
@@ -106,73 +126,106 @@ export default function About() {
               </p>
             </div>
           </section>
-          <section class="options">
-            <div class="container-overlay-mobile-about">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div class="container-overlay-desktop-about">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
-            <div class="options-container-row w-100  row">
-              <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
-                <div class="option-item-overlay"></div>
-                <div class="options-item-img">
-                  <div>
-                    <img
-                      src="http://server.test/uploads/rabbit.png"
-                      alt="rabbit"
-                    />
-                  </div>
+          <div className="logo-group">
+            <div className="container-column-logo">
+              <div className="row gx-5 col-overlay-logo">
+                <div className="col vh-100 ">
+                  <div className="inner-col-logo"></div>
                 </div>
-                <span class="options-item-text">No tests on animals</span>
-              </div>
-              <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
-                <div class="options-item-img">
-                  <div>
-                    <img src="http://server.test/uploads/leaf.png" alt="leaf" />
-                  </div>
+                <div className="col vh-100 ">
+                  <div className="inner-col-logo"></div>
                 </div>
-                <span class="options-item-text">
-                  No animal-derived ingredients
-                </span>
-              </div>
-              <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
-                <div class="options-item-img">
-                  <div>
-                    <img
-                      src="http://server.test/uploads/wheat.png"
-                      alt="wheat"
-                    />
-                  </div>
+                <div className="col vh-100 ">
+                  <div className="inner-col-logo"></div>
                 </div>
-                <span class="options-item-text">
-                  No gluten, or gluten byproducts
-                </span>
-              </div>
-              <div class="text-center d-flex justify-content-center align-items-center py-4 col-3">
-                <div class="options-item-img">
-                  <div>
-                    <img src="http://server.test/uploads/lamp.png" alt="lamp" />
-                  </div>
+                <div className="col vh-100 ">
+                  <div className="inner-col-logo"></div>
                 </div>
-                <span class="options-item-text">Recyclable packaging</span>
+                <div className="col vh-100 d-none d-md-grid">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid   ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
+                <div className="col vh-100 d-none d-md-grid  ">
+                  <div className="inner-col-logo"></div>
+                </div>
               </div>
             </div>
-          </section>
+            <div className="row w-100 gx-5 w-100 py-3">
+              <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="logo-img">
+                    <div>
+                      <img
+                        src="http://server.test/uploads/rabbit.png"
+                        alt="rabbit"
+                      />
+                    </div>
+                  </div>
+                  <span className="logo-text">No tests on animals</span>
+                </div>
+              </div>
+              <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="logo-img">
+                    <div>
+                      <img
+                        src="http://server.test/uploads/leaf.png"
+                        alt="leaf"
+                      />
+                    </div>
+                  </div>
+                  <span className="logo-text">
+                    No animal-derived ingredients
+                  </span>
+                </div>
+              </div>
+              <div className="col-6 text-center  col-md-3 ">
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="logo-img">
+                    <div>
+                      <img
+                        src="http://server.test/uploads/wheat.png"
+                        alt="wheat"
+                      />
+                    </div>
+                  </div>
+                  <span className="logo-text">
+                    No gluten, or gluten byproducts
+                  </span>
+                </div>
+              </div>
+              <div className="col-6 text-center  col-md-3 ">
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="logo-img">
+                    <div>
+                      <img
+                        src="http://server.test/uploads/lamp.png"
+                        alt="lamp"
+                      />
+                    </div>
+                  </div>
+                  <span className="logo-text">Recyclable packaging</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </div>

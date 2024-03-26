@@ -91,11 +91,11 @@ export default function Shop() {
 
   return (
     <div className="shop container ">
-      <div className="d-flex justify-content-between align-items-start mb-5">
-        <div className="filter px-3 py-3 w-25 me-2 mt-5">
+      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start mb-5">
+        <div className="filter px-3 py-3 w-md-25 me-2 mt-5">
           <Filter shopState={shopState} />
         </div>
-        <div className="w-75 ms-2 mt-5">
+        <div className="w-md-75 ms-2 mt-5">
           {loading ? (
             <div className=" d-flex justify-content-center align-items-center  mt-5  flex-column">
               <p className="mb-4 loadingProducts">Loading ...</p>

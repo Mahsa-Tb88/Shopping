@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./blogs.scss";
 import { getBlogs } from "../../../utils/api";
 import { Link, useSearchParams } from "react-router-dom";
-import { FaAngleDoubleRight } from "react-icons/fa";
-import { FaAngleDoubleLeft } from "react-icons/fa";
+import Pagination from "../../../components/Share/Pagination/Pagination";
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
@@ -38,6 +37,11 @@ export default function Blogs() {
       setError({ message: result.error });
     }
     setIsLoading(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+
+  function pageHandler(i) {
+    setSearchParams({ page: i });
   }
   return (
     <div className="blog">
@@ -66,7 +70,7 @@ export default function Blogs() {
                 return (
                   <Link
                     key={blog.id}
-                    className="col-3 col-blog link"
+                    className="col-12 col-md-6 col-lg-3 col-blog link"
                     to={`${blog.id}`}
                   >
                     <div class="blog-item ">
@@ -104,64 +108,13 @@ export default function Blogs() {
           ) : (
             <p className="text-center cardEmpty fs-2 ">There is no blog</p>
           )}
-          <PaginationBlogs numOfPage={numOfPage} page={page} />
+          <Pagination
+            pageHandler={pageHandler}
+            numOfPage={numOfPage}
+            page={page}
+          />
         </div>
       )}
     </div>
-  );
-}
-
-function PaginationBlogs({ numOfPage, page }) {
-  const [searchParams, setSearchParams] = useSearchParams("");
-  let pages = [];
-  const prevClasses = ["page-link", page == 1 ? "disabled" : ""].join(" ");
-  const nextClasses = ["page-link", page == numOfPage ? "disabled" : ""].join(
-    " "
-  );
-
-  function pageHandler(i) {
-    setSearchParams({ page: i });
-  }
-
-  function pageFirstHandler() {
-    setSearchParams({ page: 1 });
-  }
-
-  function pageLastHandler() {
-    setSearchParams({ page: numOfPage });
-  }
-
-  for (let i = 1; i <= numOfPage; i++) {
-    pages.push(
-      <i
-        key={i}
-        className={"page-link " + (page == i ? "active" : "")}
-        onClick={() => pageHandler(i)}
-      >
-        <span className="page-Item">{i}</span>
-      </i>
-    );
-  }
-
-  if (numOfPage == 1) {
-    return;
-  }
-
-  return (
-    <nav className=" d-flex justify-content-center align-items-center paginate pagination">
-      <ul className="d-flex justify-content-center align-items-center">
-        <i className={prevClasses} onClick={() => pageFirstHandler()}>
-          <span className="page-Item">
-            <FaAngleDoubleLeft />
-          </span>
-        </i>
-        {pages}
-        <i className={nextClasses} onClick={() => pageLastHandler()}>
-          <span className="page-Item">
-            <FaAngleDoubleRight />
-          </span>
-        </i>
-      </ul>
-    </nav>
   );
 }

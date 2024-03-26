@@ -47,41 +47,104 @@ export default function ContainerHome() {
   ];
   return (
     <div className="home">
-      {/* <div className="container-overlay-mobile">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-      </div> */}
-      <div className=" container-overlay-desktop d-flex justify-content-between align-items-center">
-        <div className="col">1</div>
-        <div className="col">2</div>
-        <div className="col">3</div>
-        <div className="col">4</div>
-        <div className="col">5</div>
-        <div className="col">6</div>
-        <div className="col">7</div>
-        <div className="col">8</div>
-        <div className="col">9</div>
-        <div className="col">10</div>
-        <div className="col">11</div>
-        <div className="col">12</div>
+      <div className="container-column">
+        <div className="row gx-5 col-overlay">
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid   ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+          <div className="col vh-100 d-none d-md-grid  ">
+            <div className="inner-col">1</div>
+          </div>
+        </div>
       </div>
       <section className="poster">
         <h1 className="poster-title">Unlock Your Natural Glow</h1>
         <button className="poster-btn">Know more</button>
       </section>
       <section className="container products mx-auto  text-center ">
-        <h2 className="products-title">Products Category</h2>
-        <div className="products-category d-flex justify-content-center align-items-center">
+        <h2 className="products-title ">Products Category</h2>
+        <div className="products-category row d-flex justify-content-center align-items-center">
           {productsCategory.map((p) => {
             return (
-              <div className="product-img" key={p.title}>
-                <div className="overlay-img"></div>
-                <div className="product-img-container">
-                  <img src={p.img} alt="" />
+              <div className=" col-12 col-md-4" key={p.title}>
+                <div className="product-img">
+                  <div className="overlay-img">
+                    <div className="container-column-product">
+                      <div className="row gx-5 col-overlay-product">
+                        <div className="col vh-100 ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 d-none d-md-grid">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 d-none d-md-grid   ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 d-none d-md-grid  ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 d-none d-md-grid  ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 d-none d-md-grid  ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 d-none d-md-grid  ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 d-none d-md-grid  ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                        <div className="col vh-100 d-none d-md-grid  ">
+                          <div className="inner-col-product"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="product-img-container">
+                    <img src={p.img} alt={p.title} />
+                  </div>
+                  <h3>{p.title}</h3>
                 </div>
-                <h3>{p.title}</h3>
               </div>
             );
           })}
@@ -103,7 +166,7 @@ export default function ContainerHome() {
           <button className="prodcuts-desc-brand-btn">Discover More</button>
         </div>
       </section>
-      <section className="container bestSeller">
+      {/* <section className="container bestSeller">
         <h2 className="products-title text-center">Our Best Sellers</h2>
         <div className=" d-flex justify-content-between align-items-center">
           <div className="row">
@@ -125,7 +188,7 @@ export default function ContainerHome() {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
       <section className="newIn-desktop ">
         <h2 className="newIn-firstSlide-title">New In</h2>
 
@@ -183,7 +246,7 @@ export default function ContainerHome() {
           </div>
         </div>
       </section>
-      <section className="offer-desktop ">
+      {/* <section className="offer-desktop ">
         <div className="offer-desktop-img">
           <img src="./public/images/offer-desktop.png" alt="offer" />
         </div>
@@ -202,8 +265,8 @@ export default function ContainerHome() {
             <a href="#">find branches</a>
           </button>
         </div>
-      </section>
-      <section className="analysis-desktop mb-5">
+      </section> */}
+      {/* <section className="analysis-desktop mb-5">
         <div className="analysis-desktop-detail py-2">
           <h2 className="analysis-desktop-detail-title">
             NEW Virtual Skincare Analysis
@@ -227,7 +290,7 @@ export default function ContainerHome() {
         <div className="analysis-desktop-img">
           <img src="./public/images/faces/faces-desktop.png" alt="faces" />
         </div>
-      </section>
+      </section> */}
       <section className="blog-desktop">
         <h2 className="blog-desktop-title">Our Blog</h2>
         <div className="blog-desktop-container">
@@ -310,66 +373,89 @@ export default function ContainerHome() {
           </div>
         </div>
       </section>
-
-      <section className="d-flex justify-content-center align-items-center position-relative w-100">
-        <div className="container-overlay-mobile-options">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+      <section className="logo-group ">
+        <div className="container-column-logo">
+          <div className="row gx-5 col-overlay-logo">
+            <div className="col vh-100 ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 d-none d-md-grid">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 d-none d-md-grid   ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 d-none d-md-grid  ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 d-none d-md-grid  ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 d-none d-md-grid  ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 d-none d-md-grid  ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 d-none d-md-grid  ">
+              <div className="inner-col-logo"></div>
+            </div>
+            <div className="col vh-100 d-none d-md-grid  ">
+              <div className="inner-col-logo"></div>
+            </div>
+          </div>
         </div>
-        <div className="container-overlay-desktop-options">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="options-item d-flex justify-content-center align-items-center p-1 col-3">
-              <div className="option-item-overlay"></div>
-              <div className="options-item-img">
+        <div className="row  gx-5  py-3">
+          <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
+            <div className="d-flex align-items-center justify-content-center">
+              <div className="logo-img">
                 <div>
-                  <img src="./public/images/options/rabbit.png" alt="rabbit" />
+                  <img
+                    src="http://server.test/uploads/rabbit.png"
+                    alt="rabbit"
+                  />
                 </div>
               </div>
-              <span className="options-item-text">No tests on animals</span>
+              <span className="logo-text">No tests on animals</span>
             </div>
-            <div className="options-item d-flex justify-content-center align-items-center p-1 col-3">
-              <div className="options-item-img">
+          </div>
+          <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
+            <div className="d-flex align-items-center justify-content-center">
+              <div className="logo-img">
                 <div>
-                  <img src="./public/images/options/leaf.png" alt="leaf" />
+                  <img src="http://server.test/uploads/leaf.png" alt="leaf" />
                 </div>
               </div>
-              <span className="options-item-text">
-                No animal-derived ingredients
-              </span>
+              <span className="logo-text">No animal-derived ingredients</span>
             </div>
-            <div className="options-item d-flex justify-content-center align-items-center p-1 col-3">
-              <div className="options-item-img">
+          </div>
+          <div className="col-6 text-center  col-md-3 ">
+            <div className="d-flex align-items-center justify-content-center">
+              <div className="logo-img">
                 <div>
-                  <img src="./public/images/options/wheat.png" alt="wheat" />
+                  <img src="http://server.test/uploads/wheat.png" alt="wheat" />
                 </div>
               </div>
-              <span className="options-item-text">
-                No gluten, or gluten byproducts
-              </span>
+              <span className="logo-text">No gluten, or gluten byproducts</span>
             </div>
-            <div className="options-item d-flex justify-content-center align-items-center p-1 col-3">
-              <div className="options-item-img">
+          </div>
+          <div className="col-6 text-center  col-md-3 ">
+            <div className="d-flex align-items-center justify-content-center">
+              <div className="logo-img">
                 <div>
-                  <img src="../public/images/options/lamp.png" alt="lamp" />
+                  <img src="http://server.test/uploads/lamp.png" alt="lamp" />
                 </div>
               </div>
-              <span className="options-item-text">Recyclable packaging</span>
+              <span className="logo-text">Recyclable packaging</span>
             </div>
           </div>
         </div>
