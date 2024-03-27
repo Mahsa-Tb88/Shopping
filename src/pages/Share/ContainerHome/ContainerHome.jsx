@@ -93,50 +93,24 @@ export default function ContainerHome() {
       </section>
       <section className="container products mx-auto  text-center ">
         <h2 className="products-title ">Products Category</h2>
-        <div className="products-category row d-flex justify-content-center align-items-center">
+        <div className="products-category gx-5 row ">
           {productsCategory.map((p) => {
             return (
-              <div className=" col-12 col-md-4" key={p.title}>
-                <div className="product-img">
-                  <div className="overlay-img">
-                    <div className="container-column-product">
-                      <div className="row gx-5 col-overlay-product">
-                        <div className="col vh-100 ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 d-none d-md-grid">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 d-none d-md-grid   ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 d-none d-md-grid  ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 d-none d-md-grid  ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 d-none d-md-grid  ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 d-none d-md-grid  ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 d-none d-md-grid  ">
-                          <div className="inner-col-product"></div>
-                        </div>
-                        <div className="col vh-100 d-none d-md-grid  ">
-                          <div className="inner-col-product"></div>
-                        </div>
+              <div className="col-12 col-md-4 product-item" key={p.title}>
+                <div className="product-img ">
+                  <div className="container-column-product w-100 mx-auto">
+                    <div className="row gx-5 col-overlay-product">
+                      <div className="col vh-100 ">
+                        <div className="inner-col-product"></div>
+                      </div>
+                      <div className="col vh-100 ">
+                        <div className="inner-col-product"></div>
+                      </div>
+                      <div className="col vh-100 ">
+                        <div className="inner-col-product"></div>
+                      </div>
+                      <div className="col vh-100 ">
+                        <div className="inner-col-product"></div>
                       </div>
                     </div>
                   </div>
