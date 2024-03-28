@@ -1,0 +1,10 @@
+.formUser .btn-submit {
+  background-color: #79043c;
+  color: #f8e9f0;
+  width: 20rem;
+}
+
+.formUser .btn-submit:hover {
+  background-color: #504c4e;
+}
+/*# sourceMappingURL=formUser.css.map */

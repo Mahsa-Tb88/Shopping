@@ -21,7 +21,7 @@
     background-color: #ffcece;
     opacity: 0.2;
   }
-
+  //-------------------------------------------------------------poster
   .poster {
     background-image: url("/public/images/poster.jpg");
     background-size: cover;
@@ -75,42 +75,42 @@
       font-size: 2rem;
     }
   }
-  // products
-  .products-category {
+  // ------------------------------------------------products-category
+
+  .products-category-container {
     width: 85%;
     margin: 0 auto;
+  }
+  .products-title {
+    font-size: 2rem;
+    margin: 6rem 0 3rem 0;
   }
   .product-img {
     text-align: center;
     margin-bottom: 3rem;
     position: relative;
+    overflow: hidden;
   }
   .product-img h3 {
     font-size: 1.5rem;
     padding: 2.5rem 0;
-  }
-  .product-item {
-    // margin-bottom: 5rem;
   }
 
   .container-column-product {
     width: 100%;
     position: absolute;
     top: 0;
-    height: 100%;
+    // height: 100%;
   }
   .col-overlay-product div {
     height: 100%;
   }
   .inner-col-product {
     background-color: #131212;
-    opacity: 0.2;
-  }
-  .products-title {
-    font-size: 2rem;
-    margin: 6rem 0 3rem 0;
+    opacity: 0.4;
   }
 
+  //-------------------------------------------------products-desc
   .prodcuts-desc {
     background: linear-gradient(
       to bottom,
@@ -135,8 +135,9 @@
   .prodcuts-desc-brand-btn {
     margin-top: 2rem;
     padding: 0.8rem 1.6rem;
-    color: #79043c;
+    color: #fff;
     border: 1px solid #79043c;
+    background-color: #79043c;
     font-size: 1.2rem;
     position: relative;
   }
@@ -223,7 +224,7 @@
     }
   }
 
-  // best sellers
+  // ----------------------------------------------------best sellers
   .bestSeller {
     margin-bottom: 15rem;
   }
@@ -256,131 +257,30 @@
     color: #0c0c0c;
   }
 
-  //newin
-  .newIn-mobile .newIn-firstSlide-title {
-    color: #ffffff;
-    text-align: center;
-    font-size: 2.4rem;
-    margin-bottom: 1.6rem;
+  //-----------------------------------------------------newIn
+  .newIn {
+    background-color: #3d021e;
+    width: 100%;
   }
-  .newIn-firstSlide {
-    padding: 1.6rem 2rem;
-  }
-  .newIn-firstSlide-img {
-    text-align: center;
-  }
-  .newIn-firstSlide-img {
-    width: 90%;
+  .newIn-body {
+    width: 85%;
     margin: 0 auto;
-    background-color: #0c0c0c;
   }
-  .newIn-firstSlide img {
-    max-width: 100%;
-  }
-  .newIn-firstSlide-desc-title {
-    color: #fdabd2;
-    margin-top: 1.2rem;
-    font-size: 2rem;
-    text-align: center;
+  .newIn-product-img img{
+    max-width: 20rem;
   }
 
-  .newIn-firstSlide-desc {
-    color: #ffffff;
-    font-size: 1.4rem;
-    margin-top: 1.2rem;
-    width: 80%;
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 1.5rem;
-  }
+  // @media (min-width: 768px) {
+  //   .newIn-product-img img {
+  //     max-width: 15rem;
+  //   }
+  //   .newIn-desktop-container {
+  //     width: 85%;
+  //     margin: 0 auto;
+  //   }
+  // }
 
-  @media (min-width: 768px) {
-    .newIn-mobile-container {
-      display: none;
-    }
-    .newIn-desktop {
-      width: 100%;
-      background-color: rgb(61, 2, 30);
-      display: block;
-    }
-    .newIn-firstSlide-title {
-      padding-top: 3.8rem;
-      text-align: center;
-      color: #ffffff;
-      font-size: 2.4rem;
-    }
-    .newIn-desktop-container {
-      max-width: 85%;
-      margin: 0 auto;
-      display: flex;
-      padding: 3.4rem 0 10.4rem 0;
-
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-
-    .newIn-firstSlide {
-      width: 49%;
-      padding: 0;
-    }
-    .newIn-desktop .newIn-product-img {
-      text-align: center;
-      /* height: 35rem; */
-    }
-    .newIn-firstSlide img {
-      max-width: 100%;
-    }
-    .newIn-product-img {
-      width: 100%;
-    }
-    .newIn-product-img img {
-      max-width: 15rem;
-    }
-    .newIn-product {
-      /* background-color: blue; */
-      /* padding-bottom: 2.4rem; */
-      margin-left: 1.2rem;
-      background-color: #fff;
-      padding: 0 0 02rem 0;
-    }
-    .newIn-product-title {
-      font-size: 1.6rem;
-      color: #79043c;
-      padding: 0 1.6rem;
-      margin: 0.8rem 0;
-    }
-
-    .newIn-secoundSlide {
-      max-width: 50.5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .newIn-product-desc {
-      padding: 0 1.6rem;
-      color: #0c0c0c;
-      margin-bottom: 1.2rem;
-      font-size: 1.2rem;
-    }
-    .newIn-product-price {
-      font-size: 18px;
-      padding: 0.8rem 1.6rem 0 1.6rem;
-      color: #0c0c0c;
-    }
-    .newIn-mobile {
-      display: none;
-    }
-  }
-  @media (min-width: 900px) {
-    .newIn-product-img {
-      width: 100%;
-    }
-    .newIn-product-img img {
-      max-width: 20rem;
-      background-color: #1e1e1e;
-    }
-  }
-  //offer
+  //----------------------------------------------------offer
 
   @media (min-width: 768px) {
     .offer-mobile {
@@ -445,7 +345,7 @@
     }
   }
 
-  //analysis
+  //----------------------------------------------------analysis
   @media (min-width: 768px) {
     .analysis-mobile {
       display: none;
@@ -503,7 +403,6 @@
       outline: none;
       border: none;
       background-color: transparent;
-      // position: relative;
       transition: all 0.3s ease-in-out;
       width: 22rem;
       border: 1px solid #fff;
@@ -519,7 +418,6 @@
       color: #dfdfdf;
     }
     .analysis-desktop-detail-img {
-      /* background-color: rebeccapurple; */
       text-align: center;
     }
     .analysis-desktop-detail-img img {
@@ -567,7 +465,7 @@
       font-size: 1.6rem;
     }
   }
-  // blog
+  //---------------------------------------------------------- blog
   /*blog mobile  */
   .blog-desktop {
     display: none;
@@ -629,7 +527,7 @@
     font-size: 1.4rem;
     color: #0c0c0c;
   }
-  /* blog-desktop */
+  /* -------------------------------blog-desktop */
 
   @media (min-width: 768px) {
     .blog-mobile {
@@ -710,7 +608,7 @@
     }
   }
 
-  /*logo-group*/
+  //-------------------------------------------------logo-group
   .logo-group {
     position: relative;
     width: 85%;

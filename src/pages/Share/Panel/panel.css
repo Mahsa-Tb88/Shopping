@@ -1,0 +1,30 @@
+.panel {
+  margin-top: 8rem;
+}
+
+.panel .link {
+  color: #79043c;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.panel .link:hover {
+  background-color: #504c4e;
+  color: #f8e9f0;
+}
+
+.panel .active {
+  background-color: #79043c !important;
+  color: #f8e9f0;
+}
+
+.panel .sideBar {
+  background-color: #f8e9f0;
+  border-top: 1px solid #fff;
+}
+
+[data-bs-theme="dark"] .panel .sideBar {
+  background-color: #212529;
+  border-top: none;
+}
+/*# sourceMappingURL=panel.css.map */

@@ -91,14 +91,14 @@ export default function ContainerHome() {
         <h1 className="poster-title">Unlock Your Natural Glow</h1>
         <button className="poster-btn">Know more</button>
       </section>
-      <section className="container products mx-auto  text-center ">
+      <section className="container products-category  text-center ">
         <h2 className="products-title ">Products Category</h2>
-        <div className="products-category gx-5 row ">
+        <div className="products-category-container gx-5 row ">
           {productsCategory.map((p) => {
             return (
               <div className="col-12 col-md-4 product-item" key={p.title}>
                 <div className="product-img ">
-                  <div className="container-column-product w-100 mx-auto">
+                  <div className="container-column-product  ">
                     <div className="row gx-5 col-overlay-product">
                       <div className="col vh-100 ">
                         <div className="inner-col-product"></div>
@@ -124,7 +124,7 @@ export default function ContainerHome() {
           })}
         </div>
       </section>
-      <section className="prodcuts-desc">
+      <section className="prodcuts-desc text-center text-md-start">
         <h4 className="prodcuts-desc-title-mobile">Our Brand</h4>
         <div className="prodcuts-desc-img">
           <img src="./public/images/faces/Frame 26085715.svg" alt="face" />
@@ -140,16 +140,19 @@ export default function ContainerHome() {
           <button className="prodcuts-desc-brand-btn">Discover More</button>
         </div>
       </section>
-      {/* <section className="container bestSeller">
+      <section className="container p-0 bestSeller">
         <h2 className="products-title text-center">Our Best Sellers</h2>
         <div className=" d-flex justify-content-between align-items-center">
-          <div className="row">
+          <div className="row ">
             {bestSellers.map((p) => {
               return (
-                <div className="col-3  bestSellers-product " key={p.id}>
-                  <div className="border border-1 ">
+                <div
+                  className="col-12 col-md-6 col-lg-3  bestSellers-product mb-5"
+                  key={p.id}
+                >
+                  <div className="border border-1 h-100">
                     <div className="bestSellers-product-img">
-                      <img src={p.image} alt="product1" />
+                      <img src={p.image} alt="product" />
                     </div>
                     <h3 className="bestSellers-product-title">{p.title}</h3>
                     <p className="bestSellers-product-desc">{p.desc}</p>
@@ -162,60 +165,76 @@ export default function ContainerHome() {
             })}
           </div>
         </div>
-      </section> */}
-      <section className="newIn-desktop ">
-        <h2 className="newIn-firstSlide-title">New In</h2>
-
-        <div className="newIn-desktop-container">
-          <div className="newIn-firstSlide">
-            <div className="newIn-firstSlide-img">
-              <img src="./public/images/faces/woman.png" alt="woman" />
-            </div>
-            <div className="newIn-firstSlide-table">
-              <h3 className="newIn-firstSlide-desc-title">
-                Beautya La Mousse Off/On Foaming Cleaner
-              </h3>
-              <p className="newIn-firstSlide-desc">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis en im velit mollit.
-              </p>
-            </div>
-          </div>
-          <div className="newIn-secoundSlide">
-            <div className="newIn-product">
-              <div className="newIn-product-img">
-                <img
-                  src="./public/images/newIn/product image.png"
-                  alt="product1"
-                />
-              </div>
-              <div className="newIn-product-table">
-                <h3 className="newIn-product-title">
-                  Beautya Capture Total Dreamskin Care & Perfect
-                </h3>
-                <p className="newIn-product-desc">
-                  Plumping Gloss - Instant and Long-Term Volume Effect - 24h
-                  Hydration
-                </p>
-                <span className="newIn-product-price">$76.00</span>
+      </section>
+      <section className="newIn">
+        <h2 className="newIn-title mb-0 text-center text-white d-none d-md-block">
+          New In
+        </h2>
+        <div className="newIn-body">
+          <div className="row gx-5">
+            <div className=" col-12 col-md-6 ">
+              <div className="h-100  mx-auto">
+                <h2 className="newIn-firstSlide-title-mobile d-md-none">
+                  New In
+                </h2>
+                {/* <div className="newIn-firstSlide-img">
+                    <img src="./public/images/faces/woman.png" alt="woman" />
+                  </div>  */}
+                <div className="newIn-firstSlide-table">
+                  <h3 className="newIn-firstSlide-desc-title">
+                    Beautya La Mousse Off/On Foaming Cleaner
+                  </h3>
+                  <p className="newIn-firstSlide-desc">
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor
+                    do amet sint. Velit officia consequat duis en im velit
+                    mollit.
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="newIn-product">
-              <div className="newIn-product-img">
-                <img
-                  src="./public/images/newIn/product image2.png"
-                  alt="product1"
-                />
+            <div className="col-12 col-md-6 ">
+              <div className="h-100">
+                <div className="row gx-5">
+                  <div className=" col-12 col-md-6 my-5 mt-md-0">
+                    <div className="h-100 product-inner">
+                      <div className="newIn-product-img">
+                        <img
+                          src="./public/images/newIn/product image.png"
+                          alt="product1"
+                        />
+                      </div>
+                      <div className="newIn-product-table">
+                        <h3 className="newIn-firstSlide-desc-title ">
+                          Beautya Capture Total Dreamskin Care & Perfect
+                        </h3>
+                        <p className="newIn-firstSlide-desc ">
+                          Plumping Gloss - Instant and Long-Term Volume Effect -
+                          24h Hydration
+                        </p>
+                        <span className="newIn-price">$76.00</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="newIn-product col-12 col-md-6 my-5 mt-md-0">
+                    <div className="h-100 ">
+                      <div className="newIn-product-img ">
+                        <img
+                          src="./public/images/newIn/product image2.png"
+                          alt="product1"
+                        />
+                      </div>
+                      <h3 className="newIn-firstSlide-desc-title ">
+                        Beautya Capture Total Dreamskin Care & Perfect
+                      </h3>
+                      <p className="newIn-firstSlide-desc ">
+                        Plumping Gloss - Instant and Long-Term Volume Effect -
+                        24h Hydration
+                      </p>
+                      <span className="newIn-price">$70.00</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 className="newIn-product-title">
-                Beautya Capture Total Dreamskin Care & Perfect
-              </h3>
-              <p className="newIn-product-desc">
-                Plumping Gloss - Instant and Long-Term Volume Effect - 24h
-                Hydration
-              </p>
-              <span className="newIn-product-price">$70.00</span>
             </div>
           </div>
         </div>
