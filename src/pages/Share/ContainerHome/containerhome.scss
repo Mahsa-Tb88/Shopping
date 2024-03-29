@@ -376,20 +376,74 @@
   //     cursor: pointer;
   //   }
   // }
-  .offer-desktop {
+  .offer {
     margin: 7rem 0;
-   width: 100%;
-  }
-  .offer-desktop-img {
     width: 100%;
   }
-  .offer-desktop-img img {
+  .offer-img {
+    width: 100%;
+  }
+  .offer-img img {
     max-width: 100%;
   }
+  .offer-title {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .offer-body-title2 {
+    color: #a10550;
+  }
+  .offer-body {
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+  }
+  .offer-body-desc1,
+  .offer-body-desc2 {
+    font-size: 1.2rem;
+  }
+  .offer-body-desc2 {
+    color: #a10550;
+  }
+  .offer-body-btn {
+    width: 50%;
+    background-color: #fff;
+    border: 1px solid #a10550;
+    cursor: pointer;
+  }
+  .offer-body-btn a {
+    color: #a10550;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+  }
+  .offer-body-btn:hover {
+    background-color: #a10550;
+  }
+  .offer-body-btn:hover a {
+    color: #fff;
+  }
   @media (min-width: 768px) {
-    .offer-desktop {
+    .offer {
       margin: 7rem 0;
       width: 85%;
+    }
+    .offer-body-title1 {
+      font-size: 2.5rem;
+    }
+    .offer-body {
+      width: 100%;
+      text-align: start;
+      padding: 0;
+    }
+
+    .offer-body-btn a {
+      font-size: 1.7rem;
+    }
+    .offer-body-desc1,
+    .offer-body-desc2 {
+      font-size: 1.6rem;
     }
   }
   //----------------------------------------------------analysis

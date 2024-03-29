@@ -1,5 +1,6 @@
 import React from "react";
 import "./containerhome.scss";
+import { Link } from "react-router-dom";
 export default function ContainerHome() {
   const productsCategory = [
     {
@@ -172,7 +173,7 @@ export default function ContainerHome() {
         </h2>
         <div className="newIn-body">
           <div className="row gx-5">
-            <div className=" col-12 col-md-6 text-center firstSlide py-5 py-md-0 ">
+            <div className=" col-12 col-lg-6 text-center firstSlide py-5 py-md-0 ">
               <div className="h-100  ">
                 <h2 className="newIn-title  text-center text-white d-md-none mb-4">
                   New In
@@ -192,7 +193,7 @@ export default function ContainerHome() {
                 </div>
               </div>
             </div>
-            <div className="col-12 col-md-6 ">
+            <div className="col-12 col-lg-6 ">
               <div className="h-100">
                 <div className="row gx-5">
                   <div className=" col-12 col-md-6 my-5 mt-md-0">
@@ -241,29 +242,40 @@ export default function ContainerHome() {
           </div>
         </div>
       </section>
-      <section className="offer-desktop ">
+      <section className="offer ">
+        <h2 className="offer-title  text-center d-md-none">Special offers</h2>
+
         <div className="row gx-5  m-0">
-          <div className="offer-desktop-img col-12 col-md-6 p-0">
-            <img src="./public/images/offer-desktop.png" alt="offer" />
+          <div className="col-12 col-md-6 p-0">
+            <div className="h-100">
+              <div className="offer-img ">
+                <img src="./public/images/offer-desktop.png" alt="offer" />
+              </div>
+            </div>
           </div>
-          <div className="offer-desktop-detail col-12 col-md-6 p-0">
-            <h4 className="offer-desktop-detail-title1">Special offers</h4>
-            <h3 className="offer-desktop-detail-title2">Save up to 50%</h3>
-            <p className="offer-desktop-detail-desc1">
-              Mother’s Day is coming! For everything she’s given you, it's time
-              to give back. Shower her with love, happiness, and the best of
-              Beautya.
-            </p>
-            <p className="offer-desktop-detail-desc2">
-              visit your local beautya branches to find out more about our
-              special offers in make up and skincare products.
-            </p>
-            <button className="offer-desktop-detail-btn">
-              <a href="#">find branches</a>
-            </button>
+          <div className="col-12  col-md-6 p-0">
+            <div className="offer-body h-100 ps-md-5 pt-md-5">
+              <h4 className="offer-body-title1 d-none d-md-block">
+                Special offers
+              </h4>
+              <h3 className="offer-body-title2 mt-4 fs-1">Save up to 50%</h3>
+              <p className="offer-body-desc1 ">
+                Mother’s Day is coming! For everything she’s given you, it's
+                time to give back. Shower her with love, happiness, and the best
+                of Beautya.
+              </p>
+              <p className="offer-body-desc2">
+                visit your local beautya branches to find out more about our
+                special offers in make up and skincare products.
+              </p>
+              <button className="offer-body-btn py-2 ">
+                <Link href="shop">find branches</Link>
+              </button>
+            </div>
           </div>
         </div>
       </section>
+
       {/*  <section className="offer-desktop ">
         <div className="offer-desktop-img">
           <img src="./public/images/offer-desktop.png" alt="offer" />
