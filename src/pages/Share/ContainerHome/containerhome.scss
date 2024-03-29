@@ -259,92 +259,139 @@
 
   //-----------------------------------------------------newIn
   .newIn {
+    // width: 100%;
+  }
+  .firstSlide {
     background-color: #3d021e;
-    width: 100%;
+    z-index: 99;
+  }
+  .newIn-title {
+    margin-bottom: 4rem;
+    font-size: 3rem;
   }
   .newIn-body {
     width: 85%;
     margin: 0 auto;
   }
-  .newIn-product-img img{
+
+  .product-inner {
+    background-color: #fff;
+  }
+  .newIn-product-desc-title {
+    color: #a10550;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  .newIn-firstSlide-title {
+    color: #fdabd2;
+  }
+  .newIn-firstSlide-img img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .newIn-product-img img {
     max-width: 20rem;
   }
-
-  // @media (min-width: 768px) {
-  //   .newIn-product-img img {
-  //     max-width: 15rem;
-  //   }
-  //   .newIn-desktop-container {
-  //     width: 85%;
-  //     margin: 0 auto;
-  //   }
-  // }
+  .newIn-product-desc {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+    .newIn {
+      background-color: #3d021e;
+      padding: 3rem 0 7rem 0;
+    }
+    .newIn-body {
+      width: 85%;
+    }
+    .firstSlide {
+      background-color: transparent;
+    }
+    .newIn-product-img img {
+      max-width: 20rem;
+    }
+  }
 
   //----------------------------------------------------offer
 
+  // @media (min-width: 768px) {
+  //   .offer-mobile {
+  //     display: none;
+  //   }
+  //   .offer-desktop {
+  //     max-width: 85%;
+  //     margin: 15rem auto;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+  //     gap: 3rem;
+  //   }
+  //   .offer-desktop-img {
+  //     width: 50%;
+  //     margin: 0 auto;
+  //   }
+  //   .offer-desktop-img img {
+  //     width: 100%;
+  //     object-fit: cover;
+  //   }
+  //   .offer-desktop-detail {
+  //     /* margin-top: 5.4rem; */
+  //     width: 50%;
+  //     margin: 0 auto;
+  //   }
+  //   .offer-desktop-detail-title1 {
+  //     font-size: 2.4rem;
+  //     color: #0c0c0c;
+  //   }
+  //   .offer-desktop-detail-title2 {
+  //     font-size: 3.2rem;
+  //     color: #a10550;
+  //     margin: 0.8rem 0 0.4rem 0;
+  //   }
+  //   .offer-desktop-detail-desc1 {
+  //     font-size: 1.6rem;
+  //     color: #0c0c0c;
+  //   }
+  //   .offer-desktop-detail-desc2 {
+  //     font-size: 1.6rem;
+  //     color: #a10550;
+  //     margin-top: 0.8rem;
+  //   }
+  //   .offer-desktop-detail-btn {
+  //     font-size: 1.6rem;
+  //     border: 1px solid #a10550;
+  //     margin-top: 0.8rem;
+  //     transition: all 0.3s ease-in-out;
+  //     position: relative;
+  //   }
+  //   .offer-desktop-detail-btn a {
+  //     color: #a10550;
+  //     padding: 0.8rem 1.6rem;
+  //     display: inline-block;
+  //     cursor: pointer;
+  //   }
+  //   .offer-desktop-detail-btn :hover {
+  //     background-color: #a10550;
+  //     color: #ffffff;
+  //     cursor: pointer;
+  //   }
+  // }
+  .offer-desktop {
+    margin: 7rem 0;
+   width: 100%;
+  }
+  .offer-desktop-img {
+    width: 100%;
+  }
+  .offer-desktop-img img {
+    max-width: 100%;
+  }
   @media (min-width: 768px) {
-    .offer-mobile {
-      display: none;
-    }
     .offer-desktop {
-      max-width: 85%;
-      margin: 15rem auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-    }
-    .offer-desktop-img {
-      width: 50%;
-      margin: 0 auto;
-    }
-    .offer-desktop-img img {
-      width: 100%;
-      object-fit: cover;
-    }
-    .offer-desktop-detail {
-      /* margin-top: 5.4rem; */
-      width: 50%;
-      margin: 0 auto;
-    }
-    .offer-desktop-detail-title1 {
-      font-size: 2.4rem;
-      color: #0c0c0c;
-    }
-    .offer-desktop-detail-title2 {
-      font-size: 3.2rem;
-      color: #a10550;
-      margin: 0.8rem 0 0.4rem 0;
-    }
-    .offer-desktop-detail-desc1 {
-      font-size: 1.6rem;
-      color: #0c0c0c;
-    }
-    .offer-desktop-detail-desc2 {
-      font-size: 1.6rem;
-      color: #a10550;
-      margin-top: 0.8rem;
-    }
-    .offer-desktop-detail-btn {
-      font-size: 1.6rem;
-      border: 1px solid #a10550;
-      margin-top: 0.8rem;
-      transition: all 0.3s ease-in-out;
-      position: relative;
-    }
-    .offer-desktop-detail-btn a {
-      color: #a10550;
-      padding: 0.8rem 1.6rem;
-      display: inline-block;
-      cursor: pointer;
-    }
-    .offer-desktop-detail-btn :hover {
-      background-color: #a10550;
-      color: #ffffff;
-      cursor: pointer;
+      margin: 7rem 0;
+      width: 85%;
     }
   }
-
   //----------------------------------------------------analysis
   @media (min-width: 768px) {
     .analysis-mobile {
