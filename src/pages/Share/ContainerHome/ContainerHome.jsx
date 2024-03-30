@@ -173,7 +173,7 @@ export default function ContainerHome() {
         </h2>
         <div className="newIn-body">
           <div className="row gx-5">
-            <div className=" col-12 col-lg-6 text-center firstSlide py-5 py-md-0 ">
+            <div className=" col-12 col-md-6 text-center firstSlide py-5 py-md-0 ">
               <div className="h-100  ">
                 <h2 className="newIn-title  text-center text-white d-md-none mb-4">
                   New In
@@ -193,7 +193,7 @@ export default function ContainerHome() {
                 </div>
               </div>
             </div>
-            <div className="col-12 col-lg-6 ">
+            <div className="col-12 col-md-6 ">
               <div className="h-100">
                 <div className="row gx-5">
                   <div className=" col-12 col-md-6 my-5 mt-md-0">
@@ -245,7 +245,7 @@ export default function ContainerHome() {
       <section className="offer ">
         <h2 className="offer-title  text-center d-md-none">Special offers</h2>
 
-        <div className="row gx-5  m-0">
+        <div className="row gx-5  m-0 d-md-flex flex-md-row align-items-md-center">
           <div className="col-12 col-md-6 p-0">
             <div className="h-100">
               <div className="offer-img ">
@@ -254,11 +254,13 @@ export default function ContainerHome() {
             </div>
           </div>
           <div className="col-12  col-md-6 p-0">
-            <div className="offer-body h-100 ps-md-5 pt-md-5">
-              <h4 className="offer-body-title1 d-none d-md-block">
+            <div className="offer-body h-100 ps-md-5 ">
+              <h4 className="offer-body-title-desktop d-none d-md-block">
                 Special offers
               </h4>
-              <h3 className="offer-body-title2 mt-4 fs-1">Save up to 50%</h3>
+              <h3 className="offer-body-title2 mt-4 mt-md-0 fs-1">
+                Save up to 50%
+              </h3>
               <p className="offer-body-desc1 ">
                 Mother’s Day is coming! For everything she’s given you, it's
                 time to give back. Shower her with love, happiness, and the best
@@ -276,134 +278,142 @@ export default function ContainerHome() {
         </div>
       </section>
 
-      {/*  <section className="offer-desktop ">
-        <div className="offer-desktop-img">
-          <img src="./public/images/offer-desktop.png" alt="offer" />
-        </div>
-        <div className="offer-desktop-detail">
-          <h4 className="offer-desktop-detail-title1">Special offers</h4>
-          <h3 className="offer-desktop-detail-title2">Save up to 50%</h3>
-          <p className="offer-desktop-detail-desc1">
-            Mother’s Day is coming! For everything she’s given you, it's time to
-            give back. Shower her with love, happiness, and the best of Beautya.
-          </p>
-          <p className="offer-desktop-detail-desc2">
-            visit your local beautya branches to find out more about our special
-            offers in make up and skincare products.
-          </p>
-          <button className="offer-desktop-detail-btn">
-            <a href="#">find branches</a>
-          </button>
-        </div>
-      </section> */}
-      {/* <section className="analysis-desktop mb-5">
-        <div className="analysis-desktop-detail py-2">
-          <h2 className="analysis-desktop-detail-title">
-            NEW Virtual Skincare Analysis
-          </h2>
-          <p className="analysis-desktop-detail-desc">
-            Looking for a full skincare routine? Our NEW Virtual Skincare
-            Analysis Tool evaluates your skin and provides the most personalized
-            recommendations.
-          </p>
-          <div className="analysis-desktop-detail-info">
-            <div className="analysis-desktop-detail-table">
-              <button className="analysis-desktop-info-btn">
-                <a href="#" className="link">
-                  answer the Questionnaire
-                </a>
-              </button>
-            </div>
-            <div className="analysis-desktop-detail-img"></div>
-          </div>
-        </div>
-        <div className="analysis-desktop-img">
-          <img src="./public/images/faces/faces-desktop.png" alt="faces" />
-        </div>
-      </section>
-      <section className="blog-desktop">
-        <h2 className="blog-desktop-title">Our Blog</h2>
-        <div className="blog-desktop-container">
-          <div className="blog-item">
-            <div className="blog-item-overlay"></div>
-            <div className="blog-item-container">
-              <div className="blog-item-img">
+      <section className="analysis mb-5">
+        <div className="row mx-0 d-md-flex flex-md-row-reverse ">
+          <div className="col-12 col-md-6 p-0">
+            <div className="h-100">
+              <h2 className="analysis-title-mobile d-md-none text-center mb-5">
+                NEW Virtual Skincare Analysis
+              </h2>
+              <div className="analysis-img">
                 <img
-                  src="./public/images/blogs/blog image1.png"
-                  alt="blog-image"
+                  src="./public/images/faces/faces-desktop.png"
+                  alt="faces"
                 />
-              </div>
-              <div className="blog-item-table">
-                <h3 className="blog-item-title">How to get clear skin fast</h3>
-                <div className="blog-item-info">
-                  <span className="blog-item-info-product">Skincare</span>
-                  <span className="blog-item-info-dash"></span>
-                  <span className="blog-item-info-dr">Dr. Wade Warren</span>
-                  <span className="blog-item-info-dash"></span>
-                  <span className="blog-item-info-date">Jan 20, 2021</span>
-                </div>
-                <p className="blog-item-desc">
-                  Many people find it difficult to get clear skin. The methods
-                  for getting clear skin will vary
-                </p>
               </div>
             </div>
           </div>
-          <div className="blog-item">
-            <div className="blog-item-overlay"></div>
-
-            <div className="blog-item-container">
-              <div className="blog-item-img">
-                <img
-                  src="./public/images/blogs/blog image2.png"
-                  alt="blog-image"
-                />
-              </div>
-              <div className="blog-item-table">
-                <h3 className="blog-item-title">How to get clear skin fast</h3>
-                <div className="blog-item-info">
-                  <span className="blog-item-info-product">Skincare</span>
-                  <span className="blog-item-info-dash"></span>
-                  <span className="blog-item-info-dr">Dr. Wade Warren</span>
-                  <span className="blog-item-info-dash"></span>
-                  <span className="blog-item-info-date">Jan 20, 2021</span>
-                </div>
-                <p className="blog-item-desc">
-                  Many people find it difficult to get clear skin. The methods
-                  for getting clear skin will vary
+          <div className="col-12 col-md-6 analysis-body-col">
+            <div className="h-100">
+              <div className="analysis-body py-5 py-md-3 py-lg-3 ps-lg-3">
+                <h2 className="analysis-body-title d-none d-md-block ">
+                  NEW Virtual Skincare Analysis
+                </h2>
+                <p className="analysis-body-desc mb-md-0 mb-lg-3">
+                  Looking for a full skincare routine? Our NEW Virtual Skincare
+                  Analysis Tool evaluates your skin and provides the most
+                  personalized recommendations.
                 </p>
-              </div>
-            </div>
-          </div>
-          <div className="blog-item">
-            <div className="blog-item-overlay"></div>
-
-            <div className="blog-item-container">
-              <div className="blog-item-img">
-                <img
-                  src="./public/images/blogs/blog image3.png"
-                  alt="blog-image"
-                />
-              </div>
-              <div className="blog-item-table">
-                <h3 className="blog-item-title">How to get clear skin fast</h3>
-                <div className="blog-item-info">
-                  <span className="blog-item-info-product">Skincare</span>
-                  <span className="blog-item-info-dash"></span>
-                  <span className="blog-item-info-dr">Dr. Wade Warren</span>
-                  <span className="blog-item-info-dash"></span>
-                  <span className="blog-item-info-date">Jan 20, 2021</span>
+                <div className="analysis-body-info">
+                  <button className="analysis-body-infoBtn">
+                    <Link href="#" className="analysisBtn">
+                      answer the Questionnaire
+                    </Link>
+                  </button>
                 </div>
-                <p className="blog-item-desc">
-                  Many people find it difficult to get clear skin. The methods
-                  for getting clear skin will vary
-                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section className="logo-group ">
+
+      <section className="blog">
+        <h2 className="blog-title text-center  mb-5 fs-1">Our Blog</h2>
+        <div className="blog-container">
+          <div className="row m-0 ">
+            <div className="blog-item col-12 col-md-4 ">
+              <div className="h-100">
+                <div className="blog-item-overlay"></div>
+                <div className="blog-item-container">
+                  <div className="blog-item-img">
+                    <img
+                      src="./public/images/blogs/blog image1.png"
+                      alt="blog-image"
+                    />
+                  </div>
+                  <div className="blog-item-table">
+                    <h3 className="blog-item-title">
+                      How to get clear skin fast
+                    </h3>
+                    <div className="blog-item-info">
+                      <span className="blog-item-info-product">Skincare</span>
+                      <span className="blog-item-info-dash"></span>
+                      <span className="blog-item-info-dr">Dr. Wade Warren</span>
+                      <span className="blog-item-info-dash"></span>
+                      <span className="blog-item-info-date">Jan 20, 2021</span>
+                    </div>
+                    <p className="blog-item-desc">
+                      Many people find it difficult to get clear skin. The
+                      methods for getting clear skin will vary
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="blog-item col-12 col-md-4">
+              <div className="h-100">
+                <div className="blog-item-overlay"></div>
+
+                <div className="blog-item-container">
+                  <div className="blog-item-img">
+                    <img
+                      src="./public/images/blogs/blog image2.png"
+                      alt="blog-image"
+                    />
+                  </div>
+                  <div className="blog-item-table">
+                    <h3 className="blog-item-title">
+                      How to get clear skin fast
+                    </h3>
+                    <div className="blog-item-info">
+                      <span className="blog-item-info-product">Skincare</span>
+                      <span className="blog-item-info-dash"></span>
+                      <span className="blog-item-info-dr">Dr. Wade Warren</span>
+                      <span className="blog-item-info-dash"></span>
+                      <span className="blog-item-info-date">Jan 20, 2021</span>
+                    </div>
+                    <p className="blog-item-desc">
+                      Many people find it difficult to get clear skin. The
+                      methods for getting clear skin will vary
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="blog-item col-12 col-md-4">
+              <div className="h-100">
+                <div className="blog-item-overlay"></div>
+
+                <div className="blog-item-container">
+                  <div className="blog-item-img">
+                    <img
+                      src="./public/images/blogs/blog image3.png"
+                      alt="blog-image"
+                    />
+                  </div>
+                  <div className="blog-item-table">
+                    <h3 className="blog-item-title">
+                      How to get clear skin fast
+                    </h3>
+                    <div className="blog-item-info">
+                      <span className="blog-item-info-product">Skincare</span>
+                      <span className="blog-item-info-dash"></span>
+                      <span className="blog-item-info-dr">Dr. Wade Warren</span>
+                      <span className="blog-item-info-dash"></span>
+                      <span className="blog-item-info-date">Jan 20, 2021</span>
+                    </div>
+                    <p className="blog-item-desc">
+                      Many people find it difficult to get clear skin. The
+                      methods for getting clear skin will vary
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*   <section className="logo-group ">
         <div className="container-column-logo">
           <div className="row gx-5 col-overlay-logo">
             <div className="col vh-100 ">
