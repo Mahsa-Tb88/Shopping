@@ -318,31 +318,29 @@ export default function ContainerHome() {
       </section>
 
       <section className="blog">
-        <h2 className="blog-title text-center  mb-5 fs-1">Our Blog</h2>
+        <h2 className="blog-title text-center mb-5 fs-1">Our Blog</h2>
         <div className="blog-container">
           <div className="row m-0 ">
-            <div className="blog-item col-12 col-md-4 ">
+            <div className="blog col-12 col-md-4 ">
               <div className="h-100">
-                <div className="blog-item-overlay"></div>
-                <div className="blog-item-container">
-                  <div className="blog-item-img">
+                <div className="blog-overlay"></div>
+                <div className="blog-container">
+                  <div className="blog-img">
                     <img
                       src="./public/images/blogs/blog image1.png"
                       alt="blog-image"
                     />
                   </div>
-                  <div className="blog-item-table">
-                    <h3 className="blog-item-title">
-                      How to get clear skin fast
-                    </h3>
-                    <div className="blog-item-info">
-                      <span className="blog-item-info-product">Skincare</span>
-                      <span className="blog-item-info-dash"></span>
-                      <span className="blog-item-info-dr">Dr. Wade Warren</span>
-                      <span className="blog-item-info-dash"></span>
-                      <span className="blog-item-info-date">Jan 20, 2021</span>
+                  <div className="blog-body">
+                    <h3 className="blog-title">How to get clear skin fast</h3>
+                    <div className="blog-info">
+                      <span className="blog-info-product">Skincare</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-dr">Dr. Wade Warren</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-date">Jan 20, 2021</span>
                     </div>
-                    <p className="blog-item-desc">
+                    <p className="blog-desc">
                       Many people find it difficult to get clear skin. The
                       methods for getting clear skin will vary
                     </p>
@@ -350,29 +348,27 @@ export default function ContainerHome() {
                 </div>
               </div>
             </div>
-            <div className="blog-item col-12 col-md-4">
+            <div className="blog col-12 col-md-4">
               <div className="h-100">
-                <div className="blog-item-overlay"></div>
+                <div className="blog-overlay"></div>
 
-                <div className="blog-item-container">
-                  <div className="blog-item-img">
+                <div className="blog-container">
+                  <div className="blog-img">
                     <img
                       src="./public/images/blogs/blog image2.png"
                       alt="blog-image"
                     />
                   </div>
-                  <div className="blog-item-table">
-                    <h3 className="blog-item-title">
-                      How to get clear skin fast
-                    </h3>
-                    <div className="blog-item-info">
-                      <span className="blog-item-info-product">Skincare</span>
-                      <span className="blog-item-info-dash"></span>
-                      <span className="blog-item-info-dr">Dr. Wade Warren</span>
-                      <span className="blog-item-info-dash"></span>
-                      <span className="blog-item-info-date">Jan 20, 2021</span>
+                  <div className="blog-body">
+                    <h3 className="blog-title">How to get clear skin fast</h3>
+                    <div className="blog-info">
+                      <span className="blog-info-product">Skincare</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-dr">Dr. Wade Warren</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-date">Jan 20, 2021</span>
                     </div>
-                    <p className="blog-item-desc">
+                    <p className="blog-desc">
                       Many people find it difficult to get clear skin. The
                       methods for getting clear skin will vary
                     </p>
@@ -380,29 +376,27 @@ export default function ContainerHome() {
                 </div>
               </div>
             </div>
-            <div className="blog-item col-12 col-md-4">
+            <div className="blog col-12 col-md-4">
               <div className="h-100">
-                <div className="blog-item-overlay"></div>
+                <div className="blog-overlay"></div>
 
-                <div className="blog-item-container">
-                  <div className="blog-item-img">
+                <div className="blog-container">
+                  <div className="blog-img">
                     <img
                       src="./public/images/blogs/blog image3.png"
                       alt="blog-image"
                     />
                   </div>
-                  <div className="blog-item-table">
-                    <h3 className="blog-item-title">
-                      How to get clear skin fast
-                    </h3>
-                    <div className="blog-item-info">
-                      <span className="blog-item-info-product">Skincare</span>
-                      <span className="blog-item-info-dash"></span>
-                      <span className="blog-item-info-dr">Dr. Wade Warren</span>
-                      <span className="blog-item-info-dash"></span>
-                      <span className="blog-item-info-date">Jan 20, 2021</span>
+                  <div className="blog-body">
+                    <h3 className="blog-title">How to get clear skin fast</h3>
+                    <div className="blog-info">
+                      <span className="blog-info-product">Skincare</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-dr">Dr. Wade Warren</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-date">Jan 20, 2021</span>
                     </div>
-                    <p className="blog-item-desc">
+                    <p className="blog-desc">
                       Many people find it difficult to get clear skin. The
                       methods for getting clear skin will vary
                     </p>
