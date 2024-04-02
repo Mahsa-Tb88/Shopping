@@ -31,26 +31,32 @@ export default function AdminLayout() {
         <div className="sidebarAdmin ">
           <h3 className=" titleAdmin d-flex justify-content-center align-items-center">
             <Link to="/">
-              <img src="../public/images/logo.png" width={90} />
+              <img src="../public/images/logo.png" className="logo-admin" />
             </Link>
           </h3>
           <div className=" d-flex flex-column  px-3 vh-100">
             <NavLink
-              className="link my-3 py-4 linkAdmin w-100 ps-4"
+              className="link my-3 py-4 linkAdmin w-100 ps-md-4 "
               to="products"
             >
               Products
             </NavLink>
             <NavLink
-              className="link my-3 py-4 linkAdmin w-100 ps-4"
+              className="link my-3 py-4 linkAdmin w-100 ps-md-4 "
               to="categories"
             >
               Categories
             </NavLink>
-            <NavLink className="link my-3 py-4 linkAdmin w-100 ps-4" to="users">
+            <NavLink
+              className="link my-3 py-4 linkAdmin w-100 ps-md-4 "
+              to="users"
+            >
               Users
             </NavLink>
-            <NavLink className="link my-3 py-4 linkAdmin w-100 ps-4" to="blogs">
+            <NavLink
+              className="link my-3 py-4 linkAdmin w-100 ps-md-4 "
+              to="blogs"
+            >
               Blogs
             </NavLink>
           </div>
@@ -66,12 +72,12 @@ export default function AdminLayout() {
                 {appState.theme == "dark" ? <MdOutlineWbSunny /> : <IoMdMoon />}
               </button>
               <button
-                className="signout-btnAdmin  py-1 px-3 "
+                className="signout-btnAdmin  py-1 px-md-3 "
                 onClick={signOutHandler}
               >
                 Sing Out
               </button>
-              <Link className="back-btnAdmin ms-2  py-1 px-3 " to="/panel">
+              <Link className="back-btnAdmin ms-2  py-1 px-md-3 " to="/panel">
                 Back
               </Link>
             </div>

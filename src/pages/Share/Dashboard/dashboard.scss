@@ -1,6 +1,17 @@
 .dashboard {
-  margin-top: 8rem;
+  margin-top: 5rem;
   .title {
-    font-size: 4rem;
+    font-size: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  .dashboard {
+    margin-top: 8rem;
+    .title {
+      font-size: 4rem;
+    }
+    .desc{
+      font-size: 2rem;
+    }
   }
 }

@@ -1,5 +1,5 @@
 .home {
-  margin-top: 8rem;
+  margin-top: 5rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -550,8 +550,11 @@
     font-size: 1.2rem;
     margin-left: 1rem;
   }
+}
+@media (min-width: 768px) {
+  .home {
+    margin-top: 8rem;
 
-  @media (min-width: 768px) {
     .logo-img img {
       height: 4rem;
       width: 4rem;

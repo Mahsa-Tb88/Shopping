@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACE,SADO,CACP,WAAW,CAAC;EACV,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,OAAO;EACd,KAAK,EAAE,KAAK;CACb;;AALH,AAME,SANO,CAMP,WAAW,AAAA,MAAM,CAAC;EAChB,gBAAgB,EAAE,OAAO;CAC1B",
-    "sources": [
-        "formUser.scss"
-    ],
-    "names": [],
-    "file": "formUser.css"
-}

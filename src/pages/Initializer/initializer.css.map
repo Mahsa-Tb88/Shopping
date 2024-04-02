@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,SAAS,EAAE,IAAI;CAShB;;AAVD,AAEE,YAFU,CAEV,QAAQ,CAAC;EACP,KAAK,EAAE,OAAO;EACd,SAAS,EAAE,IAAI;CAChB;;AALH,AAME,YANU,CAMV,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAO;EACzB,SAAS,EAAE,IAAI;CAChB;;CAGH,AAAA,AAAA,aAAC,CAAc,MAAM,AAApB,EAAsB,YAAY,CAAC;EAClC,gBAAgB,EAAE,KAAK;CACxB",
-    "sources": [
-        "initializer.scss"
-    ],
-    "names": [],
-    "file": "initializer.css"
-}
