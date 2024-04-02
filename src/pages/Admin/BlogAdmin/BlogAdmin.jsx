@@ -87,7 +87,7 @@ export default function BlogAdmin() {
 
   const numOfPage = Math.ceil(totalBlogs / 5);
   return (
-    <div className="blogAdmin">
+    <div className="blogAdmin px-2 px-md-4 py-5">
       <h1>Managing Blogs</h1>
       <div className="addNewBlog d-flex justify-content-center align-items-center">
         <Link className="addBlogBtn link" to="new">
@@ -96,12 +96,12 @@ export default function BlogAdmin() {
         </Link>
       </div>
       {isLoading ? (
-        <div className="fs-2 w-75 text-center loadingBlogAdmin">
+        <div className="fs-2  text-center loadingBlogAdmin">
           <p>Loading ...</p>
           <p className=" spinner spinner-grow"></p>
         </div>
       ) : errorLoading ? (
-        <div className="text-center loadingBlogAdmin w-75">
+        <div className="text-center loadingBlogAdmin ">
           <p className="fs-1">{errorLoading}</p>
           <button className="btn-tryAgain fs-3" onClick={() => fetchBlogs()}>
             Try Again
@@ -109,42 +109,34 @@ export default function BlogAdmin() {
         </div>
       ) : (
         <div>
-          <div className="w-75">
+          <div className="">
             <table className="table table-bordered table-striped text-center my-5">
               <thead className="table-dark">
                 <tr className="table-row">
-                  <th scope="col" className="fs-3">
-                    Title
-                  </th>
-                  <th scope="col" className="fs-3">
-                    Slug
-                  </th>
-                  <th scope="col" className="fs-3">
-                    Operation
-                  </th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Slug</th>
+                  <th scope="col">Operation</th>
                 </tr>
               </thead>
               <tbody>
                 {blogs.map((b) => {
                   return (
                     <tr key={b.id} className="table-row">
-                      <td>
-                        <span className=" fs-4 px-2">{b.title}</span>
-                      </td>
-                      <td className="fs-4">{b.slug}</td>
+                      <td>{b.title}</td>
+                      <td>{b.slug}</td>
                       <td>
                         <div className=" d-flex justify-content-center align-items-center">
                           <span
-                            className="operation-trash d-flex justify-content-center align-items-center   me-5"
+                            className="operation-trash d-flex justify-content-center align-items-center me-2   me-md-5"
                             onClick={() => removeBlogHandler(b.id)}
                           >
-                            <FaRegTrashAlt className="fs-4" />
+                            <FaRegTrashAlt />
                           </span>
                           <Link
                             className="operation-edit  d-flex justify-content-center align-items-center"
                             to={"edit/" + `${b.id}`}
                           >
-                            <FaRegEdit className="fs-4" />
+                            <FaRegEdit />
                           </Link>
                         </div>
                       </td>

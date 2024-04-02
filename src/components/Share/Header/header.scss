@@ -13,7 +13,7 @@
     text-decoration: none;
   }
   .active {
-    background-color: #79043c;
+    background-color: #79043c !important;
     color: #f8e9f0 !important;
     border: none;
   }
@@ -29,9 +29,7 @@
   .showMenu {
     left: 0;
   }
-  // .hiddenMenu {
-  //   width: -15rem;
-  // }
+
   .navlink {
     text-decoration: none;
     color: #504c4e;
@@ -109,9 +107,7 @@
     padding: 3px;
     margin-left: 3px;
   }
-  .cart:hover .numItem {
-    background-color: #000;
-  }
+
   .shaoppingcart {
     color: #79043c;
     height: 15px;
@@ -210,7 +206,8 @@
     color: #f8e9f0;
   }
   .navlink:hover {
-    background-color: #79043c;
+    background-color: #212529;
+    color: #f8e9f0;
   }
   .numItem {
     background-color: #f8e9f0;

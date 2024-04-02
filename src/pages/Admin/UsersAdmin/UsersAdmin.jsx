@@ -90,7 +90,7 @@ export default function UsersAdmin() {
   }
 
   return (
-    <div className="userAdmin">
+    <div className="userAdmin px-2 px-md-4 py-5">
       <h1>Managing Users</h1>
       <div className="addNewUser d-flex justify-content-center align-items-center">
         <Link className="addUserBtn link" to="new">
@@ -99,7 +99,7 @@ export default function UsersAdmin() {
         </Link>
       </div>
       {isLoading ? (
-        <div className="fs-2 w-75 text-center loadingUserAdmin">
+        <div className="fs-2 w-md-75 text-center loadingUserAdmin">
           <p>Loading ...</p>
           <p className=" spinner spinner-grow"></p>
         </div>
@@ -114,49 +114,39 @@ export default function UsersAdmin() {
           </button>
         </div>
       ) : (
-        <div>
-          <div className="w-75">
+        <div >
+          <div>
             <table className="table table-bordered table-striped text-center my-5">
               <thead className="table-dark">
                 <tr className="table-row">
-                  <th scope="col" className="fs-3">
-                    Username
-                  </th>
-                  <th scope="col" className="fs-3">
-                    Name & Family
-                  </th>
-                  <th scope="col" className="fs-3">
-                    role
-                  </th>
-                  <th scope="col" className="fs-3">
-                    Operation
-                  </th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Name & Family</th>
+                  <th scope="col">role</th>
+                  <th scope="col">Operation</th>
                 </tr>
               </thead>
               <tbody>
                 {users.map((p) => {
                   return (
                     <tr key={p.id} className="table-row">
+                      <td>{p.username}</td>
                       <td>
-                        <span className=" fs-4 px-2">{p.username}</span>
-                      </td>
-                      <td className="fs-4">
                         {p.firstname} {p.lastname}
                       </td>
-                      <td className="fs-4">{p.role}</td>
+                      <td>{p.role}</td>
                       <td>
                         <div className=" d-flex justify-content-center align-items-center">
                           <span
-                            className="operation-trash d-flex justify-content-center align-items-center   me-5"
+                            className="operation-trash d-flex justify-content-center align-items-center me-2   me-md-5"
                             onClick={() => removeUserHandler(p.id)}
                           >
-                            <FaRegTrashAlt className="fs-4" />
+                            <FaRegTrashAlt />
                           </span>
                           <Link
                             className="operation-edit  d-flex justify-content-center align-items-center"
                             to={"edit/" + `${p.id}`}
                           >
-                            <FaRegEdit className="fs-4" />
+                            <FaRegEdit />
                           </Link>
                         </div>
                       </td>

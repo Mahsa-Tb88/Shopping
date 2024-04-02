@@ -3,7 +3,6 @@ import Loading from "../../../components/Loading/Loading";
 import FormCategory from "../FormCategory/FormCategory";
 import { useParams } from "react-router-dom";
 import { getCategoryById, updateCategory } from "../../../utils/api";
-import "./editCategory.scss";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineError } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -49,7 +48,7 @@ export default function EditCategory() {
     }
   }
   return (
-    <div className="editCategory">
+    <div className="editCategory px-2 px-md-4 py-5">
       {isLoading ? (
         <Loading />
       ) : error ? (

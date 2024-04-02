@@ -109,11 +109,11 @@ export default function FormBlog({ type, blog }) {
         </div>
       )}
       <div className="formblog">
-        <div className="d-flex flex-column justify-content-center align-items-start mb-4">
-          <label className="mb-1 label fs-3">Title of Product</label>
+        <div className="d-flex flex-column justify-content-center align-items-start mb-5">
+          <label className="mb-1 label">Title of Product</label>
           <input
             type="text"
-            className={`w-75 px-2 py-2 rounded-1 form-control ${
+            className={`inputBlog w-75 px-2 py-2 rounded-1 form-control ${
               errors.title ? "is-invalid" : ""
             }`}
             {...register("title", {
@@ -132,11 +132,11 @@ export default function FormBlog({ type, blog }) {
             <p className="errors mt-3">{errors.title.message}</p>
           )}
         </div>
-        <div className=" d-flex flex-column justify-content-center align-items-start mb-4">
-          <label className="mb-1 label fs-3">Slug</label>
+        <div className=" d-flex flex-column justify-content-center align-items-start mb-5">
+          <label className="mb-1 label">Slug</label>
           <input
             type="text"
-            className={`w-75 px-2 py-2 rounded-1 form-control ${
+            className={`inputBlog w-75 px-2 py-2 rounded-1 form-control ${
               errors.title ? "is-invalid" : ""
             }`}
             {...register("slug", {
@@ -153,11 +153,11 @@ export default function FormBlog({ type, blog }) {
           />
           {errors.slug && <p className="errors mt-3">{errors.slug.message}</p>}
         </div>
-        <div className="d-flex flex-column justify-content-center align-items-start mb-4">
-          <label className="mb-1 label fs-3">Description of Blog</label>
+        <div className="d-flex flex-column justify-content-center align-items-start mb-5">
+          <label className="mb-1 label">Description of Blog</label>
           <textarea
             type="text"
-            className={` w-75 px-2 py-2 rounded-1 ${
+            className={`inputBlog w-75 px-2 py-2 rounded-1 ${
               errors.description ? "is-invalid" : ""
             } `}
             rows={10}
@@ -177,16 +177,16 @@ export default function FormBlog({ type, blog }) {
             <p className="errors mt-3 ">{errors.description.message}</p>
           )}
         </div>
-        <div className="d-flex  flex-column justify-content-center align-items-start mt-5 mb-4">
-          <h3 className="mb-1 label fs-3">Image of Blog</h3>
+        <div className="d-flex  flex-column justify-content-center align-items-start mt-5 mb-5">
+          <h3 className="mb-1 label">Image of Blog</h3>
 
-          <div className=" d-flex  justify-content-between align-items-center">
-            <div className="me-4 d-flex justify-content-center align-items-center flex-column">
+          <div className=" d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div className="me-4 d-flex  justify-content-center  align-items-center flex-column">
               <div>
                 <input
                   {...imageField}
                   id="selectImage"
-                  className="d-none"
+                  className="inputBlog d-none"
                   type="file"
                   accept="image/*"
                   onChange={handleImageSelect}
@@ -206,7 +206,12 @@ export default function FormBlog({ type, blog }) {
                 Remove Image
               </button>
             </div>
-            <img src={selectedImage} width={200} height={200} />
+            <img
+              src={selectedImage}
+              width={200}
+              height={200}
+              className="mt-5 mt-md-0"
+            />
           </div>
           {errors.image && (
             <p className="errors mt-3">{errors.image.message}</p>

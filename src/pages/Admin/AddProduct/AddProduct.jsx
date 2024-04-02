@@ -1,6 +1,4 @@
 import React, { useEffect } from "react";
-import "./addProduct.scss";
-import { createProduct } from "../../../utils/api";
 import ProductForm from "../ProductForm/ProductForm";
 export default function AddProduct() {
   useEffect(() => {
@@ -8,7 +6,7 @@ export default function AddProduct() {
   }, []);
 
   return (
-    <div className="addProduct">
+    <div className="addProduct px-2 px-md-4 py-5 ">
       <h1>Create New Product</h1>
       <ProductForm type="new" />
     </div>

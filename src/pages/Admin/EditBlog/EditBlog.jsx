@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./editblog.scss";
 import { useParams } from "react-router-dom";
 import { getBlogById } from "../../../utils/api";
 import Loading from "../../../components/Loading/Loading";
@@ -37,7 +36,7 @@ export default function EditBlog() {
       ) : error ? (
         <Error />
       ) : (
-        <div className="edit-blog">
+        <div className="edit-blog px-2 px-md-4 py-5">
           <h1 className="ms-3  ">Edit Blog</h1>
           <FormBlog type="edit" blog={blog} />
         </div>

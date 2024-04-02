@@ -17,13 +17,13 @@ export default function FormUser({ onSubmit, type, user }) {
   const { errors, isSubmitting } = formState;
 
   return (
-    <form className=" ms-3 formUser mt-5" onSubmit={handleSubmit(onSubmit)}>
+    <form className="mx-3 ms-md-3 formUser mt-5" onSubmit={handleSubmit(onSubmit)}>
       <div className="table">
-        <div className="d-flex flex-column justify-content-center align-items-start mb-4">
+        <div className="d-flex flex-column justify-content-center align-items-start mb-5">
           <label className="mb-1 label fs-3">Firstname</label>
           <input
             type="text"
-            className="inputCategory w-75 px-2 py-2 rounded-1"
+            className="inputUser  px-2 py-2 py-md-3 rounded-1"
             {...register("firstname", {
               required: "You must enter a firstname for user",
               minLength: {
@@ -41,11 +41,11 @@ export default function FormUser({ onSubmit, type, user }) {
           )}
         </div>
 
-        <div className="d-flex flex-column justify-content-center align-items-start mb-4">
+        <div className="d-flex flex-column justify-content-center align-items-start mb-5">
           <label className="mb-1 label fs-3">Lastname</label>
           <input
             type="text"
-            className="inputCategory w-75 px-2 py-2 rounded-1"
+            className="inputUser  px-2 py-2 py-md-3 rounded-1"
             {...register("lastname", {
               required: "You must enter a lastname",
               minLength: {
@@ -62,11 +62,11 @@ export default function FormUser({ onSubmit, type, user }) {
             <p className="errors mt-3 fs-5">{errors.lastname.message}</p>
           )}
         </div>
-        <div className="d-flex flex-column justify-content-center align-items-start mb-4">
+        <div className="d-flex flex-column justify-content-center align-items-start mb-5">
           <label className="mb-1 label fs-3">Username</label>
           <input
             type="text"
-            className="inputCategory w-75 px-2 py-2 rounded-1"
+            className="inputUser  px-2 py-2 py-md-3 rounded-1"
             {...register("username", {
               required: "You must enter a username",
               minLength: {
@@ -86,11 +86,11 @@ export default function FormUser({ onSubmit, type, user }) {
         {user ? (
           ""
         ) : (
-          <div className="d-flex flex-column justify-content-center align-items-start mb-4">
+          <div className="d-flex flex-column justify-content-center align-items-start mb-5">
             <label className="mb-1 label fs-3">Password</label>
             <input
               type="password"
-              className="inputCategory w-75 px-2 py-2 rounded-1"
+              className="inputUser  px-2 py-2 py-md-3 rounded-1"
               {...register("password", {
                 required: "You must enter a password",
                 minLength: {
@@ -109,10 +109,10 @@ export default function FormUser({ onSubmit, type, user }) {
           </div>
         )}
 
-        <div className="d-flex flex-column justify-content-center align-items-start mb-4">
+        <div className="d-flex flex-column justify-content-center align-items-start mb-5">
           <label className="mb-1 label fs-3">Role</label>
           <select
-            className="inputUser form-select fs-3 w-25 px-2 py-2 rounded-1"
+            className="inputUser form-select fs-3  px-2 py-2 py-md-3 rounded-1"
             {...register("role", {
               required: "Select the role",
             })}
@@ -136,13 +136,13 @@ export default function FormUser({ onSubmit, type, user }) {
           <div>
             <button
               type="submit"
-              className="btn-submit border-0 py-3 fs-3 my-5"
+              className="btn-submit border-0 py-3 px-3 fs-3 my-5"
             >
               {type == "new" ? "Create User" : "Save User"}
             </button>
             <Link
               to="/admin/users"
-              className="btn-Cansel text-center border-0 py-3 fs-3 my-5 link ms-5"
+              className="btn-Cansel text-center border-0 py-3 px-3 fs-3 my-5 link ms-5"
             >
               Cansel
             </Link>

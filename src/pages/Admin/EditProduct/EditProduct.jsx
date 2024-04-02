@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./editproduct.scss";
 import Loading from "../../../components/Loading/Loading";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../../utils/api";
@@ -37,8 +36,8 @@ export default function EditProduct() {
       ) : error ? (
         <Error />
       ) : (
-        <div className="edit-product">
-          <h1 className="ms-3  title-editProduct">Edit Product</h1>
+        <div className="edit-product px-2 px-md-4 py-5">
+          <h1 className="ms-md-3  title-editProduct">Edit Product</h1>
           <ProductForm type="edit" product={product} />
         </div>
       )}

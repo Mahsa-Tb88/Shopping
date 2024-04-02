@@ -33,7 +33,7 @@ export default function Pagination({ numOfPage, page, pageHandler }) {
 
   return (
     <nav className=" d-flex justify-content-center align-items-center paginate pagination">
-      <ul className="d-flex justify-content-center align-items-center">
+      <ul className="d-flex justify-content-center align-items-center p-0">
         <i className={prevClasses} onClick={() => pageFirstHandler()}>
           <span className="page-Item">
             <FaAngleDoubleLeft />

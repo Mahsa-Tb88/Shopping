@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import FormUser from "../FormUser/FormUser";
-import "./addUser.scss";
 import { register } from "../../../utils/api";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineError } from "react-icons/md";
@@ -36,7 +35,7 @@ export default function AddUser() {
   }
 
   return (
-    <div className="addUser">
+    <div className="addUser px-2 px-md-4 py-5">
       {failMessage && (
         <div>
           <h2 className="w-75 bg-white text-danger mb-5 fs-2 py-3 d-flex justify-content-center align-items-center">

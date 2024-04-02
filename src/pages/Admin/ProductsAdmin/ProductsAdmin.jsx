@@ -108,7 +108,7 @@ export default function ProductsAdmin() {
           </button>
         </div>
       ) : (
-        <div className=" px-4 py-5">
+        <div className=" px-2 px-md-4 py-5">
           <h1>Manage Products</h1>
           <Link
             className="addProduct d-flex justify-content-center align-items-center link"
@@ -117,56 +117,41 @@ export default function ProductsAdmin() {
             <p className="addProductBtn m-0">Add Products</p>
             <FaPlus className="iconPlusProduct" />
           </Link>
-          <div className="text-center w-75 mx-auto">
+          <div className="text-center  mx-auto">
             {products.length ? (
               <div>
                 <table className="table  table-bordered table-striped text-center my-5">
                   <thead className="table-dark">
                     <tr className="table-row">
-                      <th scope="col" className="fs-3">
-                        Row
-                      </th>
-                      <th scope="col" className="fs-3">
-                        Title
-                      </th>
-                      <th scope="col" className="fs-3">
-                        Category
-                      </th>
-                      <th scope="col" className="fs-3">
-                        Price
-                      </th>
-
-                      <th scope="col" className="fs-3">
-                        Operation
-                      </th>
+                      <th scope="col">Row</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Operation</th>
                     </tr>
                   </thead>
                   <tbody>
                     {products.map((p, i) => {
                       return (
                         <tr key={p.id} className="table-row">
-                          <th scope="row" className="fs-5">
-                            {i + 1}
-                          </th>
-                          <td>
-                            <span className=" fs-4 px-2">{p.title}</span>
-                          </td>
-                          <td className="fs-4">{p.categoryTitle}</td>
+                          <th scope="row">{i + 1}</th>
+                          <td>{p.title}</td>
+                          <td>{p.categoryTitle}</td>
 
-                          <td className="fs-4">$ {p.price}</td>
+                          <td>$ {p.price}</td>
                           <td>
                             <div className=" d-flex justify-content-center align-items-center">
                               <span
-                                className="operation-trash d-flex justify-content-center align-items-center   me-5"
+                                className="operation-trash d-flex justify-content-center align-items-center   me-md-5"
                                 onClick={() => removeProductHandler(p.id)}
                               >
-                                <FaRegTrashAlt className="fs-4" />
+                                <FaRegTrashAlt />
                               </span>
                               <Link
                                 className="operation-edit  d-flex justify-content-center align-items-center"
                                 to={`${p.id}`}
                               >
-                                <FaRegEdit className="fs-4" />
+                                <FaRegEdit />
                               </Link>
                             </div>
                           </td>

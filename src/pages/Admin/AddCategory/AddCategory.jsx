@@ -26,10 +26,10 @@ export default function AddCategory() {
     }
   }
   return (
-    <div className="createCategory">
+    <div className="createCategory px-2 px-md-4 py-5">
       {failMessage && (
         <div>
-          <h2 className="w-75 bg-white text-danger mb-5 fs-2 py-3 d-flex justify-content-center align-items-center">
+          <h2 className=" bg-white text-danger mb-5 fs-2 py-3 d-flex justify-content-center align-items-center">
             <MdOutlineError className="error me-3" />
             {failMessage}
           </h2>
@@ -37,7 +37,7 @@ export default function AddCategory() {
       )}
       {successMessage && (
         <div>
-          <h2 className="w-75 bg-white text-success mb-5 fs-3 py-3 px-3  d-flex justify-content-center align-align-items-baseline ">
+          <h2 className=" bg-white text-success mb-5 fs-3 py-3 px-3  d-flex justify-content-center align-align-items-baseline ">
             <FaCheckCircle className="check me-3" />
             {successMessage}
           </h2>

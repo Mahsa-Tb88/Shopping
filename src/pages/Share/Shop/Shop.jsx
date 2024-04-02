@@ -91,51 +91,53 @@ export default function Shop() {
 
   return (
     <div className="shop container ">
-      <div className="d-flex flex-column flex-md-row justify-content-between align-items-start mb-5">
-        <div className="filter px-3 py-3 w-md-25 me-2 mt-5">
-          <Filter shopState={shopState} />
-        </div>
-        <div className="w-md-75 ms-2 mt-5">
-          {loading ? (
-            <div className=" d-flex justify-content-center align-items-center  mt-5  flex-column">
-              <p className="mb-4 loadingProducts">Loading ...</p>
-              <span className=" spiner spinner-grow fs-5 "></span>
+      <div>
+        {loading ? (
+          <div className=" d-flex justify-content-center align-items-center  mt-5  flex-column">
+            <p className="mb-4 loadingProducts">Loading ...</p>
+            <span className=" spiner spinner-grow fs-5 "></span>
+          </div>
+        ) : loadingError ? (
+          <div className="d-flex justify-content-center align-items-center  mt-5  flex-column">
+            <h1>{loadingError.message}</h1>
+            <button
+              className="btn btn-danger px-4 py-3 fs-4"
+              onClick={() => fetchProducts()}
+            >
+              Try Again
+            </button>
+          </div>
+        ) : (
+          <div className="d-flex flex-column flex-md-row justify-content-between align-items-start mb-5">
+            <div className="filter px-3 py-3  me-2 mt-5">
+              <Filter shopState={shopState} />
             </div>
-          ) : loadingError ? (
-            <div className="d-flex justify-content-center align-items-center  mt-5  flex-column">
-              <h1>{loadingError.message}</h1>
-              <button
-                className="btn btn-danger px-4 py-3 fs-4"
-                onClick={() => fetchProducts()}
-              >
-                Try Again
-              </button>
-            </div>
-          ) : (
-            <div className=" d-flex flex-column justify-content-center align-items-center">
-              <div className="products ">
-                {!shopState.totalProducts.filtered ? (
-                  <div className="fs-1 text-center">
-                    <p className="mb-5">
-                      Sorry, currently, we do not have any products matching
-                      your search.
-                    </p>
-                    <p>Please check back later!</p>
-                  </div>
-                ) : (
-                  <Products products={shopState.products} />
-                )}
+            <div className=" ms-2 mt-5">
+              <div className=" d-flex flex-column justify-content-center align-items-center">
+                <div className="products ">
+                  {!shopState.totalProducts.filtered ? (
+                    <div className="fs-1 text-center">
+                      <p className="mb-5">
+                        Sorry, currently, we do not have any products matching
+                        your search.
+                      </p>
+                      <p>Please check back later!</p>
+                    </div>
+                  ) : (
+                    <Products products={shopState.products} />
+                  )}
+                </div>
+                <div className="text-center mt-5">
+                  <Pagination
+                    numOfPage={numOfPage}
+                    page={searchParams.get("page")}
+                    pageHandler={pageHandler}
+                  />
+                </div>
               </div>
-              <div className="text-center mt-5">
-                <Pagination
-                  numOfPage={numOfPage}
-                  page={searchParams.get("page")}
-                  pageHandler={pageHandler}
-                />
-              </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

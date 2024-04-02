@@ -66,7 +66,7 @@ export default function Profile() {
           <label className="fs-3 fs-3 mb-2">Name</label>
           <input
             type="text"
-            className=" w-75 fs-4 px-2 py-3 rounded-1 input"
+            className="inputProfile fs-4 px-2 py-3 rounded-1 input"
             {...register("name", { required: "You must enter a name" })}
           />
           {errors.name && <p className="errors">{errors.name.message}</p>}
@@ -75,7 +75,7 @@ export default function Profile() {
           <label className="fs-3 mb-2">Family</label>
           <input
             type="text"
-            className=" w-75 fs-4 px-2 py-3 rounded-1 input"
+            className="inputProfile fs-4 px-2 py-3 rounded-1 input"
             {...register("family", { required: "You must enter a Family" })}
           />
           {errors.name && <p className="errors">{errors.family.message}</p>}
@@ -84,7 +84,7 @@ export default function Profile() {
           <label className="fs-3 mb-2">Username</label>
           <input
             type="text"
-            className=" w-75 fs-4 px-2 py-3 rounded-1 input"
+            className="inputProfile fs-4 px-2 py-3 rounded-1 input"
             {...register("username", {
               disabled: true,
             })}
@@ -94,7 +94,7 @@ export default function Profile() {
           <label className="fs-3 mb-2">Password</label>
           <input
             type="password"
-            className=" w-75 fs-4 px-2 py-3 rounded-1 input"
+            className="inputProfile fs-4 px-2 py-3 rounded-1 input"
             {...register("password", {
               required: "You must enter your password",
             })}
@@ -107,7 +107,7 @@ export default function Profile() {
           <label className="fs-3 mb-2">Confirm Password</label>
           <input
             type="password"
-            className=" w-75 px-2 py-3 fs-4 rounded-1 input"
+            className="inputProfile px-2 py-3 fs-4 rounded-1 input"
             {...register("confirm", {
               required: "You must enter the confirm password",
               validate(value) {
@@ -129,7 +129,7 @@ export default function Profile() {
             <span className="spinner-grow spinner-spinner-grow-sm"></span>
           </button>
         ) : (
-          <button type="submit" className="btn-submit border-0 py-3 fs-3 my-5">
+          <button type="submit" className=" w-25 btn-submit border-0 py-3 fs-3 mt-2 mb-5 my-md-5">
             Save
           </button>
         )}

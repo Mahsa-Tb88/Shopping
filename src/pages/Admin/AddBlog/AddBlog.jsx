@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "./addblog.scss";
 import FormBlog from "../FormBlog/FormBlog";
 export default function AddBlog() {
   useEffect(() => {
@@ -7,7 +6,7 @@ export default function AddBlog() {
   }, []);
 
   return (
-    <div className="addProduct">
+    <div className="addProduct px-2 px-md-4 py-5">
       <h1>Create New Blog</h1>
       <FormBlog type="new" />
     </div>

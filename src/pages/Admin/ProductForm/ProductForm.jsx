@@ -202,7 +202,7 @@ export default function ProductForm({ type, product }) {
         <div className="d-flex  flex-column justify-content-center align-items-start mt-5 mb-4">
           <h3 className="mb-1 label fs-3">Image of Product</h3>
 
-          <div className=" d-flex  justify-content-between align-items-center">
+          <div className=" d-flex flex-column flex-md-row  justify-content-between align-items-center">
             <div className="me-4 d-flex justify-content-center align-items-center flex-column">
               <div>
                 <input
@@ -228,7 +228,12 @@ export default function ProductForm({ type, product }) {
                 Remove Image
               </button>
             </div>
-            <img src={selectedImage} width={200} height={200} />
+            <img
+              src={selectedImage}
+              width={200}
+              height={200}
+              className="mt-5 mt-md-0"
+            />
           </div>
           {errors.image && (
             <p className="errors mt-3">{errors.image.message}</p>
@@ -239,7 +244,7 @@ export default function ProductForm({ type, product }) {
           {isSubmitting ? (
             <button
               type="submit"
-              className="btn-submit border-0 py-2 fs-3 mt-5 disabled"
+              className="btn-submit border-0 py-2 fs-3  mt-5 disabled"
             >
               <span className="spinner-grow spinner-spinner-grow-sm"></span>
             </button>

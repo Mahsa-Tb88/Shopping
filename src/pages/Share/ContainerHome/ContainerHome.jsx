@@ -1,7 +1,8 @@
 import React from "react";
 import "./containerhome.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export default function ContainerHome() {
+  const navigate = useNavigate();
   const productsCategory = [
     {
       title: "gifts & sets",
@@ -90,7 +91,9 @@ export default function ContainerHome() {
       </div>
       <section className="poster">
         <h1 className="poster-title">Unlock Your Natural Glow</h1>
-        <button className="poster-btn">Know more</button>
+        <button className="poster-btn" onClick={() => navigate("blogs")}>
+          Know more
+        </button>
       </section>
       <section className="container products-category  text-center ">
         <h2 className="products-title ">Products Category</h2>
@@ -138,7 +141,12 @@ export default function ContainerHome() {
             voluptatum non dignissimos, ratione est tempore, magnam dolor
             voluptatem autem quas culpa voluptas ipsam.
           </p>
-          <button className="prodcuts-desc-brand-btn">Discover More</button>
+          <button
+            className="prodcuts-desc-brand-btn"
+            onClick={() => navigate("/blogs")}
+          >
+            Discover More
+          </button>
         </div>
       </section>
       <section className="container p-0 bestSeller">
@@ -270,9 +278,7 @@ export default function ContainerHome() {
                 visit your local beautya branches to find out more about our
                 special offers in make up and skincare products.
               </p>
-              <button className="offer-body-btn py-2 ">
-                <Link href="shop">find branches</Link>
-              </button>
+              <button className="offer-body-btn py-2 ">find branches</button>
             </div>
           </div>
         </div>

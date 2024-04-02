@@ -61,7 +61,7 @@ export default function CategoriesAdmin() {
           setCategories(result.body);
         }
         toast.update(t, {
-          render: <p className="fs-4">The category deleted successfully!</p>,
+          render: <p className="">The category deleted successfully!</p>,
           isLoading: false,
           type: "success",
           autoClose: 2000,
@@ -101,7 +101,7 @@ export default function CategoriesAdmin() {
     setSearchParams({ page: i });
   }
   return (
-    <div className="CategoriesAdmin">
+    <div className="CategoriesAdmin  px-2 px-md-4 py-5">
       <h1>Managing Categories</h1>
       <div className="addCategory d-flex justify-content-center align-items-center">
         <Link className="addCategoryBtn link" to="new">
@@ -127,19 +127,13 @@ export default function CategoriesAdmin() {
       ) : (
         <div>
           {categories.length ? (
-            <div className="w-75 ">
+            <div className="w-md-75 ">
               <table className="table table-bordered table-striped text-center my-5">
                 <thead className="table-dark">
                   <tr className="table-row">
-                    <th scope="col" className="fs-3">
-                      Title
-                    </th>
-                    <th scope="col" className="fs-3">
-                      Slug
-                    </th>
-                    <th scope="col" className="fs-3">
-                      Operation
-                    </th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Slug</th>
+                    <th scope="col">Operation</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -147,23 +141,25 @@ export default function CategoriesAdmin() {
                     return (
                       <tr key={p.id} className="table-row">
                         <td>
-                          <span className=" fs-4 px-2">{p.title}</span>
+                          <div className="d-flex justify-content-center align-items-center">
+                            {p.title} 
+                          </div>
                         </td>
-                        <td className="fs-4">{p.slug}</td>
+                        <td>{p.slug}</td>
 
                         <td>
                           <div className=" d-flex justify-content-center align-items-center">
                             <span
-                              className="operation-trash d-flex justify-content-center align-items-center   me-5"
+                              className="operation-trash d-flex justify-content-center align-items-center  me-md-5"
                               onClick={() => removeCategoryHandler(p.id)}
                             >
-                              <FaRegTrashAlt className="fs-4" />
+                              <FaRegTrashAlt />
                             </span>
                             <Link
                               className="operation-edit  d-flex justify-content-center align-items-center"
                               to={"edit/" + `${p.id}`}
                             >
-                              <FaRegEdit className="fs-4" />
+                              <FaRegEdit />
                             </Link>
                           </div>
                         </td>

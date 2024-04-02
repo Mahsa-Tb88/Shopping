@@ -173,7 +173,7 @@ export default function Register() {
           )}
         </div>
         <div>
-          <div className="form-check">
+          <div className="form-check d-flex justify-content-center align-items-baseline">
             <input
               className="me-2 fs-3 input-check"
               type="checkbox"

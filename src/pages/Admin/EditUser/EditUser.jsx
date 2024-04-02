@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./editUser.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import { getUserById, updateUser } from "../../../utils/api";
 import Loading from "../../../components/Loading/Loading";
@@ -63,7 +62,7 @@ export default function EditUser() {
     }
   }
   return (
-    <div className="editCategory">
+    <div className="px-2 px-md-4 py-5 ">
       {isLoading ? (
         <Loading />
       ) : error ? (
@@ -72,7 +71,7 @@ export default function EditUser() {
         <div>
           {failMessage && (
             <div>
-              <h2 className="w-75 bg-white text-danger mb-5 fs-2 py-3 d-flex justify-content-center align-items-center">
+              <h2 className=" bg-white text-danger mb-5 fs-2 py-3 d-flex justify-content-center align-items-center">
                 <MdOutlineError className="error me-3" />
                 {failMessage}
               </h2>
@@ -80,7 +79,7 @@ export default function EditUser() {
           )}
           {successMessage && (
             <div>
-              <h2 className="w-75 bg-white text-success mb-5 fs-3 py-3 px-3  d-flex justify-content-center align-align-items-baseline ">
+              <h2 className=" bg-white text-success mb-5 fs-3 py-3 px-3  d-flex justify-content-center align-align-items-baseline ">
                 <FaCheckCircle className="check me-3" />
                 {successMessage}
               </h2>

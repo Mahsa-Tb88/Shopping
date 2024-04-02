@@ -46,6 +46,7 @@
     font-size: 0.8rem;
     margin-bottom: 1rem;
     position: relative;
+    z-index: 104;
   }
   .poster-btn:hover {
     background-color: #fff;
@@ -140,6 +141,7 @@
     background-color: #79043c;
     font-size: 1.2rem;
     position: relative;
+    z-index: 104;
   }
   .prodcuts-desc-brand-btn:hover {
     background-color: #fff;
@@ -360,14 +362,14 @@
     border: 1px solid #a10550;
     cursor: pointer;
     position: relative;
-  }
-  .offer-body-btn a {
+    font-size: 16px;
+    z-index: 104;
     color: #a10550;
-    text-decoration: none;
-    font-size: 1.2rem;
   }
+
   .offer-body-btn:hover {
     background-color: #a10550;
+    color: #fff;
   }
   .offer-body-btn:hover a {
     color: #fff;
@@ -582,4 +584,15 @@
   .blog-item-desc {
     color: #fff;
   }
+  .offer-body-btn {
+    background-color: #606060;
+    color: #d8e2e6;
+  }
+  .offer-body-btn:hover{
+    background-color: #0c0c0c;
+  }
+  .poster-btn , .prodcuts-desc-brand-btn:hover{
+    background-color: #606060;
+  }
+
 }

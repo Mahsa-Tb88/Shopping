@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import "./formCategory.scss";
 export default function FormCategory({ onSubmit, type, category }) {
-
   const { register, handleSubmit, formState } = useForm({
     defaultValues: {
       title: category ? category.title : "",
@@ -14,13 +13,16 @@ export default function FormCategory({ onSubmit, type, category }) {
   const { errors, isSubmitting } = formState;
 
   return (
-    <form className="ms-3  mt-5" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className=" px-3 ms-md-3  mt-5 formCategory"
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <div className="table">
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Title of Category</label>
           <input
             type="text"
-            className="inputCategory w-75 px-2 py-2 rounded-1"
+            className="inputCategory  px-2 py-2 rounded-1"
             {...register("title", {
               required: "You must enter a title for category",
               minLength: {
@@ -41,7 +43,7 @@ export default function FormCategory({ onSubmit, type, category }) {
           <label className="mb-1 label fs-3">Slug of Category</label>
           <input
             type="text"
-            className="inputCategory w-75 px-2 py-2 rounded-1"
+            className="inputCategory  px-2 py-2 rounded-1"
             {...register("slug", {
               required: "You must enter a family",
               minLength: {
@@ -69,13 +71,13 @@ export default function FormCategory({ onSubmit, type, category }) {
           <div>
             <button
               type="submit"
-              className="btn-submit border-0 py-3 fs-3 my-5"
+              className="btn-submit border-0 py-3 px-3 me-3 me-md-0 fs-3 my-3 my-md-5"
             >
               {type == "new" ? "Create Category" : "Save Category"}
             </button>
             <Link
               to="/admin/categories"
-              className="btn-Cansel text-center border-0 py-3 fs-3 my-5 link ms-5"
+              className="btn-Cansel text-center border-0 py-3 px-3 fs-3 my-md-5 link my-3 ms-md-5"
             >
               Cansel
             </Link>

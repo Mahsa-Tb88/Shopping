@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../../context/CartContext";
 export default function Cart() {
   const { cartState, cartDispatch } = useCartContext();
-  console.log(cartState.items);
   let totalPrice = 0;
   cartState.items.forEach((element) => {
     totalPrice = element.price * element.count + totalPrice;
@@ -26,45 +25,28 @@ export default function Cart() {
   }
 
   return (
-    <div className="cart container">
+    <div className="cart vh-100 px-2 px-md-0">
       <h1 className="my-5 text-center">Shopping Card</h1>
       {cartState.items.length ? (
         <table className="table table-bordered table-striped text-center">
           <thead className="table-dark">
             <tr className="table-row">
-              <th scope="col" className="fs-3">
-                Row
-              </th>
-              <th scope="col" className="fs-3">
-                Title
-              </th>
-              <th scope="col" className="fs-3">
-                Number Of Item
-              </th>
-              <th scope="col" className="fs-3">
-                Price
-              </th>
-              <th scope="col" className="fs-3">
-                Total Price
-              </th>
-              <th scope="col" className="fs-3">
-                Delete
-              </th>
+              <th scope="col">Row</th>
+              <th scope="col">Title</th>
+              <th scope="col">Number Of Item</th>
+              <th scope="col">Price</th>
+              <th scope="col">Total Price</th>
+              <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
             {cartState.items.map((p, i) => {
               return (
                 <tr key={p.id} className="table-row">
-                  <th scope="row" className="fs-5">
-                    {i + 1}
-                  </th>
+                  <th scope="row">{i + 1}</th>
 
                   <td>
-                    <Link
-                      className="link fs-4 px-2"
-                      to={"/product/" + `${p.id}`}
-                    >
+                    <Link className="linkcart" to={"/product/" + `${p.id}`}>
                       {p.title}
                     </Link>
                   </td>
@@ -76,7 +58,7 @@ export default function Cart() {
                       >
                         <FaMinus />
                       </span>
-                      <span className="text-black fs-4 ">{p.count}</span>
+                      <span className="linkcart ">{p.count}</span>
                       <span
                         className="btn-plusCart"
                         onClick={() => incNumOfItem(p)}
@@ -85,8 +67,8 @@ export default function Cart() {
                       </span>
                     </div>
                   </td>
-                  <td className="fs-4">$ {p.price}</td>
-                  <td className="fs-4">${p.price * p.count}</td>
+                  <td>$ {p.price}</td>
+                  <td>${p.price * p.count}</td>
                   <td>
                     <div
                       className="btn-trashCart d-flex justify-content-center align-items-center"
@@ -101,16 +83,18 @@ export default function Cart() {
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan="2" className=" fw-bold fs-3">
+              <td colSpan="2" className="totalPrice fw-bold ">
                 Total Price
               </td>
-              <td className=" fw-bold fs-3">$ {totalPrice}</td>
+              <td className="totalPrice fw-bold ">$ {totalPrice}</td>
               <td colSpan="4"></td>
             </tr>
           </tfoot>
         </table>
       ) : (
-        <p className="text-center cardEmpty fs-2">Your card is empty</p>
+        <div className="vh-100">
+          <p className="text-center cardEmpty fs-2 ">Your card is empty</p>
+        </div>
       )}
     </div>
   );

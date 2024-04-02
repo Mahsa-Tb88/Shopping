@@ -1,13 +1,11 @@
 .blogAdmin {
-  margin-top: 5rem;
-  margin-left: 5rem;
   .addNewBlog {
     background-color: #79043c;
     color: #f8e9f0;
-    padding: 10px 25px;
+    padding: 7px 10px;
     border: none;
     margin-top: 20px;
-    width: 200px;
+    width: 130px;
     text-align: center;
     cursor: pointer;
   }
@@ -15,8 +13,9 @@
     border: none;
     background-color: transparent;
     color: #f8e9f0;
-    font-size: 17px;
+    font-size: 12px;
   }
+
   .iconPlusUser {
     font-size: 15px;
     margin-left: 10px;
@@ -64,5 +63,29 @@
   }
   .btn-submit:hover {
     background-color: #504c4e;
+  }
+  .table-row th {
+    font-size: 12px;
+  }
+  .table-row td {
+    font-size: 8px;
+  }
+}
+@media (min-width: 768px) {
+  .blogAdmin {
+    .addNewBlog {
+      padding: 10px 25px;
+      width: 20rem;
+      font-size: 15px;
+    }
+    .addBlogBtn {
+      font-size: 17px;
+    }
+    .table-row th {
+      font-size: 20px;
+    }
+    .table-row td {
+      font-size: 15px;
+    }
   }
 }
