@@ -52,81 +52,89 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <footer className="row">
-          <div className="col-12 col-md-4">
-            <section className="footer-first">
-              <div className="footer-links-help">
-                <h4 className="footer-title">How can we Help?</h4>
-                <ul>
-                  <li className="footer-link-item">
-                    <Link>find My Local Beautya</Link>
-                  </li>
-                  <li className="footer-link-item">
-                    <Link>Contact Us</Link>
-                  </li>
-                  <li className="footer-link-item">
-                    <Link>FAQ</Link>
-                  </li>
-                  <li className="footer-link-item">
-                    <Link>Our Brand</Link>
-                  </li>
-                  <li className="footer-link-item">
-                    <Link>Blog</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="footer-links-product">
-                <h4 className="footer-title">Products</h4>
-                <ul>
-                  <li className="footer-link-item">
-                    <Link>Women Make up</Link>
-                  </li>
-                  <li className="footer-link-item">
-                    <Link>Women Skincare</Link>
-                  </li>
-                  <li className="footer-link-item">
-                    <Link>Gifts & Sets</Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="footer-subscribe">
-                <h4 className="footer-title">keep in touch with beautya</h4>
-                <p className="footer-subscribe-desc">
-                  Join the Beautya newsletter and be first to hear about news,
-                  offers and skincare advice
-                </p>
-                <form className="footer-form">
-                  <div className="footer-form-tabel">
-                    <span></span>
-                    <p className="footer-subscribe-desc">
-                      By submitting your email, you agree to receive advertising
-                      emails from Beautya.
-                    </p>
-                    <div className="footer-form-email">
-                      <label
-                        className="footer-form-label"
-                        htmlFor="footer-input"
-                      >
-                        Email Address
-                      </label>
-                      <input type="text" id="footer-form-input" />
-                    </div>
-                    <button className="footer-form-btnSubmit" type="submit">
-                      Subscribe
-                    </button>
+        <footer className="row m-0">
+          <div className="col-12 ">
+            <div className="footer-first-container">
+              <section className="row mx-0 mt-5">
+                <div className="col-12 col-md-4">
+                  <div className="text-center h-100">
+                    <h4 className="footer-title">How can we Help?</h4>
+                    <ul>
+                      <li className="footer-link-item">
+                        <Link className="link">find My Local Beautya</Link>
+                      </li>
+                      <li className="footer-link-item">
+                        <Link className="link">Contact Us</Link>
+                      </li>
+                      <li className="footer-link-item">
+                        <Link className="link">FAQ</Link>
+                      </li>
+                      <li className="footer-link-item">
+                        <Link className="link">Our Brand</Link>
+                      </li>
+                      <li className="footer-link-item">
+                        <Link className="link">Blog</Link>
+                      </li>
+                    </ul>
                   </div>
-                </form>
-              </div>
-            </section>
+                </div>
+                <div className="col-12 col-md-4">
+                  <div className="text-center h-100">
+                    <h4 className="footer-title">Products</h4>
+                    <ul>
+                      <li className="footer-link-item">
+                        <Link className="link">Women Make up</Link>
+                      </li>
+                      <li className="footer-link-item">
+                        <Link className="link">Women Skincare</Link>
+                      </li>
+                      <li className="footer-link-item">
+                        <Link className="link">Gifts & Sets</Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4">
+                  <div className="text-center h-100">
+                    <h4 className="footer-title">keep in touch with beautya</h4>
+                    <p className="footer-desc">
+                      Join the Beautya newsletter and be first to hear about
+                      news, offers and skincare advice
+                    </p>
+                    <form className="footer-form">
+                      <div className="footer-form-tabel">
+                        <span></span>
+                        <p className="footer-desc">
+                          By submitting your email, you agree to receive
+                          advertising emails from Beautya.
+                        </p>
+                        <div className="footer-form-email">
+                          <label
+                            className="footer-form-label"
+                            htmlFor="footer-input"
+                          >
+                            Email Address
+                          </label>
+                          <input type="text" id="footer-form-input" />
+                        </div>
+                        <button className="footer-form-btnSubmit" type="submit">
+                          Subscribe
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </section>
+            </div>
           </div>
-          <div className="col-12 col-md-4">
-            <section className="footer-second">
-              <div className="footer-location d-flex justify-content-between align-items-center">
+          <div className="col-12 footer-second mt-5">
+            <section className="d-flex flex-column flex-md-row justify-content-between align-items-center my-5 footer-second-container">
+              <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
                 <div className="d-flex justify-content-between align-items-center">
                   <span>
                     <FaMapMarkerAlt className="icon-contact" />
                   </span>
-                  <p className="text-white mb-0 text-dr">
+                  <p className="text-white mb-0 fs-4">
                     Dr. Richardson, California
                   </p>
                 </div>
@@ -135,11 +143,11 @@ export default function Footer() {
                   <span>
                     <FaPhoneAlt className="icon-contact" />
                   </span>
-                  <p className="text-white mb-0 text-dr">1-802-526-2463</p>
+                  <p className="text-white mb-0 fs-4">1-802-526-2463</p>
                 </div>
               </div>
 
-              <div className="d-flex justify-content-around align-item-center">
+              <div className="d-flex justify-content-around align-item-center mt-5 mt-md-0">
                 <Link>
                   <FaLinkedinIn className="socialMedia" />
                 </Link>
@@ -158,15 +166,17 @@ export default function Footer() {
               </div>
             </section>
           </div>
-          <div className="col-12 col-md-4">
-            <section className="footer-third">
-              <div className="footer-rights-item-one">
-                <span>©</span>
-                <span>2023 Beautya. All Rights Reserved.</span>
+          <div className="col-12 footer-third">
+            <section className="footer-third-container d-flex justify-content-between align-items-center py-5">
+              <div className="footer-third-itemOne">
+                <span className="text-white fs-5 me-2">©</span>
+                <span className="text-white fs-5">
+                  2023 Beautya. All Rights Reserved.
+                </span>
               </div>
-              <div className="footer-rights-item-secound">
-                <span>Terms & Conditions</span>
-                <span>Privacy Policy</span>
+              <div className="footer-thirds-itemTwo">
+                <span className="text-white fs-5 me-5">Terms & Conditions</span>
+                <span className="text-white fs-5">Privacy Policy</span>
               </div>
             </section>
           </div>

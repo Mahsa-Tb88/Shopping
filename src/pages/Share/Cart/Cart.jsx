@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./cart.scss";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../../context/CartContext";
 export default function Cart() {
   const { cartState, cartDispatch } = useCartContext();
+  useEffect(() => {
+    document.title = "Cart";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   let totalPrice = 0;
   cartState.items.forEach((element) => {
     totalPrice = element.price * element.count + totalPrice;

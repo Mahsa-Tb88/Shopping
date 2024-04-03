@@ -4,7 +4,13 @@
 
     width: 100%;
   }
-
+  .link {
+    text-decoration: none;
+    color: #79043c;
+  }
+  .link:hover{
+    color: #5f0631;
+  }
   .bg-addTocart {
     background-color: #79043c;
     width: 100%;

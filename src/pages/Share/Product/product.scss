@@ -1,10 +1,9 @@
 .productPage {
-  padding: 15rem;
   .spinner,
   .loading {
     color: #79043c;
   }
-  .btn-back{
+  .btn-back {
     background-color: #79043c;
     color: #fff;
   }
@@ -16,10 +15,10 @@
   .btn-trashProduct {
     color: rgb(249, 88, 88);
     border: 1px solid rgb(249, 88, 88);
-    padding: 4px;
+    padding: 2px;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
   .btn-trashProduct:hover {
     background-color: rgb(249, 88, 88);
@@ -27,12 +26,12 @@
   }
   .btn-minusProduct {
     background-color: rgb(249, 88, 88);
-    border-radius: 5px;
+    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2px;
-    font-size: 20px;
+    padding: 1px;
+    font-size: 1.2rem;
     color: #fff;
     cursor: pointer;
   }
@@ -41,12 +40,12 @@
   }
   .btn-plusProduct {
     background-color: rgb(36, 180, 36);
-    border-radius: 5px;
+    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2px;
-    font-size: 20px;
+    padding: 1px;
+    font-size: 1.2rem;
     color: #fff;
     cursor: pointer;
   }
@@ -57,5 +56,26 @@
     background-color: #79043c;
     border: none;
     padding: 10px 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .productPage {
+    .btn-plusProduct {
+      padding: 2px;
+      font-size: 20px;
+    border-radius: 5px;
+
+    }
+    .btn-trashProduct {
+      padding: 4px;
+      font-size: 2rem;
+    }
+    .btn-minusProduct {
+      padding: 2px;
+      font-size: 20px;
+    border-radius: 5px;
+
+    }
   }
 }

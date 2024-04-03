@@ -50,7 +50,7 @@ export default function Product() {
   }
 
   return (
-    <div className="productPage">
+    <div className="productPage d-flex justify-content-center align-items-center">
       {isLoading ? (
         <div className="text-center">
           <p className="loading fs-3">Loading ... </p>
@@ -73,14 +73,14 @@ export default function Product() {
           )}
         </div>
       ) : (
-        <div>
+        <div className="w-75 mx-auto">
           <h1 className="text-center  titleProduct">{selectedProduct.title}</h1>
-          <div className="row text-center d-flex align-items-center">
-            <div className="col-6 text-center overflow-hidden">
+          <div className=" text-center d-flex flex-column align-items-center justify-content-center">
+            <div className=" text-center ">
               <img src={SERVER_URL + selectedProduct.image} />
             </div>
-            <div className="col-6">
-              <div className="mb-5 ">
+            <div className="my-3 w-50 ">
+              <div className="my-5 ">
                 <span className="fs-2 me-5">Price:</span>
                 <span className="fs-2">${selectedProduct.price}</span>
               </div>
@@ -93,7 +93,7 @@ export default function Product() {
                     >
                       <FaMinus />
                     </span>
-                    <span className="text-black mx-5 fs-4 ">
+                    <span className="text-black mx-3 mx-md-5 fs-4 ">
                       {cartProduct.count}
                     </span>
                     <span
@@ -119,18 +119,19 @@ export default function Product() {
                 </button>
               )}
             </div>
+            <p className="text-center my-5 fs-3">
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries, but also the leap into
+              electronic typesetting, remaining essentially unchanged. It was
+              popularised in the 1960s with the release of Letraset sheets
+              containing Lorem Ipsum passages, and more recently with desktop
+              publishing software like Aldus PageMaker including versions of
+              Lorem Ipsum.
+            </p>
           </div>
-          <p className="text-left mt-5 fs-3">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-            remaining essentially unchanged. It was popularised in the 1960s
-            with the release of Letraset sheets containing Lorem Ipsum passages,
-            and more recently with desktop publishing software like Aldus
-            PageMaker including versions of Lorem Ipsum.
-          </p>
         </div>
       )}
     </div>
