@@ -23,14 +23,14 @@ export default function Blog() {
     setIsLoading(false);
   }
   return (
-    <div className="blog">
+    <div className="blog d-flex justify-content-center align-items-center">
       {isLoading ? (
-        <div className="fs-2 w-75 mx-auto text-center loadingBlog">
+        <div className="fs-2  text-center loadingBlog">
           <p>Loading ...</p>
           <p className=" spinner spinner-grow"></p>
         </div>
       ) : error ? (
-        <div className="text-center mx-auto w-75">
+        <div className="text-center ">
           <p className="fs-1">{error.message}</p>
           <button
             className="btn-tryAgainBlog fs-3 py-2 px-4"
@@ -40,14 +40,16 @@ export default function Blog() {
           </button>
         </div>
       ) : (
-        <div className="w-75 mx-auto">
+        <div>
           <h1 className="text-center blog-title">{blog.title}</h1>
           <div className="row mt-5">
             <div className="col-12 text-center">
-              <img src={SERVER_URL + blog.image} className="blog-img" />
+              <div className=" blog-img">
+                <img src={SERVER_URL + blog.image} />
+              </div>
             </div>
             <div className="col-12 fs-4 text-center">
-              <p>{blog.description.substring(0, 50)}</p>
+              <p className="my-5">{blog.description}</p>
             </div>
           </div>
         </div>

@@ -1,10 +1,11 @@
 .footer {
+  position: relative;
   background-color: #3d021e;
   .container-column-footer {
     width: 85%;
     position: absolute;
     top: 0;
-    height: 100%;
+    bottom: 0;
   }
   .col-overlay-footer div {
     height: 100%;
@@ -22,7 +23,7 @@
     margin-bottom: 0.8rem;
     display: inline-block;
   }
-  .link:hover{
+  .link:hover {
     color: #fa58a6;
   }
 

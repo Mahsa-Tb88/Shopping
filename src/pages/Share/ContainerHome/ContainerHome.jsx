@@ -323,7 +323,7 @@ export default function ContainerHome() {
         </div>
       </section>
 
-      <section className="blog mt-5">
+      <section className="blog">
         <h2 className="blog-title mt-0  text-center mb-5 fs-1">Our Blog</h2>
         <div className="blog-container">
           <div className="row gx-5 ">
@@ -420,7 +420,7 @@ export default function ContainerHome() {
         </div>
       </section>
       <section className="logo-group ">
-        <div className="container-column-logo">
+         <div className="container-column-logo">
           <div className="row gx-5 col-overlay-logo">
             <div className="col vh-100 ">
               <div className="inner-col-logo"></div>
@@ -459,7 +459,7 @@ export default function ContainerHome() {
               <div className="inner-col-logo"></div>
             </div>
           </div>
-        </div>
+        </div> 
         <div className="row  gx-5  py-3">
           <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
             <div className="d-flex align-items-center justify-content-center">

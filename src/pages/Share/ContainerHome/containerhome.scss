@@ -533,7 +533,8 @@
     width: 100%;
     position: absolute;
     top: 0;
-    height: 100%;
+    bottom: 0;
+    // height: 100%;
   }
   .col-overlay-logo div {
     height: 100%;
@@ -588,11 +589,11 @@
     background-color: #606060;
     color: #d8e2e6;
   }
-  .offer-body-btn:hover{
+  .offer-body-btn:hover {
     background-color: #0c0c0c;
   }
-  .poster-btn , .prodcuts-desc-brand-btn:hover{
+  .poster-btn,
+  .prodcuts-desc-brand-btn:hover {
     background-color: #606060;
   }
-
 }
