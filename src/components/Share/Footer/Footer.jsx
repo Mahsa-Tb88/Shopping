@@ -10,7 +10,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export default function Footer() {
   return (
-    <div className=" footer">
+    <div className="footer">
       <div className="position position-relative d-flex flex-column justify-content-center align-items-center">
         <div className="container-column-footer">
           <div className="row gx-5 col-overlay-footer">
@@ -52,8 +52,8 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <footer className=" w-100">
-          <div className="footer-detail">
+        <footer className="row">
+          <div className="col-12 col-md-4">
             <section className="footer-first">
               <div className="footer-links-help">
                 <h4 className="footer-title">How can we Help?</h4>
@@ -119,8 +119,8 @@ export default function Footer() {
               </div>
             </section>
           </div>
-          <div className="footer-contact">
-            <section className="footer-secound">
+          <div className="col-12 col-md-4">
+            <section className="footer-second">
               <div className="footer-location d-flex justify-content-between align-items-center">
                 <div className="d-flex justify-content-between align-items-center">
                   <span>
@@ -158,7 +158,7 @@ export default function Footer() {
               </div>
             </section>
           </div>
-          <div className="footer-rights">
+          <div className="col-12 col-md-4">
             <section className="footer-third">
               <div className="footer-rights-item-one">
                 <span>©</span>
