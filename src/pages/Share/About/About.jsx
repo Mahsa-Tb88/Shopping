@@ -43,7 +43,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div class="container p-0">
+      <div class="container-about p-0">
         <main>
           <section class="our-brand">
             <div class="our-brand-container">
@@ -126,106 +126,108 @@ export default function About() {
               </p>
             </div>
           </section>
-          <div className="logo-group">
-            <div className="container-column-logo">
-              <div className="row gx-5 col-overlay-logo">
-                <div className="col vh-100 ">
-                  <div className="inner-col-logo"></div>
+          
+            <div className="logo-group">
+              <div className="container-column-logo">
+                <div className="row gx-5 col-overlay-logo">
+                  <div className="col vh-100 ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 d-none d-md-grid">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 d-none d-md-grid   ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 d-none d-md-grid  ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 d-none d-md-grid  ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 d-none d-md-grid  ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 d-none d-md-grid  ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 d-none d-md-grid  ">
+                    <div className="inner-col-logo"></div>
+                  </div>
+                  <div className="col vh-100 d-none d-md-grid  ">
+                    <div className="inner-col-logo"></div>
+                  </div>
                 </div>
-                <div className="col vh-100 ">
-                  <div className="inner-col-logo"></div>
+              </div>
+              <div className="row  gx-5  py-3">
+                <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
+                  <div className="d-flex align-items-center justify-content-center">
+                    <div className="logo-img">
+                      <div>
+                        <img
+                          src="http://server.test/uploads/rabbit.png"
+                          alt="rabbit"
+                        />
+                      </div>
+                    </div>
+                    <span className="logo-text">No tests on animals</span>
+                  </div>
                 </div>
-                <div className="col vh-100 ">
-                  <div className="inner-col-logo"></div>
+                <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
+                  <div className="d-flex align-items-center justify-content-center">
+                    <div className="logo-img">
+                      <div>
+                        <img
+                          src="http://server.test/uploads/leaf.png"
+                          alt="leaf"
+                        />
+                      </div>
+                    </div>
+                    <span className="logo-text">
+                      No animal-derived ingredients
+                    </span>
+                  </div>
                 </div>
-                <div className="col vh-100 ">
-                  <div className="inner-col-logo"></div>
+                <div className="col-6 text-center  col-md-3 ">
+                  <div className="d-flex align-items-center justify-content-center">
+                    <div className="logo-img">
+                      <div>
+                        <img
+                          src="http://server.test/uploads/wheat.png"
+                          alt="wheat"
+                        />
+                      </div>
+                    </div>
+                    <span className="logo-text">
+                      No gluten, or gluten byproducts
+                    </span>
+                  </div>
                 </div>
-                <div className="col vh-100 d-none d-md-grid">
-                  <div className="inner-col-logo"></div>
-                </div>
-                <div className="col vh-100 d-none d-md-grid   ">
-                  <div className="inner-col-logo"></div>
-                </div>
-                <div className="col vh-100 d-none d-md-grid  ">
-                  <div className="inner-col-logo"></div>
-                </div>
-                <div className="col vh-100 d-none d-md-grid  ">
-                  <div className="inner-col-logo"></div>
-                </div>
-                <div className="col vh-100 d-none d-md-grid  ">
-                  <div className="inner-col-logo"></div>
-                </div>
-                <div className="col vh-100 d-none d-md-grid  ">
-                  <div className="inner-col-logo"></div>
-                </div>
-                <div className="col vh-100 d-none d-md-grid  ">
-                  <div className="inner-col-logo"></div>
-                </div>
-                <div className="col vh-100 d-none d-md-grid  ">
-                  <div className="inner-col-logo"></div>
+                <div className="col-6 text-center  col-md-3 ">
+                  <div className="d-flex align-items-center justify-content-center">
+                    <div className="logo-img">
+                      <div>
+                        <img
+                          src="http://server.test/uploads/lamp.png"
+                          alt="lamp"
+                        />
+                      </div>
+                    </div>
+                    <span className="logo-text">Recyclable packaging</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="row w-100 gx-5 w-100 py-3">
-              <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
-                <div className="d-flex align-items-center justify-content-center">
-                  <div className="logo-img">
-                    <div>
-                      <img
-                        src="http://server.test/uploads/rabbit.png"
-                        alt="rabbit"
-                      />
-                    </div>
-                  </div>
-                  <span className="logo-text">No tests on animals</span>
-                </div>
-              </div>
-              <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
-                <div className="d-flex align-items-center justify-content-center">
-                  <div className="logo-img">
-                    <div>
-                      <img
-                        src="http://server.test/uploads/leaf.png"
-                        alt="leaf"
-                      />
-                    </div>
-                  </div>
-                  <span className="logo-text">
-                    No animal-derived ingredients
-                  </span>
-                </div>
-              </div>
-              <div className="col-6 text-center  col-md-3 ">
-                <div className="d-flex align-items-center justify-content-center">
-                  <div className="logo-img">
-                    <div>
-                      <img
-                        src="http://server.test/uploads/wheat.png"
-                        alt="wheat"
-                      />
-                    </div>
-                  </div>
-                  <span className="logo-text">
-                    No gluten, or gluten byproducts
-                  </span>
-                </div>
-              </div>
-              <div className="col-6 text-center  col-md-3 ">
-                <div className="d-flex align-items-center justify-content-center">
-                  <div className="logo-img">
-                    <div>
-                      <img
-                        src="http://server.test/uploads/lamp.png"
-                        alt="lamp"
-                      />
-                    </div>
-                  </div>
-                  <span className="logo-text">Recyclable packaging</span>
-                </div>
-              </div>
-            </div>
-          </div>
+         
         </main>
       </div>
     </div>

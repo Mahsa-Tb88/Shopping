@@ -306,68 +306,69 @@ export default function Contact() {
             </div>
             <p className="contact-us-line"></p>
           </div>
-
-          <div className="items row gx-5 mb-5">
-            <div className="col-12 mb-5 mb-md-0 col-md-4">
-              <div className="chat-us mx-3 h-100">
-                <h3 className="d-flex justify-content-baseline  aling-items-center ">
-                  <span className=" fs-2 ">
-                    <IoChatbubbleEllipsesOutline className="icon-item me-2" />
-                  </span>
-                  <span className="title-item">Chat Online</span>
-                </h3>
-                <div className="content-item mt-3 mb-5 ">
-                  <h5 className="fs-3">Looking for personalized advice?</h5>
-                  <p className="fs-5 desc-item">
-                    The option to chat becomes active when one of our Client
-                    Advisors is available.
-                  </p>
-                  <button className="btn-item w-75 py-2 fs-4">
-                    Ask Your Questions
-                  </button>
+          <div className="items">
+            <div className=" row mx-0 gx-5 mb-5">
+              <div className="col-12 mb-5 mb-md-0 col-md-4 px-0">
+                <div className="chat-us mx-3 h-100">
+                  <h3 className="d-flex justify-content-baseline  aling-items-center ">
+                    <span className=" fs-2 ">
+                      <IoChatbubbleEllipsesOutline className="icon-item me-2" />
+                    </span>
+                    <span className="title-item">Chat Online</span>
+                  </h3>
+                  <div className="content-item mt-3 mb-5 ">
+                    <h5 className="fs-3">Looking for personalized advice?</h5>
+                    <p className="fs-5 desc-item">
+                      The option to chat becomes active when one of our Client
+                      Advisors is available.
+                    </p>
+                    <button className="btn-item w-75 py-2 fs-4">
+                      Ask Your Questions
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-12 mb-5 mb-md-0 col-md-4">
-              <div className="call-us mx-3 h-100">
-                <h3 className="d-flex justify-content-baseline  aling-items-center ">
-                  <span className="fs-2">
-                    <FaPhoneAlt className="icon-item me-2" />
-                  </span>
-                  <span className="title-item">Call Us</span>
-                </h3>
-                <div className="content-item mt-3 mb-5 ">
-                  <h5 className="fs-3">
-                    Our Client Advisors would be delighted to assist you.
-                  </h5>
-                  <h5 className="fs-3">
-                    You may contact us at <span>1-802-526-2463</span>
-                  </h5>
-                  <p className="fs-5 desc-item">
-                    Service available from Monday to Friday from 10 am to 8 pm
-                    and Saturday from 10 am to 6 pm
-                  </p>
+              <div className="col-12 mb-5 mb-md-0 col-md-4 px-0">
+                <div className="call-us mx-3 h-100">
+                  <h3 className="d-flex justify-content-baseline  aling-items-center ">
+                    <span className="fs-2">
+                      <FaPhoneAlt className="icon-item me-2" />
+                    </span>
+                    <span className="title-item">Call Us</span>
+                  </h3>
+                  <div className="content-item mt-3 mb-5 ">
+                    <h5 className="fs-3">
+                      Our Client Advisors would be delighted to assist you.
+                    </h5>
+                    <h5 className="fs-3">
+                      You may contact us at <span>1-802-526-2463</span>
+                    </h5>
+                    <p className="fs-5 desc-item">
+                      Service available from Monday to Friday from 10 am to 8 pm
+                      and Saturday from 10 am to 6 pm
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="col-12 mb-5 mb-md-0 col-md-4">
-              <div className="msg-us mx-3 h-100">
-                <h3 className="d-flex justify-content-baseline  aling-items-center ">
-                  <span className="fs-2">
-                    <FaRegMessage className="icon-item me-2" />
-                  </span>
-                  <span className="title-item">Instant Message</span>
-                </h3>
-                <div className="content-item mt-3 mb-5 ">
-                  <h5 className="fs-3">
-                    Would you like to contact us on an instant messaging app?
-                  </h5>
-                  <p className="fs-5 desc-item">
-                    Our Client Advisors will be delighted to assist you
-                  </p>
-                  <button className="btn-item w-75 py-2 fs-4">
-                    Ask Your Questions
-                  </button>
+              <div className="col-12 mb-5 mb-md-0 col-md-4 px-0">
+                <div className="msg-us mx-3 h-100">
+                  <h3 className="d-flex justify-content-baseline  aling-items-center ">
+                    <span className="fs-2">
+                      <FaRegMessage className="icon-item me-2" />
+                    </span>
+                    <span className="title-item">Instant Message</span>
+                  </h3>
+                  <div className="content-item mt-3 mb-5 ">
+                    <h5 className="fs-3">
+                      Would you like to contact us on an instant messaging app?
+                    </h5>
+                    <p className="fs-5 desc-item">
+                      Our Client Advisors will be delighted to assist you
+                    </p>
+                    <button className="btn-item w-75 py-2 fs-4">
+                      Ask Your Questions
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

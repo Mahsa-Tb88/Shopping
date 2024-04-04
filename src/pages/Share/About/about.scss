@@ -24,21 +24,18 @@
 
   /* main */
   /* our brand */
-  .pp {
-    background-color: black;
-    height: 200px;
-    width: 100%;
-    margin-top: 20rem;
+  .container-about {
+    width: 85%;
+    margin: 0 auto;
   }
+
   .address-page {
     width: 85%;
     margin: 0 auto;
     margin-top: 4rem;
     padding: 1.5rem 0;
   }
-  // .container {
-  //   width: 100%;
-  // }
+
   .address-page a {
     font-size: 1.2rem;
     cursor: pointer;
@@ -197,12 +194,13 @@
   /*logo-group*/
   .logo-group {
     position: relative;
+    overflow: hidden;
   }
   .container-column-logo {
     width: 100%;
     position: absolute;
     top: 0;
-    height: 100%;
+    bottom: 0;
   }
   .col-overlay-logo div {
     height: 100%;

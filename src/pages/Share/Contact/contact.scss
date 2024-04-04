@@ -256,7 +256,6 @@
   /* items */
   .items {
     position: relative;
-    background-color: #606060;
   }
 
   .title-item,
@@ -425,6 +424,7 @@
   /*logo-group*/
   .logo-group {
     position: relative;
+    overflow: hidden;
   }
   .container-column-logo {
     width: 100%;
