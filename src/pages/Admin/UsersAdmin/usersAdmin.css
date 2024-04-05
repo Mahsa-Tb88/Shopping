@@ -1,0 +1,102 @@
+.userAdmin .addNewUser {
+  background-color: #79043c;
+  color: #f8e9f0;
+  padding: 7px 10px;
+  border: none;
+  margin-top: 20px;
+  width: 130px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.userAdmin .addUserBtn {
+  border: none;
+  background-color: transparent;
+  color: #f8e9f0;
+  font-size: 12px;
+}
+
+.userAdmin .iconPlusUser {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.userAdmin .addNewUser:hover {
+  background-color: #504c4e;
+}
+
+.userAdmin .btn-tryAgain {
+  background-color: #79043c;
+  color: #f8e9f0;
+  border: none;
+  padding: 10px 20px;
+}
+
+.userAdmin .btn-tryAgain:hover {
+  background-color: #504c4e;
+}
+
+.userAdmin .loadingUserAdmin {
+  color: #79043c;
+  margin-top: 5rem;
+}
+
+.userAdmin .operation-trash {
+  color: #79043c;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.userAdmin .operation-edit {
+  color: #4f4fe9;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.userAdmin .operation-trash:hover {
+  background-color: #79043c;
+  color: #fff;
+}
+
+.userAdmin .operation-edit:hover {
+  background-color: #4f4fe9;
+  color: #fff;
+}
+
+.userAdmin .btn-submit {
+  background-color: #79043c;
+  color: #f8e9f0;
+  width: 20rem;
+}
+
+.userAdmin .btn-submit:hover {
+  background-color: #504c4e;
+}
+
+.userAdmin .table-row th {
+  font-size: 12px;
+}
+
+.userAdmin .table-row td {
+  font-size: 8px;
+}
+
+@media (min-width: 768px) {
+  .userAdmin .addNewUser {
+    padding: 10px 25px;
+    width: 20rem;
+    font-size: 15px;
+  }
+  .userAdmin .addUserBtn {
+    font-size: 17px;
+  }
+  .userAdmin .table-row th {
+    font-size: 20px;
+  }
+  .userAdmin .table-row td {
+    font-size: 15px;
+  }
+}
+/*# sourceMappingURL=usersAdmin.css.map */

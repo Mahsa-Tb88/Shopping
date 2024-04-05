@@ -230,8 +230,10 @@
   .bestSeller {
     margin-bottom: 15rem;
   }
-  .bestSellers-product-img,
-  .bestSellers-product-img-mobile-newIn {
+  .bestSellers-product-container {
+    height: 43rem;
+  }
+  .bestSellers-product-img {
     background-color: rgba(212, 212, 212, 0.316);
     text-align: center;
   }
@@ -245,7 +247,7 @@
     font-size: 1.6rem;
     color: #79043c;
     padding: 0 1.6rem;
-    margin: 0.8rem 0;
+    margin: 1rem 0;
   }
   .bestSellers-product-desc {
     font-size: 1.2rem;
@@ -497,6 +499,7 @@
   .blog-col {
     position: relative;
     cursor: pointer;
+    height: 40rem;
   }
   .blog-overlay {
     position: absolute;
@@ -506,6 +509,9 @@
     margin: 0 auto;
     background-color: #79043d78;
     z-index: -1;
+  }
+  .blog-body {
+    margin-top: auto;
   }
   .blog-info {
     width: 85%;

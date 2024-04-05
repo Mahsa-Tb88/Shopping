@@ -1,0 +1,266 @@
+.header {
+  background-color: #f8e9f0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 105;
+  -webkit-box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+          box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px;
+  border-bottom: 1px solid #fff;
+  height: 5rem;
+  padding: 10px 5px;
+}
+
+.header .link {
+  text-decoration: none;
+}
+
+.header .active {
+  background-color: #79043c !important;
+  color: #f8e9f0 !important;
+  border: none;
+}
+
+.header .navbar-mobile {
+  position: absolute;
+  left: -200px;
+  top: 5rem;
+  background-color: #f8e9f0;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  width: 15rem;
+}
+
+.header .showMenu {
+  left: 0;
+}
+
+.header .navlink {
+  text-decoration: none;
+  color: #504c4e;
+  font-size: 16px;
+  padding: 5px 20px;
+}
+
+.header .navlink:hover {
+  color: #79043c;
+}
+
+.header .icon-nav {
+  color: #79043c;
+}
+
+.header .logo {
+  width: 9rem;
+}
+
+.header .logo-mobile {
+  width: 5rem;
+}
+
+.header .btns {
+  border: none;
+  outline: none;
+  border: 1px solid #79043c;
+  font-size: 15px;
+}
+
+.header .signout-btn {
+  border: none;
+  outline: none;
+  border: 1px solid #79043c;
+  background-color: transparent;
+  width: 5rem;
+  height: 2rem;
+  font-size: 10px;
+}
+
+.header .btn-signIn {
+  width: 5rem;
+  height: 2rem;
+  font-size: 12px;
+  color: #504c4e;
+  background-color: #f8e9f0;
+}
+
+.header .btns:hover {
+  color: #f8e9f0;
+  border: 1px solid #504c4e;
+  background-color: #504c4e;
+}
+
+.header .btn-signUp {
+  width: 5rem;
+  height: 2rem;
+  font-size: 12px;
+  display: inline-block;
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+
+.header .adminpanel-btn,
+.header .userpanel-btn {
+  width: 5rem;
+  height: 2rem;
+  font-size: 10px;
+  background-color: #504c4e;
+  color: #f8e9f0;
+}
+
+.header .adminpanel-btn:hover,
+.header .userpanel-btn:hover,
+.header .signout-btn:hover {
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+
+.header .link {
+  text-decoration: none;
+}
+
+.header .cart {
+  cursor: pointer;
+  padding: 3px;
+  margin-left: 3px;
+}
+
+.header .shaoppingcart {
+  color: #79043c;
+  height: 15px;
+  width: 15px;
+}
+
+.header .cart:hover {
+  background-color: #504c4e6f;
+  border-radius: 50%;
+}
+
+.header .numItem {
+  padding: 0.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  height: 17px;
+  width: 17px;
+  top: -7px;
+  right: -2px;
+  background-color: #504c4e;
+  color: #f8e9f0;
+  font-size: 10px;
+}
+
+.header .numItem:hover {
+  background-color: #504c4e;
+  color: #f8e9f0;
+}
+
+.header .btn-mood {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 15px;
+  border: 1px solid #f8e9f0;
+  border-radius: 50%;
+}
+
+.header .btn-mood:hover {
+  border: 1px solid #79043c;
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+
+@media (min-width: 768px) {
+  .header {
+    height: 8rem;
+    padding: 15px 30px;
+  }
+  .header .logo-mobile {
+    width: 7rem;
+  }
+  .header .btn-signUp,
+  .header .btn-signIn {
+    font-size: 16px;
+    width: 8.5rem;
+    height: 3.2rem;
+  }
+  .header .signout-btn,
+  .header .adminpanel-btn,
+  .header .userpanel-btn {
+    font-size: 13px;
+    width: 7rem;
+    height: 3.2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header .navbar-mobile {
+    top: 8rem;
+  }
+  .header .shaoppingcart {
+    height: 22px;
+    width: 22px;
+  }
+  .header .btn-mood {
+    font-size: 20px;
+  }
+  .header .cart {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+[data-bs-theme="dark"] .header {
+  background-color: #504c4e;
+}
+
+[data-bs-theme="dark"] .header .icon-nav {
+  color: #f8e9f0;
+}
+
+[data-bs-theme="dark"] .header .navbar-mobile {
+  background-color: #504c4e;
+}
+
+[data-bs-theme="dark"] .header .navlink {
+  color: #f8e9f0;
+}
+
+[data-bs-theme="dark"] .header .navlink:hover {
+  background-color: #212529;
+  color: #f8e9f0;
+}
+
+[data-bs-theme="dark"] .header .numItem {
+  background-color: #f8e9f0;
+  color: #504c4e;
+  border: 1px solid #f8e9f0;
+}
+
+[data-bs-theme="dark"] .header .numItem:hover {
+  background-color: #504c4e;
+  color: #f8e9f0;
+  border-color: #79043c;
+}
+
+[data-bs-theme="dark"] .header .shaoppingcart {
+  color: #f8e9f0;
+}
+
+[data-bs-theme="dark"] .header .cart:hover {
+  background-color: #79043c;
+}
+/*# sourceMappingURL=header.css.map */

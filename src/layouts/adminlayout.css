@@ -1,0 +1,133 @@
+.adminlayout .mainAdmin {
+  width: 80%;
+}
+
+.adminlayout .link {
+  text-decoration: none;
+}
+
+.adminlayout .headerAdmin {
+  background-color: #f8e9f0;
+  padding: 10px;
+  height: 5rem;
+}
+
+.adminlayout .logo-admin {
+  width: 5rem;
+}
+
+.adminlayout .sidebarAdmin {
+  width: 24%;
+  background-color: #f8e9f0;
+}
+
+.adminlayout .linkAdmin {
+  color: #79043c;
+  font-size: 1.2rem;
+}
+
+.adminlayout .linkAdmin:hover {
+  background-color: #504c4e;
+  color: #f8e9f0;
+}
+
+.adminlayout .active {
+  background-color: #79043c !important;
+  color: #f8e9f0 !important;
+}
+
+.adminlayout .titleAdmin {
+  height: 5rem;
+  padding: 15px 0;
+  border-bottom: 1px solid #fff;
+  border-right: 1px solid #fff;
+}
+
+.adminlayout .btn-mood {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  font-size: 13px;
+  border: 1px solid #f8e9f0;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.adminlayout .btn-mood:hover {
+  border: 1px solid #79043c;
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+
+.adminlayout .signout-btnAdmin,
+.adminlayout .back-btnAdmin {
+  border: none;
+  outline: none;
+  border: 1px solid #79043c;
+  width: 5rem;
+  height: 2rem;
+  font-size: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #79043c;
+  color: #f8e9f0;
+  text-decoration: none;
+}
+
+.adminlayout .signout-btnAdmin:hover,
+.adminlayout .back-btnAdmin:hover {
+  color: #f8e9f0;
+  background-color: #504c4e;
+  border: 1px solid #504c4e;
+}
+
+@media (min-width: 768px) {
+  .adminlayout .headerAdmin {
+    padding: 15px;
+    height: 7rem;
+  }
+  .adminlayout .linkAdmin {
+    font-size: 2rem;
+  }
+  .adminlayout .logo-admin {
+    width: 9rem;
+  }
+  .adminlayout .btn-mood {
+    font-size: 18px;
+    margin-right: 15px;
+  }
+  .adminlayout .titleAdmin {
+    height: 7rem;
+  }
+  .adminlayout .signout-btnAdmin,
+  .adminlayout .back-btnAdmin {
+    font-size: 16px;
+    width: 8.5rem;
+    height: 3.2rem;
+  }
+}
+
+[data-bs-theme="dark"] .adminlayout .headerAdmin {
+  background-color: #212529;
+}
+
+[data-bs-theme="dark"] .adminlayout .sidebarAdmin {
+  background-color: #212529;
+}
+
+[data-bs-theme="dark"] .adminlayout .titleAdmin {
+  border-bottom: 1px solid #504c4e;
+  border-right: 1px solid #504c4e;
+}
+
+[data-bs-theme="dark"] .adminlayout .linkAdmin {
+  color: #f8e9f0;
+}
+/*# sourceMappingURL=adminlayout.css.map */

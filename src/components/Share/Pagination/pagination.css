@@ -1,0 +1,46 @@
+.paginate .page-link {
+  background-color: #f8e9f0;
+  border-color: #79043c;
+  color: #79043c;
+  font-size: 1rem;
+  cursor: pointer;
+  font-style: normal;
+  position: relative;
+  z-index: 104;
+}
+
+.paginate .page-link:hover {
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+
+.paginate .active {
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+
+.paginate .disabled {
+  background-color: #e2e4e3;
+}
+
+[data-bs-theme="dark"] .paginate .page-link {
+  background-color: #212529;
+  color: #f8e9f0;
+}
+
+[data-bs-theme="dark"] .paginate .page-link:hover {
+  background-color: #363535;
+  color: #f8e9f0;
+}
+
+[data-bs-theme="dark"] .paginate .active {
+  background-color: #79043c;
+  color: #f8e9f0;
+}
+
+@media (min-width: 768px) {
+  .paginate .page-link {
+    font-size: 1.5rem;
+  }
+}
+/*# sourceMappingURL=pagination.css.map */

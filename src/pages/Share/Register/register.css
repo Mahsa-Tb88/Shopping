@@ -1,0 +1,82 @@
+.register {
+  margin: 5rem auto;
+}
+
+.register .form-register {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  background-color: #79043c;
+  width: 80%;
+  -webkit-box-shadow: 0 1px 3px 1px #0003;
+          box-shadow: 0 1px 3px 1px #0003;
+}
+
+.register .input {
+  font-size: 12px;
+  padding: 3px 5px;
+  border: 1px solid #79043c;
+  outline: #fff;
+}
+
+.register .input-check:checked {
+  accent-color: #58012b;
+  border: 1px solid #fff;
+}
+
+.register .btn-submit {
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  font-size: 13px;
+  background-color: #fff;
+  color: #5d022e;
+}
+
+.register .btn-submit:hover {
+  background-color: #5d022e;
+  border-color: #fff;
+  color: #fff;
+}
+
+.register .check {
+  color: #198754;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.register .error {
+  color: #dc3545;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+  .register {
+    margin: 10rem auto;
+  }
+  .register .form-register {
+    background-color: #fff;
+    padding: 3rem 4rem;
+    margin-top: 2rem;
+    background-color: #79043c;
+    width: 45%;
+  }
+  .register .input {
+    font-size: 17px;
+    padding: 5px 7px;
+  }
+  .register .btn-submit {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+}
+
+[data-bs-theme="dark"] .register .btn-submit {
+  background-color: #3b3b3b;
+  color: #fff;
+}
+
+[data-bs-theme="dark"] .register .btn-submit:hover {
+  background-color: #5d022e;
+}
+/*# sourceMappingURL=register.css.map */

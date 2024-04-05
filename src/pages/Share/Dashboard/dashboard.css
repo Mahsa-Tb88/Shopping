@@ -1,0 +1,21 @@
+.dashboard {
+  margin-top: 5rem;
+  height: 100vh;
+}
+
+.dashboard .title {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  .dashboard {
+    margin-top: 8rem;
+  }
+  .dashboard .title {
+    font-size: 4rem;
+  }
+  .dashboard .desc {
+    font-size: 2rem;
+  }
+}
+/*# sourceMappingURL=dashboard.css.map */

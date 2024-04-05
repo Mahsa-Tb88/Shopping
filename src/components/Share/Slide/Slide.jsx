@@ -1,7 +1,5 @@
-import React from 'react'
-
-export default function Slide() {
-  return (
-    <div>Slide</div>
-  )
+import React from "react";
+import "./slide.scss";
+export default function Slide({ children }) {
+  return <div className="slide">{children}</div>;
 }

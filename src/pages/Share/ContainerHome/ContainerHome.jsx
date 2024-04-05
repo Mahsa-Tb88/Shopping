@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./containerhome.scss";
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Slider from "react-slick";
 import { getBlogs } from "../../../utils/api";
+import Slide from "../../../components/Share/Slide/Slide";
 export default function ContainerHome() {
+  const sliderBlogRef = useRef(null);
+  const sliderBestSellersRef = useRef(null);
+
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
     const timeout = setTimeout(fetchBlogs, 20);
@@ -12,20 +19,65 @@ export default function ContainerHome() {
   }, []);
 
   async function fetchBlogs() {
-    const result = await getBlogs(page);
-    // if (result.success) {
-    //   setError(false);
-    //   setBlogs(result.body);
-    //   setTotalBlogs({
-    //     all: result.totalBlogs.all,
-    //     filtered: result.totalBlogs.filtered,
-    //   });
-    // } else {
-    //   setError({ message: result.error });
-    // }
-    // setIsLoading(false);
+    const result = await getBlogs(1, 1000);
+    console.log(result);
+    if (result.success) {
+      setError(false);
+      setBlogs(result.body);
+    } else {
+      setError({ message: result.error });
+    }
+    setIsLoading(false);
   }
-
+  const settingBlog = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide: 0,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 20,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  const settingBestSellers = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    autoplay: false,
+    speed: 5000,
+    autoplaySpeed: 20,
+  };
   const productsCategory = [
     {
       title: "gifts & sets",
@@ -177,12 +229,12 @@ export default function ContainerHome() {
       </section>
       <section className="container p-0 bestSeller">
         <h2 className="products-title text-center">Our Best Sellers</h2>
-        <div className=" d-flex justify-content-between align-items-center">
+        <div className="d-none d-md-flex justify-content-between align-items-center">
           <div className="row ">
             {bestSellers.map((p) => {
               return (
                 <div
-                  className="col-12 col-md-6 col-lg-3  bestSellers-product mb-5"
+                  className=" col-md-6 col-lg-3  bestSellers-product mb-5"
                   key={p.id}
                 >
                   <div className="border border-1 h-100">
@@ -200,6 +252,34 @@ export default function ContainerHome() {
             })}
           </div>
         </div>
+        <Slider
+          {...settingBestSellers}
+          className="d-md-none"
+          ref={sliderBestSellersRef}
+        >
+          {bestSellers.map((p) => {
+            return (
+              <Slide key={p.id}>
+                <div className=" bestSellers-product mb-5 mx-3">
+                  <div className="border border-1 bestSellers-product-container d-flex flex-column justify-content-center align-items-center">
+                    <div className="bestSellers-product-img text-center w-100">
+                      <img src={p.image} alt="product" className="mx-auto" />
+                    </div>
+                    <h3 className="bestSellers-product-title mt-4 text-center">
+                      {p.title}
+                    </h3>
+                    <div className="text-center mt-auto pb-4">
+                      <p className="bestSellers-product-desc">{p.desc}</p>
+                      <span className="bestSellers-product-price">
+                        $ {p.price}.00
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Slide>
+            );
+          })}
+        </Slider>
       </section>
       <section className="newIn">
         <h2 className="newIn-title  text-center text-white d-none d-md-block">
@@ -352,106 +432,45 @@ export default function ContainerHome() {
       <section className="blog">
         <h2 className="blog-title mt-0  text-center mb-5 fs-1">Our Blog</h2>
         <div className="blog-container">
-          <div className="row gx-5 ">
-            <div
-              className=" col-12 col-md-4 mb-5  "
-              onClick={() => navigate("blogs")}
-            >
-              <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
-                <div className="blog-overlay"></div>
-                <div className="text-center blog-item">
-                  <div className="blog-img mt-0">
-                    <img
-                      src="./public/images/blogs/blog image1.png"
-                      alt="blog-image"
-                    />
-                  </div>
-                  <div className="blog-body ">
-                    <h3 className="blog-body-title mt-5 mb-3 ">
-                      How to get clear skin fast
-                    </h3>
-                    <div className="blog-info d-flex justify-content-around align-items-center">
-                      <span className="blog-info-detail">Skincare</span>
-                      <span className="blog-info-dash"></span>
-                      <span className="blog-info-detail">Dr. Wade Warren</span>
-                      <span className="blog-info-dash"></span>
-                      <span className="blog-info-detail">Jan 20, 2021</span>
+          <Slider {...settingBlog} ref={sliderBlogRef}>
+            {blogs.map((blog) => {
+              return (
+                <Slide key={blog.id}>
+                  <div className="mx-5" onClick={() => navigate("blogs")}>
+                    <div className=" blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
+                      <div className="blog-overlay"></div>
+                      <div className="text-center blog-item">
+                        <div className="blog-img mt-0">
+                          <img src={SERVER_URL + blog.image} alt="blog-image" />
+                        </div>
+                        <div className="blog-body ">
+                          <h3 className="blog-body-title mt-5 mb-3 ">
+                            {blog.title}
+                          </h3>
+                          <div className="blog-info d-flex justify-content-around align-items-center">
+                            <span className="blog-info-detail">
+                              {blog.slug}
+                            </span>
+                            <span className="blog-info-dash"></span>
+                            <span className="blog-info-detail">
+                              Dr. Wade Warren
+                            </span>
+                            <span className="blog-info-dash"></span>
+                            <span className="blog-info-detail">
+                              Jan 20, 2021
+                            </span>
+                          </div>
+                          <p className="blog-desc">
+                            {blog.description.substring(0, 120)}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                    <p className="blog-desc">
-                      Many people find it difficult to get clear skin. The
-                      methods for getting clear skin will vary
-                    </p>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className=" col-12 col-md-4 mb-5 "
-              onClick={() => navigate("blogs")}
-            >
-              <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
-                <div className="blog-overlay"></div>
-
-                <div className="text-center blog-item">
-                  <div className="blog-img mt-0">
-                    <img
-                      src="./public/images/blogs/blog image2.png"
-                      alt="blog-image"
-                    />
-                  </div>
-                  <div className="blog-body ">
-                    <h3 className="blog-body-title mt-5 mb-3 ">
-                      How to get clear skin fast
-                    </h3>
-                    <div className="blog-info d-flex justify-content-around align-items-center">
-                      <span className="blog-info-detail">Skincare</span>
-                      <span className="blog-info-dash"></span>
-                      <span className="blog-info-detail">Dr. Wade Warren</span>
-                      <span className="blog-info-dash"></span>
-                      <span className="blog-info-detail">Jan 20, 2021</span>
-                    </div>
-                    <p className="blog-desc">
-                      Many people find it difficult to get clear skin. The
-                      methods for getting clear skin will vary
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className=" col-12 col-md-4 mb-5 "
-              onClick={() => navigate("blogs")}
-            >
-              <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
-                <div className="blog-overlay"></div>
-
-                <div className="text-center blog-item">
-                  <div className="blog-img mt-0">
-                    <img
-                      src="./public/images/blogs/blog image3.png"
-                      alt="blog-image"
-                    />
-                  </div>
-                  <div className="blog-body ">
-                    <h3 className="blog-body-title mt-5 mb-3 ">
-                      How to get clear skin fast
-                    </h3>
-                    <div className="blog-info d-flex justify-content-around align-items-center">
-                      <span className="blog-info-detail">Skincare</span>
-                      <span className="blog-info-dash"></span>
-                      <span className="blog-info-detail">Dr. Wade Warren</span>
-                      <span className="blog-info-dash"></span>
-                      <span className="blog-info-detail">Jan 20, 2021</span>
-                    </div>
-                    <p className="blog-desc">
-                      Many people find it difficult to get clear skin. The
-                      methods for getting clear skin will vary
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                </Slide>
+              );
+            })}
+          </Slider>
         </div>
       </section>
       <section className="logo-group ">
@@ -647,3 +666,41 @@ export default function ContainerHome() {
             </div>
           </div> */
 }
+
+// <div className="row gx-5 ">
+//             {blogs.map((blog) => {
+//               return (
+//                 <div
+//                   className=" col-12 col-md-4 mb-5  "
+//                   key={blog.id}
+//                   onClick={() => navigate("blogs")}
+//                 >
+//                   <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
+//                     <div className="blog-overlay"></div>
+//                     <div className="text-center blog-item">
+//                       <div className="blog-img mt-0">
+//                         <img src={SERVER_URL + blog.image} alt="blog-image" />
+//                       </div>
+//                       <div className="blog-body ">
+//                         <h3 className="blog-body-title mt-5 mb-3 ">
+//                           {blog.title}
+//                         </h3>
+//                         <div className="blog-info d-flex justify-content-around align-items-center">
+//                           <span className="blog-info-detail">{blog.slug}</span>
+//                           <span className="blog-info-dash"></span>
+//                           <span className="blog-info-detail">
+//                             Dr. Wade Warren
+//                           </span>
+//                           <span className="blog-info-dash"></span>
+//                           <span className="blog-info-detail">Jan 20, 2021</span>
+//                         </div>
+//                         <p className="blog-desc">
+//                           {blog.description.substring(0, 120)}
+//                         </p>
+//                       </div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               );
+//             })}
+//           </div>

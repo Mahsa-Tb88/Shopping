@@ -1,0 +1,92 @@
+.CategoriesAdmin .addCategory {
+  background-color: #79043c;
+  color: #f8e9f0;
+  padding: 7px 10px;
+  border: none;
+  margin-top: 20px;
+  width: 130px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.CategoriesAdmin .addCategoryBtn {
+  border: none;
+  background-color: transparent;
+  color: #f8e9f0;
+  font-size: 12px;
+}
+
+.CategoriesAdmin .iconPlusCategory {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.CategoriesAdmin .addCategory:hover {
+  background-color: #504c4e;
+}
+
+.CategoriesAdmin .btn-tryAgain {
+  background-color: #79043c;
+  color: #f8e9f0;
+  border: none;
+  padding: 10px 20px;
+}
+
+.CategoriesAdmin .btn-tryAgain:hover {
+  background-color: #504c4e;
+}
+
+.CategoriesAdmin .loadingCategoryAdmin {
+  color: #79043c;
+  margin-top: 5rem;
+}
+
+.CategoriesAdmin .operation-trash {
+  color: #79043c;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.CategoriesAdmin .operation-edit {
+  color: #4f4fe9;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.CategoriesAdmin .operation-trash:hover {
+  background-color: #79043c;
+  color: #fff;
+}
+
+.CategoriesAdmin .operation-edit:hover {
+  background-color: #4f4fe9;
+  color: #fff;
+}
+
+.CategoriesAdmin .table-row th {
+  font-size: 12px;
+}
+
+.CategoriesAdmin .table-row td {
+  font-size: 8px;
+}
+
+@media (min-width: 768px) {
+  .CategoriesAdmin .addCategory {
+    padding: 10px 25px;
+    width: 20rem;
+    font-size: 15px;
+  }
+  .CategoriesAdmin .addCategoryBtn {
+    font-size: 17px;
+  }
+  .CategoriesAdmin .table-row th {
+    font-size: 20px;
+  }
+  .CategoriesAdmin .table-row td {
+    font-size: 15px;
+  }
+}
+/*# sourceMappingURL=categoriesAdmin.css.map */

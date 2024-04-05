@@ -115,10 +115,10 @@ export async function getUsers(page) {
     }
   }
 }
-export async function getBlogs(page) {
+export async function getBlogs(page, limit = 4) {
   try {
     const { data } = await axios.get("/blogs", {
-      params: { page },
+      params: { page, limit },
     });
     return data;
   } catch (e) {
