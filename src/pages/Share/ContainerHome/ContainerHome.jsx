@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./containerhome.scss";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import Slider from "react-slick";
+import { getBlogs } from "../../../utils/api";
 export default function ContainerHome() {
   const navigate = useNavigate();
+  useEffect(() => {
+    const timeout = setTimeout(fetchBlogs, 20);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  async function fetchBlogs() {
+    const result = await getBlogs(page);
+    // if (result.success) {
+    //   setError(false);
+    //   setBlogs(result.body);
+    //   setTotalBlogs({
+    //     all: result.totalBlogs.all,
+    //     filtered: result.totalBlogs.filtered,
+    //   });
+    // } else {
+    //   setError({ message: result.error });
+    // }
+    // setIsLoading(false);
+  }
+
   const productsCategory = [
     {
       title: "gifts & sets",
@@ -49,6 +72,9 @@ export default function ContainerHome() {
   ];
   return (
     <div className="home">
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <div className="container-column">
         <div className="row gx-5 col-overlay">
           <div className="col vh-100 ">
@@ -327,10 +353,13 @@ export default function ContainerHome() {
         <h2 className="blog-title mt-0  text-center mb-5 fs-1">Our Blog</h2>
         <div className="blog-container">
           <div className="row gx-5 ">
-            <div className=" col-12 col-md-4 mb-5  ">
+            <div
+              className=" col-12 col-md-4 mb-5  "
+              onClick={() => navigate("blogs")}
+            >
               <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
                 <div className="blog-overlay"></div>
-                <div className="text-center ">
+                <div className="text-center blog-item">
                   <div className="blog-img mt-0">
                     <img
                       src="./public/images/blogs/blog image1.png"
@@ -356,11 +385,14 @@ export default function ContainerHome() {
                 </div>
               </div>
             </div>
-            <div className=" col-12 col-md-4 mb-5 ">
+            <div
+              className=" col-12 col-md-4 mb-5 "
+              onClick={() => navigate("blogs")}
+            >
               <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
                 <div className="blog-overlay"></div>
 
-                <div className="text-center ">
+                <div className="text-center blog-item">
                   <div className="blog-img mt-0">
                     <img
                       src="./public/images/blogs/blog image2.png"
@@ -386,11 +418,14 @@ export default function ContainerHome() {
                 </div>
               </div>
             </div>
-            <div className=" col-12 col-md-4 mb-5 ">
+            <div
+              className=" col-12 col-md-4 mb-5 "
+              onClick={() => navigate("blogs")}
+            >
               <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
                 <div className="blog-overlay"></div>
 
-                <div className="text-center ">
+                <div className="text-center blog-item">
                   <div className="blog-img mt-0">
                     <img
                       src="./public/images/blogs/blog image3.png"
@@ -420,7 +455,7 @@ export default function ContainerHome() {
         </div>
       </section>
       <section className="logo-group ">
-         <div className="container-column-logo">
+        <div className="container-column-logo">
           <div className="row gx-5 col-overlay-logo">
             <div className="col vh-100 ">
               <div className="inner-col-logo"></div>
@@ -459,7 +494,7 @@ export default function ContainerHome() {
               <div className="inner-col-logo"></div>
             </div>
           </div>
-        </div> 
+        </div>
         <div className="row  gx-5  py-3">
           <div className="col-6 text-center mb-5 mb-md-0 col-md-3 ">
             <div className="d-flex align-items-center justify-content-center">
@@ -508,4 +543,107 @@ export default function ContainerHome() {
       </section>
     </div>
   );
+}
+
+{
+  /* <div className="row gx-5 ">
+            <div
+              className=" col-12 col-md-4 mb-5  "
+              onClick={() => navigate("blogs")}
+            >
+              <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
+                <div className="blog-overlay"></div>
+                <div className="text-center blog-item">
+                  <div className="blog-img mt-0">
+                    <img
+                      src="./public/images/blogs/blog image1.png"
+                      alt="blog-image"
+                    />
+                  </div>
+                  <div className="blog-body ">
+                    <h3 className="blog-body-title mt-5 mb-3 ">
+                      How to get clear skin fast
+                    </h3>
+                    <div className="blog-info d-flex justify-content-around align-items-center">
+                      <span className="blog-info-detail">Skincare</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-detail">Dr. Wade Warren</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-detail">Jan 20, 2021</span>
+                    </div>
+                    <p className="blog-desc">
+                      Many people find it difficult to get clear skin. The
+                      methods for getting clear skin will vary
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className=" col-12 col-md-4 mb-5 "
+              onClick={() => navigate("blogs")}
+            >
+              <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
+                <div className="blog-overlay"></div>
+
+                <div className="text-center blog-item">
+                  <div className="blog-img mt-0">
+                    <img
+                      src="./public/images/blogs/blog image2.png"
+                      alt="blog-image"
+                    />
+                  </div>
+                  <div className="blog-body ">
+                    <h3 className="blog-body-title mt-5 mb-3 ">
+                      How to get clear skin fast
+                    </h3>
+                    <div className="blog-info d-flex justify-content-around align-items-center">
+                      <span className="blog-info-detail">Skincare</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-detail">Dr. Wade Warren</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-detail">Jan 20, 2021</span>
+                    </div>
+                    <p className="blog-desc">
+                      Many people find it difficult to get clear skin. The
+                      methods for getting clear skin will vary
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className=" col-12 col-md-4 mb-5 "
+              onClick={() => navigate("blogs")}
+            >
+              <div className="h-100 blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
+                <div className="blog-overlay"></div>
+
+                <div className="text-center blog-item">
+                  <div className="blog-img mt-0">
+                    <img
+                      src="./public/images/blogs/blog image3.png"
+                      alt="blog-image"
+                    />
+                  </div>
+                  <div className="blog-body ">
+                    <h3 className="blog-body-title mt-5 mb-3 ">
+                      How to get clear skin fast
+                    </h3>
+                    <div className="blog-info d-flex justify-content-around align-items-center">
+                      <span className="blog-info-detail">Skincare</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-detail">Dr. Wade Warren</span>
+                      <span className="blog-info-dash"></span>
+                      <span className="blog-info-detail">Jan 20, 2021</span>
+                    </div>
+                    <p className="blog-desc">
+                      Many people find it difficult to get clear skin. The
+                      methods for getting clear skin will vary
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> */
 }

@@ -306,10 +306,11 @@ export default function Contact() {
             </div>
             <p className="contact-us-line"></p>
           </div>
-          <div className="items">
-            <div className=" row mx-0 gx-5 mb-5">
-              <div className="col-12 mb-5 mb-md-0 col-md-4 px-0">
-                <div className="chat-us mx-3 h-100">
+
+          <div className="items ">
+            <div className="row gx-5 mb-5">
+              <div className="col-12 mb-5 mb-md-0 col-md-4 ">
+                <div className="chat-us  h-100 border border-1 d-flex flex-column justify-content-center align-items-baseline">
                   <h3 className="d-flex justify-content-baseline  aling-items-center ">
                     <span className=" fs-2 ">
                       <IoChatbubbleEllipsesOutline className="icon-item me-2" />
@@ -328,8 +329,8 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              <div className="col-12 mb-5 mb-md-0 col-md-4 px-0">
-                <div className="call-us mx-3 h-100">
+              <div className="col-12 mb-5 mb-md-0 col-md-4 ">
+                <div className="call-us  h-100 border border-1 d-flex flex-column justify-content-center align-items-baseline">
                   <h3 className="d-flex justify-content-baseline  aling-items-center ">
                     <span className="fs-2">
                       <FaPhoneAlt className="icon-item me-2" />
@@ -350,8 +351,8 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-              <div className="col-12 mb-5 mb-md-0 col-md-4 px-0">
-                <div className="msg-us mx-3 h-100">
+              <div className="col-12 mb-5 mb-md-0 col-md-4 ">
+                <div className="msg-us  h-100 border border-1 d-flex flex-column justify-content-center align-items-baseline">
                   <h3 className="d-flex justify-content-baseline  aling-items-center ">
                     <span className="fs-2">
                       <FaRegMessage className="icon-item me-2" />

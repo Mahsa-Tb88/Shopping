@@ -477,6 +477,9 @@
   .blog {
     width: 100%;
   }
+  .blog-item {
+    width: 100%;
+  }
   .blog-title {
     font-size: 3rem;
   }
@@ -489,11 +492,11 @@
     width: 100%;
   }
   .blog-img img {
-    width: 100%;
+    max-width: 100%;
   }
   .blog-col {
     position: relative;
-    z-index: -100;
+    cursor: pointer;
   }
   .blog-overlay {
     position: absolute;
@@ -502,6 +505,7 @@
     width: 85%;
     margin: 0 auto;
     background-color: #79043d78;
+    z-index: -1;
   }
   .blog-info {
     width: 85%;

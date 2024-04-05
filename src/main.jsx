@@ -15,6 +15,8 @@ import "./assets/css/darkStyles.scss";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "react-toastify/dist/ReactToastify.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import router from "./router/router.jsx";
 

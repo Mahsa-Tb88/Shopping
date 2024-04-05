@@ -256,6 +256,8 @@
   /* items */
   .items {
     position: relative;
+    margin-top: 6rem !important ;
+    margin-bottom: 6rem !important ;
   }
 
   .title-item,
@@ -269,7 +271,6 @@
   .msg-us {
     padding: 1.6rem;
     background-color: #dfdfdf2a;
-    border: 1px solid #dfdfdf71;
   }
 
   .chat-us h3,

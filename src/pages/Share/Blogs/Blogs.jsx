@@ -26,6 +26,7 @@ export default function Blogs() {
 
   async function fetchBlogs() {
     const result = await getBlogs(page);
+    console.log(result);
     if (result.success) {
       setError(false);
       setBlogs(result.body);
