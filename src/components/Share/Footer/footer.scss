@@ -1,10 +1,12 @@
 .footer {
   position: relative;
   background-color: #3d021e;
-  overflow: hidden;
+  height: 100%;
   .container-column-footer {
     width: 85%;
     position: absolute;
+    overflow: hidden;
+    height: 100%;
     top: 0;
     bottom: 0;
   }
@@ -14,6 +16,7 @@
   .inner-col-footer {
     background-color: #ffcece;
     opacity: 0.2;
+    height: 100%;
   }
   .link {
     text-decoration: none;

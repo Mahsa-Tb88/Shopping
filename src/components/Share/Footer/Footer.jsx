@@ -11,42 +11,42 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div className="footer d-flex flex-column justify-content-center align-items-center">
-      <div className="container-column-footer">
-        <div className="row gx-5 col-overlay-footer">
-          <div className="col vh-100 ">
+      <div className="container-column-footer ">
+        <div className="row gx-5 col-overlay-footer h-100 ">
+          <div className="col h-100 ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 ">
+          <div className="col h-100 ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 ">
+          <div className="col h-100 ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 ">
+          <div className="col h-100 ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 d-none d-md-grid">
+          <div className="col h-100 d-none d-md-grid">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 d-none d-md-grid   ">
+          <div className="col h-100 d-none d-md-grid   ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 d-none d-md-grid  ">
+          <div className="col h-100 d-none d-md-grid  ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 d-none d-md-grid  ">
+          <div className="col h-100 d-none d-md-grid  ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 d-none d-md-grid  ">
+          <div className="col h-100 d-none d-md-grid  ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 d-none d-md-grid  ">
+          <div className="col h-100 d-none d-md-grid  ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 d-none d-md-grid  ">
+          <div className="col h-100 d-none d-md-grid  ">
             <div className="inner-col-footer"></div>
           </div>
-          <div className="col vh-100 d-none d-md-grid  ">
+          <div className="col h-100 d-none d-md-grid  ">
             <div className="inner-col-footer"></div>
           </div>
         </div>

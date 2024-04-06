@@ -87,10 +87,6 @@ export default function ContainerHome() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    initialSlide: 0,
-    autoplay: true,
-    speed: 5000,
-    autoplaySpeed: 20,
   };
   const productsCategory = [
     {
@@ -370,32 +366,70 @@ export default function ContainerHome() {
           </div>
         </div>
       </section>
-      <section>
-        <Slider {...settingNewIn}>
-          <Slide className="firstSlide">
-            <h2 className="newIn-title  text-center text-white mb-4">New In</h2>
-            {/* <div className="newIn-firstSlide-imgb mb-5">
-              <img src="./public/images/faces/woman.png" alt="woman" width={100}/>
-            </div> */}
-            <div className="">
-              <h3 className=" fs-2">
-                Beautya La Mousse Off/On Foaming Cleaner
-              </h3>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis en im velit mollit.
-              </p>
+      <section className="container-newIn-Mobile d-md-none">
+        <Slider {...settingNewIn} ref={sliderNewIn}>
+          <Slide>
+            <div className="slide-one text-center pb-0 pb-sm-5">
+              <h2 className="newIn-title-mobile  text-center text-white  mb-4">
+                New In
+              </h2>
+              <div className="slide-img  pb-5">
+                <img src={SERVER_URL + "/uploads/woman.png"} alt="woman" />
+              </div>
+              <div className="slide-one-body py-3">
+                <h3 className="newIn-firstSlide-title fs-2 mt-3 mb-3 mb-sm-5">
+                  Beautya La Mousse Off/On Foaming Cleaner
+                </h3>
+                <p className="newIn-firstSlide-desc text-white fs-3 pb-2 pb-sm-5">
+                  Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                  amet sint. Velit officia consequat duis en im velit mollit.
+                </p>
+              </div>
             </div>
           </Slide>
           <Slide>
-            <h1>1a1b1</h1>
+            <div className="slide-two border border-1 product-inner ">
+              <div className="slide-img text-center ">
+                <img
+                  src="./public/images/newIn/product image.png"
+                  alt="product1"
+                />
+              </div>
+              <div className="newIn-body text-center text-md-start px-3 py-3 ">
+                <h3 className="newIn-body-title ">
+                  Beautya Capture Total Dreamskin Care & Perfect
+                </h3>
+                <p className="newIn-body-desc fs-5">
+                  Plumping Gloss - Instant and Long-Term Volume Effect - 24h
+                  Hydration
+                </p>
+                <span className="newIn-price fs-3">$76.00</span>
+              </div>
+            </div>
           </Slide>
           <Slide>
-            <h1>1a1b1</h1>
+            <div className="slide-two product-inner border border-1 ">
+              <div className="slide-img text-center ">
+                <img
+                  src="./public/images/newIn/product image2.png"
+                  alt="product1"
+                />
+              </div>
+              <div className="newIn-product-desc text-center text-md-start px-3 py-3">
+                <h3 className="newIn-body-title ">
+                  Beautya Capture Total Dreamskin Care & Perfect
+                </h3>
+                <p className="newIn-body-desc fs-5">
+                  Plumping Gloss - Instant and Long-Term Volume Effect - 24h
+                  Hydration
+                </p>
+                <span className="newIn-price fs-3">$70.00</span>
+              </div>
+            </div>
           </Slide>
         </Slider>
       </section>
-      <section className="offer ">
+      <section className="offer">
         <h2 className="offer-title  text-center d-md-none">Special offers</h2>
 
         <div className="row gx-5  m-0 d-md-flex flex-md-row align-items-md-center">
@@ -428,7 +462,6 @@ export default function ContainerHome() {
           </div>
         </div>
       </section>
-
       <section className="analysis mb-5">
         <div className="row mx-0 d-md-flex flex-md-row-reverse ">
           <div className="col-12 col-md-6 p-0">
@@ -467,7 +500,6 @@ export default function ContainerHome() {
           </div>
         </div>
       </section>
-
       <section className="blog">
         <h2 className="blog-title mt-0  text-center mb-5 fs-1">Our Blog</h2>
         <div className="blog-container">
@@ -475,14 +507,17 @@ export default function ContainerHome() {
             {blogs.map((blog) => {
               return (
                 <Slide key={blog.id}>
-                  <div className="mx-5" onClick={() => navigate("blogs")}>
+                  <div
+                    className="mx-3 mx-md-5"
+                    onClick={() => navigate("blogs")}
+                  >
                     <div className=" blog-col border border-1 d-flex flex-column justify-content-center align-items-center">
                       <div className="blog-overlay"></div>
                       <div className="text-center blog-item">
                         <div className="blog-img mt-0">
                           <img src={SERVER_URL + blog.image} alt="blog-image" />
                         </div>
-                        <div className="blog-body ">
+                        <div className="blog-body px-2 ">
                           <h3 className="blog-body-title mt-5 mb-3 ">
                             {blog.title}
                           </h3>
