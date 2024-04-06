@@ -8,6 +8,7 @@ import Slide from "../../../components/Share/Slide/Slide";
 export default function ContainerHome() {
   const sliderBlogRef = useRef(null);
   const sliderBestSellersRef = useRef(null);
+  const sliderNewIn = useRef(null);
 
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,6 +32,7 @@ export default function ContainerHome() {
   }
   const settingBlog = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -68,13 +70,25 @@ export default function ContainerHome() {
   };
   const settingBestSellers = {
     dots: true,
-    arrows: false,
     infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: false,
+    autoplay: true,
+    speed: 5000,
+    autoplaySpeed: 20,
+  };
+  const settingNewIn = {
+    dots: true,
+    infinite: true,
+    arrows: false,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    autoplay: true,
     speed: 5000,
     autoplaySpeed: 20,
   };
@@ -286,7 +300,7 @@ export default function ContainerHome() {
           New In
         </h2>
         <div className="newIn-body">
-          <div className="row gx-5">
+          <div className="row gx-5 d-none d-md-flex">
             <div className=" col-12 col-md-6 text-center firstSlide py-5 py-md-0 ">
               <div className="h-100  ">
                 <h2 className="newIn-title  text-center text-white d-md-none mb-4">
@@ -355,6 +369,31 @@ export default function ContainerHome() {
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <Slider {...settingNewIn}>
+          <Slide className="firstSlide">
+            <h2 className="newIn-title  text-center text-white mb-4">New In</h2>
+            {/* <div className="newIn-firstSlide-imgb mb-5">
+              <img src="./public/images/faces/woman.png" alt="woman" width={100}/>
+            </div> */}
+            <div className="">
+              <h3 className=" fs-2">
+                Beautya La Mousse Off/On Foaming Cleaner
+              </h3>
+              <p>
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis en im velit mollit.
+              </p>
+            </div>
+          </Slide>
+          <Slide>
+            <h1>1a1b1</h1>
+          </Slide>
+          <Slide>
+            <h1>1a1b1</h1>
+          </Slide>
+        </Slider>
       </section>
       <section className="offer ">
         <h2 className="offer-title  text-center d-md-none">Special offers</h2>
