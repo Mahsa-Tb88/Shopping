@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,aAAa,CAAC;EACZ,MAAM,EAAE,OAAO;CAChB",
-    "sources": [
-        "welcomeadmin.scss"
-    ],
-    "names": [],
-    "file": "welcomeadmin.css"
-}

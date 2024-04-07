@@ -108,12 +108,12 @@ export default function ProductForm({ type, product }) {
           </h2>
         </div>
       )}
-      <div className="">
+      <div>
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Title of Product</label>
           <input
             type="text"
-            className={`w-75 px-2 py-2 rounded-1 form-control ${
+            className={`inputProduct px-2 py-2 rounded-1 form-control ${
               errors.title ? "is-invalid" : ""
             }`}
             {...register("title", {
@@ -136,7 +136,7 @@ export default function ProductForm({ type, product }) {
           <label className="mb-1 label fs-3">Description of Product</label>
           <textarea
             type="text"
-            className={` w-75 px-2 py-2 rounded-1 ${
+            className={`inputProduct px-2 py-2 rounded-1 ${
               errors.description ? "is-invalid" : ""
             } `}
             rows={10}
@@ -157,14 +157,14 @@ export default function ProductForm({ type, product }) {
             <p className="errors mt-3 ">{errors.description.message}</p>
           )}
         </div>
-        <div className=" d-flex flex-column justify-content-center align-items-start mb-4">
+        <div className=" d-flex  flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Price of Product</label>
-          <div className="input-group w-75">
-            <span className="input-group-text fs-4 px-3 ">$</span>
+          <div className="input-group ">
+            <span className="input-group-text px-3 py-md-2 ">$</span>
 
             <input
               type="text"
-              className="  px-2 py-2  form-control"
+              className="px-2 py-2   form-control inputProduct"
               {...register("price", {
                 validate(value) {
                   if (isNaN(Number(value))) {
@@ -184,7 +184,7 @@ export default function ProductForm({ type, product }) {
         <div className="d-flex flex-column justify-content-center align-items-start mb-4">
           <label className="mb-1 label fs-3">Category of Product</label>
           <select
-            className="inputProducts form-select w-25 px-2 py-2 rounded-1"
+            className="inputProducts form-select inputProduct px-2 py-2 rounded-1 input"
             {...register("category", {
               required: "Select the category",
             })}
@@ -208,7 +208,7 @@ export default function ProductForm({ type, product }) {
                 <input
                   {...imageField}
                   id="selectImage"
-                  className="d-none"
+                  className="d-none inputProduct"
                   type="file"
                   accept="image/*"
                   onChange={handleImageSelect}

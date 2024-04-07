@@ -22,7 +22,7 @@ export default function FormCategory({ onSubmit, type, category }) {
           <label className="mb-1 label fs-3">Title of Category</label>
           <input
             type="text"
-            className="inputCategory  px-2 py-2 rounded-1"
+            className="inputCategory   px-2 py-2 py-md-3 rounded-1"
             {...register("title", {
               required: "You must enter a title for category",
               minLength: {
@@ -43,7 +43,7 @@ export default function FormCategory({ onSubmit, type, category }) {
           <label className="mb-1 label fs-3">Slug of Category</label>
           <input
             type="text"
-            className="inputCategory  px-2 py-2 rounded-1"
+            className="inputCategory  px-2 py-2 py-md-3 rounded-1"
             {...register("slug", {
               required: "You must enter a family",
               minLength: {

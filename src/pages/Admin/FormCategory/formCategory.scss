@@ -2,7 +2,7 @@
   .inputCategory {
     outline: none;
     border: 1px solid #dee2e6;
-    font-size: 15px;
+    font-size: 12px;
     width: 100%;
   }
   .btn-submit {
@@ -32,11 +32,14 @@
 }
 
 @media (min-width: 768px) {
-  .inputCategory {
-    width: 75%;
-  }
-  .btn-submit,
-  .btn-Cansel {
-    width: 20rem;
+  .formCategory {
+    .inputCategory {
+      width: 75%;
+      font-size: 14px;
+    }
+    .btn-submit,
+    .btn-Cansel {
+      width: 20rem;
+    }
   }
 }

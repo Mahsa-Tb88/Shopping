@@ -1,15 +1,12 @@
 .productform {
+  .inputProduct {
+    width: 100%;
+  }
   .edit-product {
     margin-left: 5rem;
     margin-top: 5rem;
-
-   
   }
-  // .inputProducts {
-  //   outline: none;
-  //   border: 1px solid #dee2e6;
-  //   font-size: 15px;
-  // }
+
   .title-editProduct {
     margin-top: 30px;
   }
@@ -36,5 +33,16 @@
   }
   .btn-remove:hover {
     background-color: #a5212e;
+  }
+}
+@media (min-width: 768px) {
+  .productform {
+    .inputProduct {
+      font-size: 14px;
+      width: 80%;
+    }
+    .input-group {
+      width: 80%;
+    }
   }
 }

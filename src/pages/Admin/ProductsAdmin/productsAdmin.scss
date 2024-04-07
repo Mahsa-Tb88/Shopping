@@ -66,12 +66,13 @@
 }
 @media (min-width: 768px) {
   .productsAdmin {
+    width: 85%;
     .addProduct {
       padding: 10px 25px;
       width: 20rem;
       font-size: 15px;
     }
-   
+
     .table-row th {
       font-size: 18px;
     }

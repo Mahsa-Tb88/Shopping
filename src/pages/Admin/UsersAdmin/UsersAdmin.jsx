@@ -92,12 +92,15 @@ export default function UsersAdmin() {
   return (
     <div className="userAdmin px-2 px-md-4 py-5">
       <h1>Managing Users</h1>
-      <div className="addNewUser d-flex justify-content-center align-items-center">
-        <Link className="addUserBtn link" to="new">
+      <Link
+        className="addNewUser link d-flex justify-content-center align-items-center"
+        to="new"
+      >
+        <div className="addUserBtn ">
           <span>Add User</span>
           <FaPlus className="iconPlusUser" />
-        </Link>
-      </div>
+        </div>
+      </Link>
       {isLoading ? (
         <div className="fs-2 w-md-75 text-center loadingUserAdmin">
           <p>Loading ...</p>
@@ -114,7 +117,7 @@ export default function UsersAdmin() {
           </button>
         </div>
       ) : (
-        <div >
+        <div>
           <div>
             <table className="table table-bordered table-striped text-center my-5">
               <thead className="table-dark">

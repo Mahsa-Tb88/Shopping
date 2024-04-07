@@ -89,12 +89,15 @@ export default function BlogAdmin() {
   return (
     <div className="blogAdmin px-2 px-md-4 py-5">
       <h1>Managing Blogs</h1>
-      <div className="addNewBlog d-flex justify-content-center align-items-center">
-        <Link className="addBlogBtn link" to="new">
+      <Link
+        className="addNewBlog link d-flex justify-content-center align-items-center"
+        to="new"
+      >
+        <div className="addBlogBtn ">
           <span>Add Blog</span>
           <FaPlus className="iconPlusUser" />
-        </Link>
-      </div>
+        </div>
+      </Link>
       {isLoading ? (
         <div className="fs-2  text-center loadingBlogAdmin">
           <p>Loading ...</p>

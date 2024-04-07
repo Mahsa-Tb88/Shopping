@@ -59,6 +59,7 @@ export default function FormBlog({ type, blog }) {
 
   async function onSubmit(data) {
     setFailMessage("");
+    setSuccessMessage("");
     if (data.image?.length && imageChanged) {
       const result = await uploadFile(data.image[0]);
       if (result.success) {
@@ -74,7 +75,7 @@ export default function FormBlog({ type, blog }) {
       const result = await createBlog(data);
       if (result.success) {
         globalThis.newProduct = true;
-        navigate("/admin/blogs/" + result.body.id, { replace: true });
+        navigate("/admin/blogs/edit/" + result.body.id, { replace: true });
       } else {
         setFailMessage(result.message);
       }
@@ -113,7 +114,7 @@ export default function FormBlog({ type, blog }) {
           <label className="mb-1 label">Title of Product</label>
           <input
             type="text"
-            className={`inputBlog w-75 px-2 py-2 rounded-1 form-control ${
+            className={`inputBlog  px-2 py-2 rounded-1 form-control ${
               errors.title ? "is-invalid" : ""
             }`}
             {...register("title", {
@@ -136,7 +137,7 @@ export default function FormBlog({ type, blog }) {
           <label className="mb-1 label">Slug</label>
           <input
             type="text"
-            className={`inputBlog w-75 px-2 py-2 rounded-1 form-control ${
+            className={`inputBlog  px-2 py-2 rounded-1 form-control ${
               errors.title ? "is-invalid" : ""
             }`}
             {...register("slug", {
@@ -157,7 +158,7 @@ export default function FormBlog({ type, blog }) {
           <label className="mb-1 label">Description of Blog</label>
           <textarea
             type="text"
-            className={`inputBlog w-75 px-2 py-2 rounded-1 ${
+            className={`inputBlog  px-2 py-2 rounded-1 ${
               errors.description ? "is-invalid" : ""
             } `}
             rows={10}
@@ -230,7 +231,7 @@ export default function FormBlog({ type, blog }) {
               type="submit"
               className="btn-submit border-0 py-3 fs-3 my-5"
             >
-              {type == "new" ? "Create Product" : "Save Product"}
+              {type == "new" ? "Create Blog" : "Save Blog"}
             </button>
           )}
         </div>

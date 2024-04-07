@@ -103,12 +103,13 @@ export default function CategoriesAdmin() {
   return (
     <div className="CategoriesAdmin  px-2 px-md-4 py-5">
       <h1>Managing Categories</h1>
-      <div className="addCategory d-flex justify-content-center align-items-center">
-        <Link className="addCategoryBtn link" to="new">
-          Add Category
-        </Link>
+      <Link
+        className="addCategory link d-flex justify-content-center align-items-center"
+        to="new"
+      >
+        <div className="addCategoryBtn ">Add Category</div>
         <FaPlus className="iconPlusCategory" />
-      </div>
+      </Link>
       {isLoading ? (
         <div className="fs-2 w-75 text-center loadingCategoryAdmin">
           <p>Loading ...</p>
@@ -142,7 +143,7 @@ export default function CategoriesAdmin() {
                       <tr key={p.id} className="table-row">
                         <td>
                           <div className="d-flex justify-content-center align-items-center">
-                            {p.title} 
+                            {p.title}
                           </div>
                         </td>
                         <td>{p.slug}</td>
