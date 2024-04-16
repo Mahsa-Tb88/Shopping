@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { deleteCategory, getCategories } from "../../../utils/api";
 import Pagination from "../../../components/Share/Pagination/Pagination";
 import { useAppContext } from "../../../context/AppContext";
+import { Helmet } from "react-helmet";
 
 export default function CategoriesAdmin() {
   const limit = 5;
@@ -19,7 +20,6 @@ export default function CategoriesAdmin() {
   const [totalCategories, setTotalCategories] = useState({});
   const { appState } = useAppContext();
   useEffect(() => {
-    document.title = "Managing Categories";
     const page = searchParams.get("page") || 1;
     setPage(+page);
   }, [searchParams]);
@@ -102,6 +102,9 @@ export default function CategoriesAdmin() {
   }
   return (
     <div className="CategoriesAdmin  px-2 px-md-4 py-5">
+      <Helmet>
+        <title>Managing Categories</title>
+      </Helmet>
       <h1>Managing Categories</h1>
       <Link
         className="addCategory link d-flex justify-content-center align-items-center"

@@ -6,6 +6,7 @@ import FormUser from "../FormUser/FormUser";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineError } from "react-icons/md";
 import { useAppContext } from "../../../context/AppContext";
+import { Helmet } from "react-helmet";
 
 export default function EditUser() {
   const { appState, appDispatch } = useAppContext();
@@ -19,7 +20,6 @@ export default function EditUser() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Edit User";
     const timeOut = setTimeout(fetchUser, 20);
     return () => clearTimeout(timeOut);
   }, []);
@@ -85,6 +85,9 @@ export default function EditUser() {
               </h2>
             </div>
           )}
+          <Helmet>
+            <title>Edit User</title>
+          </Helmet>
           <h1>Edit User</h1>
           <FormUser type="edit" onSubmit={submitHandler} user={user} />
         </div>

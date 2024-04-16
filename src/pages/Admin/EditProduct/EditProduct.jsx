@@ -3,6 +3,7 @@ import Loading from "../../../components/Loading/Loading";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../../utils/api";
 import ProductForm from "../ProductForm/ProductForm";
+import { Helmet } from "react-helmet";
 
 export default function EditProduct() {
   const [product, setProduct] = useState({});
@@ -12,7 +13,6 @@ export default function EditProduct() {
   const params = useParams();
 
   useEffect(() => {
-    document.title = "Edit Product";
     const timeOut = setTimeout(fetchProduct, 20);
     return () => clearTimeout(timeOut);
   }, [params]);
@@ -37,6 +37,9 @@ export default function EditProduct() {
         <Error />
       ) : (
         <div className="edit-product px-2 px-md-4 py-5">
+          <Helmet>
+            <title>Edit Product</title>
+          </Helmet>
           <h1 className="ms-md-3  title-editProduct">Edit Product</h1>
           <ProductForm type="edit" product={product} />
         </div>

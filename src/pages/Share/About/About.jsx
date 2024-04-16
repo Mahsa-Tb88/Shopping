@@ -1,8 +1,10 @@
 import React from "react";
 import "./about.scss";
+import { Helmet } from "react-helmet";
 export default function About() {
   return (
     <div class="about">
+    <Helmet><title>About Us</title></Helmet>
       <div className="container-column">
         <div className="row gx-5 col-overlay">
           <div className="col vh-100 ">

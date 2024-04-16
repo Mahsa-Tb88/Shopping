@@ -8,9 +8,9 @@ globalThis.getNewSearchParams = (oldParams, key, value) => {
     params[keys[i]] = oldParams.get(keys[i]);
   }
   if (value) {
-    params.key = value;
+    params[key] = value;
   } else {
-    delete [params[key]];
+    delete params[key];
   }
   return params;
 };

@@ -5,14 +5,13 @@ import { createCategory } from "../../../utils/api";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineError } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 export default function AddCategory() {
   const [failMessage, setFailMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
 
   const navigate = useNavigate();
-  useEffect(() => {
-    document.title = "New Category";
-  }, []);
+
   async function submitHandler(data) {
     const result = await createCategory(data);
     if (result.success) {
@@ -27,6 +26,9 @@ export default function AddCategory() {
   }
   return (
     <div className="createCategory px-2 px-md-4 py-5">
+      <Helmet>
+        <title>New Category</title>
+      </Helmet>
       {failMessage && (
         <div>
           <h2 className=" bg-white text-danger mb-5 fs-2 py-3 d-flex justify-content-center align-items-center">

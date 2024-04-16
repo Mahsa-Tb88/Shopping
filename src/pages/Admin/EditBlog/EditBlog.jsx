@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getBlogById } from "../../../utils/api";
 import Loading from "../../../components/Loading/Loading";
 import FormBlog from "../FormBlog/FormBlog";
+import { Helmet } from "react-helmet";
 
 export default function EditBlog() {
   const [blog, setBlog] = useState(null);
@@ -37,6 +38,9 @@ export default function EditBlog() {
         <Error />
       ) : (
         <div className="edit-blog px-2 px-md-4 py-5">
+          <Helmet>
+            <title>Edit Blog</title>
+          </Helmet>
           <h1 className="ms-3  ">Edit Blog</h1>
           <FormBlog type="edit" blog={blog} />
         </div>

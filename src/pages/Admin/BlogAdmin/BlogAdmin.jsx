@@ -11,6 +11,7 @@ import { FaPlus } from "react-icons/fa6";
 import { FaRegEdit } from "react-icons/fa";
 import Pagination from "../../../components/Share/Pagination/Pagination";
 import { useAppContext } from "../../../context/AppContext";
+import { Helmet } from "react-helmet";
 
 export default function BlogAdmin() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,7 +23,6 @@ export default function BlogAdmin() {
   const { appState } = useAppContext();
 
   useEffect(() => {
-    document.title = "Managing Blog";
     const page = searchParams.get("page") ?? 1;
     setPage(+page);
   }, [searchParams]);
@@ -88,6 +88,9 @@ export default function BlogAdmin() {
   const numOfPage = Math.ceil(totalBlogs / 5);
   return (
     <div className="blogAdmin px-2 px-md-4 py-5">
+      <Helmet>
+        <title>Managing Blog</title>
+      </Helmet>
       <h1>Managing Blogs</h1>
       <Link
         className="addNewBlog link d-flex justify-content-center align-items-center"

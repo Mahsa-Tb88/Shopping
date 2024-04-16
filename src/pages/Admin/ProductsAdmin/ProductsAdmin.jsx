@@ -10,6 +10,7 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaAngleDoubleLeft } from "react-icons/fa";
 import { toast } from "react-toastify";
 import Pagination from "../../../components/Share/Pagination/Pagination";
+import { Helmet } from "react-helmet";
 export default function ProductsAdmin() {
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(null);
@@ -22,7 +23,6 @@ export default function ProductsAdmin() {
   let numOfPage;
 
   useEffect(() => {
-    document.title = "Managing Products";
     const page = searchParams.get("page") ?? 1;
     setPage(+page);
   }, [searchParams]);
@@ -95,6 +95,9 @@ export default function ProductsAdmin() {
 
   return (
     <div className="productsAdmin ">
+      <Helmet>
+        <title>Managing Products</title>
+      </Helmet>
       {isLoading ? (
         <div className="fs-2 text-center loadingProductsAdmin">
           <p>Loading ...</p>

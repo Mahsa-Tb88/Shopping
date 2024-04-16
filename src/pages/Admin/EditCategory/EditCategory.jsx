@@ -6,6 +6,7 @@ import { getCategoryById, updateCategory } from "../../../utils/api";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdOutlineError } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function EditCategory() {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,7 +20,6 @@ export default function EditCategory() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Edit Category";
     const timeOut = setTimeout(fetchCategory, 20);
     return () => clearTimeout(timeOut);
   }, []);
@@ -71,7 +71,10 @@ export default function EditCategory() {
               </h2>
             </div>
           )}
-          <h1>Edit Product</h1>
+          <Helmet>
+            <title>Edit Category</title>
+          </Helmet>
+          <h1>Edit Category</h1>
           <FormCategory
             type="edit"
             onSubmit={submitHandler}

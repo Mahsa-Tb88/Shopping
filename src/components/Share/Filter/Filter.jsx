@@ -98,9 +98,7 @@ export default function Filter({ shopState }) {
         </select>
       </div>
       <div className="d-flex col-6 col-md-12 flex-column justify-content-center align-items-baseline mb-5">
-        <label className="text-white fs-3 mb-2">
-          Number Of Product 
-        </label>
+        <label className="text-white fs-3 mb-2">Number Of Product</label>
         <select
           className="w-100 px-2 border-0 py-2 fs-4"
           value={shopState.limit}

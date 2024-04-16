@@ -7,6 +7,7 @@ import { FaRegMessage } from "react-icons/fa6";
 import { FaPhoneAlt } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 export default function Contact() {
   const { register, handleSubmit, watch, formState } = useForm({
     defaultValues: {
@@ -29,6 +30,9 @@ export default function Contact() {
   }
   return (
     <div className="contact">
+      <Helmet>
+        <title>Contact Us</title>
+      </Helmet>
       <div className="container-column">
         <div className="row gx-5 col-overlay">
           <div className="col vh-100 ">
